@@ -1,6 +1,8 @@
 # Welcome :palm_tree::hibiscus:🌷
 
-Hello! This project is about what the future could be like. I'm developing a video game :construction: to show what I think. :building_construction: :bricks:
+Hello! This project is about what the future could be like. I'm developing a video game :construction: to show what I think 🤔 💬. 
+
+:building_construction: :bricks:
 This project is being developed in the Summer of 2022, remotely.
 
 The project officially started development on May 9th, 2022. :seedling:
