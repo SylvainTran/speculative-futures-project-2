@@ -1,3 +1,5 @@
+![Banner](https://github.com/SylvainTran/speculative-futures-project-2/blob/main/spec2banner.png)
+
 # Welcome :palm_tree::hibiscus:🌷
 
 Hello! This project is about what the future could be like. I'm developing a video game :construction: to show what I think 🤔 💬. 
@@ -6,6 +8,12 @@ Hello! This project is about what the future could be like. I'm developing a vid
 This project is being developed in the Summer of 2022, remotely.
 
 The project officially started development on May 9th, 2022. :seedling:
+
+## __Links__
+
+[Process Journal](https://github.com/SylvainTran/speculative-futures-project-2/wiki/Process-Journal)
+
+[Idea bin](https://github.com/SylvainTran/speculative-futures-project-2/wiki/Idea-bin)
 
 
 ## __About the project__ :tada:	
