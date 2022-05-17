@@ -75,7 +75,7 @@
               {selectedContentItems.map(itemObject => {
                 return (
                   <div key={itemObject.name}>
-                    <ContentItem name={itemObject.name} summary={itemObject.summary} story={itemObject.story} signature={itemObject.signature} materials={itemObject.materials} hasPlayLink={itemObject.hasPlayLink} />
+                    <ContentItem id={itemObject.id} name={itemObject.name} summary={itemObject.summary} story={itemObject.story} signature={itemObject.signature} materials={itemObject.materials} hasPlayLink={itemObject.hasPlayLink} />
                     <br /><br />
                   </div>);
               })}
@@ -129,6 +129,10 @@
                 </p> : null}
 
                 {this.props.hasPlayLink? <a href={this.props.playLink}>Play User Contributed Fragment</a> : null}
+                <br /><br />
+                <input type="checkbox" id={this.props.id} name={this.props.name} value={this.props.name} />
+                <label for={this.props.name}> Mark as Played </label><br />
+
               </article>
             </div>
           );
@@ -141,6 +145,7 @@
       // Can be mixed between different people to benefit from their experiences as well? Direct Experience Share Link (tm)
       let BlueBook = [
         {
+          id: 1,
           name: " At the library",
           tags: ["All", "Library", "Data Entry", "Alone"],
           summary: " I was alone at the library, working data entry.",
@@ -153,6 +158,7 @@
           playLink: "#insert unity embed here"
         },
         {
+          id: 2,
           name: " Space bathroom thoughts again",
           tags: ["All", "Spaceship", "Bathroom", "Alone", "Thinking"],
           summary: " I was thinking on the toilet seat after duty. I saw the moon through the window and started thinking about my life.",
@@ -165,6 +171,7 @@
           playLink: "#insert unity embed here"
         },
         {
+          id: 3,
           name: " Alone driving",
           tags: ["All", "Alone", "Driving", "Romance"],
           summary: " He didn't answer my text back.",
@@ -272,6 +279,7 @@
               <ContentNavbar updateContentSelectionTags={this.updateContentSelectionTags} />
               {/* Gallery of all selected portfolio items UserFragmentSection*/}
               <h1>Core Concepts: Automatic Thoughts</h1>
+              <h7><em>Suggested Action: Browse and mark as completed these user contributed experiences.</em></h7><br /><br />
               {selectedContentItems.length > 0 ?
                 <UserFragmentSection selectedContentItems={selectedContentItems} /> : null}
             </div>
