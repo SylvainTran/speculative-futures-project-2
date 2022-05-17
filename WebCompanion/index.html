@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="js/modal.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!-- React App -->
+    <div id="app"></div>
+
+    <!-- Scripts -->
+    <script type="text/jsx">
+      const app = document.getElementById('app');
+
+      function ProfileBusinessCard() {
+        return (
+        <div className="is-flex flex-start-end">
+          <div className="is-flex flex-vertical">
+            <a src="#">User Manual</a>
+            <a src="#">Courses</a>
+            <a src="#">My Cart (user only)</a>
+            <a src="#">My Dashboard (user only)</a>
+            <a src="#">My Account Information (user only)</a>
+            <a src="#">Logout (user only)</a>
+          </div>
+        </div>);
+      }
+
+      class ContentNavbar extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        updateContentSelectionTags(selectedContentItem) {
+          console.log("Clicked on " + selectedContentItem);
+          this.props.updateContentSelectionTags(selectedContentItem);
+        }
+
+        render() {
+          return (
+            <div>
+              <br/>
+              <nav>
+                <button className="button is-primary" onClick={this.updateContentSelectionTags.bind(this, "All")}>All</button>
+                <button className="button is-secondary" onClick={this.updateContentSelectionTags.bind(this, "Library")}>Library</button>
+                <button className="button is-secondary" onClick={this.updateContentSelectionTags.bind(this, "Alone")}>Alone</button>
+                <button className="button is-secondary" onClick={this.updateContentSelectionTags.bind(this, "Learning!")}>Learning</button>
+                <button className="button is-secondary" onClick={this.updateContentSelectionTags.bind(this, "Discouraged")}>Discouraged</button>
+                <button className="button is-secondary" onClick={this.updateContentSelectionTags.bind(this, "Driving")}>Driving</button>
+              </nav>
+              <br/>
+            </div>);
+        }
+      }
+
+      class UserFragmentSection extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {selectedContentItems: props.selectedContentItems}
+        }
+
+        render() {
+          const selectedContentItems = this.state.selectedContentItems;
+
+          return (
+            <section className="full-width">
+              {selectedContentItems.map(itemObject => {
+                return (
+                  <div key={itemObject.name}>
+                    <ContentItem name={itemObject.name} summary={itemObject.summary} story={itemObject.story} signature={itemObject.signature} materials={itemObject.materials} hasPlayLink={itemObject.hasPlayLink} />
+                    <br /><br />
+                  </div>);
+              })}
+            </section>);
+          }
+      }
+
+      class ContentItem extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        render() {
+          return (
+            <div className="content-item">
+              {/* Project highlights video and hero pics */}
+              <div className="is-flex flex-vertical">
+                <video width="512" height="512" controls>
+                  <source src="assets/x.mp4" type="video/mp4" />
+                  <source src="assets/x.ogg" type="video/ogg" />
+                  Your browser does not support the video tag.
+                </video>
+                <div className="content-item-pics is-flex flex-horizontal">
+                  <img src="" alt="content-item-pic-a" />
+                  <img src="" alt="content-item-pic-b" />
+                  <img src="" alt="content-item-pic-c" />
+                </div>
+              </div>
+              {/* Description on the side */}
+              <article className="content article-description">
+                <h1>{this.props.name}</h1>
+                <br />
+                <h8>{this.props.summary}</h8>
+
+                <br /><br />
+                <p>
+                  Story:
+                    {this.props.story}
+                </p>
+
+                <br />
+                <p>
+                  Contributor:
+                    {this.props.signature}
+                </p>
+
+                <br />
+
+                {this.props.gameMaterials? <p>
+                  Materials: {this.props.materials}
+                </p> : null}
+
+                {this.props.hasPlayLink? <a href={this.props.playLink}>Play User Contributed Fragment</a> : null}
+              </article>
+            </div>
+          );
+        }
+      }
+
+      //TODO: JSON
+      // MentalRay's user contributed database of experiences to share
+      // A user contributed fragment data
+      // Can be mixed between different people to benefit from their experiences as well? Direct Experience Share Link (tm)
+      let BlueBook = [
+        {
+          name: " At the library",
+          tags: ["All", "Library", "Data Entry", "Alone"],
+          summary: " I was alone at the library, working data entry.",
+          story: " I didn't like the idea of working on Saturday, on top of every other weekday, doing insurance. But I needed the money. They made me scour databases of patient data. I'm supposed to be entering data now.",
+          signature: " John Thorpe, Research Assistant",
+          memo: ["Remember the folk", "Blue Book"],
+          materials: "For this part of the game, I wanted to reify/alter/recreate a memory that I had a few years ago, and put them in the game, and allow the user to play around with them/my own memory's objectivity/objective materials.",
+          reflection: null,
+          hasPlayLink: true,
+          playLink: "#insert unity embed here"
+        },
+        {
+          name: " Space bathroom thoughts again",
+          tags: ["All", "Spaceship", "Bathroom", "Alone", "Thinking"],
+          summary: " I was thinking on the toilet seat after duty. I saw the moon through the window and started thinking about my life.",
+          story: " I don't know how it was supposed to have gone. Did I say the wrong thing to the right person, or the right thing to the wrong person? Or perhaps this was another one of these things that is determined in advance?",
+          signature: " Ben Culus, Spaceship engine operator",
+          memo: ["Diamond Sky"],
+          materials: "I just thought it'd be funny (of the scatological kind) to visualize a character sitting on the toilet seat in space, philosophizing about something.",
+          reflection: null,
+          hasPlayLink: true,
+          playLink: "#insert unity embed here"
+        },
+        {
+          name: " Alone driving",
+          tags: ["All", "Alone", "Driving", "Romance"],
+          summary: " He didn't answer my text back.",
+          story: " Where am I going? When is he going to answer me back? Please, just say anything...",
+          signature: " Ari Curry, Full-Time Teenager",
+          memo: ["Purple Love"],
+          materials: "For this one, I might have recalled something from long ago.",
+          reflection: null,
+          hasPlayLink: true,
+          playLink: "#insert unity embed here"
+        }
+      ];
+
+      class HomePage extends React.Component {
+
+        constructor(props) {
+          super(props);
+          this.state = {contentSelectionTags: ["All"]};
+          this.updateContentSelectionTags = this.updateContentSelectionTags.bind(this);
+
+          // Setup initial portfolio display items
+          this.getAllContentItems = this.getAllContentItems.bind(this);
+        }
+
+        getAllContentItems() {
+          // TODO: READ FROM JSON
+          return BlueBook;
+        }
+
+        contentTagDeselection(index) {
+
+          let beforeIndex = this.state.contentSelectionTags.slice(0, index);
+          let afterIndex = this.state.contentSelectionTags.slice(index);
+          let singleTag = beforeIndex.length === 0;
+
+          if (singleTag) {
+            this.setState({contentSelection: []});
+            return;
+          }
+
+          let deselected = beforeIndex.concat(afterIndex);
+
+          this.setState({
+            contentSelection: deselected
+          });
+
+          // console.log("After deselection: " + deselected);
+        }
+
+        updateContentSelectionTags(criteriaString) {
+
+          // console.log("criteria string: " + criteriaString);
+
+          const isAlreadySelected = (itemObject) => {
+            return itemObject.tags.includes(criteriaString);
+          }
+
+          let selectIndex = this.getAllContentItems().findIndex(isAlreadySelected);
+
+          if (selectIndex > -1) {
+            console.log("Found selected criteriaString!");
+            // deselect instead
+            this.contentTagDeselection(selectIndex);
+          }
+          else if (selectIndex === -1) {
+            console.log("Did not find criteriaString already selected!");
+            // Add to selection array
+            let curr = this.state.contentSelectionTags.slice(0);
+            console.log("Curr: " + curr);
+            curr.push(criteriaString);
+
+            console.log("Curr after: " + curr);
+            this.setState({contentSelectionTags: curr});
+          }
+        }
+
+        render() {
+          let selectedContentTags = this.state.contentSelectionTags;
+          let allContentItems = this.getAllContentItems();
+          let selectedContentItems = [];
+
+          selectedContentTags.forEach( tag => {
+
+            console.log("Criteria: " + tag);
+
+            allContentItems.forEach( itemObject => {
+
+              if (itemObject.tags.includes(tag)) {
+                selectedContentItems.push(itemObject);
+              }
+            })
+          });
+
+          return (
+            <div className="global-container content">
+              {/* Selection work that have the criterias as tag */}
+              <ProfileBusinessCard />
+              <div>
+                <h1>MentalRay</h1>
+                <h7>Global therapeutic experiences for everyone to share and learn, everywhere in the galaxy, using Frag.Net.</h7>
+              </div>
+              <h1>My Learning Pathway: CBT</h1>
+              <h1>Unification: 0%</h1>
+              <h1>Discuss Progress with Certified MentalRay Specialist?</h1>
+              <ContentNavbar updateContentSelectionTags={this.updateContentSelectionTags} />
+              {/* Gallery of all selected portfolio items UserFragmentSection*/}
+              <h1>Core Concepts: Automatic Thoughts</h1>
+              {selectedContentItems.length > 0 ?
+                <UserFragmentSection selectedContentItems={selectedContentItems} /> : null}
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(
+      <React.StrictMode>
+        <HomePage />
+      </React.StrictMode>
+      , app);
+    </script>
+    <script type="text/javascript" src="lib/main.js"></script>
+  </body>
+</html>

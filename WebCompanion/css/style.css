@@ -1,0 +1,245 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
+@font-face {
+  font-family: Overpass;
+  src: url("../fonts/Overpass-Thin.ttf");
+}
+
+html {
+  background-color: white;
+  color: black;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+
+}
+
+.global-container {
+  width: 100vw;
+  margin: 0;
+  padding: 3em;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 420px;
+  padding: 2em 2em 2em 2em;
+  background-color: hsl(213deg, 19%, 18%);
+  font-family: "Overpass", sans-serif;
+  font-weight: 400;
+}
+
+.rounded {
+  border-radius: 7%;
+}
+
+.rating-star {
+  width: 17px;
+  opacity: 1;
+}
+
+.rating-star-circle {
+  background-color: hsla(216deg, 12%, 54%, 0.1);
+  border-style: none;
+  border-width: 0.5px;
+  border-radius: 50%;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  background-color: hsla(216deg, 12%, 54%, 0.1);
+  border-style: none;
+  border-width: 0.5px;
+  border-radius: 50%;
+}
+
+.circle:hover {
+  background-color: hsl(25deg, 97%, 53%);
+  color: white;
+  cursor: pointer;
+}
+
+.circle-selected {
+
+  width: 50px;
+  height: 50px;
+
+  background-color: hsl(25, 97%, 53%);
+  color: white;
+
+  border-style: none;
+  border-width: 0.5px;
+  border-radius: 50%;
+}
+
+.circle-margin {
+  margin: 0.5em 0.5em 0.5em 0;
+}
+
+.box-header {
+  margin-bottom: 2em;
+}
+
+.thank-you-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.has-margin-top {
+  margin-top: 1.5em;
+}
+
+.center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rating-star-container {
+  position: absolute;
+  z-index: 1;
+  width: 45px;
+  height: 45px;
+}
+
+.box-h2 {
+  font-size: 2em;
+}
+
+.box-title {
+  font-weight: bold;
+  color: white;
+  margin-top: 1em;
+}
+
+.box-paragraph {
+  font-size: 15px;
+  color: hsla(217deg, 12%, 63%, 0.86);
+  font-weight: bolder;
+  margin: 1em 0 1em 0;
+}
+
+.circle-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.7em 0 1.3em 0;
+  color: hsl(217deg, 12%, 63%);
+}
+
+.rounded-button {
+  border-radius: 25px;
+  border-style: none;
+}
+
+.rounded-button:hover {
+  background-color: white;
+  color: hsl(25deg, 97%, 53%);
+  cursor: pointer;
+}
+
+.submit-text {
+  font-family: "Overpass", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 0.5em 0 0.5em 0;
+}
+
+.text-is-white {
+  color: white;
+}
+
+.text-is-orange {
+  color: hsl(25, 97%, 53%);
+}
+
+.is-orange {
+  background-color: hsl(25deg, 97%, 53%);
+}
+
+/**
+  Website-wise
+*/
+
+.content-item {
+  display: flex;
+  flex-direction: horizontal;
+  gap: 1.5em;
+}
+
+.article-description {
+  width: 50%;
+}
+
+.content-item-pics {
+  justify-content: center;
+  gap: 1em;
+}
+
+@media screen and (max-width: 390px) {
+  .content-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    align-items: center;
+  }
+  .article-description {
+    width: 100%;
+  }
+}
+
+/**
+  Flex related display options.
+*/
+
+.is-flex {
+  display: flex;
+}
+
+.flex-vertical {
+  flex-direction: column;
+}
+
+.flex-horizontal {
+  flex-direction: row;
+}
+
+.flex-start-end {
+  align-self: flex-start;
+  justify-content: flex-end;
+}
+
+.flex-medium-gap {
+  gap: 1.5em;
+}
+
+.flex-large-gap {
+  gap: 3em;
+}
+
+.viewport-full-width {
+  width: 100vw;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.viewport-half-width {
+  width: 50vw;
+}
+
+.viewport-third-width {
+  width: 33vw;
+}
