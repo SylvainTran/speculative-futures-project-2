@@ -18,24 +18,11 @@ The project officially started development on May 9th, 2022. :seedling:
 
 ## __About the project__ :tada:	
 
-**Sylvain:** I've decided to improve my accessibility skills! :manual_wheelchair:	
+The game is about modifying an E-learning web interface/system's context of usage to express ideas about a speculative future where online education extends into any "Shareable" experience, a radical version of the future where extreme commodification means even personal experiences can be re-used, owned, and sold as CBT material by both individuals and bigger parties. The goal is to make the astronaut's space mission or the law officer's gun experiences purchasable by anybody with the equipment and a reliable connection (or subscription) to Frag.Net.
 
-**Random person in the audience:** :heavy_exclamation_mark:Are you serious:grey_question::bangbang:	
+The usage of Unity embeds and focusing on how to re-appropriate or integrate the 3D engine with common web interfaces is a continuation of the same thread where I wanted to use the tower defense genre to create a basis prototype.
 
-**Sylvain:** I think so. But if you have to ask... I have to wonder about my *future*. :umbrella:	
 
-**Random pigeon in the sky:** But how will you do it?
+## __Artist Statement__
 
-**Sylvain:** I'll borrow from the 9 old men. APPEAL. I NEED IT.
-
-**Random pigeon in the sky:** ok dud, don't ever Give Up! :rage4:
-<hr>
-
-## __About the Theme__ 🎊
-
-It's not decided as of May 9th, 2022. It may be ABOUT Therapy and Education. Specifically CBT. 🚧:construction_worker:🚧
-
-**Random person in the audience:** :heavy_exclamation_mark:WOW:grey_question::bangbang:	Are you an expert?
-
-**Sylvain:** No. That's where the fun is, I guess. Hopefully nobody gets hurt. 🤷‍♂️
-
+What would shopping for experiences be like in a future where gaming is fully integrated into the online cloud/network ecosystem? To what extent are human materials commodifiable? On the education front, how would one imagine a more infuse kind of experience or knowledge transmission? If medical and especially therapeutical corporations could re-appropriate such systems, what would be the result? How would users navigate these virtual knowledge systems from the confines of their living room? 
