@@ -60,5 +60,6 @@ crashlytics-build.properties
 
 # Web Companion frame
 /WebCompanion/node_modules/*
+/WebCompanion/js/jquery/scrollmagic/*
 
 /test/*

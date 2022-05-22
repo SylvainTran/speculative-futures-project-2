@@ -1,0 +1,38 @@
+.navbar {
+    position: fixed;
+    bottom: -100px;
+    width: 100%;
+    height: 3em;    
+    background-color: hsla(0, 0%, 20%, 0.903);
+}
+
+.navbar-mask {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 3em;
+    background-color: hsla(0, 0%, 0%, 0.95);
+    z-index: 2;
+}
+
+/* Keyboard Navbar in the menu viz */
+
+.navbar-keyboard-container {
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+}
+
+.navbar-keyboard-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    width: 100%;
+    z-index: 4;
+}
+
+.navbar-keyboard {
+    display: flex;
+    flex-direction: row;
+    z-index: 4;
+}

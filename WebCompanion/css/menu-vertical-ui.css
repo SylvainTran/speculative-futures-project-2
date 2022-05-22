@@ -1,0 +1,79 @@
+@keyframes zeroHeightToFull {
+    0%   {height: 0; opacity: 0;}
+    5%   {height: 5vh; opacity: 5;}
+    10%  {height: 10vh; opacity: 10;}
+    15%  {height: 15vh; opacity: 15;}
+    20%  {height: 20vh; opacity: 20;}
+    25%  {height: 25vh; opacity: 25;}
+
+    30%  {height: 30vh; opacity: 30;}
+    35%  {height: 35vh; opacity: 35;}
+    40%  {height: 40vh; opacity: 40;}
+    45%  {height: 45vh; opacity: 45;}
+    50%  {height: 50vh; opacity: 50;}
+
+    55%  {height: 55vh; opacity: 55;}
+    60%  {height: 60vh; opacity: 60;}
+    65%  {height: 65vh; opacity: 65;}
+    70%  {height: 70vh; opacity: 70;}
+    75%  {height: 75vh; opacity: 75;}
+
+    80%  {height: 80vh; opacity: 80;}
+    85%  {height: 85vh; opacity: 85;}
+    90%  {height: 90vh; opacity: 90;}
+    95%  {height: 95vh; opacity: 95;}
+    100% {height: 100vh; opacity: 100;}
+}
+
+@keyframes fullHeightToZero {
+    0%   {height: 100vh; opacity: 100;}
+    5%   {height: 95vh; opacity: 95;}
+    10%  {height: 90vh; opacity: 90;}
+    15%  {height: 85vh; opacity: 85;}
+    20%  {height: 80vh; opacity: 80;}
+    25%  {height: 75vh; opacity: 75;}
+
+    30%  {height: 70vh; opacity: 70;}
+    35%  {height: 65vh; opacity: 65;}
+    40%  {height: 60vh; opacity: 60;}
+    45%  {height: 55vh; opacity: 55;}
+    50%  {height: 50vh; opacity: 50;}
+
+    55%  {height: 45vh; opacity: 45;}
+    60%  {height: 40vh; opacity: 40;}
+    65%  {height: 35vh; opacity: 35;}
+    70%  {height: 30vh; opacity: 30;}
+    75%  {height: 25vh; opacity: 25;}
+
+    80%  {height: 20vh; opacity: 20;}
+    85%  {height: 15vh; opacity: 15;}
+    90%  {height: 10vh; opacity: 10;}
+    95%  {height: 5vh; opacity: 5;}
+    100% {height: 0vh; opacity: 0;}
+}
+
+.vertical-slide-target {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    z-index: -1;
+}
+
+.vertical-slide-target-show {
+    animation-name: zeroHeightToFull;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards; /*keeps the last anim value*/
+}
+
+.vertical-slide-target-hide {
+    animation-name: fullHeightToZero;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards; /*keeps the last anim value*/
+}

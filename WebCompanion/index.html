@@ -4,16 +4,448 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Interactive Storybook Game</title>
+
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS Libraries-->
+    <!-- Flickity -->
+    <link rel="stylesheet" href="css/flickity.min.css">
+
   </head>
   <body>
-    <!-- React App -->
-    <div id="app"></div>
+    
+    <!-- Main Carousel -->    
+    <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
+      <div id="a1-1" class="carousel-cell">       
+        <!-- Vertical slide target -->    
+        <div class="vertical-slide-target">
+          <div><h1>A</h1></div>
+        </div>  
+        <div class="main-unit">
+          <button class="vertical-slide-trigger">Concept</button>        
+          <div id="phaser-instance-01" class="phaser-instance"></div>
+        </div> 
+      </div> 
+      
+      <div id="a2-1" class="carousel-cell">       
+        <!-- Vertical slide target -->    
+        <div class="vertical-slide-target">
+          <div><h1>B</h1></div>
+        </div>  
+        <div class="main-unit">
+          <button class="vertical-slide-trigger">Concept</button>        
+          <div id="phaser-instance-02" class="phaser-instance"></div>
+        </div> 
+      </div> 
 
-    <!-- Scripts -->
-    <script type="text/javascript" src="lib/main.js"></script>
+      <div id="a3-1" class="carousel-cell">       
+        <!-- Vertical slide target -->    
+        <div class="vertical-slide-target">
+          <div><h1>C</h1></div>
+        </div>  
+        <div class="main-unit">
+          <button class="vertical-slide-trigger">Grab the sky</button>         
+        </div> 
+      </div>
+    </div>
+
+    <div class="carousel-cell-info" style="font-size: 4em; color: white;">
+      <h1 id="carousel-picker-logger"></h1>
+    </div>
+
+    <!-- Nav menu -->
+    <div id="navbar-mask-toggle" class="navbar-mask">
+      <nav class="navbar"></nav>
+    </div>
+
+    <!-- Menu Visualization Interface -->
+    <div id="menu-viz" class="menu-visualization-interface-bg">
+      <!-- Rotated boxes container -->
+      <div id="menu-viz-rotated-boxes-container" class="my-is-flex is-vertical is-centered is-rotated-and-translated-y">
+        <!-- Row container -->
+        <div class="menu-viz-row-container is-vertical">          
+          <h1>LOBSTER</h1>
+          <div class="shutter-image-container">
+            <div id="shutter-image-5" class="image-shutter-closed"></div>
+            <img class="image-square" src="" alt="img-here" />
+          </div>
+        </div>             
+        <div class="menu-viz-row-container is-vertical">
+          <div>CRAB</div>
+          <div class="shutter-image-container">
+            <div id="shutter-image-4" class="image-shutter-closed"></div>
+            <img class="image-square" src="" alt="img-here" />
+          </div>
+        </div>
+        <div class="menu-viz-row-container is-vertical">
+          <div>BASS</div>
+          <div class="shutter-image-container">
+            <div id="shutter-image-3" class="image-shutter-closed"></div>
+            <img class="image-square" src="" alt="img-here" />
+          </div>
+        </div>
+        <div class="menu-viz-row-container is-vertical">
+          <div>SALMON</div>
+          <div class="shutter-image-container">
+            <div id="shutter-image-2" class="image-shutter-closed"></div>
+            <img class="image-square" src="" alt="img-here" />
+          </div>
+        </div>
+        <div class="menu-viz-row-container is-vertical">
+          <div>POLAR BEAR</div>
+          <div class="shutter-image-container">
+            <div id="shutter-image-1" class="image-shutter-closed"></div>
+            <img class="image-square" src="" alt="img-here" />
+          </div>
+        </div>      
+        <div class="menu-viz-row-container is-vertical">
+          <div>TURTLE</div>
+          <div class="shutter-image-container">
+            <div id="shutter-image-0" class="image-shutter-closed"></div>
+            <img class="image-square" src="" alt="img-here" />
+          </div>
+        </div>                                                          
+      </div>
+      <!-- Horizontal Labels container -->
+      <div id="menu-viz-horizontal-labels-container" class="my-is-flex is-left-centered">
+        <!-- Row container -->
+        <div class="menu-viz-horizontal-row-container">          
+          <div class="my-is-flex is-vertical">
+            <h1>LOBSTER 1</h1>
+            <p>Fresh lobsters 1</p>  
+          </div>
+        </div>        
+        <div class="menu-viz-horizontal-row-container">          
+          <div class="my-is-flex is-vertical">
+            <h1>LOBSTER 2</h1>
+            <p>Fresh lobsters 2</p>
+          </div>
+        </div>        
+        <div class="menu-viz-horizontal-row-container">          
+          <div class="my-is-flex is-vertical">
+            <h1>LOBSTER 3</h1>
+            <p>Fresh lobsters 3</p> 
+          </div>
+        </div>        
+        <div class="menu-viz-horizontal-row-container">          
+          <div class="my-is-flex is-vertical">
+            <h1>LOBSTER 4</h1>
+            <p>Fresh lobsters 4</p> 
+          </div>
+        </div>        
+        <div class="menu-viz-horizontal-row-container">          
+          <div class="my-is-flex is-vertical">
+            <h1>LOBSTER 5</h1>
+            <p>Fresh lobsters 5</p>  
+          </div>
+        </div>        
+        <div class="menu-viz-horizontal-row-container">          
+          <div class="my-is-flex is-vertical">
+            <h1>LOBSTER 6</h1>
+            <p>Fresh lobsters 6</p>
+          </div>
+        </div>        
+
+      </div>
+      <!-- Keyboard Nav menu -->      
+      <div id="navbar-keyboard-container">
+        <nav class="navbar-keyboard-flex is-bottom-center-fixed">
+          <h1 class="branding-text">Inventory</h1>
+          <div id="keyboard-rect-0" class="rectangle keyboard-rectangle"></div>                    
+          <div id="keyboard-rect-1" class="rectangle keyboard-rectangle"></div>
+          <div id="keyboard-rect-2" class="rectangle keyboard-rectangle"></div>
+          <div id="keyboard-rect-3" class="rectangle keyboard-rectangle"></div>                    
+          <div id="keyboard-rect-4" class="rectangle keyboard-rectangle"></div>
+          <div id="keyboard-rect-5" class="rectangle keyboard-rectangle"></div>
+        </nav>
+      </div>     
+      <!-- Keyboard Selection Indicator -->
+      <div class="rectangle selection-indicator is-bottom-center is-outside-viewport bg-is-white"></div>
+    </div>
+
+    <!-- Libraries -->
+    <!-- Flickity -->
+    <script src="js/flickity/flickity.pkgd.min"></script>
+    <!-- Jquery -->
+    <script src="js/jquery/jquery-3.6.0.min"></script>
+    <!-- Phaser -->
+    <script src="js/phaser/phaser.min.js"></script>
+
+    <script>
+
+      // Event handler
+      function handleEventListeners(evt) {
+        const logger = document.getElementById("carousel-picker-logger");
+        logger.innerHTML = evt.target.getAttribute("id");
+      }
+
+      function handleNavbarMaskAnim(evt) {
+        evt.target.velocity({ opacity: 0 }, { display: "none" });
+      }
+
+      // Attach event listeners
+      const carouselCells = document.getElementsByClassName("carousel-cell");
+
+      for(let i=0; i<carouselCells.length; i++) {
+        carouselCells[i].addEventListener("mouseenter", handleEventListeners);
+      } 
+
+      // Navbar menu animation
+      const navbar = document.querySelector(".navbar-mask");
+      $( ".navbar-mask" ).hover(function() {
+        $( ".navbar" ).animate({
+            opacity: 1,
+            bottom: "-10",
+            height: "3em"
+          }, 200, function() {
+            // Animation complete.
+          });
+        }
+      );
+
+      // We want to pop-up a full screen thing with a totally different interface and menu at the bottom
+      // Menu viz interface UI
+      const $menuVizInterfaceUI = $("#menu-viz");
+      let count = 0;
+      const horizontalMenuItemWidth = $(".menu-viz-horizontal-row-container").width();
+      const horizontalMenuFlexGap = parseInt($("#menu-viz-horizontal-labels-container").css("gap"));
+      //const horizontalMenuItemMaxWidth = parseInt($(".menu-viz-horizontal-row-container").css("width"));
+      
+      console.log("Flex gap: " + horizontalMenuFlexGap);
+      console.log("Item width with width(): " + horizontalMenuItemWidth);
+      // console.log("horizontal menu item max width: " + horizontalMenuItemMaxWidth);
+
+      $( ".navbar-mask" ).click(function(event) {
+          // Position the horizontal menu's first element at the center of the screen
+          $("#menu-viz-horizontal-labels-container").css('transform', 'translateX(' + window.innerWidth/2 - horizontalMenuItemWidth/2 + 'px)');
+
+          $menuVizInterfaceUI.toggleClass( "menu-visualization-interface-bg-show", true );
+
+          ++count;          
+        }
+      );
+
+      $menuVizInterfaceUI.click(function(event) {
+        $menuVizInterfaceUI.removeClass( "menu-visualization-interface-bg-show" );        
+      });
+
+      // We want to attach onhover events on the keyboard nav menu at the bottom center to displace the indicator
+      // Handler
+      let $sel = $(".selection-indicator");
+      $sel.css("opacity", 0); // hide it at first, reveal if hover over keyboard keys
+      let currentPositionLeft = 0;
+      let containerOriginY = -768;
+      let currentPositionBottom = containerOriginY;
+      let centerOfScreen = window.innerWidth/2; // where the horizontal labels start
+      let currentKeyMenuIndex = 0; // ordered
+      let indicatorOffsetWidth = 200; // Can tweak this to adjust moveTo speed
+
+      $(".keyboard-rectangle").each(function( index ) {
+
+        let $rect = $( this );
+
+        $rect.mouseover( () => { 
+
+          currentPositionLeft = $rect[0].getBoundingClientRect().x;
+          const retrievedID = $rect[0].getAttribute("id");
+          currentKeyMenuIndex = retrievedID.charAt(retrievedID.length - 1);
+
+          // We want to offset the bottom position of the squares in the nice menu
+          // using the indexing from the keyboard keys (parseInt on the id to retrieve each key's index)
+          let $rotatedBoxContainer = $("#menu-viz-rotated-boxes-container");
+          // containerOriginY = window.getComputedStyle($rotatedBoxContainer[0]).getPropertyValue('y');
+          let moveTo = currentPositionBottom + currentKeyMenuIndex * indicatorOffsetWidth;
+          $("#menu-viz-rotated-boxes-container").css('transform', 'rotate(35deg) translateY(' + moveTo + 'px)');
+
+          // Translate the labels left from right
+          let trueCenter = (window.innerWidth/2 - horizontalMenuItemWidth/2);
+          let _offsetToNextCenter = horizontalMenuItemWidth * (currentKeyMenuIndex);
+          let _gap = horizontalMenuFlexGap * (currentKeyMenuIndex);
+          let moveToH = trueCenter - _offsetToNextCenter - _gap;
+
+          //$("#menu-viz-horizontal-labels-container").css('transform', 'translateX(' + moveToH + 'px)');
+
+          $("#menu-viz-horizontal-labels-container").animate({
+            opacity: 1,
+            bottom: "20vh",
+            left: moveToH,
+            easing: "easein",
+            duration: "slow"
+          }, 100, function() {
+            // Animation complete.
+          });
+
+          // Move and animate the selector
+          $sel.animate({
+            opacity: 1,
+            bottom: 0,
+            left: currentPositionLeft,
+            easing: "easein",
+            duration: "slow"
+          }, 30, function() {
+            // Animation complete.
+          });
+          // Teleportation call:          
+          // $sel.css("left", currentPositionLeft);
+
+          // Open the corresponding image shutter
+          console.log("Searching for current menu index: " + "#shutter-image-" + currentKeyMenuIndex);
+          $("#shutter-image-" + currentKeyMenuIndex).addClass("image-shutter-open");
+        });
+        
+        $rect.mouseout( () => {
+          $("#shutter-image-" + currentKeyMenuIndex).removeClass("image-shutter-open");
+        });
+      }); 
+      
+      // Attach vertical sliders behaviour
+      $('.vertical-slide-trigger').click(function(evt) {
+        // Prevent both parent and child to be activated
+        evt.stopImmediatePropagation();
+
+        $( '.main-unit' ).removeClass( "is-translatingY-down" );
+        $( '.main-unit' ).addClass( "is-translatingY-up" );
+
+        // Alternatively use mouseover event to check which .main-unit-id is being currently translated/seen in the carousel
+        // and only translate up that one, not the other ones
+        
+        $('.main-carousel').one("click", function(evt) {
+
+          $( '.main-unit' ).removeClass( "is-translatingY-up" );
+          $( '.main-unit' ).addClass( "is-translatingY-down" );
+
+        });
+
+      });
+
+      // Setup Phaser game instances (each has different stuff in them)
+      class Game01 extends Phaser.Scene 
+      {
+        constructor() 
+        {
+          super();
+        }
+
+        preload ()
+        {
+          this.load.setBaseURL('http://labs.phaser.io');
+          this.load.image('logo', 'assets/sprites/phaser3-logo.png');
+          this.load.image('red', 'assets/particles/red.png');
+        }
+
+        create ()
+        {
+          let particles = this.add.particles('red');
+
+          let emitter = particles.createEmitter({
+              speed: 100,
+              scale: { start: 1, end: 0 },
+              blendMode: 'ADD'
+            });
+
+          let logo = this.physics.add.image(400, 100, 'logo');
+
+          logo.setVelocity(100, 200);
+          logo.setBounce(1, 1);
+          logo.setCollideWorldBounds(true);
+
+          emitter.startFollow(logo);
+          console.log("Created a phaser instance 1!");
+        }
+
+        update() {
+
+        }
+        
+        render() {
+
+        }
+      }
+
+      class Game02 extends Phaser.Scene 
+      {
+        constructor() 
+        {
+          super();
+        }
+
+        preload ()
+        {
+          this.load.setBaseURL('http://labs.phaser.io');
+          this.load.image('logo', 'assets/sprites/phaser3-logo.png');
+          this.load.image('red', 'assets/particles/red.png');
+        }
+
+        create ()
+        {
+          let particles = this.add.particles('red');
+
+          let emitter = particles.createEmitter({
+              speed: 200,
+              scale: { start: 1, end: 0 },
+              blendMode: 'ADD'
+            });
+
+          let logo = this.physics.add.image(400, 100, 'logo');
+
+          logo.setVelocity(200, 400);
+          logo.setBounce(1, 1);
+          logo.setCollideWorldBounds(true);
+
+          emitter.startFollow(logo);
+          console.log("Created a phaser instance 2!");
+        }
+
+        update() {
+
+        }
+        
+        render() {
+
+        }
+      }
+
+      // Attach Phaser instances
+      let phaserInstance_config_01 = {
+        type: Phaser.AUTO,
+        width: window.innerWidth,
+        height: window.innerHeight,
+        parent: 'phaser-instance-01',
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: { y: 200 }
+            }
+        },
+        scene: [ Game01 ]
+      };
+
+      let phaserInstance_config_02 = {
+        type: Phaser.AUTO,
+        width: window.innerWidth,
+        height: window.innerHeight,
+        parent: 'phaser-instance-02',
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: { y: 200 }
+            }
+        },
+        scene: [ Game02 ]
+      };
+
+      let game01 = new Phaser.Game(phaserInstance_config_01);
+      let game02 = new Phaser.Game(phaserInstance_config_02);
+
+    </script>
   </body>
 </html>
