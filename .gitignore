@@ -60,3 +60,5 @@ crashlytics-build.properties
 
 # Web Companion frame
 /WebCompanion/node_modules/*
+
+/test/*
