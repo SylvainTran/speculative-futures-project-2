@@ -16,13 +16,21 @@ The project officially started development on May 9th, 2022. :seedling:
 [Idea bin](https://github.com/SylvainTran/speculative-futures-project-2/wiki/Idea-bin)
 
 
-## __About the project__ :tada:	
+## __About the project/statement__ :tada:	
 
-The game is about modifying an E-learning web interface/system's context of usage to express ideas about a speculative future where online education extends into any "Shareable" experience, a radical version of the future where extreme commodification means even personal experiences can be re-used, owned, and sold as CBT material by both individuals and bigger parties. The goal is to make the astronaut's space mission or the law officer's gun experiences purchasable by anybody with the equipment and a reliable connection (or subscription) to Frag.Net.
+After about 2 weeks of deliberation, I've found the theme. The theme is a very subspecific part of what I found interesting about CBT. ("Understanding this enough to move on" cost me two prototypes, or about 2 weeks and a half of work, though). The idea came in part by also wanting to experiment with the free form nature of web, 3D embeds and sketches, and the potential of React's reactivity. (And the true nature behind Tower Defense in general.)
 
-The usage of Unity embeds and focusing on how to re-appropriate or integrate the 3D engine with common web interfaces is a continuation of the same thread where I wanted to use the tower defense genre to create a basis prototype.
+And the sub theme is...__The Universal Moment In Nature When You Know You Have To Leave Your Parents__.
+- The beauty of taking risks over safety in the home. I've always found this intriguing.
+- This is a playable essay?
+
+I guess the interesting part about it is the "adolescent storm" phase in which a similar process to CBT occurs. Organizing, filtering, pushing unwanted outcomes, overcoming self-doubt, all those are potentially "moral physics" kind of ideas that can be played around in a game. 
+
+So my user is the young adolescent, and my uses cases can be defined more specifically now.
+What does my user need, not want, though? And what is speculative about it?
+
+Limitations: 
+- Extremely limited resources/times to do this.
 
 
-## __Artist Statement__
 
-What would shopping for experiences be like in a future where gaming is fully integrated into the online cloud/network ecosystem? To what extent are human materials commodifiable? On the education front, how would one imagine a more infuse kind of experience or knowledge transmission? If medical and especially therapeutical corporations could re-appropriate such systems, what would be the result? How would users navigate these virtual knowledge systems from the confines of their living room? 
