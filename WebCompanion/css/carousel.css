@@ -36,10 +36,3 @@
 .flickity-viewport {
     z-index: 2;
 }
-
-.vertical-slide-trigger {
-    position: absolute;
-    left: 10vw;
-    top: 20vh;
-    color: red;
-}
