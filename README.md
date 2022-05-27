@@ -2,7 +2,7 @@
 
 # Welcome :palm_tree::hibiscus:🌷
 
-Hello! This project is an interactive storybook with game-based and gamified elements. The content and form is a science-fiction about what the future could be like.
+Hello! This project is an interactive storybook with game-based and gamified elements.
 
 This project is being developed in the Summer of 2022, remotely. :building_construction: :bricks:
 
@@ -17,4 +17,4 @@ The project officially started development on May 9th, 2022.
 
 ## __About the project/statement__ :tada:	
 
-Carousel storybook/RPG.
+Carousel documentary/storybook/repository sim/RPG.
