@@ -1,0 +1,46 @@
+.navbar {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+
+    background-color: hsla(0, 0%, 20%, 0.903);
+    color: var(--nav-color);
+
+    font-size: var(--nav-font-size);
+    z-index: 5;
+}
+
+.navbar:hover {
+    font-size: 4rem;
+    cursor: grab;
+}
+
+.navbar-mask {
+    position: fixed;
+    bottom: 0px;
+
+    width: 100%;
+    height: 3em;
+
+    background-color: hsla(0, 0%, 0%, 0.95);
+    z-index: 2;
+}
+
+/* Keyboard Navbar in the menu viz */
+
+#navbar-keyboard-container {
+
+}
+
+.navbar-keyboard-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 0;    
+    width: 100%;
+    z-index: 4;
+}
+
+.navbar-keyboard {
+    display: flex;
+    flex-direction: row;
+}
