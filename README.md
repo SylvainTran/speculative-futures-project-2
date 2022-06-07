@@ -14,6 +14,8 @@ The project officially started development on May 9th, 2022.
 
 [Idea bin](https://github.com/SylvainTran/speculative-futures-project-2/wiki/Idea-bin)
 
+[Paper Prototypes/Misc.](https://github.com/SylvainTran/interactive-storybook/wiki/Paper-Prototypes-and-Misc.)
+
 
 ## __About the project/statement__ :tada:	
 
