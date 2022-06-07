@@ -1,0 +1,186 @@
+@charset "utf-8";
+
+// Customization
+
+// You can easily customize Bulma with your own variables.
+// Just uncomment the following block to see the result.
+
+/*
+// 1. Import the initial variables
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+
+// 2. Set your own initial variables
+// Update the blue shade, used for links
+$blue: #06bcef;
+// Add pink and its invert
+$pink: #ff8080;
+$pink-invert: #fff;
+// Update the sans-serif font family
+$family-sans-serif: "Helvetica", "Arial", sans-serif;
+
+// 3. Set the derived variables
+// Use the new pink as the primary color
+$primary: $pink;
+$primary-invert: $pink-invert;
+
+// 4. Import the rest of Bulma
+*/
+
+@import "../node_modules/bulma/bulma";
+
+@font-face {
+
+    font-family: Overpass;
+    src: url('../fonts/Overpass-Thin.ttf')
+}
+
+html {
+    background-color: hsl(216, 12%, 8%);
+}
+
+.box {
+    display: flex;    
+    flex-direction: column;
+
+    width: 400px;
+    height: 420px;
+
+    padding: 2em 2em 2em 2em;
+
+    background-color: hsl(213, 19%, 18%);
+
+    font-family: 'Overpass', sans-serif;
+    font-weight: 400;
+}
+
+.rounded {
+    border-radius: 7%;
+}
+
+.rating-star {
+    width: 17px;
+    opacity: 1;
+}
+
+.rating-star-circle {
+    
+    background-color: hsl(216, 12%, 54%, 0.1);
+
+    border-style: none;
+    border-width: 0.5px;
+    border-radius: 50%;
+}
+
+.circle {
+
+    width: 50px;
+    height: 50px;  
+    
+    background-color: hsl(216, 12%, 54%, 0.1);
+
+    border-style: none;
+    border-width: 0.5px;
+    border-radius: 50%;
+}
+
+.circle:hover {
+    background-color: hsl(25, 97%, 53%);
+    color: white;
+    cursor: pointer;
+}
+
+.circle-selected {
+
+    width: 50px;
+    height: 50px;  
+    
+    background-color: hsl(25, 97%, 53%);
+    color: white;
+
+    border-style: none;
+    border-width: 0.5px;
+    border-radius: 50%;
+}
+
+.circle-margin {
+    margin: 0.5em 0.5em 0.5em 0;
+}
+
+.box-header {
+    margin-bottom: 2em;
+}
+
+.thank-you-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.center-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rating-star-container {
+    position: absolute;
+
+    z-index: 1;
+
+    width: 45px;
+    height: 45px;    
+}
+
+.box-h2 {
+    font-size: 2em;
+}
+
+.box-title {
+    font-weight: bold;
+    color: white;
+
+    margin-top: 1em;
+}
+
+.box-paragraph {
+    font-size: 15px;
+    color: hsla(217, 12%, 63%, 0.86);
+    font-weight: bolder;
+
+    margin: 1em 0 1em 0;
+}
+
+.circle-row {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 0.7em 0 1.3em 0;
+
+    color: hsl(217, 12%, 63%);
+}
+
+.rounded-button {
+    border-radius: 25px;
+    border-style: none;
+}
+
+.rounded-button:hover {
+    background-color: white;
+    color:hsl(25, 97%, 53%);
+    cursor: pointer;
+}
+
+.submit-text {    
+    font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+
+    padding: 0.5em 0 0.5em 0;
+}
+
+.text-is-white {
+    color: white;
+}
+
+.is-orange {
+    background-color: hsl(25, 97%, 53%);
+}
