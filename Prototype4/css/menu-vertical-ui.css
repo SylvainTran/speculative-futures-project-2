@@ -64,22 +64,26 @@
 }
 
 .vertical-slide-trigger {
+    background-image: url("../public/art/magnifier1.png");
+    background-size: cover;
+    background-color: transparent;
     font-size: 9rem;
-    border-radius: 100%;
-    width: 250px;
-    height: 250px;
-    background-color: black;
-    border: 1px solid white;
+    /* border-radius: 100%; */
+    width: 125px;
+    height: 125px;
+    /* background-color: black; */
+    /* border: 5px solid white; */
+    border: none;
     position: absolute;
-    left: 5vw;
-    top: 12vh;
-    color: red;
+    left: 42vw;
+    top: 60vh;
     z-index: 10;
     cursor: pointer;
 }
 
 .vertical-slide-trigger:hover {
-    background-color: white;
+    border-radius: 100%;
+    border: 10px dashed white;
 }
 
 .vertical-slide-target-show {

@@ -149,7 +149,7 @@ html {
 }
 
 .is-translatingY-up {
-  animation: translateYUp 3s forwards;
+  animation: translateYUp 1s forwards;
   animation-direction: normal;
 }
 
@@ -162,7 +162,7 @@ html {
 }
 
 .is-translatingY-down {
-  animation: translateYDown 3s forwards;
+  animation: translateYDown 1s forwards;
   animation-direction: normal;
 }
 
