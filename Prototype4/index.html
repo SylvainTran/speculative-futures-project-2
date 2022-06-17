@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Interactive Storybook Game</title>
+    <title>Metaverse Launcher</title>
 
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
@@ -34,57 +34,102 @@
         </div>  
         <div class="main-unit">
           <div class="identity-section text-middle-container my-is-flex is-centered is-absolute">
-            <div id="identity-section-el-1" class="identity-el">You see a quiet garden in the meadow.</div>           
-            <div id="identity-section-el-2" class="identity-el">(The soil is empty.)</div>           
+            <h1>Metaverse Launcher</h1>
+            <h3>Time: </h3>
+            <div id="identity-section-el-1" class="identity-el">Metaverse Events Today:</div><hr/>           
+            <div id="identity-section-el-1" class="identity-el">7:00 PM. Community Dinner</div>          
+            <div class="home-screen-calendar">Calendar</div>
           </div>       
-          <button class="vertical-slide-trigger"></button>  
-          <img src="./public/art/meadow1.jpg">       
         </div> 
       </div> 
 
+      <div id="a1-1" class="carousel-cell">       
+        <div class="vertical-slide-target">
+        </div>  
+        <div class="main-unit">
+          <div class="identity-section text-middle-container my-is-flex is-centered is-absolute">
+            <div id="identity-section-el-1" class="identity-el">Quiet Garden Service</div>  
+            <div id="identity-section-el-1" class="identity-el">It is tranquil. (There are no visitors.)</div>           
+          </div>       
+          <button id="quiet-garden-fishing-trigger"></button>  
+          <button id="quiet-garden-farming-trigger"></button>  
+          <button id="quiet-garden-forest-visitors-trigger"></button>
+          <img src="./public/art/meadow1.jpg">       
+        </div> 
+      </div> 
+ 
       <div id="a1-2" class="carousel-cell">       
-        <!-- Vertical slide target -->    
         <div class="vertical-slide-target">
 
         </div>  
         <div class="main-unit">
           <div class="identity-section text-middle-container my-is-flex is-centered is-absolute">
-            <div id="identity-section-el-2" class="identity-el">(There are no AI-Entity visitors in the garden.)</div>           
-            <div id="identity-section-el-2" class="identity-el">(Tip: Plant more crops.)</div>           
+            <div id="identity-section-el-2" class="identity-el">Dining Hall Service</div>           
+            <div id="identity-section-el-2" class="identity-el">(There are no visitors.)</div>           
           </div>       
-          <button class="vertical-slide-trigger"><img src="./public/art/magnifier.png"/></button>  
           <img src="./public/art/waitingarea1.jpg">       
-          <!-- <div id="phaser-instance-01" class="phaser-instance"></div> -->
+          <div class="social-list">
+            <ul>
+              <li>splitcucumber</li>
+              <li>arwen49</li>              
+            </ul>
+          </div>
         </div> 
       </div> 
       
+      <!-- <div id="a3-1" class="carousel-cell">       
+        <div class="vertical-slide-target">
+        </div>  
+        <div class="main-unit">
+          <div class="identity-section text-middle-container my-is-flex is-centered is-absolute">
+            <div id="identity-section-el-3" class="identity-el">Dungeon Tamagotchi Service</div>           
+          </div>       
+        </div> 
+      </div>  -->
+
       <div id="a3-1" class="carousel-cell">       
         <!-- Vertical slide target -->    
         <div class="vertical-slide-target">
 
         </div>  
         <div class="main-unit">
-          <button class="vertical-slide-trigger">!</button>        
           <div class="identity-section text-middle-container my-is-flex is-centered is-absolute">
-            <div id="identity-section-el-3" class="identity-el">(There are no creatures or horses yet.)</div>           
+            <div id="identity-section-el-3" class="identity-el">You are in the Basilica. (There are no new events.)</div> 
+            <!-- <div id="identity-section-el-3" class="identity-el">Verse of the Hour</div> 
+            <div id="identity-section-el-3" class="identity-el">Prayer Room</div>                      -->
+            <!-- Unity snippet here -->
+
+            <div id="unity-container" class="unity-desktop">
+              <canvas id="unity-canvas" width=960 height=600></canvas>
+              <div id="unity-loading-bar">
+                <div id="unity-logo"></div>
+                <div id="unity-progress-bar-empty">
+                  <div id="unity-progress-bar-full"></div>
+                </div>
+              </div>
+              <div id="unity-warning"> </div>
+              <div id="unity-footer">
+                <div id="unity-webgl-logo"></div>
+                <div id="unity-fullscreen-button"></div>
+                <div id="unity-build-title">TestExport</div>
+              </div>
+            </div>
+
           </div>       
-          <!-- <div id="phaser-instance-03" class="phaser-instance"></div> -->
         </div> 
       </div> 
 
-      <div id="a2-1" class="carousel-cell">       
-        <!-- Vertical slide target -->    
+      <!-- <div id="a2-1" class="carousel-cell">       
         <div class="vertical-slide-target">
 
         </div>    
         <div class="main-unit">
-          <button class="vertical-slide-trigger">!</button>        
           <div class="identity-section text-middle-container my-is-flex is-centered is-absolute">
-            <div id="identity-section-el-3" class="identity-el">(There are no treasures found yet.)</div>           
+            <div id="identity-section-el-3" class="identity-el">(News Today Service)</div>           
           </div>       
           <video autoplay loop="true" src="./public/art/videos/candle.mp4">       
         </div> 
-      </div> 
+      </div>  -->
 
     </div>
 
@@ -93,7 +138,8 @@
     </div>
 
     <!-- Nav menu -->
-    <nav class="navbar my-is-flex is-centered"><h1 class="">Back to Entertainment Device Home</h1></nav>
+    <nav class="navbar my-is-flex is-centered">
+      <h1 class="">Launch Dashboard</h1></nav>
     <div class="navbar-mask"></div>
 
     <!-- Menu Visualization Interface -->
@@ -102,42 +148,42 @@
       <div id="menu-viz-rotated-boxes-container" class="my-is-flex is-vertical is-centered is-rotated-and-translated-y">
         <!-- Row container -->
         <div class="menu-viz-row-container is-vertical">          
-          <h1>Seeds</h1>
+          <h1>News Today Service</h1>
           <div class="shutter-image-container">
             <div id="shutter-image-5" class="image-shutter-closed"></div>
             <img class="image-square" src="" alt="" />
           </div>
         </div>             
         <div class="menu-viz-row-container is-vertical">
-          <div>Tools</div>
+          <div>Basilica Service</div>
           <div class="shutter-image-container">
             <div id="shutter-image-4" class="image-shutter-closed"></div>
             <img class="image-square" src="" alt="" />
           </div>
         </div>
         <div class="menu-viz-row-container is-vertical">
-          <div>Diary</div>
+          <div>Dungeon Tamagotchi Service</div>
           <div class="shutter-image-container">
             <div id="shutter-image-3" class="image-shutter-closed"></div>
             <img class="image-square" src="" alt="" />
           </div>
         </div>
         <div class="menu-viz-row-container is-vertical">
-          <div>Treasures</div>
+          <div>Dining Hall Service</div>
           <div class="shutter-image-container">
             <div id="shutter-image-2" class="image-shutter-closed"></div>
             <img class="image-square" src="" alt="" />
           </div>
         </div>
         <div class="menu-viz-row-container is-vertical">
-          <div>Courrier</div>
+          <div>Quiet Garden Service</div>
           <div class="shutter-image-container">
             <div id="shutter-image-1" class="image-shutter-closed"></div>
             <img class="image-square" src="" alt="" />
           </div>
         </div>      
         <div class="menu-viz-row-container is-vertical">
-          <div>2080</div>
+          <div>Home Dashboard</div>
           <div class="shutter-image-container">
             <div id="shutter-image-0" class="image-shutter-closed"></div>
             <img class="image-square" src="" alt="" />
@@ -150,38 +196,38 @@
         <!-- Row container -->
         <div class="menu-viz-horizontal-row-container">          
           <div class="my-is-flex is-vertical">
-            <h1>2072</h1>
-            <p>OBJECTS: NULL</p>  
+            <h1>Home Dashboard</h1>
+            <p>Check nearby Metaverse events and the calendar.</p>  
           </div>
         </div>        
         <div class="menu-viz-horizontal-row-container">          
           <div class="my-is-flex is-vertical">
-            <h1>2062</h1>
-            <p>OBJECTS: NULL</p>
+            <h1>Quiet Garden Service</h1>
+            <p>Grow blockchain ready ethereal crops and share them with your friends. Contemplate digital growth.</p>
           </div>
         </div>        
         <div class="menu-viz-horizontal-row-container">          
           <div class="my-is-flex is-vertical">
-            <h1>2052</h1>
-            <p>OBJECTS: NULL</p>
+            <h1>Dining Hall Service</h1>
+            <p>Cozy template environment for community dining events.</p>
           </div>
         </div>        
         <div class="menu-viz-horizontal-row-container">          
           <div class="my-is-flex is-vertical">
-            <h1>2042</h1>
-            <p>OBJECTS: NULL</p>
+            <h1>Dungeon Tamagotchi Service</h1>
+            <p>Nurture a digital NFT-ready Entity's knowledge and stats through quests, and sell them.</p>
           </div>
         </div>        
         <div class="menu-viz-horizontal-row-container">          
           <div class="my-is-flex is-vertical">
-            <h1>2032</h1>
-            <p>OBJECTS: NULL</p>
+            <h1>Basilica Verse</h1>
+            <p>Go to church in the metaverse. Contemplate. Read scripture.</p>
           </div>
         </div>        
         <div class="menu-viz-horizontal-row-container">          
           <div class="my-is-flex is-vertical">
-            <h1>2022</h1>
-            <p>OBJECTS: NULL</p>
+            <h1>News Today Service</h1>
+            <p>Read daily news.</p>
           </div>
         </div>        
 
@@ -189,7 +235,7 @@
       <!-- Keyboard Nav menu -->      
       <div id="navbar-keyboard-container">
         <nav class="navbar-keyboard-flex is-bottom-center-fixed">
-          <h1 class="branding-text">Inventory</h1>
+          <h1 class="branding-text">Microservices</h1>
           <div id="keyboard-rect-0" class="rectangle keyboard-rectangle"></div>                    
           <div id="keyboard-rect-1" class="rectangle keyboard-rectangle"></div>
           <div id="keyboard-rect-2" class="rectangle keyboard-rectangle"></div>
@@ -385,7 +431,7 @@
       const $identityEl = $('.identity-el');
 
       // Attach vertical sliders behaviour
-      $('.vertical-slide-trigger').click(function(evt) {
+      $('.home-screen-calendar').click(function(evt) {
         // Prevent both parent and child to be activated
         evt.stopImmediatePropagation();
 
@@ -408,7 +454,6 @@
         });
 
       });
-
             
       $identityEl.hover(function(evt) {
         $( this ).addClass('identity-el-animate');
@@ -418,197 +463,100 @@
         $( this ).removeClass('identity-el-animate');
       })
 
-      // Setup Phaser game instances (each has different stuff in them)
-      class Game01 extends Phaser.Scene 
-      {
-        constructor() 
-        {
-          super();
-        }
-
-        preload ()
-        {
-          this.load.image('gasStation', 'public/art/gas_station_BLOCKOUT_002.png');
-          //this.load.setBaseURL('http://labs.phaser.io');
-          //this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-          //this.load.image('red', 'assets/particles/red.png');
-        }
-
-        create ()
-        {
-          let background = this.add.image(window.innerWidth/2,window.innerHeight/2,'gasStation');
-          console.log("Created a phaser instance 1!");
-        }
-
-        update() {
-
-        }
-        
-        render() {
-
-        }
-      }
-
-      class Game02 extends Phaser.Scene 
-      {
-        constructor() 
-        {
-          super();
-        }
-
-        preload ()
-        {
-          this.load.setBaseURL('http://labs.phaser.io');
-          this.load.image('red', 'assets/particles/red.png');
-        }
-
-        create ()
-        {
-          let particles = this.add.particles('red');
-
-          let emitter = particles.createEmitter({
-              speed: 200,
-              scale: { start: 1, end: 0 },
-              blendMode: 'ADD'
-            });
-
-          let logo = this.physics.add.image(400, 100, 'logo');
-
-          logo.setVelocity(200, 400);
-          logo.setBounce(1, 1);
-          logo.setCollideWorldBounds(true);
-
-          emitter.startFollow(logo);
-          // console.log("Created a phaser instance 2!");
-        }
-
-        update() {
-
-        }
-        
-        render() {
-
-        }
-      }
-
-      class Game03 extends Phaser.Scene 
-      {
-        constructor() 
-        {
-          super();
-        }
-
-        preload ()
-        {
-          this.load.image('church', 'public/art/church_001.png');          
-          this.load.image('pinkHeadSkinny', 'public/art/character_002.png');          
-        }
-
-        create ()
-        {
-          const church = this.add.image(window.innerWidth/2,window.innerHeight/2,'church');          
-          let pinkHeadSkinny = this.add.image(window.innerWidth/2,window.innerHeight/2,'pinkHeadSkinny');
-          pinkHeadSkinny.setScale(2, 2);
-        }
-        
-        update() {
-
-        }
-        
-        render() {
-
-        }
-      }
-
-      class Game04 extends Phaser.Scene 
-      {
-        constructor() 
-        {
-          super();
-        }
-
-        preload ()
-        {
-          this.load.image('turtleGuyWithHair', 'public/art/character_001.png');
-        }
-
-        create ()
-        {
-          let turtleGuyWithHair = this.add.image(window.innerWidth/2,window.innerHeight/2,'turtleGuyWithHair');
-          turtleGuyWithHair.setScale(3, 3);
-        }
-
-        update() {
-
-        }
-        
-        render() {
-
-        }
-      }
-
-      // Attach Phaser instances
-      let phaserInstance_config_01 = {
-        type: Phaser.AUTO,
-        width: window.innerWidth,
-        height: window.innerHeight,
-        parent: 'phaser-instance-01',
-        physics: {
-            default: 'arcade',
-            arcade: {
-                gravity: { y: 200 }
-            }
-        },
-        scene: [ Game01 ]
-      };
-
-      let phaserInstance_config_02 = {
-        type: Phaser.AUTO,
-        width: window.innerWidth,
-        height: window.innerHeight,
-        parent: 'phaser-instance-02',
-        physics: {
-            default: 'arcade',
-            arcade: {
-                gravity: { y: 200 }
-            }
-        },
-        scene: [ Game02 ]
-      };
-
-      let phaserInstance_config_03 = {
-        type: Phaser.AUTO,
-        width: window.innerWidth,
-        height: window.innerHeight,
-        parent: 'phaser-instance-03',
-        physics: {
-            default: 'arcade',
-            arcade: {
-                gravity: { y: 200 }
-            }
-        },
-        scene: [ Game03 ]
-      };
-
-      let phaserInstance_config_04 = {
-        type: Phaser.AUTO,
-        width: window.innerWidth,
-        height: window.innerHeight,
-        parent: 'phaser-instance-04',
-        physics: {
-            default: 'arcade',
-            arcade: {
-                gravity: { y: 200 }
-            }
-        },
-        scene: [ Game04 ]
-      };
-
-      // let game01 = new Phaser.Game(phaserInstance_config_01);
-      // let game02 = new Phaser.Game(phaserInstance_config_02);
-      // let game03 = new Phaser.Game(phaserInstance_config_03);
-      // let game04 = new Phaser.Game(phaserInstance_config_04);
-
     </script>
+
+<script>
+  var container = document.querySelector("#unity-container");
+  var canvas = document.querySelector("#unity-canvas");
+  var loadingBar = document.querySelector("#unity-loading-bar");
+  var progressBarFull = document.querySelector("#unity-progress-bar-full");
+  var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+  var warningBanner = document.querySelector("#unity-warning");
+
+  // Shows a temporary message banner/ribbon for a few seconds, or
+  // a permanent error message on top of the canvas if type=='error'.
+  // If type=='warning', a yellow highlight color is used.
+  // Modify or remove this function to customize the visually presented
+  // way that non-critical warnings and error messages are presented to the
+  // user.
+  function unityShowBanner(msg, type) {
+    function updateBannerVisibility() {
+      warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+    }
+    var div = document.createElement('div');
+    div.innerHTML = msg;
+    warningBanner.appendChild(div);
+    if (type == 'error') div.style = 'background: red; padding: 10px;';
+    else {
+      if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+      setTimeout(function() {
+        warningBanner.removeChild(div);
+        updateBannerVisibility();
+      }, 5000);
+    }
+    updateBannerVisibility();
+  }
+    var buildUrl = "./src/unity/basilica/Build";
+    var loaderUrl = buildUrl + "/Builds.loader.js";
+    var config = {
+      dataUrl: buildUrl + "/Builds.data.unityweb",
+      frameworkUrl: buildUrl + "/Builds.framework.js.unityweb",
+      codeUrl: buildUrl + "/Builds.wasm.unityweb",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "DefaultCompany",
+      productName: "Churchverse",
+      productVersion: "0.1",
+      showBanner: unityShowBanner,
+    };
+
+  // By default Unity keeps WebGL canvas render target size matched with
+  // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+  // Set this to false if you want to decouple this synchronization from
+  // happening inside the engine, and you would instead like to size up
+  // the canvas DOM size and WebGL render target sizes yourself.
+  // config.matchWebGLToCanvasSize = false;
+
+  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+    // Mobile device style: fill the whole browser client area with the game canvas:
+
+    var meta = document.createElement('meta');
+    meta.name = 'viewport';
+    meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+    document.getElementsByTagName('head')[0].appendChild(meta);
+    container.className = "unity-mobile";
+
+    // To lower canvas resolution on mobile devices to gain some
+    // performance, uncomment the following line:
+    // config.devicePixelRatio = 1;
+
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+
+    unityShowBanner('WebGL builds are not supported on mobile devices.');
+  } else {
+    // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
+    canvas.style.width = "960px";
+    canvas.style.height = "600px";
+  }
+
+  loadingBar.style.display = "block";
+
+  var script = document.createElement("script");
+  script.src = loaderUrl;
+  script.onload = () => {
+    createUnityInstance(canvas, config, (progress) => {
+      progressBarFull.style.width = 100 * progress + "%";
+    }).then((unityInstance) => {
+      loadingBar.style.display = "none";
+      fullscreenButton.onclick = () => {
+        unityInstance.SetFullscreen(1);
+      };
+    }).catch((message) => {
+      alert(message);
+    });
+  };
+  document.body.appendChild(script);
+</script>
   </body>
 </html>
