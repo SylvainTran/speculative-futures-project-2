@@ -1,6 +1,5 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AVATAR_NAME } from '../app.module';
-import { Friend } from '../friend';
 import { AvatarControllerService } from '../avatar-controller.service';
 
 @Component({
@@ -45,23 +44,29 @@ export class AvatarDisplayComponent implements OnInit {
   }
 
   public handleAvatarClicked() {
+    // TODO Replace by events
     this.avatarControllerService.handleAvatarClicked();
     this.clickCount = this.avatarControllerService.clickCount;
-    // TODO Replace by events
     this.currentLevel = this.avatarControllerService.getAvatarExperienceService().getCurrentLevel();
     this.currentExperience = this.avatarControllerService.getAvatarExperienceService().getCurrentExperience();
     this.experienceTotalRequired = this.avatarControllerService.getAvatarExperienceService().getExperienceTotalRequired();
     this.updateAvatarDisplay();
   }
 
-  public updateAvatarDisplay() {     
-    if (this.clickCount % 2 == 0) {
-      this.avatar = "<(O`.O`)> <( Fighting! )";
-    } else if (this.clickCount % 3 == 0) {
-      this.avatar = "^(^_^)^_ <( Victorious. )"
-    } else {
-      this.avatar = "_(*_*)_ <( Defeated. )";
-      this.currentHealth = this.avatarControllerService.getAvatarHealthService().changeHealth(-5);
-    }
+  public updateAvatarDisplay() {    
+    if (this.avatarControllerService.isAlive()) {
+      if (this.clickCount % 2 === 0) {
+        this.avatar = "<(O`.O`)> <( Fighting! )";
+      } else if (this.clickCount % 3 == 0) {
+        this.avatar = "^(^_^)^_ <( Victorious. )"
+      } else {
+        this.avatar = "_(*_*)_ <( Defeated. )";
+        this.currentHealth = this.avatarControllerService.getAvatarHealthService().changeHealth(-5);
+        if(this.avatarControllerService.getAvatarHealthService().healthIsBelowZero()) {
+          this.avatar = "(RIP) <( Has Died. )";
+          this.avatarControllerService.alive = false;
+        }
+      }
+    } 
   }
 }

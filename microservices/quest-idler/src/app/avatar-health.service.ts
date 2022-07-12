@@ -20,4 +20,8 @@ export class AvatarHealthService {
     this.health += value;
     return this.health;
   }
+  
+  public healthIsBelowZero() {
+    return this.health <= 0;
+  }
 }
