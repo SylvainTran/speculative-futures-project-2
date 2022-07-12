@@ -12,6 +12,8 @@ import { AvatarControllerService } from './avatar-controller.service';
 import { AvatarStatsComponent } from './avatar-stats/avatar-stats.component';
 import { CollectablesComponent } from './collectables/collectables.component';
 import { FriendListComponent } from './friend-list/friend-list.component';
+import { AvatarExperienceService } from './avatar-experience.service';
+import { AvatarStatisticsService } from './avatar-statistics.service';
 
 // Move into naming service
 export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {     
@@ -36,7 +38,9 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
   providers: [{ provide: AVATAR_NAME, useValue: 'Myella' },
               { provide: FriendListService, useClass: FriendListService }, 
               { provide: MockFriendList, useClass: MockFriendList },
-              { provide: AvatarControllerService, useClass: AvatarControllerService}
+              { provide: AvatarControllerService, useClass: AvatarControllerService},
+              { provide: AvatarStatisticsService, useClass: AvatarStatisticsService},
+              { provide: AvatarExperienceService, useClass: AvatarExperienceService}
             ],
   bootstrap: [AppComponent]
 })

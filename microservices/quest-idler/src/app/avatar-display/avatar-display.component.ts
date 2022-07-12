@@ -19,6 +19,7 @@ export class AvatarDisplayComponent implements OnInit {
   public currentHealth: number = 100;
   public currentLevel: number = 1;
   public currentExperience: number = 0;
+  public experienceTotalRequired: number = 100;
 
   // Services
   private avatarControllerService: AvatarControllerService;
@@ -49,6 +50,7 @@ export class AvatarDisplayComponent implements OnInit {
     // TODO Replace by events
     this.currentLevel = this.avatarControllerService.getAvatarExperienceService().getCurrentLevel();
     this.currentExperience = this.avatarControllerService.getAvatarExperienceService().getCurrentExperience();
+    this.experienceTotalRequired = this.avatarControllerService.getAvatarExperienceService().getExperienceTotalRequired();
     this.updateAvatarDisplay();
   }
 
