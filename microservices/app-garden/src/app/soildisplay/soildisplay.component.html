@@ -1,0 +1,9 @@
+<div>
+    <h2>Patches</h2>
+    <div *ngFor="let soilPatch of soilPatches">
+        <ul>
+            <li>[{{soilPatch.getSoilContents()}}]</li>
+            <app-soilpatch></app-soilpatch>    
+        </ul>
+    </div>
+</div>

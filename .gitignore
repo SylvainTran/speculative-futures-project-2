@@ -61,6 +61,7 @@ crashlytics-build.properties
 # NPM files
 
 /*/node_modules/
+/*/*/node_modules/
 
 # JS Libraries
 
@@ -78,3 +79,6 @@ crashlytics-build.properties
 /Documentation/*.pur
 /Documentation/prototype_videos
 Documentation/speculative-play-art-moodboard.pur
+
+# Builds
+/*/builds/
