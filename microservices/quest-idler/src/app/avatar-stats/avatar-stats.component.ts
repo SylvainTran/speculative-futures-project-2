@@ -9,7 +9,6 @@ import { AvatarStatisticsService } from '../avatar-statistics.service';
   styleUrls: ['./avatar-stats.component.css']
 })
 export class AvatarStatsComponent implements OnInit, OnDestroy {
-  public statisticLabels: String[] | undefined;
   public statistics: Map<String, number>;
   private avatarStatisticsService: AvatarStatisticsService;
   private avatarExperienceService: AvatarExperienceService;
@@ -19,13 +18,11 @@ export class AvatarStatsComponent implements OnInit, OnDestroy {
     @Inject(AvatarStatisticsService) avatarStatisticsService: AvatarStatisticsService,
     @Inject(AvatarExperienceService) avatarExperienceService: AvatarExperienceService
     ) {
-    this.statisticLabels = ["str", "mag", "dex", "spd", "vit", "char", "int"];
-    this.statistics = new Map();
-    this.statisticLabels.forEach( label => this.statistics.set(label, 5 + Math.ceil(Math.random() * 5)));              
-    
     this.avatarStatisticsService = avatarStatisticsService;    
     this.avatarExperienceService = avatarExperienceService;
 
+    this.statistics = avatarStatisticsService.statistics;
+    
     this.subscription = avatarExperienceService.levelUpSource$.subscribe(() => {
       this.calculateAvatarLevelStats();
     });

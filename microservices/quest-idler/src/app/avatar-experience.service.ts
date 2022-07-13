@@ -13,8 +13,9 @@ export class AvatarExperienceService {
   private levelUpSource = new Subject<any>();
   levelUpSource$ = this.levelUpSource.asObservable();
 
-  constructor() {}
-  
+  constructor() {
+    this.loadExperienceData();
+  }
   public getCurrentLevel() {
     return this.currentLevel;
   }
@@ -30,9 +31,35 @@ export class AvatarExperienceService {
     if (this.currentExperience >= this.experienceTotalRequired) {
       ++this.currentLevel;
       this.experienceTotalRequired *= 2;  
-      this.currentExperience = 0;        
       this.levelUpSource.next(this.currentLevel);
-      console.log("LEVEL UP!");
+      this.saveExperienceData();
+      this.currentExperience = 0;        
+    }
+  }
+
+  public saveExperienceData() {
+    const experienceDataToJSON = {
+      "currentLevel": this.currentLevel,
+      "currentExperience": this.currentExperience,
+      "experienceTotalRequired": this.experienceTotalRequired
+    };
+    window.localStorage.setItem("com.soberfoxgames.questidler.experienceData", JSON.stringify(experienceDataToJSON));
+  }
+
+  public loadExperienceData() {
+    let storedExperienceData: any = window.localStorage.getItem("com.soberfoxgames.questidler.experienceData");
+    
+    if (storedExperienceData !== null) {
+      const result = JSON.parse(storedExperienceData);
+
+      this.currentLevel = parseInt(result.currentLevel);      
+      this.currentExperience = parseInt(result.currentExperience);
+      this.experienceTotalRequired = parseInt(result.experienceTotalRequired);
+
+    } else {
+      this.currentLevel = 1;
+      this.currentExperience = 0;
+      this.experienceTotalRequired = 100;
     }
   }
 }

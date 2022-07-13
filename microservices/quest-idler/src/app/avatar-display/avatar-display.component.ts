@@ -32,7 +32,12 @@ export class AvatarDisplayComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.currentHealth = this.avatarControllerService.getAvatarHealthService().getHealth();
 
+    let aes = this.avatarControllerService.getAvatarExperienceService();
+    this.currentLevel = aes.getCurrentLevel();
+    this.currentExperience = aes.getCurrentExperience();
+    this.experienceTotalRequired = aes.getExperienceTotalRequired();
   }
 
   public getAvatar() {

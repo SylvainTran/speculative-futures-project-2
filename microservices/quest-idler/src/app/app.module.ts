@@ -1,5 +1,6 @@
 import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { FriendListService } from './friend-list.service';
 import { MockFriendList } from './mockfriendlist';
 
@@ -14,6 +15,8 @@ import { CollectablesComponent } from './collectables/collectables.component';
 import { FriendListComponent } from './friend-list/friend-list.component';
 import { AvatarExperienceService } from './avatar-experience.service';
 import { AvatarStatisticsService } from './avatar-statistics.service';
+import { PartyDungeonViewComponent } from './party-dungeon-view/party-dungeon-view.component';
+import { SinglePlayerViewComponent } from './single-player-view/single-player-view.component';
 
 // Move into naming service
 export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {     
@@ -29,7 +32,9 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     AvatarDetailComponent,
     AvatarStatsComponent,
     CollectablesComponent,
-    FriendListComponent
+    FriendListComponent,
+    PartyDungeonViewComponent,
+    SinglePlayerViewComponent
   ],
   imports: [
     BrowserModule,
