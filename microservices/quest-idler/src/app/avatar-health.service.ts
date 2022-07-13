@@ -30,16 +30,18 @@ export class AvatarHealthService {
 
   public saveHealthData() {
     const healthData = {
-      "health": this.health
+      "avatarHealth": this.health
     }
     window.localStorage.setItem("com.soberfoxgames.questidler.avatarHealth", JSON.stringify(healthData));
   }
 
   public loadHealthData() {
-    let storedHealth: any = window.localStorage.getItem("com.soberfoxgames.questidler.avatarHealth");
-    
+    let storedHealth: any = window.localStorage.getItem("com.soberfoxgames.questidler.avatarHealth");    
+
     if (storedHealth !== null) {
-      this.setHealth(parseInt(storedHealth.avatarHealth));
+      const result = JSON.parse(storedHealth);
+      const health = parseInt(result.avatarHealth);  
+      this.setHealth(health);
     } else {
       this.setHealth(100);
     }

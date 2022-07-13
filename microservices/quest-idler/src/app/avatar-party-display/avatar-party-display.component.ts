@@ -3,17 +3,21 @@ import { AVATAR_NAME } from '../app.module';
 import { AvatarControllerService } from '../avatar-controller.service';
 
 @Component({
-  selector: 'app-avatar-display',
-  templateUrl: './avatar-display.component.html',
-  styleUrls: ['./avatar-display.component.css'],
+  selector: 'app-avatar-party-display',
+  templateUrl: './avatar-party-display.component.html',
+  styleUrls: ['./avatar-party-display.component.css'],
 })
-export class AvatarDisplayComponent implements OnInit {
+export class AvatarPartyDisplayComponent implements OnInit {
   // Received from AvatarController
   private clickCount: number = 0;
 
   // Bindings
   private avatar: String = "(._.)";
   private avatarName: String = "";
+
+  // Party
+  private avatar2: String = "(._.)";
+  private avatarName2: String = "";  
 
   public currentHealth: number = 100;
   public currentLevel: number = 1;
@@ -44,6 +48,10 @@ export class AvatarDisplayComponent implements OnInit {
     return this.avatar;
   }
 
+  public getAvatar2() {
+    return this.avatar2;
+  }
+
   public getAvatarName() {
     return this.avatarName;
   }
@@ -62,13 +70,17 @@ export class AvatarDisplayComponent implements OnInit {
     if (this.avatarControllerService.isAlive()) {
       if (this.clickCount % 2 === 0) {
         this.avatar = "<(O`.O`)> <( Fighting! )";
+        this.avatar2 = "<(O`.`O)> <( Fighting Alongside! )";
       } else if (this.clickCount % 3 == 0) {
         this.avatar = "^(^_^)^_ <( Victorious. )"
+        this.avatar2 = "<(O`.`O)> <( Well done! )";
       } else {
         this.avatar = "_(*_*)_ <( Defeated. )";
+        this.avatar2 = "_(*_*)_ <( It's my fault. )";
         this.currentHealth = this.avatarControllerService.getAvatarHealthService().changeHealth(-5);
         if(this.avatarControllerService.getAvatarHealthService().healthIsBelowZero()) {
           this.avatar = "(RIP) <( Has Died. )";
+          this.avatar2 = "(RIP) <( Has Died. )";
           this.avatarControllerService.alive = false;
         }
       }

@@ -17,6 +17,7 @@ import { AvatarExperienceService } from './avatar-experience.service';
 import { AvatarStatisticsService } from './avatar-statistics.service';
 import { PartyDungeonViewComponent } from './party-dungeon-view/party-dungeon-view.component';
 import { SinglePlayerViewComponent } from './single-player-view/single-player-view.component';
+import { AvatarPartyDisplayComponent } from './avatar-party-display/avatar-party-display.component';
 
 // Move into naming service
 export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {     
@@ -34,7 +35,8 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     CollectablesComponent,
     FriendListComponent,
     PartyDungeonViewComponent,
-    SinglePlayerViewComponent
+    SinglePlayerViewComponent,
+    AvatarPartyDisplayComponent
   ],
   imports: [
     BrowserModule,

@@ -38,6 +38,10 @@ export class AvatarControllerService {
     return this.alive;
   }
 
+  public setIsAlive(value: boolean) {
+    this.alive = value;
+  }
+
   // TOOD: special click combos / rhythm patterns
   public handleAvatarClicked() {
     console.log("Avatar clicked");

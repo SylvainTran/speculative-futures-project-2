@@ -1,8 +1,19 @@
+html, body {
+    /* margin: 0;
+    padding: 0;
+    box-sizing: border-box; */
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
 .avatar-display {
-    display: inline-block;
+    display: block;
     border: 5px solid blue;
-    width: 50vw;
-    height: 100vh;
+    width: 75vw;
+    height: 75vh;
     text-align: center;
     line-height: 22vh;
     background-color: black;
