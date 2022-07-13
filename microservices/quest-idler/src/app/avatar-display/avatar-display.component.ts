@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { AVATAR_NAME } from '../app.module';
-import { AvatarControllerService } from '../avatar-controller.service';
+import { AvatarControllerService } from '../services/avatar-controller.service';
 
 @Component({
   selector: 'app-avatar-display',

@@ -1,0 +1,11 @@
+<h1>Chat</h1>
+<div>
+    <ul>
+        <li *ngFor="let message of chatboard">
+            {{ message }} 
+        </li>
+    </ul>
+</div>
+<form name="friend-chat-form">
+    <input class="player-chat-input" type="text" value="" placeholder="type your message here"/>
+</form>

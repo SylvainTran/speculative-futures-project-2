@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AvatarControllerService } from './avatar-controller.service';
+import { AvatarControllerService } from './services/avatar-controller.service';
 
 @Component({
   selector: 'app-root',

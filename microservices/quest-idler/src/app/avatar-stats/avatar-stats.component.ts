@@ -1,7 +1,7 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AvatarExperienceService } from '../avatar-experience.service';
-import { AvatarStatisticsService } from '../avatar-statistics.service';
+import { AvatarExperienceService } from '../services/avatar-experience.service';
+import { AvatarStatisticsService } from '../services/avatar-statistics.service';
 
 @Component({
   selector: 'app-avatar-stats',
