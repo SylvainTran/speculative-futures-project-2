@@ -61,11 +61,11 @@ export class AvatarDisplayComponent implements OnInit {
   public updateAvatarDisplay() {    
     if (this.avatarControllerService.isAlive()) {
       if (this.clickCount % 2 === 0) {
-        this.avatar = "<(O`.O`)> <( Fighting! )";
+        this.avatar = "<(o_o)> <( I kill monster. )";
       } else if (this.clickCount % 3 == 0) {
         this.avatar = "^(^_^)^_ <( Victorious. )"
       } else {
-        this.avatar = "_(*_*)_ <( Defeated. )";
+        this.avatar = "<(*_*)> <( I'm deead. )";
         this.currentHealth = this.avatarControllerService.getAvatarHealthService().changeHealth(-5);
         if(this.avatarControllerService.getAvatarHealthService().healthIsBelowZero()) {
           this.avatar = "(RIP) <( Has Died. )";

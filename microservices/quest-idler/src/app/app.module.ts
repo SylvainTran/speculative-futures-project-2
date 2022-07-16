@@ -20,6 +20,7 @@ import { SinglePlayerViewComponent } from './single-player-view/single-player-vi
 import { AvatarPartyDisplayComponent } from './avatar-party-display/avatar-party-display.component';
 import { ChatDisplayComponent } from './chat-display/chat-display.component';
 import { CharacterDatabaseService } from './services/character-database.service';
+import { FriendCallerService } from './services/friend-caller.service';
 
 // Move into naming service
 export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {     
@@ -51,7 +52,8 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
               { provide: AvatarControllerService, useClass: AvatarControllerService },
               { provide: AvatarStatisticsService, useClass: AvatarStatisticsService },
               { provide: AvatarExperienceService, useClass: AvatarExperienceService },
-              { provide: CharacterDatabaseService, useClass: CharacterDatabaseService }
+              { provide: CharacterDatabaseService, useClass: CharacterDatabaseService },
+              { provide: FriendCallerService, useClass: FriendCallerService }
             ],
   bootstrap: [AppComponent]
 })

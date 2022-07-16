@@ -8,7 +8,8 @@ export class QuestPartyService {
   constructor() {}
 
   public requestParty() {
-    // sends an invite to the player    
+    // sends an invite to the player   
+     
   }
 
   public popUpPartyDungeonView() {

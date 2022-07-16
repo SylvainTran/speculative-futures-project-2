@@ -1,11 +1,15 @@
 import { Friendship } from "./friendship";
 
 export class Character {
-    name: string = "";
+    public name: string = "";
+    // Can only request an interaction with the character
+    // if this variable is false.
+    public isBusy: boolean = false;
 
-    friendsMap: Map<String, Friendship>;
+    public friendsMap: Map<String, Friendship>;
 
-    constructor() {
+    constructor(name: string) {
+        this.name = name;
         this.friendsMap = new Map<String, Friendship>();
     }
 }

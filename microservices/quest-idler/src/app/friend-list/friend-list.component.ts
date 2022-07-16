@@ -11,7 +11,7 @@ export class FriendListComponent implements OnInit {
   // Friend related
   private friendListService: FriendListService;
   private friendList?: Friend[] = [];
-  private selectedFriend: Friend | undefined;
+  private selectedFriend!: Friend;
   
   constructor(friendListService: FriendListService) { 
     this.friendListService = friendListService;

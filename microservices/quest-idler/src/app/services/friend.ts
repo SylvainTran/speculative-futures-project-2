@@ -1,9 +1,10 @@
-export class Friend {
-    public name: String = "";
-    public status: String = "";
+import { Character } from './character';
 
-    constructor(name: String, status: String) {
-        this.name = name;
+export class Friend extends Character {
+    public status: string = "";
+
+    constructor(name: string, status: string) {
+        super(name);
         this.status = status;
     }
 }

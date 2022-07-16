@@ -1,3 +1,5 @@
-export class Player {
-    name: String = "Player";
+import { Character } from "./character";
+
+export class Player extends Character {
+
 }

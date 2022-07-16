@@ -1,4 +1,4 @@
-import { CharacterDatabaseService } from './services/character-database.service';
+import { CharacterDatabaseService } from './character-database.service';
 import { CharacterManager } from './character-manager';
 
 describe('CharacterManager', () => {
