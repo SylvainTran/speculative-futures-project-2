@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Character } from './character';
 import { CircularQueue } from './queue';
 
@@ -61,6 +62,9 @@ export class RequestInteraction {
 }
 
 export class ConversationSession {
+
+  conversationText: string = "";
+
   constructor(private friendCallerService: FriendCallerService, private requestInteraction: RequestInteraction | null) {
   }
 
@@ -70,6 +74,7 @@ export class ConversationSession {
     this.displayConversationIteratorNode();
     this.waitOnPlayerInput();
     this.checkConversationStatus();
+    this.conversationText = "CONVERSATION RECEIVED";
   }
 
   pullConversationDataNodes() {
@@ -108,6 +113,9 @@ export class FriendCallerService {
   waitCapacity: number;
   requestQueue: CircularQueue<RequestInteraction>;
 
+  private friendPivateMessageSource = new Subject<any>();
+  friendPivateMessageSource$ = this.friendPivateMessageSource.asObservable();
+
   constructor() {
     this.activeReq = null;
     this.activeConv = null;
@@ -122,7 +130,7 @@ export class FriendCallerService {
       return;
     }
 
-    let newReq: RequestInteraction = new RequestInteraction(this, requester, target);
+    const newReq: RequestInteraction = new RequestInteraction(this, requester, target);
     this.requestQueue.enqueue(newReq);
 
     if (this.activeReq === null) {
@@ -141,11 +149,11 @@ export class FriendCallerService {
   startInteraction() {
     this.activeConv = new ConversationSession(this, this.activeReq);
     this.activeConv.init(); // Note: init from outside, unwinding problem
+    this.friendPivateMessageSource.next(this.activeConv);
   }
 
   endInteraction() {
     this.activeReq!.setIsBusy(false); // REVIEW: Should this be guaranteed !?
-    this.activeConv = null;
     this.activeReq = null;
   }
 
