@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Character } from './character';
 import { CircularQueue } from './queue';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
 
 // This is the beginning of a social AI system, or social artificial intelligence heuristics/pragmatics
 // Tailored specifically for this game.
@@ -60,28 +57,18 @@ export class RequestInteraction {
   }  
 }
 
-// Test quest fetch API
-export interface Monster {
-  name: string;
-  race: string;
-  hp: number;
-  expGain: number;
-  level: number;
-  stamina: number;
-  zone: string;
-}
-
 export class ConversationSession {
 
   conversationText: string = "";
   conversationURL: string = "http://127.0.0.1:8080/";
-  conversations: Monster[] | undefined;
+  conversations: ConversationNode[] | undefined;
 
-  constructor(private http: HttpClient, private friendCallerService: FriendCallerService, private requestInteraction: RequestInteraction | null) {
+  constructor(private friendCallerService: FriendCallerService, private requestInteraction: RequestInteraction | null) {
   }
 
   init() {
     this.pullConversationDataNodes();
+    this.parseConversationTextArray();
     this.moveConversationIterator();
     this.displayConversationIteratorNode();
     this.waitOnPlayerInput();
@@ -90,20 +77,31 @@ export class ConversationSession {
   }
 
   pullConversationDataNodes() {
+    // pull from client side .tsv
+    this.conversations = this.friendCallerService.conversationNodes;
+  }
 
-    // const httpOptions = {
-   	//  	headers: new HttpHeaders()
-	  // }
-    // httpOptions.headers.append('Access-Control-Allow-Origin', '*');
-    // httpOptions.headers.append('Content-Type', 'application/json');
-    // httpOptions.headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+  parseConversationTextArray() {
+    const testConv = this.conversations![2];
 
-    // fetch json from server endpoint
-    console.log("[ConversationSession]: Pulling conversation data nodes from server endpoint.");
-    this.http.get<Monster[]>(this.conversationURL + "newquest?level=1").subscribe( (data: Monster[]) => {
-      this.conversations = {...data};
-      console.log(this.conversations);
+    const splits = testConv.conversationText
+                  .replace('[', '')
+                  .replace(']', '');
+
+    let _splits = splits.split("$");
+    _splits = _splits.slice(1);
+
+    _splits = _splits.map(text => {
+      text = text.replace('.,', '.')  
+            .replace('?,', '?')
+            .replace('!,', '!')
+            .replace('A:', testConv.characterA + ":")
+            .replace('B:', testConv.characterB + ":")
+            .trimEnd();
+      return text;
     });
+    console.log(_splits);
+    return _splits;
   }
 
   moveConversationIterator() {
@@ -124,6 +122,22 @@ export class ConversationSession {
   }
 }
 
+export class ConversationNode {
+  conversationID: number = 0;
+  characterA: string = "";
+  characterB: string = "";
+  friendshipLevel: string = "";
+  conversationText: string = "";
+
+  constructor(conversationID: number, characterA: string, characterB: string, friendshipLevel: string, conversationText: string) {
+    this.conversationID = conversationID;
+    this.characterA = characterA;
+    this.characterB = characterB;
+    this.friendshipLevel = friendshipLevel;
+    this.conversationText = conversationText;
+  }
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -140,11 +154,46 @@ export class FriendCallerService {
   private friendPrivateMessageSource = new Subject<any>();
   friendPrivateMessageSource$ = this.friendPrivateMessageSource.asObservable();
 
-  constructor(private http: HttpClient) {
+  // Conversation data pulled from /assets
+  conversationDatabaseURL: String;
+  assetsPathPrefix: String;
+  conversationNodes: ConversationNode[] = [];
+
+  reader = new FileReader();
+  tempConversationDb: String = "conversationID	characterA	characterB	friendshipLevel	conversationText\r" +
+  "0	Player	TryAgain34	C	[$A: I didn't know you played this game too., $B: Want to do a dungeon together?, $A: Sure.]\r" +
+  "1	Player	TryAgain34	B	[$A: Hey, it's you again. Weather's nice isn't it?, $B: It sure is., $A: Yep.]\r" +
+  "2	Player	TryAgain34	A	[$A: I've been thinking about you said before., $B: Hey, cool. Actually, maybe now's not the time. Can we do this later?, $A: kk, np. can you do you have the Dining Hall app? I'll pm you later. Add me on Mama Messenger: tryagain34.]\r";
+
+  read(data: String) {
+    const lines = this.tempConversationDb.split("\r");
+
+    for(let i = 1; i < lines.length; i++) {
+      const cols = lines[i].split("\t");
+      const id = parseInt(cols[0]);
+      const characterA = cols[1];
+      const characterB = cols[2];
+      const friendshipLevel = cols[3];
+      const textArray = cols[4];
+      const conversationNode = new ConversationNode(id, characterA, characterB, friendshipLevel, textArray);
+      this.conversationNodes.push(conversationNode);
+    }
+
+    console.log(this.conversationNodes);
+  }
+
+  constructor() {
     this.activeReq = null;
     this.activeConv = null;
     this.waitCapacity = 100;
     this.requestQueue = new CircularQueue<RequestInteraction>(this.waitCapacity);
+    this.conversationDatabaseURL = "languageofflowers_conversation_system_and_db - conversations.tsv";
+    this.assetsPathPrefix = "./src/assets/"; //ng serve entry point is integrationtests/launcher folder?
+    this.pullConversationDatabase();
+  }
+
+  pullConversationDatabase() {
+    this.read(this.tempConversationDb);
   }
 
   requestInteraction(requester: Character, target: Character) {
@@ -171,7 +220,7 @@ export class FriendCallerService {
   }
 
   startInteraction() {
-    this.activeConv = new ConversationSession(this.http, this, this.activeReq);
+    this.activeConv = new ConversationSession(this, this.activeReq);
     this.activeConv.init(); // Note: init from outside, unwinding problem
     this.friendPrivateMessageSource.next(this.activeConv);
   }
