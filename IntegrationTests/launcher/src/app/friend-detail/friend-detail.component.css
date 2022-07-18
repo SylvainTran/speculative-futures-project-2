@@ -1,0 +1,12 @@
+.inline-container {
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+}
+
+.friend-list {
+    background-color: grey;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

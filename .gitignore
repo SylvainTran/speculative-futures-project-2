@@ -82,3 +82,6 @@ Documentation/speculative-play-art-moodboard.pur
 
 # Builds
 /*/builds/
+
+# Integration Tests
+/IntegrationTests/launcher/node_modules
