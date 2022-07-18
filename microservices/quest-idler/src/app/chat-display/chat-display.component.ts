@@ -19,7 +19,7 @@ export class ChatDisplayComponent implements OnInit {
       error: (err: Error) => console.error('Observer got an error: ' + err),
       complete: () => console.log('Observer got a complete notification'),
     };
-    this.friendPrivateMessagesSub = this.friendCallerService.friendPivateMessageSource$.subscribe(obs);
+    this.friendPrivateMessagesSub = this.friendCallerService.friendPrivateMessageSource$.subscribe(obs);
   }
 
   ngOnInit(): void {}
@@ -30,7 +30,18 @@ export class ChatDisplayComponent implements OnInit {
 
   updateChat(conversationSession: ConversationSession) {
     console.log(conversationSession.conversationText);
-    this.chatboard.push(conversationSession.conversationText);
+
+    // Simulate real time delays
+    setTimeout( () => {
+      this.chatboard.push(conversationSession.conversationText);
+      // Simulate dialogue choices
+      const rand = Math.ceil(Math.random() * 100);
+      if (rand > 30) {
+        alert("[CHOICE A] [CHOICE B]");
+      }
+
+    }, 1000 * Math.ceil(Math.random() * 5));
+    
   }
 
 }

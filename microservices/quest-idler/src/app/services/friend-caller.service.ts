@@ -23,10 +23,6 @@ export class RequestInteraction {
     this.target = target;
   }
 
-  resetReadyFlag() {
-    
-  }
-
   checkTargetIsBusy() {
     return !this.target.isBusy; // a character is busy if they are talking to somebody else or offline
   }
@@ -113,8 +109,8 @@ export class FriendCallerService {
   waitCapacity: number;
   requestQueue: CircularQueue<RequestInteraction>;
 
-  private friendPivateMessageSource = new Subject<any>();
-  friendPivateMessageSource$ = this.friendPivateMessageSource.asObservable();
+  private friendPrivateMessageSource = new Subject<any>();
+  friendPrivateMessageSource$ = this.friendPrivateMessageSource.asObservable();
 
   constructor() {
     this.activeReq = null;
@@ -149,7 +145,7 @@ export class FriendCallerService {
   startInteraction() {
     this.activeConv = new ConversationSession(this, this.activeReq);
     this.activeConv.init(); // Note: init from outside, unwinding problem
-    this.friendPivateMessageSource.next(this.activeConv);
+    this.friendPrivateMessageSource.next(this.activeConv);
   }
 
   endInteraction() {
