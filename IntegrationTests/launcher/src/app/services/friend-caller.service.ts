@@ -70,6 +70,7 @@ export class ConversationSession {
   conversations: ConversationNode[] | undefined;
   conversationEndIndex: number = 0;
   friendshipLevel: FriendshipLevels | any;
+  maxFriendshipLevel: number = 3;
 
   constructor(private friendCallerService: FriendCallerService, private requestInteraction: RequestInteraction) {
   }
@@ -84,21 +85,24 @@ export class ConversationSession {
   }
 
   getFriendshipLevel() {
-    const name = this.requestInteraction.target.name;
+    this.conversationTargetName = this.requestInteraction.target.name;
 
-    if(this.requestInteraction.requester.friendsMap.has(name)) {
-      let f: Friendship | undefined = this.requestInteraction.requester.friendsMap.get(name);
+    if(this.requestInteraction.requester.friendsMap.has(this.conversationTargetName)) {
+      let f: Friendship | undefined = this.requestInteraction.requester.friendsMap.get(this.conversationTargetName);
       this.friendshipLevel = f!.friendshipLevel;
     } else {
       console.log("Friends map never initialized.")
     }
+
+    console.log("FRIENDSHIP LEVEL : " + this.friendshipLevel);
   }
 
   pullConversationDataNodes() {
     // pull from client side .tsv
     // this.conversations = this.friendCallerService.conversationNodes;
     this.conversations = this.friendCallerService.getInteractionFriendshipConversationTexts(this.requestInteraction.requester, this.requestInteraction.target, this.friendshipLevel);
-    console.log("this convoersations: " + this.conversations.length);
+    console.log("this conversations: " + this.conversations.length);
+    console.log(this.conversations);
 
     if(this.conversations.length === 0 || this.conversations === null || this.conversations === undefined) {
       console.log("No conversations found - ending conversation session.");
@@ -108,8 +112,7 @@ export class ConversationSession {
 
   // The conversation index is the friendship level
   parseConversationTextArray() {
-
-    const requestedConversation = this.conversations![this.friendshipLevel];
+    const requestedConversation = this.conversations![0];
     const splits = requestedConversation.conversationText
                   .replace('[', '')
                   .replace(']', '');
@@ -124,7 +127,7 @@ export class ConversationSession {
             .replace('A:', requestedConversation.characterA + ":")
             .replace('B:', requestedConversation.characterB + ":")
             .trimEnd();
-
+      console.log("TEXT: " + text);
       ++this.conversationEndIndex; // this refers to count of replies in this conv
       return text;
     });
@@ -142,7 +145,15 @@ export class ConversationSession {
   }
 
   endConversation() {
+    this.increaseFriendshipLevel();
     this.friendCallerService.endInteraction();
+  }
+
+  increaseFriendshipLevel() {
+    let f: Friendship | undefined = this.requestInteraction.requester.friendsMap.get(this.conversationTargetName);
+    if (f!.friendshipLevel < this.maxFriendshipLevel) {
+      f!.increaseFriendshipLevel();
+    }
   }
 }
 
