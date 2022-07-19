@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Character } from './character';
 import { CircularQueue } from './queue';
+import { Friendship, FriendshipLevels } from './friendship';
 
 // This is the beginning of a social AI system, or social artificial intelligence heuristics/pragmatics
 // Tailored specifically for this game.
@@ -31,6 +32,10 @@ export class RequestInteraction {
     this.requester.isBusy = busy;
     this.target.isBusy = busy;
     this.ready = busy;
+
+    console.log(this.requester.isBusy);
+    console.log(this.target.isBusy);
+    console.log(this.ready);
   }
 
   initiateRequest() {
@@ -59,32 +64,53 @@ export class RequestInteraction {
 
 export class ConversationSession {
 
-  conversationText: string = "";
-  conversationURL: string = "http://127.0.0.1:8080/";
+  conversationTexts: string[] = []; // 
+  conversationTargetName: string = "";
+  // conversationURL: string = "http://127.0.0.1:8080/";
   conversations: ConversationNode[] | undefined;
+  conversationEndIndex: number = 0;
+  friendshipLevel: FriendshipLevels | any;
 
-  constructor(private friendCallerService: FriendCallerService, private requestInteraction: RequestInteraction | null) {
+  constructor(private friendCallerService: FriendCallerService, private requestInteraction: RequestInteraction) {
   }
 
   init() {
+    this.getFriendshipLevel();
     this.pullConversationDataNodes();
     this.parseConversationTextArray();
-    this.moveConversationIterator();
-    this.displayConversationIteratorNode();
-    this.waitOnPlayerInput();
-    this.checkConversationStatus();
-    this.conversationText = "CONVERSATION RECEIVED";
+    // this.displayConversationIteratorNode();
+    // this.waitOnPlayerInput();
+    this.endConversation();
+  }
+
+  getFriendshipLevel() {
+    const name = this.requestInteraction.target.name;
+
+    if(this.requestInteraction.requester.friendsMap.has(name)) {
+      let f: Friendship | undefined = this.requestInteraction.requester.friendsMap.get(name);
+      this.friendshipLevel = f!.friendshipLevel;
+    } else {
+      console.log("Friends map never initialized.")
+    }
   }
 
   pullConversationDataNodes() {
     // pull from client side .tsv
-    this.conversations = this.friendCallerService.conversationNodes;
+    // this.conversations = this.friendCallerService.conversationNodes;
+    this.conversations = this.friendCallerService.getInteractionFriendshipConversationTexts(this.requestInteraction.requester, this.requestInteraction.target, this.friendshipLevel);
+    console.log("this convoersations: " + this.conversations.length);
+
+    if(this.conversations.length === 0 || this.conversations === null || this.conversations === undefined) {
+      console.log("No conversations found - ending conversation session.");
+      this.endConversation();
+    }
   }
 
+  // The conversation index is the friendship level
   parseConversationTextArray() {
-    const testConv = this.conversations![2];
 
-    const splits = testConv.conversationText
+    const requestedConversation = this.conversations![this.friendshipLevel];
+    const splits = requestedConversation.conversationText
                   .replace('[', '')
                   .replace(']', '');
 
@@ -95,17 +121,16 @@ export class ConversationSession {
       text = text.replace('.,', '.')  
             .replace('?,', '?')
             .replace('!,', '!')
-            .replace('A:', testConv.characterA + ":")
-            .replace('B:', testConv.characterB + ":")
+            .replace('A:', requestedConversation.characterA + ":")
+            .replace('B:', requestedConversation.characterB + ":")
             .trimEnd();
+
+      ++this.conversationEndIndex; // this refers to count of replies in this conv
       return text;
     });
-    console.log(_splits);
-    return _splits;
-  }
 
-  moveConversationIterator() {
-    console.log("Moving conversation iterator to: Index = 0");
+    this.conversationTexts = _splits;
+    return this.conversationTexts;
   }
 
   displayConversationIteratorNode() {
@@ -116,8 +141,7 @@ export class ConversationSession {
     console.log("[YES] [NO]");
   }
 
-  checkConversationStatus() {
-    // if end index, end conv through service
+  endConversation() {
     this.friendCallerService.endInteraction();
   }
 }
@@ -144,7 +168,7 @@ export class ConversationNode {
 export class FriendCallerService {
 
   // There shouldn't be more than one active request at all times
-  activeReq: RequestInteraction | null;
+  activeReq: RequestInteraction | any;
   activeConv: ConversationSession | null;
 
   // Waiters are put here
@@ -155,53 +179,48 @@ export class FriendCallerService {
   friendPrivateMessageSource$ = this.friendPrivateMessageSource.asObservable();
 
   // Conversation data pulled from /assets
-  conversationDatabaseURL: String;
+  conversationDatabaseURL: string;
   assetsPathPrefix: String;
   conversationNodes: ConversationNode[] = [];
-
-  reader = new FileReader();
-  tempConversationDb: String = "conversationID	characterA	characterB	friendshipLevel	conversationText\r" +
-  "0	Player	TryAgain34	C	[$A: I didn't know you played this game too., $B: Want to do a dungeon together?, $A: Sure.]\r" +
-  "1	Player	TryAgain34	B	[$A: Hey, it's you again. Weather's nice isn't it?, $B: It sure is., $A: Yep.]\r" +
-  "2	Player	TryAgain34	A	[$A: I've been thinking about you said before., $B: Hey, cool. Actually, maybe now's not the time. Can we do this later?, $A: kk, np. can you do you have the Dining Hall app? I'll pm you later. Add me on Mama Messenger: tryagain34.]\r";
-
-  read(data: String) {
-    const lines = this.tempConversationDb.split("\r");
-
-    for(let i = 1; i < lines.length; i++) {
-      const cols = lines[i].split("\t");
-      const id = parseInt(cols[0]);
-      const characterA = cols[1];
-      const characterB = cols[2];
-      const friendshipLevel = cols[3];
-      const textArray = cols[4];
-      const conversationNode = new ConversationNode(id, characterA, characterB, friendshipLevel, textArray);
-      this.conversationNodes.push(conversationNode);
-    }
-
-    console.log(this.conversationNodes);
-  }
-
+  
   constructor() {
     this.activeReq = null;
     this.activeConv = null;
     this.waitCapacity = 100;
     this.requestQueue = new CircularQueue<RequestInteraction>(this.waitCapacity);
     this.conversationDatabaseURL = "languageofflowers_conversation_system_and_db - conversations.tsv";
-    this.assetsPathPrefix = "./src/assets/"; //ng serve entry point is integrationtests/launcher folder?
+    this.assetsPathPrefix = "../../assets/"; //ng serve entry point is integrationtests/launcher folder?
     this.pullConversationDatabase();
   }
 
+  read(conversationDatabaseURL: string) {
+    // REVIEW: not sure if the fetch api for local files will work later on when the game is hosted remotely? Used this because there's a breaking issue with the File Reader node class from 'fs' needing a polyfill currently.
+    let lines;    
+    fetch(conversationDatabaseURL, {mode: 'no-cors'})
+      .then(response => response.text())
+      .then(data=> {
+        lines = data; 
+        const rows = lines.split("\r");
+        for (let i = 1; i < rows.length; i++) {
+          const cols = rows[i].split("\t");
+          const id = parseInt(cols[0]);
+          const characterA = cols[1];
+          const characterB = cols[2];
+          const friendshipLevel = cols[3];
+          const textArray = cols[4];
+          const conversationNode = new ConversationNode(id, characterA, characterB, friendshipLevel, textArray);
+          this.conversationNodes.push(conversationNode);
+        }
+        console.log(this.conversationNodes);
+      })
+      .catch(error => console.error(error));
+  }
+
   pullConversationDatabase() {
-    this.read(this.tempConversationDb);
+    this.read(this.assetsPathPrefix + this.conversationDatabaseURL);
   }
 
   requestInteraction(requester: Character, target: Character) {
-
-    if (target === undefined) {
-      console.log("Target is undefined");
-      return;
-    }
 
     const newReq: RequestInteraction = new RequestInteraction(this, requester, target);
     this.requestQueue.enqueue(newReq);
@@ -212,7 +231,8 @@ export class FriendCallerService {
     } else {
       console.log("Active request exists already - waiting in queue");
     }
-    newReq.initiateRequest(); // REVIEW: Initiate here?
+    // TODO: Must handle cases where no convo exists between chars - do this before init request
+    newReq.initiateRequest(); // REVIEW: Initiate here?    
   }
 
   updateRequestQueue() {
@@ -223,6 +243,18 @@ export class FriendCallerService {
     this.activeConv = new ConversationSession(this, this.activeReq);
     this.activeConv.init(); // Note: init from outside, unwinding problem
     this.friendPrivateMessageSource.next(this.activeConv);
+  }
+
+  getInteractionFriendshipConversationTexts(c1: Character, c2: Character, fl: number) {
+
+    let ret = this.conversationNodes.filter(conversation => {
+      let eqn = (conversation.characterA === c1.name && conversation.characterB === c2.name) || 
+      (conversation.characterA === c2.name && conversation.characterB === c1.name);
+      let feq = FriendshipLevels[fl] === conversation.friendshipLevel;
+
+      return eqn && feq;
+    });
+    return ret;
   }
 
   endInteraction() {

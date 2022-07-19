@@ -12,7 +12,7 @@ export class ChatDisplayComponent implements OnInit {
   friendPrivateMessagesSub: Subscription;
 
   constructor(private friendCallerService: FriendCallerService) {
-    this.chatboard = ["Hello", "How are you?"];
+    this.chatboard = [];
 
     const obs = {
       next: (conversationSession: ConversationSession) => this.updateChat(conversationSession),
@@ -29,19 +29,22 @@ export class ChatDisplayComponent implements OnInit {
   }
 
   updateChat(conversationSession: ConversationSession) {
-    console.log(conversationSession.conversationText);
-
+    
     // Simulate real time delays
-    setTimeout( () => {
-      this.chatboard.push(conversationSession.conversationText);
-      // Simulate dialogue choices
-      const rand = Math.ceil(Math.random() * 100);
-      if (rand > 30) {
-        alert("[CHOICE A] [CHOICE B]");
+    let conversationTextIndex = 0;
+
+    let chatInterval = setInterval( () => {
+      
+      if (conversationTextIndex >= conversationSession.conversationEndIndex) {
+        clearInterval(chatInterval);
+        console.log("The conversation has ended.");
+        return;
       }
 
-    }, 1000 * Math.ceil(Math.random() * 5));
-    
+      const dialogueNode = conversationSession.conversationTexts[conversationTextIndex++];
+      this.chatboard.push(dialogueNode);
+
+    }, 1000 * Math.ceil(Math.random() * 5));    
   }
 
 }

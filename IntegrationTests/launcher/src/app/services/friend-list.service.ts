@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { Character } from './character';
 import { FriendCallerService } from './friend-caller.service';
+import { Friendship } from './friendship';
 import { MockFriendList } from './mockfriendlist';
 
 @Injectable({
@@ -18,7 +19,7 @@ export class FriendListService {
     return this.friendList.friendList;
   }
 
-  sendPrivateMessage(requester: Character, target: Character) {
-    this.friendCallerService.requestInteraction(requester, target);
+  sendPrivateMessage(friendship: Friendship) {
+    this.friendCallerService.requestInteraction(friendship.character1, friendship.character2);
   }
 }

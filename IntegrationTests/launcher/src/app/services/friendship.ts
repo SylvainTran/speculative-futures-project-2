@@ -1,16 +1,22 @@
 import { Character } from "./character";
 
+export enum FriendshipLevels {
+    C = 0, B = 1, A = 2
+}
+
 export class Friendship {
 
     character1: Character;
     character2: Character;
+    friendshipLevel: number;
 
-    friendshipLevel: string = "C";
+    constructor(requester: Character, target: Character) {
+        this.character1 = requester;
+        this.character2 = target;
+        this.friendshipLevel = FriendshipLevels.C;
 
-    constructor(character1: Character, character2: Character) {
-        this.character1 = character1;
-        this.character2 = character2;
-        character1.friendsMap.set(character2.name, this);
-        character2.friendsMap.set(character1.name, this);        
+        if (!target.friendsMap.has(requester.name)) {
+            target.friendsMap.set(requester.name, this);
+        }
     }
 }
