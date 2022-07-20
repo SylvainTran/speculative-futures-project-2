@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/flickity.min.css",
               "src/styles.css"
             ],
             "scripts": [
