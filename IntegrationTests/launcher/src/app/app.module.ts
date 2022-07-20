@@ -1,6 +1,7 @@
 import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FriendListService } from './services/friend-list.service';
 import { MockFriendList } from './services/mockfriendlist';
@@ -22,6 +23,8 @@ import { AvatarPartyDisplayComponent } from './avatar-party-display/avatar-party
 import { ChatDisplayComponent } from './chat-display/chat-display.component';
 import { CharacterDatabaseService } from './services/character-database.service';
 import { FriendCallerService } from './services/friend-caller.service';
+import { QuestIdlerComponent } from './quest-idler/quest-idler.component';
+import { ChatHomesComponent } from './chat-homes/chat-homes.component';
 
 // Move into naming service
 export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {     
@@ -41,12 +44,15 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     PartyDungeonViewComponent,
     SinglePlayerViewComponent,
     AvatarPartyDisplayComponent,
-    ChatDisplayComponent
+    ChatDisplayComponent,
+    QuestIdlerComponent,
+    ChatHomesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [{ provide: AVATAR_NAME, useValue: 'Myella' },
               { provide: FriendListService, useClass: FriendListService }, 

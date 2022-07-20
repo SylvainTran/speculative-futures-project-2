@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Friend } from '../services/friend';
 import { FriendListService } from '../services/friend-list.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-friend-list',
@@ -8,10 +9,10 @@ import { FriendListService } from '../services/friend-list.service';
   styleUrls: ['./friend-list.component.css']
 })
 export class FriendListComponent implements OnInit {
-  // Friend related
   private friendListService: FriendListService;
-  private friendList?: Friend[] = [];
-  private selectedFriend!: Friend;
+  @Output() private friendList?: Friend[] = [];
+  @Output() private selectedFriend!: Friend;
+  showPMBox: boolean = false;
   
   constructor(friendListService: FriendListService) { 
     this.friendListService = friendListService;
@@ -21,15 +22,19 @@ export class FriendListComponent implements OnInit {
     this.friendList = this.friendListService.getFriends();
   }
 
-  public selectFriend(friend: Friend) {
-    this.selectedFriend = friend;
-  }
-
   public getFriendList() {
     return this.friendList;
   }
 
   public getSelectedFriend() {
     return this.selectedFriend;
+  }
+  
+  public openPMBox() {
+    this.showPMBox = !this.showPMBox;
+  }
+
+  public selectFriend(friend: Friend) {
+    this.selectedFriend = friend;
   }
 }

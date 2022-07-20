@@ -15,10 +15,10 @@ export class AppComponent {
     this.playerRef = new Player("Player");
   }
 
-  public restartGame() {
-    console.log("restarting game");
-    this.avatarControllerService.clickCount = 0;
-    this.avatarControllerService.setIsAlive(true);
-    this.avatarControllerService.getAvatarHealthService().setHealth(100);    
-  }
+  // public restartGame() {
+  //   console.log("restarting game");
+  //   this.avatarControllerService.clickCount = 0;
+  //   this.avatarControllerService.setIsAlive(true);
+  //   this.avatarControllerService.getAvatarHealthService().setHealth(100);    
+  // }
 }

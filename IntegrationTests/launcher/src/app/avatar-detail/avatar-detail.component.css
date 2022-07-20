@@ -2,3 +2,7 @@
     display: inline-block;
     color: red;
 }
+
+.avatar-stats {
+    margin: 2rem;
+}

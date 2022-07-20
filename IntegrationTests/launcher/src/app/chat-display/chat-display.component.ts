@@ -10,10 +10,10 @@ import { ConversationSession, FriendCallerService } from '../services/friend-cal
 export class ChatDisplayComponent implements OnInit {
   chatboard: String[] = [];
   friendPrivateMessagesSub: Subscription;
+  newMessages: Number = 0;
 
   constructor(private friendCallerService: FriendCallerService) {
     this.chatboard = [];
-
     const obs = {
       next: (conversationSession: ConversationSession) => this.updateChat(conversationSession),
       error: (err: Error) => console.error('Observer got an error: ' + err),

@@ -1,0 +1,169 @@
+.menu-visualization-interface-bg {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    position: fixed;
+    bottom: -100vh;
+    opacity: 0;
+    z-index: -1;    
+    color: white;
+    font-size: 1.5rem;
+}
+
+.menu-visualization-interface-full {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: -1;
+    position: fixed;
+    bottom: 0 !important;
+    opacity: 1 !important;
+}
+
+@keyframes showMenuViz {
+    0%   {height: 0; opacity: 0;}
+    5%   {height: 5vh; opacity: 5;}
+    10%  {height: 10vh; opacity: 10;}
+    15%  {height: 15vh; opacity: 15;}
+    20%  {height: 20vh; opacity: 20;}
+    25%  {height: 25vh; opacity: 25;}
+
+    30%  {height: 30vh; opacity: 30;}
+    35%  {height: 35vh; opacity: 35;}
+    40%  {height: 40vh; opacity: 40;}
+    45%  {height: 45vh; opacity: 45;}
+    50%  {height: 50vh; opacity: 50;}
+
+    55%  {height: 55vh; opacity: 55;}
+    60%  {height: 60vh; opacity: 60;}
+    65%  {height: 65vh; opacity: 65;}
+    70%  {height: 70vh; opacity: 70;}
+    75%  {height: 75vh; opacity: 75;}
+
+    80%  {height: 80vh; opacity: 80;}
+    85%  {height: 85vh; opacity: 85;}
+    90%  {height: 90vh; opacity: 90;}
+    95%  {height: 95vh; opacity: 95;}
+    100% {height: 100vh; opacity: 100;}
+}
+
+.menu-visualization-interface-bg-show {
+    display: block;
+    width: 100%;
+    height: 0;
+    background-color: black;
+    z-index: 3 !important;;
+    position: fixed;
+    bottom: 0 !important;
+    opacity: 0;
+
+    animation-name: showMenuViz;
+    animation-duration: 0.23s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards; /*keeps the last anim value*/
+}
+
+.menu-viz-row-container {
+    display: flex;
+    width: 50%;
+    height: 25vh;
+    border-left-style: none;
+    border-right-style: none;
+    border-top-style: none;
+    border-bottom-style: dotted;
+    border-color: white;
+    border-width: 1px;
+    border-spacing: 13px;
+}
+
+#menu-viz-rotated-boxes-container {
+    position: relative;
+    bottom: 0;
+    z-index: 3;
+}
+
+#menu-viz-horizontal-labels-container {
+    display: flex;
+    position: absolute;
+    gap: 500px;
+    top: 50vh;
+    bottom: 20vh;
+    z-index: 4;
+    background-color: rgba(100, 100, 100, 0.0);
+    transform: translateX(0);
+    transform-origin: center;
+}
+
+.menu-viz-horizontal-row-container {
+    color: blue;  
+    width: 200px;
+}
+
+.selection-indicator {
+    position: fixed;
+    left: 0;
+}
+
+.shutter-image-container {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+}
+
+.image-shutter-closed {
+    background-color: yellow;
+    width: 150px;
+    height: 150px;
+}
+
+.image-shutter-open {
+    background-color: yellow;
+
+    animation-name: openImageShutter;
+    animation-duration: 0.23s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards; /*keeps the last anim value*/
+}
+
+.image-square {
+    position: relative;
+    top: -100%;
+    
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+
+    object-fit: cover;
+}
+
+@keyframes openImageShutter {
+    0%   {width: 100%; opacity: 100;}
+    5%   {width: 95%; opacity: 95;}
+    10%  {width: 90%; opacity: 90;}
+    15%  {width: 85%; opacity: 85;}
+    20%  {width: 80%; opacity: 80;}
+    25%  {width: 75%; opacity: 75;}
+
+    30%  {width: 70%; opacity: 70;}
+    35%  {width: 65%; opacity: 65;}
+    40%  {width: 60%; opacity: 60;}
+    45%  {width: 55%; opacity: 55;}
+    50%  {width: 50%; opacity: 50;}
+
+    55%  {width: 45%; opacity: 45;}
+    60%  {width: 40%; opacity: 40;}
+    65%  {width: 35%; opacity: 35;}
+    70%  {width: 30%; opacity: 30;}
+    75%  {width: 25%; opacity: 25;}
+
+    80%  {width: 20%; opacity: 20;}
+    85%  {width: 15%; opacity: 15;}
+    90%  {width: 10%; opacity: 10;}
+    95%  {width: 5%; opacity: 5;}
+    100% {width: 0%; opacity: 0;}
+}

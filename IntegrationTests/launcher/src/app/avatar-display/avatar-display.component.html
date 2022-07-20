@@ -1,6 +1,7 @@
 <div class="avatar-display">
-    <h3>{{this.getAvatarName()}}</h3>
+    <h3>{{this.getLocationName()}}</h3>
+    <div>{{this.getLocation()}}{{this.getLocation()}}{{this.getLocation()}}</div>
     <div class="avatar-pic" (click)="handleAvatarClicked()">{{this.getAvatar()}}</div>
-    <img src="" avatar="quest idler avatar pic">
+    <div class="enemy-pic" >Bard: {{this.getEnemyPlaceholder()}}</div>
     <app-avatar-detail [currentHealth]="currentHealth" [currentLevel]="currentLevel" [currentExperience]="currentExperience" [experienceTotalRequired]="experienceTotalRequired"></app-avatar-detail>
 </div>

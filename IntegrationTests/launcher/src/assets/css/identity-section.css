@@ -1,0 +1,68 @@
+.identity-el:hover {
+    font-size: 3.2rem;
+}
+
+.text-middle-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+    font-size: 2rem;
+    text-align: center;
+
+    color: white;
+    z-index: 4;
+}
+
+.identity-el {
+    width: 100vw;
+    /* font-style: italic; */
+}
+
+.identity-el:hover {
+    background-color: hsl(0, 0%, 0%, 0.2);
+    /* margin: 2rem 0 2rem 0; */
+    color: orange;
+}
+
+@keyframes marginAnim {
+    0%   {margin: 0;}
+    25%   {margin: 0.5rem 0 0.5rem 0;}    
+    50%   {margin: 1rem 0 1rem 0;}
+    75%   {margin: 1.5rem 0 1.5rem 0;}        
+    100% {margin: 2rem 0 2rem 0;}
+}
+
+@keyframes marginIdle {
+    0%   {margin: 2rem;}
+    25%   {margin: 1.5rem 0 1.5rem 0;}    
+    50%   {margin: 1rem 0 1rem 0;}
+    75%   {margin: 0.5rem 0 0.5rem 0;}        
+    100% {margin: 0rem 0 0rem 0;}
+}
+
+.identity-el-animate {
+    animation-name: marginAnim;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards; /*keeps the last anim value*/
+ 
+    /* This timing applies on the way OUT */
+    transition-timing-function: ease-in;
+    /* Quick on the way out */
+    transition: 0.2s;
+}
+
+.identity-el-idle {
+    animation-name: marginIdle;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards; /*keeps the last anim value*/
+ 
+    /* This timing applies on the way OUT */
+    transition-timing-function: ease-in;
+    /* Quick on the way out */
+    transition: 0.1s;
+}

@@ -3,12 +3,24 @@
     display: inline-block;
     position: absolute;
     border: 10px solid red;
-    height: 50vh;
+    height: 100vh;
     width: 30vw;
     background-color: darkblue;
     color: lime;
+    right: 0;
 }
 
-.friend-list button:after, .friend-list button:before {
-    content: "::";
+.friend-list button:after {
+    content: " - Online";
+}
+
+.friend-list button {
+    background-color: lime;
+}
+
+.open-pm-box {
+    color: red;
+    font-weight: bold;
+    background-color: black;
+    width: 100%;
 }

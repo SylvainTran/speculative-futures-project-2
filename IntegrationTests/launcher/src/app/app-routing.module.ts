@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { PartyDungeonViewComponent } from './party-dungeon-view/party-dungeon-view.component';
 import { SinglePlayerViewComponent } from './single-player-view/single-player-view.component';
 
