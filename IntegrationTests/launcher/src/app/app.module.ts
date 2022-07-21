@@ -25,6 +25,12 @@ import { CharacterDatabaseService } from './services/character-database.service'
 import { FriendCallerService } from './services/friend-caller.service';
 import { QuestIdlerComponent } from './quest-idler/quest-idler.component';
 import { ChatHomesComponent } from './chat-homes/chat-homes.component';
+import { MetaFriendListComponent } from './meta-friend-list/meta-friend-list.component';
+
+// Material CDK
+import { CdkTreeModule } from '@angular/cdk/tree';
+import { MenuInterfaceComponent } from './menu-interface/menu-interface.component';
+import { MatIconModule } from '@angular/material/icon';
 
 // Move into naming service
 export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {     
@@ -46,13 +52,17 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     AvatarPartyDisplayComponent,
     ChatDisplayComponent,
     QuestIdlerComponent,
-    ChatHomesComponent
+    ChatHomesComponent,
+    MetaFriendListComponent,
+    MenuInterfaceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CdkTreeModule,
+    MatIconModule
   ],
   providers: [{ provide: AVATAR_NAME, useValue: 'Myella' },
               { provide: FriendListService, useClass: FriendListService }, 

@@ -10,6 +10,7 @@ import { Player } from './services/player';
 export class AppComponent {
   title = 'quest-idler';
   playerRef: Player;
+  dashboardVisible: boolean = true;
 
   constructor(private avatarControllerService: AvatarControllerService) {
     this.playerRef = new Player("Player");
@@ -21,4 +22,8 @@ export class AppComponent {
   //   this.avatarControllerService.setIsAlive(true);
   //   this.avatarControllerService.getAvatarHealthService().setHealth(100);    
   // }
+
+  public setDashboardIsVisible(value: boolean) : void {
+    this.dashboardVisible = value;
+  }
 }

@@ -4,6 +4,7 @@ import { FriendCallerService } from './friend-caller.service';
 import { Friendship } from './friendship';
 import { MockFriendList } from './mockfriendlist';
 
+// I think this should be a Global friend list (shared across all the apps)
 @Injectable({
   providedIn: 'root'
 })
