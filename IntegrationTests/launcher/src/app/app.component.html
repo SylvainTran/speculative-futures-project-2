@@ -5,11 +5,10 @@
         <div class="vertical-slide-target"></div>  
         <div class="main-unit">
             <div class="identity-section text-middle-container my-is-flex is-centered is-absolute">
-                <h1>Metaverse Launcher</h1>
-                <h3>Time: </h3>
+                <h1>The Metaverse wishes you a great experience.</h1>
+                <h3>Time: {{ currentTime }}</h3>
                 <div id="identity-section-el-1" class="identity-el">Metaverse Events Today:</div><hr/>           
-                <div id="identity-section-el-1" class="identity-el">7:00 PM. Community Dinner</div>          
-                <div class="home-screen-calendar">Calendar</div>
+                <div id="identity-section-el-1" class="identity-el">@19:00 PM - Meet with TryAgain34 in Dining Hall</div>          
             </div>
         </div>
     </div> 
@@ -46,12 +45,20 @@
     </div> 
 </div>
 
-<app-meta-friend-list *ngIf="this.dashboardVisible"></app-meta-friend-list>
+<app-meta-friend-list *ngIf="this.friendListVisible"></app-meta-friend-list>
+<app-meta-message-center *ngIf="this.messageCenterVisible"></app-meta-message-center>
 
 <!-- Nav menu -->
 <nav class="navbar my-is-flex is-centered">
-    <button (click)="this.setDashboardIsVisible(!this.dashboardVisible)" class="">
-        {{ this.dashboardVisible? "Close Dashboard" : "Open Dashboard" }} 
+    <button (click)="this.setFriendListVisible(!this.friendListVisible)" class="">
+        <mat-icon class="mat-icon-rtl-mirror">
+            {{ this.friendListVisible? 'cancel' : 'hub' }} 
+        </mat-icon>     
+    </button>
+    <button (click)="this.setMessageCenterVisible(!this.messageCenterVisible)" class="">
+        <mat-icon class="mat-icon-rtl-mirror">
+            {{ this.messageCenterVisible? 'cancel' : 'forum' }} 
+        </mat-icon>     
     </button>
 </nav>
 <div class="navbar-mask"></div>

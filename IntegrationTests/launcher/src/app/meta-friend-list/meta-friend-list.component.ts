@@ -32,60 +32,102 @@ export class MetaFriendListComponent implements OnInit {
       level: 0,
     },
     {
-      name: 'TryAgain34',
+      name: "Quest Idler",
       expandable: true,
       hasHandler: false,
-      level: 1,
-    },   
+      level: 1
+    },
       {
-        name: 'In-Game: Quest Idler',
-        expandable: false,
+        name: 'TryAgain34',
+        expandable: true,
         hasHandler: false,
         level: 2,
-      },
-      {
-        name: 'Send Private Message',
-        userName: 'TryAgain34',
-        expandable: false,
-        hasHandler: true,
-        level: 2,
-        handler: (node: FriendDataFlatNode) => { 
-          this.handleTreeNode(node);
-        }
-      },
-      {
-        name: 'View Profile',
-        userName: 'TryAgain34',
-        expandable: false,
-        hasHandler: true,
-        level: 2,
-        handler: (node: FriendDataFlatNode) => { 
-          this.handleTreeNode(node);
-        }
-      },
+      },   
+        {
+          name: 'In-Game: Quest Idler',
+          expandable: false,
+          hasHandler: false,
+          level: 3,
+        },
+        {
+          name: 'Send Private Message',
+          userName: 'TryAgain34',
+          expandable: false,
+          hasHandler: true,
+          level: 3,
+          handler: (node: FriendDataFlatNode) => { 
+            this.handleTreeNode(node);
+          }
+        },
+        {
+          name: 'View Profile',
+          userName: 'TryAgain34',
+          expandable: false,
+          hasHandler: true,
+          level: 3,
+          handler: (node: FriendDataFlatNode) => { 
+            this.handleTreeNode(node);
+          }
+        },
     {
       name: '__purgeMe__',
       expandable: true,
       hasHandler: false,
-      level: 1,
+      level: 2,
     },
       {
         name: 'Send Private Message',
         expandable: false,
         hasHandler: false,
-        level: 2,
+        level: 3,
       },
     {
       name: 'SylvainTran',
       expandable: true,
       hasHandler: false,
-      level: 1,
+      level: 2,
     },
     {
       name: 'herohero',
       expandable: true,
       hasHandler: false,
+      level: 2,
+    },
+    {
+      name: 'Catherine',
+      expandable: true,
+      hasHandler: false,
+      level: 2,
+    },
+    {
+      name: 'Chat Homes',
+      expandable: true,
+      hasHandler: false,
       level: 1,
+    },
+    {
+      name: 'Hilda9',
+      expandable: true,
+      hasHandler: false,
+      level: 2,
+    },
+    {
+      name: 'Other Games',
+      expandable: true,
+      hasHandler: false,
+      level: 1,
+    },
+    {
+      name: 'D_Jeanne58',
+      expandable: true,
+      hasHandler: false,
+      level: 2,
+    },
+    {
+      name: 'Offline',
+      expandable: true,
+      hasHandler: false,
+      level: 0,
     },
     {
       name: 'Eden_Martrop',
@@ -104,24 +146,6 @@ export class MetaFriendListComponent implements OnInit {
       expandable: true,
       hasHandler: false,
       level: 1,
-    },
-    {
-      name: 'Catherine',
-      expandable: true,
-      hasHandler: false,
-      level: 1,
-    },
-    {
-      name: 'D_Jeanne58',
-      expandable: true,
-      hasHandler: false,
-      level: 1,
-    },
-    {
-      name: 'Other Games',
-      expandable: true,
-      hasHandler: false,
-      level: 0,
     }
   ];
   

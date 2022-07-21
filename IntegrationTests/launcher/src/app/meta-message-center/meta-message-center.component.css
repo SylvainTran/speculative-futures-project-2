@@ -1,6 +1,6 @@
-.meta-friend-list-window {
+.meta-message-center-window {
     position: fixed;
-    right: 0;
+    left: 0;
     top: 0; 
 
     display: flex;
@@ -14,28 +14,10 @@
     color: cadetblue;
     z-index: 2;
     
-    width: 30vw;
+    width: 50vw;
+    height: 50vh;
 
     padding-left: 1.2rem;
 
     overflow: scroll;
-}
-
-.meta-friend-list-window button:focus {
-    background-color: lime;
-    color: white;
-}
-
-.friend-info {
-    display: flex;
-    flex-direction: row;
-    margin: 1.5rem;
-}
-
-.friend-cdk-tree {
-    padding: 2rem;
-}
-
-.small-margin-right {
-    margin-right: 1.5rem;
 }

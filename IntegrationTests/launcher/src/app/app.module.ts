@@ -31,6 +31,7 @@ import { MetaFriendListComponent } from './meta-friend-list/meta-friend-list.com
 import { CdkTreeModule } from '@angular/cdk/tree';
 import { MenuInterfaceComponent } from './menu-interface/menu-interface.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MetaMessageCenterComponent } from './meta-message-center/meta-message-center.component';
 
 // Move into naming service
 export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {     
@@ -54,7 +55,8 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     QuestIdlerComponent,
     ChatHomesComponent,
     MetaFriendListComponent,
-    MenuInterfaceComponent
+    MenuInterfaceComponent,
+    MetaMessageCenterComponent
   ],
   imports: [
     BrowserModule,
