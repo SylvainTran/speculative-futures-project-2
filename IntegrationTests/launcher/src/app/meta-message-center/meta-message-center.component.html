@@ -1,5 +1,22 @@
 <div class="meta-message-center-window">
     <h1>Message Center</h1>
+    <div class="message-container">
+        <ul>
+            <li *ngFor="let message of outputMessages">                
+                <p>id: {{ message.id }} </p>
+                <p>sender: {{ message.sender }}</p>
+                <p>recipient: {{ message.recipient }}</p>
+                <p>title: {{ message.title }}</p>
+                <p>date: {{ message.date }}</p>
+                <p>body: {{ message.body }}</p>
+                <p>reply: 
+                    <button>"Sure, let's meet tomorrow evening?"</button>
+                    <button>"I can't make it. Can we reschedule later?"</button>
+                    <button>Ignore.</button>
+                </p>
+            </li>
+        </ul>
+    </div>
     <hr>
 
     <h3>New Messages</h3>

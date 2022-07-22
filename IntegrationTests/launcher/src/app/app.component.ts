@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   friendListVisible: boolean = true;
   messageCenterVisible: boolean = true;
   currentTime: string | undefined;
+  journalIsVisible: boolean = true;
 
   constructor(private avatarControllerService: AvatarControllerService) {
     this.playerRef = new Player("Player");
@@ -27,6 +28,9 @@ export class AppComponent implements OnInit {
   //   this.avatarControllerService.setIsAlive(true);
   //   this.avatarControllerService.getAvatarHealthService().setHealth(100);    
   // }
+  public setJournalIsVisible(value: boolean) : void {
+    this.journalIsVisible = value;
+  }
 
   public setFriendListVisible(value: boolean) : void {
     this.friendListVisible = value;

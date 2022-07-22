@@ -1,0 +1,23 @@
+.meta-journal-window {
+    position: fixed;
+    left: 20vw;
+    top: 0; 
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: left;
+
+    background-color: hsl(240, 40%, 10%);
+    color: cadetblue;
+    z-index: 2;
+    
+    width: 50vw;
+    height: 50vh;
+
+    padding-left: 1.2rem;
+
+    overflow: scroll;
+}

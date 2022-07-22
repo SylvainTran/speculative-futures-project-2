@@ -89,7 +89,7 @@ export class ConversationSession {
 
     if(this.requestInteraction.requester.friendsMap.has(this.conversationTargetName)) {
       let f: Friendship | undefined = this.requestInteraction.requester.friendsMap.get(this.conversationTargetName);
-      this.friendshipLevel = f!.friendshipLevel;
+      this.friendshipLevel = f!.friendshipLevel; // TODO: round this up?
     } else {
       console.log("Friends map never initialized.")
     }

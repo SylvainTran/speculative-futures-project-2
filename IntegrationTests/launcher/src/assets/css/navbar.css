@@ -11,7 +11,7 @@
 }
 
 .navbar:hover {
-    font-size: 4rem;
+    /* font-size: 4rem; */
     cursor: grab;
 }
 

@@ -221,7 +221,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   // user.
   function unityShowBanner(msg, type) {
       function updateBannerVisibility() {
-      warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
       }
       var div = document.createElement('div');
       div.innerHTML = msg;
