@@ -1,7 +1,16 @@
 <div class="avatar-display">
-    <h3>{{this.getLocationName()}}</h3>
+    <h3 class="quest-location">{{this.getLocationName()}}</h3>
     <div>{{this.getLocation()}}{{this.getLocation()}}{{this.getLocation()}}</div>
-    <div class="avatar-pic" (click)="handleAvatarClicked()">{{this.getAvatar()}}</div>
-    <div class="enemy-pic" >Bard: {{this.getEnemyPlaceholder()}}</div>
-    <app-avatar-detail [currentHealth]="currentHealth" [currentLevel]="currentLevel" [currentExperience]="currentExperience" [experienceTotalRequired]="experienceTotalRequired"></app-avatar-detail>
+    <div class="poems">
+        <ul>
+            <li *ngFor="let poem of poems">
+                {{ poem }} 
+            </li>
+        </ul>
+    </div>
+    <div class="poetry-game-section">
+        <div class="avatar-pic" (click)="handleAvatarClicked()">{{this.getAvatar()}}</div>
+        <div class="enemy-pic" >Bard: {{this.getEnemyPlaceholder()}}</div>
+        <app-avatar-detail [currentHealth]="currentHealth" [currentLevel]="currentLevel" [currentExperience]="currentExperience" [experienceTotalRequired]="experienceTotalRequired"></app-avatar-detail>    
+    </div>
 </div>

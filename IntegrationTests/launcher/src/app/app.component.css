@@ -1,9 +1,48 @@
 #a1-c {
     overflow: scroll;
-    background-color: white;
+    background-color: darkblue;
     color: black;
 }
 
 .navbar > button {
     margin: 2rem;
+}
+
+.example-container {
+    width: 500px;
+    height: 100vh;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+  
+.example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.example-sidenav {
+    padding: 20px;
+}
+
+.schedule-events-title {
+    padding-top: 2rem;
+}
+
+.schedule-entry {
+    font-size: 1rem;
+    font-family: 'Cinzel', serif;
+}
+
+.main-carousel {
+    font-family: 'Cantarell', sans-serif;
+}
+
+.apps-installed-list {
+    text-align: left;
+    margin-top: 30vh;
+}
+
+.apps-installed-list ul {
+    list-style-type: square;
 }

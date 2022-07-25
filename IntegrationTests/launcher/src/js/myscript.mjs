@@ -204,8 +204,25 @@ $identityEl.mouseout(function(evt) {
   $( this ).removeClass('identity-el-animate');
 })
 
+let globalUnityInstance;
+
 window.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed');
+  // Flickity events
+  var elem = document.querySelector('#the-carousel');
+  var pageTurnAudioSrc = document.getElementById('page-turn');
+
+  console.log(elem);
+
+  elem.addEventListener('mouseup', function(e) {
+    e.stopImmediatePropagation();
+    pageTurnAudioSrc.play();
+  });
+
+  // elem.addEventListener("mouseup", function() {
+  //   pageTurnAudioSrc.play();
+  // });
+
   var container = document.querySelector("#unity-container");
   var canvas = document.querySelector("#unity-canvas");
   var loadingBar = document.querySelector("#unity-loading-bar");
@@ -287,15 +304,45 @@ window.addEventListener('DOMContentLoaded', (event) => {
   script.src = loaderUrl;
   script.onload = () => {
       createUnityInstance(canvas, config, (progress) => {
-      progressBarFull.style.width = 100 * progress + "%";
+        progressBarFull.style.width = 100 * progress + "%";
       }).then((unityInstance) => {
-      loadingBar.style.display = "none";
-      fullscreenButton.onclick = () => {
-          unityInstance.SetFullscreen(1);
+        loadingBar.style.display = "none";
+        fullscreenButton.onclick = () => {
+        unityInstance.SetFullscreen(1);
+        globalUnityInstance = unityInstance;
+        console.log(globalUnityInstance);
+        globalUnityInstance.SendMessage();
       };
       }).catch((message) => {
-      alert(message);
+        alert(message);
       });
-  };
+    };
   document.body.appendChild(script);
 });
+
+// Function which sends the message to Unity
+function sendMessageToUnity() {
+  // Get the input field
+  const txtMessage = document.getElementById("txtMessage");
+  // Get the message
+  const message = txtMessage.value;
+  // Clear the input field
+  txtMessage.value = "";
+  // Send message to the Unity scene
+  // Params: "Target object in the scene", "Function name", "Parameters"
+  if (unityInstance !== undefined) {
+    unityInstance.SendMessage("[Bridge]", "ReceiveMessageFromPage", message);
+  } else {
+    console.log("Unity instance is undefined.");
+  }
+}
+
+// // Function which receives a message from Unity
+// function receiveMessageFromUnity(txt) {
+//   // Get element to assign the message
+//   const lblMessage = document.getElementById("lblMessage");
+//   // Assign received from Unity message
+//   lblMessage.innerText = txt;
+// }
+
+// export { globalUnityInstance, sendMessageToUnity, receiveMessageFromUnity };

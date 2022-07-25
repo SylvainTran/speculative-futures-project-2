@@ -6,7 +6,12 @@
 
 .friend-list {
     background-color: grey;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
+    font-family: 'Press Start 2P', cursive;
+}
+
+button {
+    font-family: 'Press Start 2P', cursive;
 }

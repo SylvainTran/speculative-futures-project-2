@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScheduledEvent } from './scheduled-event';
 import { AvatarControllerService } from './services/avatar-controller.service';
 import { Player } from './services/player';
 
@@ -10,10 +11,11 @@ import { Player } from './services/player';
 export class AppComponent implements OnInit {
   title = 'quest-idler';
   playerRef: Player;
-  friendListVisible: boolean = true;
-  messageCenterVisible: boolean = true;
+  friendListVisible: boolean = false;
+  messageCenterVisible: boolean = false;
   currentTime: string | undefined;
-  journalIsVisible: boolean = true;
+  showFiller = false;
+  scheduledEvents: ScheduledEvent[] = [];
 
   constructor(private avatarControllerService: AvatarControllerService) {
     this.playerRef = new Player("Player");
@@ -28,9 +30,6 @@ export class AppComponent implements OnInit {
   //   this.avatarControllerService.setIsAlive(true);
   //   this.avatarControllerService.getAvatarHealthService().setHealth(100);    
   // }
-  public setJournalIsVisible(value: boolean) : void {
-    this.journalIsVisible = value;
-  }
 
   public setFriendListVisible(value: boolean) : void {
     this.friendListVisible = value;

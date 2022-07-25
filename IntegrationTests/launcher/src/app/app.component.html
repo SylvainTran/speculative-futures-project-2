@@ -1,68 +1,57 @@
 <!-- Main Carousel -->    
-<div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
+<div id="the-carousel" class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
+    <!-- Nav menu -->
     <div id="a1-a" class="carousel-cell">       
         <!-- Vertical slide target -->    
         <div class="vertical-slide-target"></div>  
         <div class="main-unit">
             <div class="identity-section text-middle-container my-is-flex is-centered is-absolute">
                 <h1>It is windy today.</h1>
-                <h3>Time: {{ currentTime }}</h3>
-                <div id="identity-section-el-1" class="identity-el">Metaverse Events Planned</div><hr/>           
-                <div id="identity-section-el-1" class="identity-el">@19:00 PM - Meet with TryAgain34 in Chat Homes Jazzy Lounge</div>          
-            </div>
+                <h3>{{ currentTime }}</h3>
+                <div class="schedule-events-title">Metaverse Events</div>
+                <div class="schedule-entry">
+                    <ul>
+                        <!-- E.g., @19:00 PM - Meet with TryAgain34 in Chat Homes Jazzy Lounge -->
+                        <li *ngFor="let event in scheduledEvents">
+                            {{ event.name }}
+                        </li>
+                    </ul>
+                </div>
+                
+                <!--Apps installed -->
+                <div class="apps-installed-list">
+                    <h1>Apps Installed</h1>
+                    <ul>
+                        <li>Poetry Mechanica</li>
+                        <li>Bard of Diegesia: V-917</li> 
+                        <li>Chat Homes 3D</li>
+                    </ul>    
+                </div>
+            </div>           
         </div>
     </div> 
 
-    <!-- <div id="a1-b" class="carousel-cell">       
-        <div class="vertical-slide-target">
-        </div>  
-        <div class="main-unit">
-            <div class="identity-section text-middle-container my-is-flex is-centered is-absolute">
-                <ul>
-                    <li>[Server]: This is a message</li>
-                    <li>[Server]: This is a message</li>
-                    <li>[Server]: This is a message</li>
-                    <li>[Server]: This is a message</li>
-                </ul>
-                <p>Type a message: </p>
-                <input type="text">
-            </div>       
-            <button id="quiet-garden-fishing-trigger"></button>  
-            <button id="quiet-garden-farming-trigger"></button>  
-            <button id="quiet-garden-forest-visitors-trigger"></button>
-        </div> 
-    </div>  -->
+    <div id="a1-b" class="carousel-cell">
+        <app-meta-journal></app-meta-journal>
+    </div>
 
     <div id="a1-c" class="carousel-cell">    
         <app-quest-idler></app-quest-idler>   
     </div>
-
-    <!-- <div id="a1-d" class="carousel-cell">       
-        <div class="main-unit">
-            <div class="identity-section text-middle-container my-is-flex is-centered is-absolute">
-                <div id="identity-section-el-2" class="identity-el">Dining Hall Service</div>           
-                <div id="identity-section-el-2" class="identity-el">(There are no visitors.)</div>           
-            </div>           
-        </div>
-    </div>  -->
 
     <div id="a1-e" class="carousel-cell">       
         <app-chat-homes></app-chat-homes>
     </div> 
 </div>
 
-<app-meta-journal *ngIf="this.journalIsVisible"></app-meta-journal>
 <app-meta-friend-list *ngIf="this.friendListVisible"></app-meta-friend-list>
 <app-meta-message-center *ngIf="this.messageCenterVisible"></app-meta-message-center>
 
-<!-- Nav menu -->
 <nav class="navbar my-is-flex is-centered">
-    <h3>Actions left: 1</h3>
-    <button (click)="this.setJournalIsVisible(!this.journalIsVisible)" class="">Journal</button>
     <button (click)="this.setMessageCenterVisible(!this.messageCenterVisible)" class="">
         <mat-icon class="mat-icon-rtl-mirror">
             {{ this.messageCenterVisible? 'cancel' : 'forum' }} 
-        </mat-icon>     
+        </mat-icon>
     </button>
     <button (click)="this.setFriendListVisible(!this.friendListVisible)" class="">
         <mat-icon class="mat-icon-rtl-mirror">
@@ -70,4 +59,3 @@
         </mat-icon>     
     </button>
 </nav>
-<div class="navbar-mask"></div>

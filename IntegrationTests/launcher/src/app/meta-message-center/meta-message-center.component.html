@@ -8,20 +8,19 @@
                 <p>recipient: {{ message.recipient }}</p>
                 <p>title: {{ message.title }}</p>
                 <p>date: {{ message.date }}</p>
-                <p>body: {{ message.body }}</p>
-                <p>reply: 
-                    <button>"Sure, let's meet tomorrow evening?"</button>
-                    <button>"I can't make it. Can we reschedule later?"</button>
-                    <button>Ignore.</button>
+                <p id="message-center-body">{{ message.body }}</p>
+                <p>reply: <br>
+                    <button>"Thunder and rain surround our meeting."</button>
+                    <button>"I am at present tossed by the winds, and you shall not find me ere' on the morrow's eve."</button>
                 </p>
             </li>
         </ul>
+        <br>
+        <h3>New Messages</h3>
+        <hr>
+
+        <h3>Archived</h3>
+        <hr>
     </div>
-    <hr>
-
-    <h3>New Messages</h3>
-    <hr>
-
-    <h3>Archived</h3>
     <hr>
 </div>   

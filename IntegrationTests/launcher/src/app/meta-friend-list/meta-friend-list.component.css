@@ -19,6 +19,8 @@
     padding-left: 1.2rem;
 
     overflow: scroll;
+    font-family: 'Cantarell', 'sans-serif';
+    border: 5px solid cyan;
 }
 
 .meta-friend-list-window button:focus {

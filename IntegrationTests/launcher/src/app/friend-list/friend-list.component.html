@@ -9,8 +9,10 @@
     </ul>
     <button class="open-pm-box" mat-button (click)="this.openPMBox()">PM Box</button>
     <!-- <div *ngIf="showPMBox === true"> -->
-    <div>
+    <div class="chat-stats-collectables-section">
         <app-chat-display></app-chat-display>
+        <app-avatar-stats></app-avatar-stats>
+        <app-collectables></app-collectables>
     </div>
     <app-friend-detail *ngIf="this.getSelectedFriend()" [selectedFriend]="this.getSelectedFriend()"></app-friend-detail>   
 </div>

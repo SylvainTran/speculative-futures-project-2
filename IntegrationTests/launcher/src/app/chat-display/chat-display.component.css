@@ -1,6 +1,6 @@
 .quest-idler-chatboard {
     color: black;
-    background-color: white;
+    background-color: grey;
     height: 100px;
     overflow: scroll;
 }
@@ -18,7 +18,7 @@
 }
 
 .quest-idler-chatboard li:nth-child(odd) {
-    color: #777;
+    color: pink;
 }
 
 .quest-idler-chatboard li:nth-child(even) {
@@ -28,7 +28,7 @@
 .new-message-inbox-counter {
     display: inline-block;
     border: 3px solid cyan;
-    width: 100px;
+    width: 200px;
 }
 
 .inline {
@@ -37,4 +37,9 @@
 
 .player-chat-input {
     width: 100%;
+    background-color: darkblue;
+}
+
+button, .player-chat-input, .quest-idler-chatboard {
+    font-family: 'Press Start 2P', cursive;
 }

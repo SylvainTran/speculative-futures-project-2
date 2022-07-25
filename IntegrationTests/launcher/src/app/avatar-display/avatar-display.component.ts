@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AVATAR_NAME } from '../app.module';
 import { AvatarControllerService } from '../services/avatar-controller.service';
+import { ConversationSession, FriendCallerService } from '../services/friend-caller.service';
 
 @Component({
   selector: 'app-avatar-display',
@@ -23,15 +25,27 @@ export class AvatarDisplayComponent implements OnInit {
   public currentExperience: number = 0;
   public experienceTotalRequired: number = 100;
 
+  // Video game poetry experiment
+  friendPrivateMessagesSub: Subscription;
+  poems: String[] = [];
+
   // Services
   private avatarControllerService: AvatarControllerService;
   
   constructor(@Inject(AVATAR_NAME) 
               avatarName: string,
-              avatarControllerService: AvatarControllerService) 
+              avatarControllerService: AvatarControllerService,
+              private friendCallerService: FriendCallerService) 
   {
     this.avatarName = avatarName;
     this.avatarControllerService = avatarControllerService;
+
+    const obs = {
+      next: (conversationSession: ConversationSession) => this.updateVideoGamePoetry(conversationSession),
+      error: (err: Error) => console.error('Observer got an error: ' + err),
+      complete: () => console.log('Observer got a complete notification'),
+    };
+    this.friendPrivateMessagesSub = this.friendCallerService.friendPrivateMessageSource$.subscribe(obs);
   }
 
   ngOnInit(): void {
@@ -97,5 +111,23 @@ export class AvatarDisplayComponent implements OnInit {
 
   public updateEnemyAvatarDisplay() {
     
+  }
+
+  // Experimental poetry
+  public updateVideoGamePoetry(conversationSession: ConversationSession) {
+    let conversationTextIndex = 0;
+
+    let chatInterval = setInterval( () => {
+      
+      if (conversationTextIndex >= conversationSession.conversationEndIndex) {
+        clearInterval(chatInterval);
+        console.log("The conversation has ended.");
+        return;
+      }
+
+      const dialogueNode = conversationSession.conversationTexts[conversationTextIndex++];
+      this.poems.push(dialogueNode);
+
+    }, 1000 * Math.ceil(Math.random() * 5));  
   }
 }

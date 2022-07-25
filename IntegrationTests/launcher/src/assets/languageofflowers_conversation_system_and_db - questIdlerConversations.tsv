@@ -1,0 +1,8 @@
+conversationID	characterA	characterB	friendshipLevel	conversationText	actions	Actions are implicitly run by the engine! Simplifies life and reduces scope.
+0	Player	TryAgain34	C	[$A: Yonder the stars befitting this nightly soul. Might and wonder follows suit yet no companion have I., $B: I toil till morningsdale to sit at the table of my fellow men when daybreaks., $A: So I have spotted your fiery blade. Come then, TryAgain34, let us journey forth.]	[$ACTION: 2]	friendship levels are increased by 50% of a rank - the other 50% is incremented if interact in chat homes
+1	Player	TryAgain34	B	[$A: Hey, it's you again. Weather's nice isn't it?, $B: It sure is., $A: Yep.]	[$ACTION: 0]	
+2	Player	TryAgain34	A	[$A: I've been thinking about you said before., $B: Hey, cool. Actually, maybe now's not the time. Can we do this later?, $A: kk, np., $B:  Let's meet in the Chat Homes App later? I'll pm you later. Add me on Meta Messenger: TryAgain34.]	[$ACTION: 1,3]	
+3	Player	_purgeMe_	C	[$B: I'm bored. Hey, who are you? Are you here to play with me?, $A: DON'T MIND IF I DO., $B: Sure.]		
+4	Player	_purgeMe_	B	[$A: I'd like to know why this game even exists. Convince me to stay. Anybody?, $B: Plenty of loot., $A: And?, $A: Maybe if I could make friends or something. Anybody playin gardening idler here?, $B: Me!]		
+5	Player	_purgeMe_	A	[$A: Thanks for the other day., $B: No, thank you., $A: Do you know about this app...]		
+6	Player	BoboCannon	C	[$A: I'm the strongest $B: Ok]		

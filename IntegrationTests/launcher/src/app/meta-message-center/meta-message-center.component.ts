@@ -33,6 +33,6 @@ export class MetaMessageCenterComponent implements OnInit {
   }
 
   addNewMessage() {
-    this.outputMessages.push(new Message(0, "Player", "TryAgain34", "About that meeting: Chat Homes Jazz Lounge", "2022-07-22 13:35:05", "Hey, just to following up on this. Join up in the bar lounge in Chat homes? Let me know if you're interested. - TryAgain34", true));
+    this.outputMessages.push(new Message(0, "Player", "TryAgain34", "About that meeting: Chat Homes 3D - Jazz Lounge", "2022-07-22 13:35:05", "My fellow, to follow thine heart as thunder comes. Join my brethen in the bar lounge in Chat homes? Your spirit beckons to my mail if you are of the green dally. - TryAgain34", true));
   }
 }

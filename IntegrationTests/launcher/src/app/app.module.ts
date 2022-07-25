@@ -33,6 +33,8 @@ import { MenuInterfaceComponent } from './menu-interface/menu-interface.componen
 import { MatIconModule } from '@angular/material/icon';
 import { MetaMessageCenterComponent } from './meta-message-center/meta-message-center.component';
 import { MetaJournalComponent } from './meta-journal/meta-journal.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 // Move into naming service
 export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {     
@@ -66,7 +68,9 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     HttpClientModule,
     BrowserAnimationsModule,
     CdkTreeModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatSidenavModule
   ],
   providers: [{ provide: AVATAR_NAME, useValue: 'Myella' },
               { provide: FriendListService, useClass: FriendListService }, 

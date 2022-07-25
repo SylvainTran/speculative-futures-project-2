@@ -199,7 +199,7 @@ export class FriendCallerService {
     this.activeConv = null;
     this.waitCapacity = 100;
     this.requestQueue = new CircularQueue<RequestInteraction>(this.waitCapacity);
-    this.conversationDatabaseURL = "languageofflowers_conversation_system_and_db - conversations.tsv";
+    this.conversationDatabaseURL = "languageofflowers_conversation_system_and_db - questIdlerConversations.tsv";
     this.assetsPathPrefix = "../../assets/"; //ng serve entry point is integrationtests/launcher folder?
     this.pullConversationDatabase();
   }

@@ -11,6 +11,7 @@ export class QuestIdlerComponent implements OnInit {
 
   title = 'quest-idler';
   playerRef: Player;
+  partyModeActive: boolean = false;
 
   constructor(private avatarControllerService: AvatarControllerService) {
     this.playerRef = new Player("Player");

@@ -9,6 +9,10 @@ html, body {
     justify-content: center;
 }
 
+.avatar-display, .avatar-pic, .inline-container {
+    font-family: 'Press Start 2P', cursive;
+}
+
 .avatar-display {
     display: block;
     border: 5px solid blue;
@@ -18,6 +22,7 @@ html, body {
     line-height: 22vh;
     background-color: black;
     color: lime;
+    overflow: scroll;
 }
 
 .avatar-pic {
