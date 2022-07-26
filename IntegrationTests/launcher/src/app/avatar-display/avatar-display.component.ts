@@ -126,10 +126,13 @@ export class AvatarDisplayComponent implements OnInit, AfterViewInit {
     let conversationTextIndex = 0;
 
     let chatInterval = setInterval( () => {
+
+      console.log("Console text index : " + conversationTextIndex + " , conversation end index: " + conversationSession.conversationEndIndex);
       
       if (conversationTextIndex >= conversationSession.conversationEndIndex) {
         clearInterval(chatInterval);
-        console.log("The conversation has ended.");
+        // End conversation
+        conversationSession.endConversation();
         return;
       }
 

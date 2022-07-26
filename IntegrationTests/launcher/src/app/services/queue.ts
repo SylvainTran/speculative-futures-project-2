@@ -1,3 +1,4 @@
+import { RequestInteraction } from "./friend-caller.service";
 
 export class CircularQueue<T> {
 
@@ -52,5 +53,20 @@ export class CircularQueue<T> {
         this.len = 0
         this.rear = 0
         this.front = -1
+    }
+
+    public contains(target: T): boolean {
+        let _t = target as unknown as RequestInteraction;
+
+        return this.storage.some(element => {
+            let _el = element as unknown as RequestInteraction;
+
+            if (_el.requester.name === _t.requester.name && 
+                _el.target.name === _t.target.name) {
+                return true;
+            } else {
+                return false;
+            }
+        });
     }
 }

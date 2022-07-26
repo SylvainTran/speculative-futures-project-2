@@ -24,35 +24,30 @@ export class RequestInteraction {
     this.target = target;
   }
 
-  checkTargetIsBusy() {
-    return !this.target.isBusy; // a character is busy if they are talking to somebody else or offline
+  checkCharactersAreBusy() {
+    return !this.requester.isBusy && !this.target.isBusy; // a character is busy if they are talking to somebody else or offline
   }
 
   setIsBusy(busy: boolean) {
     this.requester.isBusy = busy;
     this.target.isBusy = busy;
-    this.ready = busy;
 
     console.log(this.requester.isBusy);
     console.log(this.target.isBusy);
-    console.log(this.ready);
   }
 
   initiateRequest() {
-    this.ready = this.checkTargetIsBusy();
+    this.ready = this.checkCharactersAreBusy();
     console.log("This.ready: " + this.ready);
 
     if (this.ready) {
       // proceed
-      window.clearInterval(this.checkIntervalTimer);
       this.setIsBusy(true);
-      this.friendCallerService.startInteraction();
+      this.ready = false;
+      console.log("This.ready now: " + this.ready);
+      this.friendCallerService.startInteraction(this);
 
     } else {
-      if (this.checkIntervalTimer === null) {
-        this.checkIntervalTimer = window.setInterval(() => {this.checkTargetIsBusy(); this.initiateRequest();}, 1000 * this.readyCheckDelay);
-      }
-      // Log failed attempt to interact. This is good to know (hopefully it makes the player feel bad?)
       this.log();
     }
   }
@@ -81,7 +76,6 @@ export class ConversationSession {
     this.parseConversationTextArray();
     // this.displayConversationIteratorNode();
     // this.waitOnPlayerInput();
-    this.endConversation();
   }
 
   getFriendshipLevel() {
@@ -106,7 +100,7 @@ export class ConversationSession {
 
     if(this.conversations.length === 0 || this.conversations === null || this.conversations === undefined) {
       console.log("No conversations found - ending conversation session.");
-      this.endConversation();
+      this.friendCallerService.endInteraction(this.requestInteraction);
     }
   }
 
@@ -146,7 +140,7 @@ export class ConversationSession {
 
   endConversation() {
     this.increaseFriendshipLevel();
-    this.friendCallerService.endInteraction();
+    this.friendCallerService.endInteraction(this.requestInteraction);
   }
 
   increaseFriendshipLevel() {
@@ -178,8 +172,7 @@ export class ConversationNode {
 })
 export class FriendCallerService {
 
-  // There shouldn't be more than one active request at all times
-  activeReq: RequestInteraction | any;
+  // There shouldn't be more than one active conversation at all times (for now)
   activeConv: ConversationSession | null;
 
   // Waiters are put here
@@ -195,7 +188,6 @@ export class FriendCallerService {
   conversationNodes: ConversationNode[] = [];
   
   constructor() {
-    this.activeReq = null;
     this.activeConv = null;
     this.waitCapacity = 100;
     this.requestQueue = new CircularQueue<RequestInteraction>(this.waitCapacity);
@@ -234,24 +226,23 @@ export class FriendCallerService {
   requestInteraction(requester: Character, target: Character) {
 
     const newReq: RequestInteraction = new RequestInteraction(this, requester, target);
-    this.requestQueue.enqueue(newReq);
-
-    if (this.activeReq === null) {
-      console.log("New active request set");
-      this.updateRequestQueue();
+    
+    // Add to request queue once. 
+    if (!this.requestQueue.contains(newReq)) {
+      this.requestQueue.enqueue(newReq);
     } else {
-      console.log("Active request exists already - waiting in queue");
+      // then was requested before. TOOD: decide randomly if should take the request now
+      // Right now everything passes and starts a conversation or logs the missed opportunity
     }
-    // TODO: Must handle cases where no convo exists between chars - do this before init request
+
+    // This may bounce off if the chars are busy, in that case it just logs the event which could be useful for the ai later
     newReq.initiateRequest(); // REVIEW: Initiate here?    
   }
 
-  updateRequestQueue() {
-    this.activeReq = this.requestQueue.dequeue(); // get the next in queue
-  }
-
-  startInteraction() {
-    this.activeConv = new ConversationSession(this, this.activeReq);
+  startInteraction(request: RequestInteraction) {
+    // Remove from queue
+    this.requestQueue.dequeue();
+    this.activeConv = new ConversationSession(this, request);
     this.activeConv.init(); // Note: init from outside, unwinding problem
     this.friendPrivateMessageSource.next(this.activeConv);
   }
@@ -268,9 +259,9 @@ export class FriendCallerService {
     return ret;
   }
 
-  endInteraction() {
-    this.activeReq!.setIsBusy(false); // REVIEW: Should this be guaranteed !?
-    this.activeReq = null;
+  endInteraction(request: RequestInteraction) {
+    request.setIsBusy(false); // REVIEW: Should this be guaranteed !?
+    request.ready = true;
   }
 
   bookNewEvent(activeRequestInteraction: RequestInteraction) {
