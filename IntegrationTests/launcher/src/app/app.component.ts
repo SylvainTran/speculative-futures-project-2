@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ScheduledEvent } from './scheduled-event';
+import { ScheduledEvent } from './services/scheduled-event';
 import { AvatarControllerService } from './services/avatar-controller.service';
 import { Player } from './services/player';
 

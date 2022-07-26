@@ -24,6 +24,9 @@ export class AvatarPartyDisplayComponent implements OnInit {
   public currentExperience: number = 0;
   public experienceTotalRequired: number = 100;
 
+  // Quest
+  private enemyPlaceholder: String = "The mountains are breezy and the wind pushes you forth.";
+
   // Services
   private avatarControllerService: AvatarControllerService;
   
@@ -56,6 +59,10 @@ export class AvatarPartyDisplayComponent implements OnInit {
     return this.avatarName;
   }
 
+  public getEnemyPlaceholder() {
+    return this.enemyPlaceholder;
+  }
+
   public handleAvatarClicked() {
     // TODO Replace by events
     this.avatarControllerService.handleAvatarClicked();
@@ -71,9 +78,11 @@ export class AvatarPartyDisplayComponent implements OnInit {
       if (this.clickCount % 2 === 0) {
         this.avatar = "<(O`.O`)> <( Fighting! )";
         this.avatar2 = "<(O`.`O)> <( Fighting Alongside! )";
+        this.enemyPlaceholder = "(You are out in the mountains together, looking for new adventure.)";
       } else if (this.clickCount % 3 == 0) {
         this.avatar = "^(^_^)^_ <( Victorious. )"
         this.avatar2 = "<(O`.`O)> <( Well done! )";
+        this.enemyPlaceholder = "(The songs tell of a tale when you defeated a wild, naked goblin together.)";
       } else {
         this.avatar = "_(*_*)_ <( Defeated. )";
         this.avatar2 = "_(*_*)_ <( It's my fault. )";
@@ -81,6 +90,7 @@ export class AvatarPartyDisplayComponent implements OnInit {
         if(this.avatarControllerService.getAvatarHealthService().healthIsBelowZero()) {
           this.avatar = "(RIP) <( Has Died. )";
           this.avatar2 = "(RIP) <( Has Died. )";
+          this.enemyPlaceholder = "(You both faded from history, alas defeated by a wild, naked goblin.)";
           this.avatarControllerService.alive = false;
         }
       }

@@ -26,4 +26,9 @@ export class QuestIdlerComponent implements OnInit {
     this.avatarControllerService.setIsAlive(true);
     this.avatarControllerService.getAvatarHealthService().setHealth(100);    
   }
+
+  public handleStartSoloGame() {
+    let src: any = document.getElementById("bard-of-diegesia-song");
+    src?.play();
+  }
 }

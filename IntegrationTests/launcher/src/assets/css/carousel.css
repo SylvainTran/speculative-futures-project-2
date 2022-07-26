@@ -9,7 +9,6 @@
     height: 85vh;
     width: 100%;
     
-    cursor: pointer;
     z-index: 3;
 
     transform: translateY(0%);

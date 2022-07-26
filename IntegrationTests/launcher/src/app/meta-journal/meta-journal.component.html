@@ -1,6 +1,15 @@
 <mat-card class="meta-journal-window">
+    <div *ngIf="activeText == 'cover-letter'">
+        <h3>Istae litterae adsignantur. Non festinarem nisi Deus meus me fecit.</h3>
+        <br>
+        <h4>Postscript: My love. Please do not delay. Hasten what you must do, and come find me at the summer quai.</h4>
+        <h4>Admist all the verses, where our blue dreams met.</h4>
+        <h4>The meadow of my heart is bare for you.</h4>
+        <h5>- Q</h5><br>
+        <h6>PS: Since you are here, I have left some letters penned throughout my journey in the Twelve Verses. As you are aware of my real identity within the Empire, kindly do not let prying eyes see this.</h6>
+    </div>
     <hr>
-    <div>
+    <div *ngIf="activeText == 'OrangeSummerLove'">
         <h1>Red Carbuncle</h1>
         <hr>
         <div>
@@ -11,10 +20,30 @@
         <h1>Metal Carbuncle</h1>
         <hr>
         <div>
-            <p>Promise me one thing</p>
+            <p>Promise me <span class="strikethrough">two</span> one thing</p>
             <p id="liberation-p">Our liberation</p>
         </div>
+        <h1>My Blue Days With you</h1>
+        <hr>
+        <div>
+            <p>Rinse my hands</p>
+            <p>In the River's foam</p>
+            <p>Two oceans blue, <span class="strikethrough">doves</span> seagulls in midflight</p>
+            <p>The midnight clock turned for the last time</p>
+            <p>Your fire set me on Love</p>
+        </div>
+        <h1>Arclight on the Moon</h1>
+        <hr>
+        <div>
+            <p>God whispered to me</p>
+            <p>He wants you to be with him</p>
+            <p>He's with you right now</p>
+            <p>Nothing old, nothing new</p>
+        </div>
+    </div>
+    <div *ngIf="activeText == 'BlueSolaceRain'">
         <h1>Dyerden</h1>
+        <p>(PS: I was not sure how to name this. Do not laugh at my attempts.)</p>
         <hr>
         <div>
             <p>The rain hath a cold promise made to wash away my fear.</p>
@@ -56,4 +85,39 @@
             <p>Hath thy not commanded for the red links to be made distinct once again?</p>
         </div>
     </div>
+    <div *ngIf="activeText == 'StarryPalace'">
+        <h1>Cosmos</h1>
+        <hr>
+        <div>
+            <p>Hath thee a pair in this world?</p>
+            <p>Yet countless a leaf doth scatters in the wind.</p>
+            <p>Tossed about like an ant over the scarlet hurricane's edge</p>
+            <p>How does a nightingale know its resting place?</p>
+            <p>Such that admist the turmoil, that two people be in one place</p>
+            <p>Tis' a miracle that two such souls met.</p>
+        </div>
+        <h1>The Lady Sitting at the Edge of the Universe</h1>
+        <hr>
+        <div>
+            <p>
+                While cosmic lights streaked around her, she was sitting at the center of the universe.
+
+                When the rim of the black hole ate a new sun, she swayed to the left.
+                
+                While civilizations rose and fell, she swayed to the right. 
+                
+                When she stretched her weary back, suns died, and when she stretched her weary arms, kings were made. 
+                
+                In all these motions, it seemed to her that her lover would finally come.</p>
+        </div>
+    </div>
 </mat-card>   
+<div class="file-selection">
+    <button (click)='setActiveText("cover-letter")'>Cover Letter</button>
+    <br>
+    <button (click)='setActiveText("OrangeSummerLove")'>Carbuncle Arclight</button>
+    <br>
+    <button (click)='setActiveText("BlueSolaceRain")'>Blue Solace Rain</button>
+    <br>
+    <button (click)='setActiveText("StarryPalace")'>Starry Palace</button>
+</div>

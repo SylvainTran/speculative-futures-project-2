@@ -10,8 +10,8 @@
     justify-content: flex-start;
     align-items: left;
 
-    background-color: hsl(240, 40%, 10%);
-    color: cadetblue;
+    background-color: hsla(254, 12%, 29%, 1);
+    color: black;
     z-index: 2;
     
     width: 50vw;
@@ -22,15 +22,17 @@
     overflow: scroll;
     font-family: 'Cantarell', 'sans-serif';
     border: 5px solid cyan;
+
+    font-weight: bold;
 }
 
 #message-center-body {
-    font-family: 'Allura', cursive;
+    font-family: 'Cantarell', cursive;
     padding: 3rem;
     line-height: 2rem;
     color: white;
-    font-size: 2.5rem;
-    width: 30vw;
+    font-size: 1.5rem;
+    width: 40vw;
 }
 
 button {

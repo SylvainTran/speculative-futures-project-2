@@ -1,9 +1,18 @@
 <div class="flex-container">
-    <div class="avatar-display">
-        <h3>{{this.getAvatarName()}}</h3>
-        <div class="avatar-pic" (click)="handleAvatarClicked()">{{this.getAvatar()}}</div>
-        <!-- Friend -->
-        <div class="avatar-pic">{{this.getAvatar2()}}</div>
-        <app-avatar-detail [currentHealth]="currentHealth" [currentLevel]="currentLevel" [currentExperience]="currentExperience" [experienceTotalRequired]="experienceTotalRequired"></app-avatar-detail>
+    <div class="gameCanvas">
+        <div class="poetry-game-section avatar-display">
+            <div class="locationBg">
+                <div class="enemy-pic" >Bard: {{this.getEnemyPlaceholder()}}</div>    
+            </div>    
+            <label for="avatar-pic-id">Click \|/</label>
+            <div class="gameClickHandler">
+                <h3>{{this.getAvatarName()}}</h3>&nbsp;&nbsp;
+                <div id="avatar-pic-id" class="avatar-pic" (click)="handleAvatarClicked()">{{this.getAvatar()}}</div>&nbsp;&nbsp;
+                <!-- Friend -->
+                <h3>herohero</h3>&nbsp;&nbsp;
+                <div class="avatar-pic">{{this.getAvatar2()}}</div>    
+            </div>
+            <app-avatar-detail [currentHealth]="currentHealth" [currentLevel]="currentLevel" [currentExperience]="currentExperience" [experienceTotalRequired]="experienceTotalRequired"></app-avatar-detail>            
+        </div>
     </div>
 </div>

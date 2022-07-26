@@ -72,7 +72,7 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     MatCardModule,
     MatSidenavModule
   ],
-  providers: [{ provide: AVATAR_NAME, useValue: 'Myella' },
+  providers: [{ provide: AVATAR_NAME, useValue: 'Autumn' },
               { provide: FriendListService, useClass: FriendListService }, 
               { provide: MockFriendList, useClass: MockFriendList },
               { provide: AvatarControllerService, useClass: AvatarControllerService },

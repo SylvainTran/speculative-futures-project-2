@@ -5,4 +5,13 @@
 
 .avatar-stats {
     margin: 2rem;
+    text-align: left;
+}
+
+.green {
+    color: lime;
+}
+
+.yellow {
+    color: yellow;
 }

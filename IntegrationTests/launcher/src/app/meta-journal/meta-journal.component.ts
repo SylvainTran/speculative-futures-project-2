@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MetaJournalComponent implements OnInit {
 
+  activeText: string = "cover-letter";
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public setActiveText(textName: string) {
+    this.activeText = textName;
   }
 
 }

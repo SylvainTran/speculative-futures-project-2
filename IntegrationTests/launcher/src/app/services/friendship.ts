@@ -21,6 +21,6 @@ export class Friendship {
     }
 
     increaseFriendshipLevel() {
-        this.character1.friendsMap.get(this.character2.name)!.friendshipLevel += 0.5; // TODO: friendship levels should be the same in the two characters' Friendship object. Is this pass by reference?
+        this.character1.friendsMap.get(this.character2.name)!.friendshipLevel += 1; // TODO: friendship levels should be the same in the two characters' Friendship object. Is this pass by reference?
     }
 }

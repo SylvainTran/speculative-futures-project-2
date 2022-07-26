@@ -112,6 +112,12 @@ export class MetaFriendListComponent implements OnInit {
       level: 2,
     },
     {
+      name: 'Aingealag',
+      expandable: true,
+      hasHandler: false,
+      level: 2,
+    },
+    {
       name: 'Other Games',
       expandable: true,
       hasHandler: false,

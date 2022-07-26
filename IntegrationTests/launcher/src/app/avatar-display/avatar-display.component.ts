@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AVATAR_NAME } from '../app.module';
 import { AvatarControllerService } from '../services/avatar-controller.service';
@@ -9,7 +9,7 @@ import { ConversationSession, FriendCallerService } from '../services/friend-cal
   templateUrl: './avatar-display.component.html',
   styleUrls: ['./avatar-display.component.css'],
 })
-export class AvatarDisplayComponent implements OnInit {
+export class AvatarDisplayComponent implements OnInit, AfterViewInit {
   // Received from AvatarController
   private clickCount: number = 0;
 
@@ -19,6 +19,9 @@ export class AvatarDisplayComponent implements OnInit {
   private enemyPlaceholder: String = "The mountains are breezy and the wind pushes you forth.";
   private location: String = "//\\//\\";
   private locationName: String = "Mountains of Uncertainty 1-1";
+  private sun: any;
+  // private gameCanvas: HTMLCanvasElement;
+  // private ctx: CanvasRenderingContext2D;
 
   public currentHealth: number = 100;
   public currentLevel: number = 1;
@@ -46,6 +49,15 @@ export class AvatarDisplayComponent implements OnInit {
       complete: () => console.log('Observer got a complete notification'),
     };
     this.friendPrivateMessagesSub = this.friendCallerService.friendPrivateMessageSource$.subscribe(obs);
+    // this.gameCanvas = document.getElementById('game-canvas') as HTMLCanvasElement;
+    // this.ctx = this.gameCanvas.getContext('2d') as CanvasRenderingContext2D ;
+  }
+  ngAfterViewInit(): void {
+    // Canvas 
+    // Let us chase the sun together
+    // this.sun = new Image();
+    // this.sun.src = '../assets/sunbg.png';
+    // window.requestAnimationFrame(this.draw);
   }
 
   ngOnInit(): void {
@@ -109,10 +121,6 @@ export class AvatarDisplayComponent implements OnInit {
     }
   }
 
-  public updateEnemyAvatarDisplay() {
-    
-  }
-
   // Experimental poetry
   public updateVideoGamePoetry(conversationSession: ConversationSession) {
     let conversationTextIndex = 0;
@@ -129,5 +137,11 @@ export class AvatarDisplayComponent implements OnInit {
       this.poems.push(dialogueNode);
 
     }, 1000 * Math.ceil(Math.random() * 5));  
+  }
+
+  draw() {
+    // this.ctx.drawImage(this.sun, 0, 0, 400, 400);
+    // window.requestAnimationFrame(this.draw);
+    // console.log("Drawing" + this.gameCanvas);
   }
 }

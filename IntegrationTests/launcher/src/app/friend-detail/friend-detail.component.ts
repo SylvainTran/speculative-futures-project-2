@@ -15,7 +15,7 @@ export class FriendDetailComponent implements OnInit {
   player: Player;
   @Input() selectedFriend!: Friend;
   constructor(private friendListService: FriendListService) {
-    this.player = new Player("Player");
+    this.player = new Player("Autumn");
   }
 
   ngOnInit(): void {

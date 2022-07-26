@@ -10,8 +10,18 @@
 }
 
 .avatar-pic {
+    display: flex;
     font-size: 2.5rem;
     cursor: pointer;
+    border: 3px solid cyan;
+    width: 400px;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-pic:hover {
+    background-color: green;
 }
 
 .inline-container {
@@ -23,7 +33,9 @@
 .enemy-pic {
     font-style: italic;
     font-family: 'Press Start 2P', cursive;
-    font-size: 2rem;
+    font-size: 1rem;
+    position: relative;
+    top: 100px;
 }
 
 .quest-location {
@@ -33,13 +45,52 @@
 
 .poetry-game-section {
     background-color: darkblue;
-    margin-top: 20rem;
+    width: 400px;
 }
 
 .poems {
-    width: 50%;
+    display: flex;
+    width: 100%;
     line-height: 2rem;
+    flex-direction: row;
 }
+
+.poem-container {
+    width: 50vw;
+    padding-right: 5rem;
+}
+
 .poems, .poetry-game-section, .enemy-pic, .quest-location {
     font-family: 'Press Start 2P', cursive;
+}
+
+#game-canvas {
+    margin-left: 30%;
+    width: 400px;
+    height: 400px;
+}
+
+.gameClickHandler {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    line-height: 3rem;
+}
+
+.gameCanvas {
+    display: flex;
+    flex-direction: column;
+}
+
+.gameCanvas img {
+    /* height: 400px; */
+    width: 400px;
+}
+
+.locationBg {
+    background-image: url('../../assets/sunbg.png');
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-position: center; /* Center the image */
+    height: 400px;
+    width: 400px;
 }
