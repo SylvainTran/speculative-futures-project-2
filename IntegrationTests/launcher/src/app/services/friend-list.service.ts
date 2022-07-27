@@ -11,7 +11,7 @@ import { MockFriendList } from './mockfriendlist';
 export class FriendListService {
 
   constructor(@Inject(MockFriendList) private friendList: MockFriendList,
-              private friendCallerService: FriendCallerService) {
+              public friendCallerService: FriendCallerService) {
 
     console.log(friendList);
   }

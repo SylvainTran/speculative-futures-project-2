@@ -49,6 +49,7 @@ export class RequestInteraction {
 
     } else {
       this.log();
+      this.friendCallerService.friendPrivateMessageFailureSource.next(null);
     }
   }
 
@@ -179,8 +180,10 @@ export class FriendCallerService {
   waitCapacity: number;
   requestQueue: CircularQueue<RequestInteraction>;
 
-  private friendPrivateMessageSource = new Subject<any>();
-  friendPrivateMessageSource$ = this.friendPrivateMessageSource.asObservable();
+  public friendPrivateMessageSuccessSource = new Subject<any>();
+  friendPrivateMessageSuccessSource$ = this.friendPrivateMessageSuccessSource.asObservable();
+  public friendPrivateMessageFailureSource = new Subject<any>();
+  friendPrivateMessageFailureSource$ = this.friendPrivateMessageFailureSource.asObservable();
 
   // Conversation data pulled from /assets
   conversationDatabaseURL: string;
@@ -244,7 +247,8 @@ export class FriendCallerService {
     this.requestQueue.dequeue();
     this.activeConv = new ConversationSession(this, request);
     this.activeConv.init(); // Note: init from outside, unwinding problem
-    this.friendPrivateMessageSource.next(this.activeConv);
+    // Notify friend detail of success and update displays
+    this.friendPrivateMessageSuccessSource.next(this.activeConv);
   }
 
   getInteractionFriendshipConversationTexts(c1: Character, c2: Character, fl: number) {

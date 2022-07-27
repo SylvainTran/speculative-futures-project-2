@@ -10,7 +10,7 @@ import { ConversationSession, FriendCallerService } from '../services/friend-cal
 export class ChatDisplayComponent implements OnInit {
   chatboard: String[] = [];
   friendPrivateMessagesSub: Subscription;
-  newMessages: Number = 0;
+  newMessages: number = 0;
 
   constructor(private friendCallerService: FriendCallerService) {
     this.chatboard = [];
@@ -19,7 +19,7 @@ export class ChatDisplayComponent implements OnInit {
       error: (err: Error) => console.error('Observer got an error: ' + err),
       complete: () => console.log('Observer got a complete notification'),
     };
-    this.friendPrivateMessagesSub = this.friendCallerService.friendPrivateMessageSource$.subscribe(obs);
+    this.friendPrivateMessagesSub = this.friendCallerService.friendPrivateMessageSuccessSource$.subscribe(obs);
   }
 
   ngOnInit(): void {}
@@ -29,6 +29,8 @@ export class ChatDisplayComponent implements OnInit {
   }
 
   updateChat(conversationSession: ConversationSession) {
+
+    ++this.newMessages;
     
     // Simulate real time delays
     let conversationTextIndex = 0;
@@ -38,6 +40,7 @@ export class ChatDisplayComponent implements OnInit {
       if (conversationTextIndex >= conversationSession.conversationEndIndex) {
         clearInterval(chatInterval);
         console.log("The conversation has ended.");
+        --this.newMessages;
         return;
       }
 

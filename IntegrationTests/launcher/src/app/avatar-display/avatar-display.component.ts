@@ -48,16 +48,9 @@ export class AvatarDisplayComponent implements OnInit, AfterViewInit {
       error: (err: Error) => console.error('Observer got an error: ' + err),
       complete: () => console.log('Observer got a complete notification'),
     };
-    this.friendPrivateMessagesSub = this.friendCallerService.friendPrivateMessageSource$.subscribe(obs);
-    // this.gameCanvas = document.getElementById('game-canvas') as HTMLCanvasElement;
-    // this.ctx = this.gameCanvas.getContext('2d') as CanvasRenderingContext2D ;
+    this.friendPrivateMessagesSub = this.friendCallerService.friendPrivateMessageSuccessSource$.subscribe(obs);
   }
   ngAfterViewInit(): void {
-    // Canvas 
-    // Let us chase the sun together
-    // this.sun = new Image();
-    // this.sun.src = '../assets/sunbg.png';
-    // window.requestAnimationFrame(this.draw);
   }
 
   ngOnInit(): void {
@@ -140,11 +133,5 @@ export class AvatarDisplayComponent implements OnInit, AfterViewInit {
       this.poems.push(dialogueNode);
 
     }, 1000 * Math.ceil(Math.random() * 5));  
-  }
-
-  draw() {
-    // this.ctx.drawImage(this.sun, 0, 0, 400, 400);
-    // window.requestAnimationFrame(this.draw);
-    // console.log("Drawing" + this.gameCanvas);
   }
 }

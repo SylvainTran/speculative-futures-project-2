@@ -15,3 +15,11 @@
 button {
     font-family: 'Press Start 2P', cursive;
 }
+
+.friend-reply {
+    color: red;
+}
+
+.friend-reply-status-box {
+    border: 5px solid purple;
+}
