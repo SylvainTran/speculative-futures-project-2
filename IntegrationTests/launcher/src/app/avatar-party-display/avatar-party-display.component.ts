@@ -29,7 +29,12 @@ export class AvatarPartyDisplayComponent implements OnInit {
 
   // Services
   private avatarControllerService: AvatarControllerService;
-  
+
+  // Sounds
+  avatarClickAudioSrc: any;
+  avatarVictoryAudioSrc: any;
+  avatarDeathAudioSrc: any;
+    
   constructor(@Inject(AVATAR_NAME) 
               avatarName: string,
               avatarControllerService: AvatarControllerService) 
@@ -45,6 +50,12 @@ export class AvatarPartyDisplayComponent implements OnInit {
     this.currentLevel = aes.getCurrentLevel();
     this.currentExperience = aes.getCurrentExperience();
     this.experienceTotalRequired = aes.getExperienceTotalRequired();
+  }
+
+  ngAfterViewInit(): void {
+    this.avatarClickAudioSrc = document.getElementById("click-beep");
+    this.avatarVictoryAudioSrc = document.getElementById("victory");
+    this.avatarDeathAudioSrc = document.getElementById("death");
   }
 
   public getAvatar() {
@@ -71,6 +82,7 @@ export class AvatarPartyDisplayComponent implements OnInit {
     this.currentExperience = this.avatarControllerService.getAvatarExperienceService().getCurrentExperience();
     this.experienceTotalRequired = this.avatarControllerService.getAvatarExperienceService().getExperienceTotalRequired();
     this.updateAvatarDisplay();
+    this.avatarClickAudioSrc.play();
   }
 
   public updateAvatarDisplay() {    
@@ -83,10 +95,12 @@ export class AvatarPartyDisplayComponent implements OnInit {
         this.avatar = "^(^_^)^_ <( Victorious. )"
         this.avatar2 = "<(O`.`O)> <( Well done! )";
         this.enemyPlaceholder = "(The songs tell of a tale when you defeated a wild, naked goblin together.)";
+        this.avatarVictoryAudioSrc.play();
       } else {
         this.avatar = "_(*_*)_ <( Defeated. )";
         this.avatar2 = "_(*_*)_ <( It's my fault. )";
         this.currentHealth = this.avatarControllerService.getAvatarHealthService().changeHealth(-5);
+        this.avatarDeathAudioSrc.play();
         if(this.avatarControllerService.getAvatarHealthService().healthIsBelowZero()) {
           this.avatar = "(RIP) <( Has Died. )";
           this.avatar2 = "(RIP) <( Has Died. )";
