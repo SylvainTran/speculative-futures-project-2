@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ConversationSession, FriendCallerService } from '../services/friend-caller.service';
 
@@ -7,7 +7,7 @@ import { ConversationSession, FriendCallerService } from '../services/friend-cal
   templateUrl: './chat-display.component.html',
   styleUrls: ['./chat-display.component.css']
 })
-export class ChatDisplayComponent implements OnInit {
+export class ChatDisplayComponent implements OnInit, OnDestroy {
   chatboard: String[] = [];
   friendPrivateMessagesSub: Subscription;
   newMessages: number = 0;
@@ -24,7 +24,7 @@ export class ChatDisplayComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.friendPrivateMessagesSub.unsubscribe();
   }
 

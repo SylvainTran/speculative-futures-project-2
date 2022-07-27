@@ -43,8 +43,9 @@ public class KillMonsterQuest extends Quest {
             Path currentRelativePath = Paths.get("");
             String pathPrefix = currentRelativePath.toAbsolutePath().toString();
             // Debugger starts from a different path than gradle bootRun
-            String projectPrefix = "/IntegrationTests/launcher/server";
-            Path of = Path.of(pathPrefix + projectPrefix + "/data/MockMonsters.json");
+            String projectPrefix = "/launcher/server";
+            // Path of = Path.of(pathPrefix + projectPrefix + "/data/MockMonsters.json");
+            Path of = Path.of(pathPrefix  + projectPrefix + "/data/MockMonsters.json");
 
             monstersList = Arrays.asList(mapper.readValue(of.toFile(), Monster[].class));
             ArrayList<Monster> selected = new ArrayList<Monster>();

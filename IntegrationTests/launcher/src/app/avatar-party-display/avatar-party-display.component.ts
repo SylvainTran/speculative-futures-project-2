@@ -1,6 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { AVATAR_NAME } from '../app.module';
 import { AvatarControllerService } from '../services/avatar-controller.service';
+import { PartyQuestData } from '../services/quest-party.service';
 
 @Component({
   selector: 'app-avatar-party-display',
@@ -26,10 +27,8 @@ export class AvatarPartyDisplayComponent implements OnInit {
 
   // Quest
   private enemyPlaceholder: String = "The mountains are breezy and the wind pushes you forth.";
-
-  // Services
-  private avatarControllerService: AvatarControllerService;
-
+  @Input() public activePartyQuest?: PartyQuestData;
+  
   // Sounds
   avatarClickAudioSrc: any;
   avatarVictoryAudioSrc: any;
@@ -37,10 +36,9 @@ export class AvatarPartyDisplayComponent implements OnInit {
     
   constructor(@Inject(AVATAR_NAME) 
               avatarName: string,
-              avatarControllerService: AvatarControllerService) 
+              private avatarControllerService: AvatarControllerService)  
   {
     this.avatarName = avatarName;
-    this.avatarControllerService = avatarControllerService;
   }
 
   ngOnInit(): void {
@@ -70,8 +68,20 @@ export class AvatarPartyDisplayComponent implements OnInit {
     return this.avatarName;
   }
 
+  public getFriendName() {
+    return this.avatarName2;
+  }
+
   public getEnemyPlaceholder() {
     return this.enemyPlaceholder;
+  }
+
+  public getActiveQuestName() {
+    return this.activePartyQuest?.getActiveQuestName();
+  }
+
+  public getActivePartyNames() {
+    return this.activePartyQuest?.getRegistrants();
   }
 
   public handleAvatarClicked() {

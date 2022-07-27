@@ -3,6 +3,8 @@ import { Subject } from 'rxjs';
 import { Character } from './character';
 import { CircularQueue } from './queue';
 import { Friendship, FriendshipLevels } from './friendship';
+import { QuestPartyService } from './quest-party.service';
+import { AvatarPartyDisplayComponent } from '../avatar-party-display/avatar-party-display.component';
 
 // This is the beginning of a social AI system, or social artificial intelligence heuristics/pragmatics
 // Tailored specifically for this game.
@@ -58,22 +60,33 @@ export class RequestInteraction {
   }  
 }
 
+export enum ActionCommands {
+  DO_NOTHING,
+  CHAT_HOMES_MEETUP,
+  QUEST_IDLER_PARTY_REQUEST,
+  MESSAGE_CENTER_CORRESPONDENCE
+}
+
 export class ConversationSession {
 
-  conversationTexts: string[] = []; // 
+  conversationTexts: string[] = [];
+  conversationRequesterName: string = ""; 
   conversationTargetName: string = "";
   // conversationURL: string = "http://127.0.0.1:8080/";
   conversations: ConversationNode[] | undefined;
   conversationEndIndex: number = 0;
   friendshipLevel: FriendshipLevels | any;
   maxFriendshipLevel: number = 3;
+  conversationActions: number[] = [];
 
-  constructor(private friendCallerService: FriendCallerService, private requestInteraction: RequestInteraction) {
+  constructor(private friendCallerService: FriendCallerService, private requestInteraction: RequestInteraction, private questPartyService: QuestPartyService) {
+    this.conversationRequesterName = requestInteraction.requester.name;
   }
 
   init() {
     this.getFriendshipLevel();
     this.pullConversationDataNodes();
+    this.pullActions();
     this.parseConversationTextArray();
     // this.displayConversationIteratorNode();
     // this.waitOnPlayerInput();
@@ -84,17 +97,15 @@ export class ConversationSession {
 
     if(this.requestInteraction.requester.friendsMap.has(this.conversationTargetName)) {
       let f: Friendship | undefined = this.requestInteraction.requester.friendsMap.get(this.conversationTargetName);
-      this.friendshipLevel = f!.friendshipLevel; // TODO: round this up?
+      this.friendshipLevel = f!.friendshipLevel;
     } else {
       console.log("Friends map never initialized.")
     }
-
     console.log("FRIENDSHIP LEVEL : " + this.friendshipLevel);
   }
 
   pullConversationDataNodes() {
     // pull from client side .tsv
-    // this.conversations = this.friendCallerService.conversationNodes;
     this.conversations = this.friendCallerService.getInteractionFriendshipConversationTexts(this.requestInteraction.requester, this.requestInteraction.target, this.friendshipLevel);
     console.log("this conversations: " + this.conversations.length);
     console.log(this.conversations);
@@ -103,6 +114,26 @@ export class ConversationSession {
       console.log("No conversations found - ending conversation session.");
       this.friendCallerService.endInteraction(this.requestInteraction);
     }
+  }
+
+  pullActions() {
+    const conversation = this.conversations![0];
+    const actionsText = conversation.actionsText;
+    const splits = actionsText
+                    .replace('[', '')
+                    .replace(']', '')      
+                    .split(",");
+    const actions: number[] = [];
+
+    splits.forEach( split => {
+      const parsed = parseInt(split);
+      if (isNaN(parsed)) {
+        console.error("action parsed is NaN!");
+      } else {
+        actions.push(parsed);
+      }
+    });
+    this.conversationActions = actions;
   }
 
   // The conversation index is the friendship level
@@ -150,6 +181,37 @@ export class ConversationSession {
       f!.increaseFriendshipLevel();
     }
   }
+
+  applyActions() {    
+    this.conversationActions.forEach( action => {
+      if (action === ActionCommands.QUEST_IDLER_PARTY_REQUEST) {
+        const party = new PartyRequestCommand(this.friendCallerService, this.questPartyService, this);
+        // TODO: for later - party.execute();
+        this.questPartyService.setupQuestParty(party);
+      }
+    });
+  }
+}
+
+export abstract class ActionCommand {
+  constructor(private friendCallerService: FriendCallerService) {}  
+  abstract execute(): void;
+}
+
+export class PartyRequestCommand extends ActionCommand {
+  constructor(friendCallerService: FriendCallerService, private questPartyService: QuestPartyService, private conversationSession: ConversationSession) {
+    super(friendCallerService);
+  }
+
+  override execute(): void {
+    // Sets the data in the questPartyService
+    // This data is pulled and consumed by avatar party display component in its init routine
+    this.questPartyService.setupQuestParty(this);
+  }
+
+  public getConversationSession() {
+    return this.conversationSession;
+  }
 }
 
 export class ConversationNode {
@@ -158,13 +220,15 @@ export class ConversationNode {
   characterB: string = "";
   friendshipLevel: string = "";
   conversationText: string = "";
+  actionsText: string = "";
 
-  constructor(conversationID: number, characterA: string, characterB: string, friendshipLevel: string, conversationText: string) {
+  constructor(conversationID: number, characterA: string, characterB: string, friendshipLevel: string, conversationText: string, actionsText: string) {
     this.conversationID = conversationID;
     this.characterA = characterA;
     this.characterB = characterB;
     this.friendshipLevel = friendshipLevel;
     this.conversationText = conversationText;
+    this.actionsText = actionsText;
   }
 }
 
@@ -175,6 +239,7 @@ export class FriendCallerService {
 
   // There shouldn't be more than one active conversation at all times (for now)
   activeConv: ConversationSession | null;
+  //convHistory: any;
 
   // Waiters are put here
   waitCapacity: number;
@@ -190,13 +255,17 @@ export class FriendCallerService {
   assetsPathPrefix: String;
   conversationNodes: ConversationNode[] = [];
   
-  constructor() {
+  constructor(private questPartyService: QuestPartyService) {
     this.activeConv = null;
     this.waitCapacity = 100;
     this.requestQueue = new CircularQueue<RequestInteraction>(this.waitCapacity);
     this.conversationDatabaseURL = "languageofflowers_conversation_system_and_db - questIdlerConversations.tsv";
     this.assetsPathPrefix = "../../assets/"; //ng serve entry point is integrationtests/launcher folder?
     this.pullConversationDatabase();
+  }
+
+  public getQuestPartyService() {
+    return this.questPartyService;
   }
 
   read(conversationDatabaseURL: string) {
@@ -214,7 +283,8 @@ export class FriendCallerService {
           const characterB = cols[2];
           const friendshipLevel = cols[3];
           const textArray = cols[4];
-          const conversationNode = new ConversationNode(id, characterA, characterB, friendshipLevel, textArray);
+          const actionArray = cols[5];
+          const conversationNode = new ConversationNode(id, characterA, characterB, friendshipLevel, textArray, actionArray);
           this.conversationNodes.push(conversationNode);
         }
         console.log(this.conversationNodes);
@@ -245,7 +315,7 @@ export class FriendCallerService {
   startInteraction(request: RequestInteraction) {
     // Remove from queue
     this.requestQueue.dequeue();
-    this.activeConv = new ConversationSession(this, request);
+    this.activeConv = new ConversationSession(this, request, this.questPartyService);
     this.activeConv.init(); // Note: init from outside, unwinding problem
     // Notify friend detail of success and update displays
     this.friendPrivateMessageSuccessSource.next(this.activeConv);
@@ -275,5 +345,9 @@ export class FriendCallerService {
 
   cancelEvent(requestInteraction: RequestInteraction) {
 
+  }
+
+  executeCommand(c: ActionCommand) {
+    c.execute();
   }
 }

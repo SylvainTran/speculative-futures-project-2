@@ -2,15 +2,19 @@
     <div class="gameCanvas">
         <div class="poetry-game-section avatar-display">
             <div class="locationBg">
-                <div class="enemy-pic" >Bard: {{this.getEnemyPlaceholder()}}</div>    
-            </div>    
+                <!--TODO: use setTimeout to end declaration after-->
+                <!-- <div *ngIf="questPartyData$ | async as PartyQuestData" class="enemy-pic" >Bard Declaration: Let it be known that {{ PartyQuestData.getRegistrants() }} are questing together.</div>    
+                <div *ngIf="questPartyData$ | async as PartyQuestData" class="enemy-pic" >Bard: {{ PartyQuestData.getActiveQuestName() }} {{getEnemyPlaceholder()}}</div> -->
+                <div class="enemy-pic">Bard: The quest has started: {{ getActiveQuestName() }}</div>
+                <div class="enemy-pic" >Bard: {{ getEnemyPlaceholder() }}</div>
+            </div>
             <label for="avatar-pic-id">Click \|/</label>
             <div class="gameClickHandler">
-                <h3>{{this.getAvatarName()}}</h3>&nbsp;&nbsp;
-                <div id="avatar-pic-id" [class.avatar-alive]="currentHealth > 0" [class.avatar-dead]="currentHealth <= 0" class="avatar-pic" (click)="handleAvatarClicked()">{{this.getAvatar()}}</div>&nbsp;&nbsp;
+                <h3>{{getAvatarName()}}</h3>&nbsp;&nbsp;
+                <div id="avatar-pic-id" [class.avatar-alive]="currentHealth > 0" [class.avatar-dead]="currentHealth <= 0" class="avatar-pic" (click)="handleAvatarClicked()">{{getAvatar()}}</div>&nbsp;&nbsp;
                 <!-- Friend -->
                 <h3>herohero</h3>&nbsp;&nbsp;
-                <div class="avatar-pic">{{this.getAvatar2()}}</div>    
+                <div class="avatar-pic">{{getAvatar2()}}</div>    
             </div>
             <app-avatar-detail [currentHealth]="currentHealth" [currentLevel]="currentLevel" [currentExperience]="currentExperience" [experienceTotalRequired]="experienceTotalRequired"></app-avatar-detail>            
         </div>

@@ -35,6 +35,7 @@ import { MetaMessageCenterComponent } from './meta-message-center/meta-message-c
 import { MetaJournalComponent } from './meta-journal/meta-journal.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { QuestPartyService } from './services/quest-party.service';
 
 // Move into naming service
 export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {     
@@ -79,6 +80,7 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
               { provide: AvatarStatisticsService, useClass: AvatarStatisticsService },
               { provide: AvatarExperienceService, useClass: AvatarExperienceService },
               { provide: CharacterDatabaseService, useClass: CharacterDatabaseService },
+              { provide: QuestPartyService, useClass: QuestPartyService },
               { provide: FriendCallerService, useClass: FriendCallerService }
             ],
   bootstrap: [AppComponent]

@@ -1,6 +1,9 @@
 <div class="quest-idler-routes">
-    <button (click)="handleStartSoloGame()" type="button" routerLink="/singleplayerview">Start Solo Game</button>
-    <button type="button" routerLink="/partydungeonview">Accept Party Request</button>
-    <button type="button" routerLink="/singleplayerview" (click)="restartGame();">Restart Over</button>    
+    <button *ngIf="partyModeActive && showPartyButton" type="button" (click)="acceptPartyRequest()" class="button__accept-party-request">Accept Party Request</button>
+    <button type="button" (click)="restartGame();">Restart Over</button>    
 </div>
-<router-outlet></router-outlet>
+<div *ngIf="partyModeActive && showPartyButton" class="bard-declaration">
+    <h1>{{activePartyQuest!.getRegistrants()[1]}} wants to party with you. Click on the button above to start a new quest together.</h1>
+</div>
+<app-single-player-view  *ngIf="!partyModeActive"></app-single-player-view>
+<app-avatar-party-display [activePartyQuest]="activePartyQuest" *ngIf="showPartyMode"></app-avatar-party-display>
