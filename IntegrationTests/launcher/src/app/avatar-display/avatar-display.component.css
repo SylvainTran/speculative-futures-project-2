@@ -20,9 +20,18 @@
     align-items: center;
 }
 
-.avatar-pic:hover {
+.avatar-alive {}
+
+.avatar-alive:hover {
     background-color: green;
 }
+
+.avatar-dead {}
+
+.avatar-dead:hover {
+    background-color: red;
+}
+
 
 .inline-container {
     display: inline-block;

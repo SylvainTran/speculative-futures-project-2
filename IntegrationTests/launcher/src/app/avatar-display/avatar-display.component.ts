@@ -32,6 +32,11 @@ export class AvatarDisplayComponent implements OnInit, AfterViewInit {
   friendPrivateMessagesSub: Subscription;
   poems: String[] = [];
 
+  // Sounds
+  avatarClickAudioSrc: any;
+  avatarVictoryAudioSrc: any;
+  avatarDeathAudioSrc: any;
+
   // Services
   private avatarControllerService: AvatarControllerService;
   
@@ -51,6 +56,9 @@ export class AvatarDisplayComponent implements OnInit, AfterViewInit {
     this.friendPrivateMessagesSub = this.friendCallerService.friendPrivateMessageSuccessSource$.subscribe(obs);
   }
   ngAfterViewInit(): void {
+    this.avatarClickAudioSrc = document.getElementById("click-beep");
+    this.avatarVictoryAudioSrc = document.getElementById("victory");
+    this.avatarDeathAudioSrc = document.getElementById("death");
   }
 
   ngOnInit(): void {
@@ -90,6 +98,8 @@ export class AvatarDisplayComponent implements OnInit, AfterViewInit {
     this.currentExperience = this.avatarControllerService.getAvatarExperienceService().getCurrentExperience();
     this.experienceTotalRequired = this.avatarControllerService.getAvatarExperienceService().getExperienceTotalRequired();
     this.updateAvatarDisplay();
+    // Sounds
+    this.avatarClickAudioSrc.play();
   }
 
   public updateAvatarDisplay() {    
@@ -102,10 +112,12 @@ export class AvatarDisplayComponent implements OnInit, AfterViewInit {
         this.avatar = "^(^_^)^_ <( Victorious. )"
         this.location = "/\\/\\";
         this.enemyPlaceholder = "(The songs tell of a tale when you defeated a wild, naked goblin.)";
+        this.avatarVictoryAudioSrc.play();
       } else {
         this.avatar = "<(*_*)> <( ... )";
         this.enemyPlaceholder = "(You faded from history, alas defeated by a wild, naked goblin.)";
         this.currentHealth = this.avatarControllerService.getAvatarHealthService().changeHealth(-5);
+        this.avatarDeathAudioSrc.play();
         if(this.avatarControllerService.getAvatarHealthService().healthIsBelowZero()) {
           this.avatar = "(RIP) <( Has Died. )";
           this.avatarControllerService.alive = false;
