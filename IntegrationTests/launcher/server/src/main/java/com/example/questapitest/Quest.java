@@ -7,13 +7,17 @@ public class Quest implements Comparable {
     int goldGain;
     String[] prerequisites;
     int questLevel;
+    String zone = "1-1";
 
-    public Quest(String name, int id, double experienceGain, int goldGain, String[] prerequisites) {
+    public Quest() {}
+
+    public Quest(String name, int id, double experienceGain, int goldGain, String[] prerequisites, String zone) {
         this.name = name;
         this.id = id;
         this.experienceGain = experienceGain;
         this.goldGain = goldGain;
         this.prerequisites = prerequisites;
+        this.zone = zone;
     }
 
     public Quest(String name) {
@@ -42,6 +46,10 @@ public class Quest implements Comparable {
 
     public int getQuestLevel() {
         return questLevel;
+    }
+
+    public String getZone() {
+        return this.zone;
     }
 
     public void startNewQuest(Player player) {

@@ -33,7 +33,7 @@ public class QuestApiTestApplicationTest {
         Quest mockQuest = mock(Quest.class);
 
         ArrayList<Quest> questsCompleted = new ArrayList<>();
-        questsCompleted.add(new Quest("Tutorial", 0, 50, 25, null));
+        questsCompleted.add(new Quest("Tutorial", 0, 50, 25, null, "1-1"));
         Player player = new Player("Sylvain", 1, questsCompleted, mockQuest);
 
         player.embarkOnQuest();
@@ -43,10 +43,10 @@ public class QuestApiTestApplicationTest {
 
     @Test
     void testGetNewQuestRewards() {
-        Quest saveTheDamsel = new Quest("SaveTheDamsel", 1, 100, 150, new String[] {"Tutorial"});
+        Quest saveTheDamsel = new Quest("SaveTheDamsel", 1, 100, 150, new String[] {"Tutorial"}, "1-1");
 
         ArrayList<Quest> questsCompleted = new ArrayList<>();
-        questsCompleted.add(new Quest("Tutorial", 0, 50, 25, null));
+        questsCompleted.add(new Quest("Tutorial", 0, 50, 25, null, "1-1"));
 
         Player player = new Player("Sylvain", 1, questsCompleted, saveTheDamsel);
 
@@ -58,11 +58,11 @@ public class QuestApiTestApplicationTest {
 
     @Test
     void testPlayerMetQuestPrerequisites() {
-        Quest saveTheDamsel = new Quest("SaveTheDamsel", 1, 100, 150, new String[] {"Tutorial2"});
+        Quest saveTheDamsel = new Quest("SaveTheDamsel", 1, 100, 150, new String[] {"Tutorial2"}, "1-1");
 
         ArrayList<Quest> questsCompleted = new ArrayList<>();
-        questsCompleted.add(new Quest("Tutorial", 0, 50, 25, null));
-        questsCompleted.add(new Quest("Tutorial2", 0, 50, 25, null));
+        questsCompleted.add(new Quest("Tutorial", 0, 50, 25, null, "1-1"));
+        questsCompleted.add(new Quest("Tutorial2", 0, 50, 25, null, "1-1"));
 
         Player player = new Player("Sylvain", 1, questsCompleted, saveTheDamsel);
 
@@ -77,7 +77,7 @@ public class QuestApiTestApplicationTest {
         }
 
         // No prereqs:
-        Quest saveTheDamsel2 = new Quest("SaveTheDamsel", 1, 100, 150, new String[] {});
+        Quest saveTheDamsel2 = new Quest("SaveTheDamsel", 1, 100, 150, new String[] {}, "1-1");
 
         for(int i = 0 ; i < saveTheDamsel2.prerequisites.length; i++) {
             System.out.format("Quest: %s", saveTheDamsel2.prerequisites[i]);

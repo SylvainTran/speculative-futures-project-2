@@ -9,20 +9,23 @@ import java.util.Arrays;
 import java.util.List;
 
 public class KillMonsterQuest extends Quest {
+    List<Quest> subquestsList;
     List<Monster> monstersList;
 
-    public KillMonsterQuest(String name, int id, double experienceGain, int goldGain, String[] prerequisites) {
-        super(name, id, experienceGain, goldGain, prerequisites);
+    public KillMonsterQuest(String name, int id, double experienceGain, int goldGain, String[] prerequisites, String zone) {
+        super(name, id, experienceGain, goldGain, prerequisites, zone);
         monstersList = new ArrayList<Monster>();
+        subquestsList = new ArrayList<Quest>();
     }
 
     public KillMonsterQuest(KillMonsterQuest kmq) {
-        super(kmq.name, kmq.id, kmq.experienceGain, kmq.goldGain, kmq.prerequisites);
+        super(kmq.name, kmq.id, kmq.experienceGain, kmq.goldGain, kmq.prerequisites, kmq.zone);
         monstersList = kmq.monstersList;
+        subquestsList = kmq.subquestsList;
     }
 
     public KillMonsterQuest(String name) {
-        this(name, (int) Math.random() * 1000, 0, 100, new String[]{"None"});
+        this(name, (int) Math.random() * 1000, 0, 100, new String[]{"None"}, "1-1");
         this.experienceGain = getTotalExpGain();
     }
 
@@ -42,27 +45,23 @@ public class KillMonsterQuest extends Quest {
             ObjectMapper mapper = new ObjectMapper();
             Path currentRelativePath = Paths.get("");
             String pathPrefix = currentRelativePath.toAbsolutePath().toString();
-            // Debugger starts from a different path than gradle bootRun
-            String projectPrefix = "/launcher/server";
-            // Path of = Path.of(pathPrefix + projectPrefix + "/data/MockMonsters.json");
-            Path of = Path.of(pathPrefix  + projectPrefix + "/data/MockMonsters.json");
+            String dataPathPrefix = "/data/";
+            Path of = Path.of(pathPrefix + dataPathPrefix + "MockQuests.json");
 
-            monstersList = Arrays.asList(mapper.readValue(of.toFile(), Monster[].class));
-            ArrayList<Monster> selected = new ArrayList<Monster>();
-            int[] randIndexes = new int[monstersList.size()];
+            subquestsList = Arrays.asList(mapper.readValue(of.toFile(), Quest[].class));
+            // ArrayList<Quest> selected = new ArrayList<Quest>();
+            // int[] randIndexes = new int[subquestsList.size()];
 
-            for (int i = 0; i < this.getRandomIntRange(1, randIndexes.length); i++) {
-                randIndexes[i] = this.getRandomIntRange(0, randIndexes.length);
-                selected.add(monstersList.get(randIndexes[i]));
-            }
-            monstersList = selected;
-            String monstersData = new ObjectMapper().writeValueAsString(selected);
-
-            // TODO: this doesn't work yet
-            //KillMonsterQuest serializedQuest = new KillMonsterQuest(this);
-            //String jsonStr = mapper.writeValueAsString(serializedQuest);
-
-            return monstersData;
+            // for (int i = 0; i < this.getRandomIntRange(1, randIndexes.length); i++) {
+            //     randIndexes[i] = this.getRandomIntRange(0, randIndexes.length);
+            //     selected.add(subquestsList.get(randIndexes[i]));
+            // }
+            // subquestsList = selected;
+            // selected.toArray(arr);
+            Quest[] arr = new Quest[subquestsList.size()]; 
+            subquestsList.toArray(arr);
+            String questsData = new ObjectMapper().writeValueAsString(arr);
+            return questsData;
 
         } catch (Exception ex) {
             ex.printStackTrace();

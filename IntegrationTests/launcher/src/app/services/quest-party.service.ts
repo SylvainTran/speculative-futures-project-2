@@ -1,12 +1,23 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { PartyRequestCommand } from './friend-caller.service';
+
+export interface Quest {
+  name: string,
+  id: number,
+  experienceGain: number,
+  goldGain: number,
+  prerequisites: string[],
+  questLevel: number,
+  zone: string
+}
 
 export class PartyQuestData {
 
   private registrants: String[] = [];
 
-  constructor(r1: string, r2: string, private activeQuestName: string) {
+  constructor(r1: string, r2: string, private questData: Quest[]) {
     this.registrants[0] = r1;
     this.registrants[1] = r2;
   }
@@ -20,7 +31,7 @@ export class PartyQuestData {
   }
 
   public getActiveQuestName(): string {
-    return this.activeQuestName;
+    return this.questData[0].name;
   }
 }
 
@@ -35,8 +46,8 @@ export class QuestPartyService {
   private actions: PartyRequestCommand[] = [];
   private partyQuestData: PartyQuestData;
 
-  constructor() {
-    this.partyQuestData = new PartyQuestData("Default", "Default 2", "Test Quest");
+  constructor(private http: HttpClient) {
+    this.partyQuestData = new PartyQuestData("Default", "Default 2", []);
   }
 
   public getPartyQuestData() {
@@ -52,10 +63,20 @@ export class QuestPartyService {
   }
 
   public setupQuestParty(a: PartyRequestCommand) {
-    const questData = this.fetchNewQuestData();
-    const conv = a.getConversationSession();
-    this.partyQuestData = new PartyQuestData(conv.conversationRequesterName,  conv.conversationTargetName, questData);
-    this.partyQuestDataSource.next(this.partyQuestData);
+    let mQuest: any[] = [];
+
+    const obs = {
+      next: (questData: any) => {
+        if (questData !== null) {
+          mQuest = questData;
+          console.log(mQuest);
+          const conv = a.getConversationSession();
+          this.partyQuestData = new PartyQuestData(conv.conversationRequesterName, conv.conversationTargetName, mQuest);
+          this.partyQuestDataSource.next(this.partyQuestData);      
+        }
+      }
+    };
+    this.fetchNewQuestData().subscribe(obs);
   }
 
   public requestParty() {
@@ -69,6 +90,6 @@ export class QuestPartyService {
 
   public fetchNewQuestData() {
     console.log("Fetching new quest data from backend.");
-    return "Goblin Bandits";
+    return this.http.get<any>("http://127.0.0.1:8080/newquest");
   }
 }

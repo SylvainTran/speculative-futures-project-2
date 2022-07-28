@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Kill 5 Goblins",
+        "id": 0,
+        "experienceGain": 50,
+        "goldGain": 100,
+        "prerequisites": [],
+        "questLevel": 1,
+        "zone": "1-1"
+    },
+    {
+        "name": "Kill 15 Muffin Monsters",
+        "id": 1,
+        "experienceGain": 150,
+        "goldGain": 300,
+        "prerequisites": [],
+        "questLevel": 2,
+        "zone": "1-1"
+    },
+    {
+        "name": "Kill 1 Troll",
+        "id": 2,
+        "experienceGain": 2500,
+        "goldGain": 500,
+        "prerequisites": [],
+        "questLevel": 3,
+        "zone": "1-1"
+    }
+]

@@ -26,6 +26,10 @@ p, h1, h3 {
     font-family: 'Allura', cursive;
 }
 
+h3, li {
+    font-family: 'Cantarell', 'sans-serif';
+}
+
 p {
     line-height: 6rem;
     font-size: 4.5rem;
@@ -34,10 +38,6 @@ p {
 
 h1 {
     font-size: 7.5rem;
-}
-
-h3 {
-    font-size: 5.5rem;
 }
 
 #liberation-p {
@@ -59,4 +59,15 @@ h3 {
 
 .strikethrough {
     text-decoration: line-through;
+}
+
+.play-body p {
+    font-size: 2rem;
+    line-height: 1.2rem;
+}
+
+.centered-text {
+    font-family: 'Allura', cursive;
+    text-align: center;
+    font-size: 2.5rem;
 }

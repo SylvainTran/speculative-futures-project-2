@@ -111,6 +111,41 @@
                 In all these motions, it seemed to her that her lover would finally come.</p>
         </div>
     </div>
+    <div *ngIf="activeText == 'Evening in the Promised Land'">
+        <h1>Act 1: My Promise to the Future</h1>
+        <hr>
+        <ul>
+            <li>Freyja: A decorated warrior queen of the Norse Kingdom. After an illustrious military career, conquering half of the Northern Kingdoms with her sword and bow, she now enjoys making cheese in the rural side.</li>
+            <li>Catherine: A young, eager warrior of the Norse Kingdom. She is eager to prove her worth to Freyja, although she lacks dreams of her own.</li>
+            <li>Hilda: A pessimistic warrior of the Norse Kingdom. </li>
+            <li><em>Note: this is <strong>not</strong> an autobiography!</em></li>
+        </ul>
+        <hr>
+        <div class="play-body">
+            <p>Summary: Once a warrior queen, Freyja, retreats to the ruralside to become a cheese maker.
+                The king's elite duo, Catherine and Hilda, are sent by the king to convince her to fight for the empire
+                again. Freyja laments the lack of vision in the younger generations of warriors.
+                The queen is unconvinced of the king's plea, and shares her visions of the promised future.
+            </p>            
+            <h2 class="centered-text">Freyja</h2><p>A little while more, and my white horse shall ride upon the sunset.
+                Three green lands of lush await to soar before my eyes; I hear happier days, mellow melodies fired from my slanted bow.
+                The village of little folk and the harmony of star lovers befall my peaceful walk under late dusk. Oh, I long for the day to come upon me.                              
+            </p>
+            <h2 class="centered-text">Freyja</h2><p>If only brief, the churning of cheese doth resemble the quiet evening; for a fraction of a string, spontaneously it becomes a hardening mass. Its mystery is to slowly take the form of rock, yet as it was once creamy and soft.
+                Transient and committed to its new destiny. Much like mine life, but in the reversed moon.
+            </p>
+            <h2 class="centered-text">Catherine</h2><p>Thine sight is most fortunate; my scout has been faithful in his duty.
+                Hilda, there the old queen stands by the waterfall, molding her hands into a machine to make a yellow rock of sorts.
+            </p>
+            <h2 class="centered-text">Hilda</h2><p>Her golden hair is as fair as the bards sing in our town.</p>
+            <h2 class="centered-text">Freyja</h2><p>Three nights upon the green rocks won't escape my king's arrows, I see plainly.</p>
+            <h2 class="centered-text">Catherine</h2><p>Queen Freyja. liken my king to a twitching fool's dagger, fretting to erase all shadow.</p>
+            <h2 class="centered-text">Freyja</h2><p>And yet he aims to profit well from sending his most elite. Must we draw blood upon the open grass?</p>
+            <h2 class="centered-text">Hilda</h2><p>The night shall befall us. Heavens' scare those who take arms in the dark.</p>
+            <h2 class="centered-text">Freyja</h2><p>Then explain yourselves at once for bothering my peace, or by Heavens' clerk above, I will cut the darkness itself with my bare hands and your heads next.</p><br>
+            <h3>PS: I am unsure if Frejya should actually be threatening them in that situation, as she is currently cheese making. -Q</h3>
+        </div>
+    </div>
 </mat-card>   
 <div class="file-selection">
     <button (click)='setActiveText("cover-letter")'>Cover Letter</button>
@@ -120,4 +155,6 @@
     <button (click)='setActiveText("BlueSolaceRain")'>Blue Solace Rain</button>
     <br>
     <button (click)='setActiveText("StarryPalace")'>Starry Palace</button>
+    <br>
+    <button (click)='setActiveText("Evening in the Promised Land")'>Evening in the Promised Land</button>
 </div>
