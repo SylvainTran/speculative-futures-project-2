@@ -20,7 +20,7 @@
 
 .avatar-pic {
     display: flex;
-    font-size: 2.5rem;
+    font-size: 1.1rem;
     cursor: pointer;
     border: 3px solid cyan;
     width: 400px;
@@ -72,4 +72,17 @@
 
 .avatar-dead:hover {
     background-color: red;
+}
+
+.character-prompt-container {
+    color: white;
+    height: 300px;
+    width: 500px;
+}
+
+.flex-centered {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }

@@ -78,16 +78,7 @@ export class QuestPartyService {
     };
     this.fetchNewQuestData().subscribe(obs);
   }
-
-  public requestParty() {
-    // sends an invite to the player   
-  }
-
-  public popUpPartyDungeonView() {
-    // To emphasize collaboration and intimacy
-    // use router for this
-  }
-
+  
   public fetchNewQuestData() {
     console.log("Fetching new quest data from backend.");
     return this.http.get<any>("http://127.0.0.1:8080/newquest");

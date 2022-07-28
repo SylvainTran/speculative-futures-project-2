@@ -1,8 +1,53 @@
-import { Component, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AvatarControllerService } from '../services/avatar-controller.service';
 import { Player } from '../services/player';
 import { PartyQuestData, QuestPartyService } from '../services/quest-party.service';
+
+
+export abstract class CharacterPrompt {  
+  constructor(protected minimumFriendshipLevel: number = 0, 
+              protected text: string = "I am a character prompt.",
+              protected playerOptions?: string[],
+              protected characterOptions?: string[]) 
+  {}
+
+  public getMinimumFriendshipLevel() {
+    return this.minimumFriendshipLevel;
+  }
+
+  public getText() {
+    return this.text;
+  }
+
+  public getPlayerOptions() {
+    return this.playerOptions;
+  }
+
+  public getCharacterOptions() {
+    return this.characterOptions;
+  }
+}
+
+export class RoadPoemPrompt extends CharacterPrompt {
+  constructor(
+    minimumFriendshipLevel: number, 
+    text: string = "An ice heart oft shears fiery tears.",
+    playerOptions?: string[],
+    characterOptions?: string[])
+  {
+    super(minimumFriendshipLevel, text, playerOptions, characterOptions);    
+  }
+
+}
+
+export class RoadQuestionPrompt extends CharacterPrompt {
+  constructor(text: string = "Do you think any two people can be together?") 
+  {
+    super();
+    this.text = text;
+  }
+}
 
 @Component({
   selector: 'app-quest-idler',
@@ -14,23 +59,29 @@ export class QuestIdlerComponent implements OnInit, OnDestroy {
   title = 'quest-idler';
   playerRef: Player;
 
-  partyQuestSub: Subscription; 
+  partyQuestSub!: Subscription; 
   partyModeActive: boolean = false;
   showPartyMode: boolean = false;
   showPartyButton: boolean = true;
-  @Output() activePartyQuest?: PartyQuestData; 
+  @Output() activePartyQuest?: PartyQuestData;
+  @Output() promptList: CharacterPrompt[] = [];
 
   constructor(private avatarControllerService: AvatarControllerService, private questPartyService: QuestPartyService) {
     this.playerRef = new Player("Player");
+  }
+
+  ngOnInit(): void {
     const obs = {
-      next: (partyQuestData: PartyQuestData) => this.updatePartyModeActive(partyQuestData),
+      next: (partyQuestData: PartyQuestData) => {
+        this.updatePartyModeActive(partyQuestData);
+        this.updatePartyQuestDisplay(partyQuestData);
+        const testRoadPoemPrompt = new RoadPoemPrompt(0, undefined, ["Thine words share the same spit as mine.", "Malarkey!", "..."], ["We are one in this thought.", "Thunder bolt with your house!", "Your silence is highly eerie."]);
+        this.promptList.push(testRoadPoemPrompt);
+      },
       error: (err: Error) => console.error('Observer got an error: ' + err),
       complete: () => console.log('Observer got a complete notification'),
     };
     this.partyQuestSub = this.questPartyService.partyQuestDataSource$.subscribe(obs);
-  }
-
-  ngOnInit(): void {
   }
 
   ngOnDestroy(): void {
@@ -52,7 +103,6 @@ export class QuestIdlerComponent implements OnInit, OnDestroy {
   public updatePartyModeActive(partyQuestData: PartyQuestData) {
     this.partyModeActive = true;
     this.showPartyButton = true;
-    this.updatePartyQuestDisplay(partyQuestData);
   }
 
   public acceptPartyRequest() {
