@@ -26,7 +26,7 @@ public class QuestApiTestApplication {
         return String.format("Hello, %s from Java Spring Boot!", name);
     }
 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "*")
     @GetMapping("/newquest")
     public String getNewQuest(@RequestParam(value = "level", defaultValue = "1") int level, @RequestParam(value = "prereqs", defaultValue = "Tutorial") String[] prereqs, @RequestParam(value = "zone", defaultValue = "1-1") String zone) {
         // TODO validate prereqs, throw error?

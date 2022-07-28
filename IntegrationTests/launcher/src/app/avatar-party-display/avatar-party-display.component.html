@@ -23,7 +23,7 @@
             <label for="avatar-pic-id">Click \|/</label>
             <div class="gameClickHandler">
                 <h3>{{ AvatarName }}</h3>&nbsp;&nbsp;
-                <div id="avatar-pic-id" [class.avatar-alive]="AvatarStats.currentHealth > 0" [class.avatar-dead]="AvatarStats.currentHealth <= 0" class="avatar-pic" (click)="handleAvatarClicked()">
+                <div id="avatar-pic-id" [class.avatar-alive]="AvatarStats.currentHealth > 0" [class.avatar-dead]="AvatarStats.currentHealth <= 0" class="avatar-pic" (click)="handleAvatarClicked($event)" clickable>
                     <div *ngIf="PlayerDisplayState === 0">
                         {{ PlayerAvatar.Idle }}
                     </div>

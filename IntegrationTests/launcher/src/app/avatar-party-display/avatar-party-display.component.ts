@@ -85,8 +85,9 @@ class PromptReplyBuilder implements PromptBuilder {
   activePromptReply: string | null = "";
   activeCharacterPromptReply: string | null = "";
   activePromptFadeTimeout: any;
+  locked: boolean = false;
   
-  constructor(private promptList: CharacterPrompt[], private promptIterator: number, private choiceIndex: number) {}
+  constructor(private director: AvatarPartyDisplayComponent, private promptList: CharacterPrompt[], private promptIterator: number, private choiceIndex: number) {}
   
   reinitData(promptList: CharacterPrompt[]): void {
     this.promptList = promptList;
@@ -105,6 +106,7 @@ class PromptReplyBuilder implements PromptBuilder {
       .setStringPromptReply(UserType.FRIEND, this.choiceIndex)
       .delayCharacterPromptReply(true)
       .delayShowPrompt(false);
+    this.Lock = true;
   }
 
   public displayPlayerOptions(value: boolean) {
@@ -140,9 +142,21 @@ class PromptReplyBuilder implements PromptBuilder {
 
   public delayShowPrompt(value: boolean) {
     this.activePromptFadeTimeout = setTimeout(() => {
+      this.Lock = false;
       this.displayPrompt(value);
+      this.advancePromptIterator();
+      this.director.PromptIterator = this.promptIterator;
     }, 8000);
     return this;
+  }
+
+  public advancePromptIterator() {
+    this.promptIterator = this.nextPromptIterator(this.promptIterator);
+    return this;
+  }
+
+  public nextPromptIterator(promptIterator: number): number {
+    return promptIterator + 1;
   }
 
   public displayPrompt(value: boolean) {
@@ -154,6 +168,14 @@ class PromptReplyBuilder implements PromptBuilder {
     this.activePromptReply = null;
     this.activeCharacterPromptReply = null;
     return this;
+  }
+
+  public set Lock(value: boolean) {
+    this.locked = value;
+  }
+
+  public get IsLocked() {
+    return this.locked;
   }
 }
 
@@ -222,7 +244,7 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
     this.avatarStatsDisplay = new AvatarStatsDisplay();
     this.playerAvatarDisplay = new AvatarArt(avatarName, new Autumn());
     this.friendAvatarDisplay = new AvatarArt(this.avatarName2, new DefaultFriend());
-    this.promptReplyBuilder = new PromptReplyBuilder(this.promptList, this.promptIterator, 0);
+    this.promptReplyBuilder = new PromptReplyBuilder(this, this.promptList, this.promptIterator, 0);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -245,6 +267,7 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
     this.avatarDeathAudioSrc = document.getElementById("death");
   }
 
+  // Getters
   public get AvatarName() {
     return this.avatarName;
   }
@@ -285,6 +308,15 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
     return this.friendAvatarDisplay;
   }
 
+  // Setters
+  public set PromptIterator(value: number) {
+    this.promptIterator = value;
+  }
+
+  public set ClickCountToPromptThreshold(value: number) {
+    this.clickCountTillNextPrompt = value;
+  }
+
   public handleAvatarStatsDisplay() {
     const avatarStatsDisplay = this.avatarStatsDisplay;
     avatarStatsDisplay.currentLevel = this.avatarExperienceService.getCurrentLevel();
@@ -293,13 +325,17 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   }
 
   // TODO: Might have to put this in the controller and trigger an event instead
-  public handleAvatarClicked() {
+  public handleAvatarClicked(evt: MouseEvent): void {
+    // evt.stopImmediatePropagation();    
     this.avatarControllerService.handleAvatarClicked();
     this.clickCount = this.avatarControllerService.clickCount;
     
     if (this.shouldShowPartyQuestPrompt()) {
+      // Flush previous text buffers
+      this.promptReplyBuilder!.Lock = true;
+      this.promptReplyBuilder?.resetActiveTextBuffers();
       this.promptReplyBuilder?.displayPrompt(true);
-      this.promptReplyBuilder?.displayPlayerOptions(true);
+      this.promptReplyBuilder?.displayPlayerOptions(true);  
     }
     this.handleAvatarStatsDisplay();
     this.updateAvatarDisplay();
@@ -307,10 +343,10 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   }
 
   public shouldShowPartyQuestPrompt() {
-    return this.compareClickCountToPromptThreshold() && this.promptIterator < this.maxPrompts;
+    return this.compareClickCountToPromptThreshold() && this.promptIteratorIsLessThanMaxPrompts() && this.promptIsNotLocked();
   }
 
-  public handlePromptDisplay(currentClickCount: number): number {
+  public getNextClickCountToPromptThreshold(currentClickCount: number) {
     // TOOD: If user is done then reset
     return currentClickCount + Math.ceil(Math.random() * 20);
   }
@@ -323,12 +359,23 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
     return this.clickCount >= this.clickCountTillNextPrompt;
   }
 
+  public promptIteratorIsLessThanMaxPrompts() {
+    return this.promptIterator < this.maxPrompts;
+  }
+
+  public promptIsNotLocked() {
+    return !this.promptReplyBuilder?.IsLocked;
+  }
+
   public handlePromptReplyClick(choiceIndex: number) {
     window.clearTimeout(this.promptReplyBuilder?.activePromptFadeTimeout);
 
     this.rebuildPromptReply(choiceIndex);
     this.promptReplyBuilder?.displayPlayerPromptReply(true);
     this.promptReplyBuilder?.displayCharacterPromptReply(true);
+
+    // Prepare for the next prompt
+    this.ClickCountToPromptThreshold = this.getNextClickCountToPromptThreshold(this.clickCount);
   }
 
   public reinitPromptData(promptList: CharacterPrompt[]) {

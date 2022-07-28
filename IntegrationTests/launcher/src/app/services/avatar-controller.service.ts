@@ -46,7 +46,7 @@ export class AvatarControllerService {
   public handleAvatarClicked() {
     console.log("Avatar clicked");
     if (this.isAlive()) {
-      this.clickCount += 10 + 1 + Math.floor(Math.random() * 3);
+      ++this.clickCount;
       this.avatarExperienceService.handleLevel(this.clickCount);  
     }
   }
