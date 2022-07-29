@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AvatarControllerService } from '../services/avatar-controller.service';
 import { Player } from '../services/player';
-import { PartyQuestData, QuestPartyService } from '../services/quest-party.service';
+import { PartyQuestData, QuestPartyService, QuestStates } from '../services/quest-party.service';
 
 
 export abstract class CharacterPrompt {  
@@ -38,15 +38,6 @@ export class RoadPoemPrompt extends CharacterPrompt {
   {
     super(minimumFriendshipLevel, text, playerOptions, characterOptions);    
   }
-
-}
-
-export class RoadQuestionPrompt extends CharacterPrompt {
-  constructor(text: string = "Do you think any two people can be together?") 
-  {
-    super();
-    this.text = text;
-  }
 }
 
 @Component({
@@ -54,7 +45,7 @@ export class RoadQuestionPrompt extends CharacterPrompt {
   templateUrl: './quest-idler.component.html',
   styleUrls: ['./quest-idler.component.css']
 })
-export class QuestIdlerComponent implements OnInit, OnDestroy {
+export class QuestIdlerComponent implements OnInit, OnChanges, OnDestroy {
 
   title = 'quest-idler';
   playerRef: Player;
@@ -70,18 +61,30 @@ export class QuestIdlerComponent implements OnInit, OnDestroy {
     this.playerRef = new Player("Player");
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    const activePartyQuest = changes['activePartyQuest'];
+
+    if (activePartyQuest.currentValue !== activePartyQuest.previousValue) {
+      const questState = (activePartyQuest.currentValue as PartyQuestData).QuestStatus;
+      this.partyModeActive = !(questState === QuestStates.SUCCESS || questState === QuestStates.FAIL);
+      this.showPartyMode = this.partyModeActive;
+    }
+  }
+
   ngOnInit(): void {
     const obs = {
       next: (partyQuestData: PartyQuestData) => {
         this.updatePartyModeActive(partyQuestData);
         this.updatePartyQuestDisplay(partyQuestData);
+
+        // TODO: match data with called friend target
         const testRoadPoemPrompt = new RoadPoemPrompt(0, undefined, ["Thine words share the same spit as mine.", "Malarkey!", "..."], ["We are one in this thought.", "Thunder bolt with your house!", "Your silence is highly eerie."]);
         const testRoadPoemPrompt2 = new RoadPoemPrompt(0, "The clerksmen of heaven must be unconcerned to us.", ["Tis' a possibility.", "Nay.", "..."], ["It is only one of many possibilities.", "And why not?", "..."]);
         const testRoadPoemPrompt3 = new RoadPoemPrompt(0, "You being here with me made my day better. If only just for this sun. So, Thank you for that.", undefined, undefined);
 
         this.promptList.push(testRoadPoemPrompt);
         this.promptList.push(testRoadPoemPrompt2);
-        this.promptList.push(testRoadPoemPrompt3);
+        this.promptList.push(testRoadPoemPrompt3);        
       },
       error: (err: Error) => console.error('Observer got an error: ' + err),
       complete: () => console.log('Observer got a complete notification'),
@@ -118,5 +121,9 @@ export class QuestIdlerComponent implements OnInit, OnDestroy {
 
   public updatePartyQuestDisplay(partyQuestData: PartyQuestData) {
     this.activePartyQuest = partyQuestData;    
+  }
+
+  public readDatabase() {
+    
   }
 }

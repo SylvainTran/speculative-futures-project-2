@@ -1,3 +1,3 @@
 export class ScheduledEvent {
-    name: String = "";
+    name: string = "";
 }

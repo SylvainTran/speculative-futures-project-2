@@ -1,7 +1,7 @@
 import { Friendship } from "./friendship";
 import { Character } from "./character";
 import { Player } from "./player";
-import { CharacterDatabaseService } from "./services/character-database.service";
+import { CharacterDatabaseService } from "./character-database.service";
 
 export class CharacterManager {
 

@@ -6,4 +6,4 @@
     <h1>{{activePartyQuest!.getRegistrants()[1]}} wants to party with you. Click on the button above to start a new quest together.</h1>
 </div>
 <app-single-player-view  *ngIf="!partyModeActive"></app-single-player-view>
-<app-avatar-party-display [promptList]="promptList" [activePartyQuest]="activePartyQuest" *ngIf="showPartyMode"></app-avatar-party-display>
+<app-avatar-party-display [promptList]="promptList" [(activePartyQuest)]="activePartyQuest" *ngIf="partyModeActive && showPartyMode"></app-avatar-party-display>

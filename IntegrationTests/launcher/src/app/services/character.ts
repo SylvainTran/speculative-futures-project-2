@@ -6,10 +6,10 @@ export class Character {
     // if this variable is false.
     public isBusy: boolean = false;
 
-    public friendsMap: Map<String, Friendship>;
+    public friendsMap: Map<string, Friendship>;
 
     constructor(name: string) {
         this.name = name;
-        this.friendsMap = new Map<String, Friendship>();
+        this.friendsMap = new Map<string, Friendship>();
     }
 }

@@ -7,6 +7,9 @@
             </div>
             <div class="flex-centered">
                 <div class="character-prompt-container">
+                    <div *ngIf="activePartyQuest && questWindowBuilder?.show">
+
+                    </div>
                     <div *ngIf="promptReplyBuilder?.showPrompt && activePartyQuest && promptReplyBuilder as prompt">
                         <p>{{ activePartyQuest.getRegistrants()[1] }}: {{ ActivePrompt.getText() }}</p><br>
                         <p *ngIf="prompt.activePromptReply && prompt.showPlayerPromptReply">Autumn: {{ prompt.activePromptReply }}</p><br>

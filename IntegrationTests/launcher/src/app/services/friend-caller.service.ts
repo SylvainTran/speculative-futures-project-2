@@ -4,7 +4,6 @@ import { Character } from './character';
 import { CircularQueue } from './queue';
 import { Friendship, FriendshipLevels } from './friendship';
 import { QuestPartyService } from './quest-party.service';
-import { AvatarPartyDisplayComponent } from '../avatar-party-display/avatar-party-display.component';
 
 // This is the beginning of a social AI system, or social artificial intelligence heuristics/pragmatics
 // Tailored specifically for this game.

@@ -13,16 +13,24 @@ export interface Quest {
   zone: string
 }
 
+export enum QuestStates {
+  START,
+  FAIL,
+  SUCCESS
+}
+
 export class PartyQuestData {
 
-  private registrants: String[] = [];
+  private registrants: string[] = [];
+  private status: QuestStates;
 
   constructor(r1: string, r2: string, private questData: Quest[]) {
     this.registrants[0] = r1;
     this.registrants[1] = r2;
+    this.status = QuestStates.START;
   }
 
-  public getRegistrants(): String[] {
+  public getRegistrants(): string[] {
     return this.registrants;
   }
 
@@ -30,8 +38,20 @@ export class PartyQuestData {
     return this.registrants[0] + " and " + this.registrants[1];
   }
 
-  public getActiveQuestName(): string {
-    return this.questData[0].name;
+  public getActiveQuestName(questIteratorIndex: number): string {
+    return this.questData[questIteratorIndex].name;
+  }
+
+  public getQuestData(questIteratorIndex: number) {
+    return this.questData[questIteratorIndex];
+  }
+
+  public get QuestStatus() {
+    return this.status;
+  }
+
+  public set SetQuestStatus(value: QuestStates) {
+    this.status = value;
   }
 }
 

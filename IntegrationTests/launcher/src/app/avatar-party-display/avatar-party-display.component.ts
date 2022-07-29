@@ -1,9 +1,9 @@
-import { Component, Inject, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AVATAR_NAME } from '../app.module';
 import { CharacterPrompt } from '../quest-idler/quest-idler.component';
 import { AvatarControllerService } from '../services/avatar-controller.service';
 import { AvatarExperienceService } from '../services/avatar-experience.service';
-import { PartyQuestData } from '../services/quest-party.service';
+import { PartyQuestData, QuestStates } from '../services/quest-party.service';
 
 export enum UserType {
   PLAYER,
@@ -71,7 +71,9 @@ class AvatarArt {
 }
 
 interface PromptBuilder {
-  build(): void;
+  show(): void;
+  buildReply(): void;
+  tearDown(): void;
   reinitData(promptList: CharacterPrompt[]): void;
   reset(promptIterator: number, choiceIndex: number): void;
 }
@@ -89,27 +91,54 @@ class PromptReplyBuilder implements PromptBuilder {
   activeCharacterPromptReply: string | null = "";
   activePromptFadeTimeout: any;
   
+  // Timeouts
+  promptTeardownDelay: number = 8000;
+  
   // Lock for preventing multiple builds for the same prompt
   locked: boolean = false;
   
   constructor(private director: AvatarPartyDisplayComponent, private promptList: CharacterPrompt[], private promptIterator: number, private choiceIndex: number) {}
   
+  // Re-initialize the prompt list obtained from the parent quest-idler
   reinitData(promptList: CharacterPrompt[]): void {
     this.promptList = promptList;
   }
 
+  // Makes sure the prompt iterator and option choice index are updated
   reset(promptIterator: number, choiceIndex: number = 0): void {
     this.promptIterator = promptIterator;
     this.choiceIndex = choiceIndex;
+    this.tearDown();
   }
 
-  build(): void {
+  // Makes sure all the flags are reset to default false and null text
+  // Call teardown before building a new prompt or reply
+  tearDown(): void {
     this.displayPlayerOptions(false)
       .displayPlayerPromptReply(false)
-      .setStringPromptReply(UserType.PLAYER, this.choiceIndex)
-      .setStringPromptReply(UserType.FRIEND, this.choiceIndex)
-      .delayCharacterPromptReply(true)
-      .delayShowPrompt(false);
+      .displayCharacterPromptReply(false)
+      .resetActiveTextBuffers()
+      .displayPrompt(false);
+  }
+
+  // Builds the reply texts and animations that comes after clicking on
+  // an option in the prompt
+  buildReply(): void {
+    this.displayPrompt(true)
+    .setStringPromptReply(UserType.PLAYER, this.choiceIndex)
+    .setStringPromptReply(UserType.FRIEND, this.choiceIndex)
+    .displayPlayerPromptReply(true)
+    .delayCharacterPromptReply(true)
+    .hidePromptAfterDelay(false)
+    .setupForNextPrompt();
+  }
+
+  // Shows the initial prompt window's state: the prompt container and
+  // the player's options (not the replies that comes after clicking on an option!)
+  // Also, the lock is set here because that's the first place where the prompt shows up
+  show(): void {
+    this.displayPrompt(true)
+      .displayPlayerOptions(true);
   }
 
   public displayPlayerOptions(value: boolean) {
@@ -122,16 +151,17 @@ class PromptReplyBuilder implements PromptBuilder {
     return this; 
   }
 
+  // Sets the prompt reply of the player and friend following the selection of an option
   public setStringPromptReply(userType: UserType, choiceIndex: number) {
     if (userType === UserType.PLAYER) {
       const playerOptions = this.promptList[this.promptIterator].getPlayerOptions();
       if (playerOptions !== undefined) {
-        this.activePromptReply =  playerOptions[choiceIndex];
+        this.activePromptReply = playerOptions[choiceIndex];
       }
     } else {
       const characterOptions = this.promptList[this.promptIterator].getCharacterOptions();
       if (characterOptions !== undefined) {
-        this.activeCharacterPromptReply =  characterOptions[choiceIndex];
+        this.activeCharacterPromptReply = characterOptions[choiceIndex];
       }
     }
     return this;
@@ -149,18 +179,39 @@ class PromptReplyBuilder implements PromptBuilder {
     return this;
   }
 
-  public delayShowPrompt(value: boolean) {
+  // This function does three things after a timeout:
+  // 1. Sets the lock to false to allow clicks again
+  // 2. Advances the prompt iterator
+  // 3. Validates the quest state
+  public setupForNextPrompt() {
+    setTimeout( () => {
+      this.unlock()
+        .advancePromptIterator()
+        .validateQuestState();
+    }, this.promptTeardownDelay);
+  }
+
+  public hidePromptAfterDelay(value: boolean) {
     this.activePromptFadeTimeout = setTimeout(() => {
-      this.Lock = false;
       this.displayPrompt(value);
-      this.advancePromptIterator();
-      this.director.PromptIterator = this.promptIterator;
-    }, 8000);
+    }, this.promptTeardownDelay);
+    return this;
+  }
+
+  // Signals the parent that the prompt/quest is ended, do whatever follows next
+  public validateQuestState() {
+    // Temp - end quest regardless of quest state if prompts are done
+    if (!this.director.promptIteratorIsLessThanMaxPrompts()) {
+      // end quest
+      // emit event end quest, partyModeActive && showPartyMode set to false in parent quest-idler component
+      this.director.triggerPartyQuestEnded(QuestStates.SUCCESS);
+    }
     return this;
   }
 
   public advancePromptIterator() {
     this.promptIterator = this.nextPromptIterator(this.promptIterator);
+    this.director.PromptIterator = this.promptIterator;
     return this;
   }
 
@@ -179,12 +230,50 @@ class PromptReplyBuilder implements PromptBuilder {
     return this;
   }
 
+  public lock() {
+    this.Lock = true;
+    return this;
+  }
+
+  public unlock() {
+    this.Lock = false;
+    return this;
+  }
+
   public set Lock(value: boolean) {
     this.locked = value;
   }
 
   public get IsLocked() {
     return this.locked;
+  }
+}
+
+export class QuestWindowBuilder {
+  show: boolean = true;
+
+  constructor(private activePartyQuest: PartyQuestData | undefined) {}
+
+  build(): void {
+    this.displayMonsters()
+      .displayLoot()
+      .displayEnvironment();
+  }
+
+  reinitData(partyQuestData: PartyQuestData): void {
+    this.activePartyQuest = partyQuestData;
+  }
+
+  displayMonsters() {
+    return this;
+  }
+
+  displayLoot() {
+    return this;
+  }
+
+  displayEnvironment() {
+    return this;
   }
 }
 
@@ -222,6 +311,7 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   // Quest
   private bardText: String = "The mountains are breezy and the wind pushes you forth.";
   @Input() public activePartyQuest?: PartyQuestData;
+  @Output() public activePartyQuestChange = new EventEmitter<PartyQuestData>(); // trigger the status flag in it to fail or success
 
   // Quest events
   // Prompts may be a poem related to the character speaking
@@ -233,6 +323,9 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
 
   @Input() public promptList: CharacterPrompt[] = [];
   public promptReplyBuilder?: PromptReplyBuilder;
+
+  // Quest, location and battle windows
+  public questWindowBuilder: QuestWindowBuilder;
 
   // Set to random: Used to decide when the show next prompt 
   private clickCountTillNextPrompt: number = 3;
@@ -250,15 +343,21 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   {
     this.avatarName = avatarName;
     this.avatarExperienceService = avatarControllerService.getAvatarExperienceService();
-    this.avatarStatsDisplay = new AvatarStatsDisplay();
     this.playerAvatarDisplay = new AvatarArt(avatarName, new Autumn());
     this.friendAvatarDisplay = new AvatarArt(this.avatarName2, new DefaultFriend());
+
+    // TODO: dependency injection
+    this.avatarStatsDisplay = new AvatarStatsDisplay();
     this.promptReplyBuilder = new PromptReplyBuilder(this, this.promptList, this.promptIterator, 0);
+    this.questWindowBuilder = new QuestWindowBuilder(this.activePartyQuest);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['promptList'].currentValue !== changes['promptList'].previousValue) {
-      this.reinitPromptData(this.promptList);
+      this.reinitPromptData(changes['promptList'].currentValue);
+    }
+    if (changes['activePartyQuest'].currentValue !== changes['activePartyQuest'].previousValue) {
+      this.reinitActivePartyQuestData(changes['activePartyQuest'].currentValue);
     }
   }
 
@@ -294,7 +393,7 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   }
 
   public get ActiveQuestName() {
-    return this.activePartyQuest?.getActiveQuestName();
+    return this.activePartyQuest?.getActiveQuestName(0);
   }
 
   public get ActivePartyNames() {
@@ -347,10 +446,9 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
     
     if (this.shouldShowPartyQuestPrompt()) {
       if (prompt) {
-        prompt.Lock = true;
-        prompt.resetActiveTextBuffers();
-        prompt.displayPrompt(true);
-        prompt.displayPlayerOptions(true);    
+        prompt.lock();
+        prompt.tearDown();
+        prompt.show();
       }
     }
     this.handleAvatarStatsDisplay();
@@ -379,12 +477,7 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   }
 
   public handlePromptReplyClick(choiceIndex: number) {
-
     this.rebuildPromptReply(choiceIndex);
-    this.promptReplyBuilder?.displayPlayerPromptReply(true);
-    this.promptReplyBuilder?.displayCharacterPromptReply(true);
-
-    // Prepare for the next prompt
     this.ClickCountToPromptThreshold = this.getNextClickCountToPromptThreshold(this.clickCount);
   }
 
@@ -392,10 +485,14 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
     this.promptReplyBuilder?.reinitData(promptList);
   }
 
+  public reinitActivePartyQuestData(partyQuestData: PartyQuestData) {
+    this.questWindowBuilder?.reinitData(partyQuestData);
+  }
+
   public rebuildPromptReply(choiceIndex: number): void {
     let promptReplyBuilder = this.promptReplyBuilder;
     promptReplyBuilder?.reset(this.promptIterator, choiceIndex);
-    promptReplyBuilder?.build();
+    promptReplyBuilder?.buildReply();
   }
 
   public updateAvatarDisplay() {    
@@ -422,6 +519,15 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
           this.avatarControllerService.alive = false;
         }
       }
+    }
+  }
+
+  public triggerPartyQuestEnded(state: QuestStates) {
+    if (this.activePartyQuest) {
+      this.activePartyQuest.SetQuestStatus = state;
+      this.activePartyQuestChange.emit(this.activePartyQuest);
+    } else {
+      console.log("activePartyQuest error");
     }
   }
 }
