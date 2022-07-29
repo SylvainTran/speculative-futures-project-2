@@ -202,7 +202,6 @@ class PromptReplyBuilder implements PromptBuilder {
   public validateQuestState() {
     // Temp - end quest regardless of quest state if prompts are done
     if (!this.director.promptIteratorIsLessThanMaxPrompts()) {
-      // end quest
       // emit event end quest, partyModeActive && showPartyMode set to false in parent quest-idler component
       this.director.triggerPartyQuestEnded(QuestStates.SUCCESS);
     }
@@ -317,7 +316,7 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   // Prompts may be a poem related to the character speaking
   // Or a question to the player
   public promptIterator: number = 0;
-  public readonly maxPrompts: number = 3;
+  public maxPrompts: number = 1;
   public activePromptReply: string = "";
   public activeCharacterPromptReply: string = "";
 
@@ -355,6 +354,7 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['promptList'].currentValue !== changes['promptList'].previousValue) {
       this.reinitPromptData(changes['promptList'].currentValue);
+      this.maxPrompts = changes['promptList'].currentValue.length;
     }
     if (changes['activePartyQuest'].currentValue !== changes['activePartyQuest'].previousValue) {
       this.reinitActivePartyQuestData(changes['activePartyQuest'].currentValue);
@@ -524,6 +524,8 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
 
   public triggerPartyQuestEnded(state: QuestStates) {
     if (this.activePartyQuest) {
+      this.promptIterator = 0;
+      this.maxPrompts = 1;
       this.activePartyQuest.SetQuestStatus = state;
       this.activePartyQuestChange.emit(this.activePartyQuest);
     } else {
