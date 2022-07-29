@@ -1,6 +1,7 @@
 import { Component, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AvatarControllerService } from '../services/avatar-controller.service';
+import { CharacterDatabaseService } from '../services/character-database.service';
 import { Player } from '../services/player';
 import { PartyQuestData, QuestPartyService, QuestStates } from '../services/quest-party.service';
 
@@ -56,8 +57,8 @@ export class QuestIdlerComponent implements OnInit, OnChanges, OnDestroy {
   showPartyButton: boolean = true;
   activePartyQuest?: PartyQuestData; // 2-way bound
   @Output() promptList: CharacterPrompt[] = [];
-
-  constructor(private avatarControllerService: AvatarControllerService, private questPartyService: QuestPartyService) {
+  
+  constructor(private avatarControllerService: AvatarControllerService, private questPartyService: QuestPartyService, private characterDatabaseService: CharacterDatabaseService) {
     this.playerRef = new Player("Player");
     // TODO: match data with called friend target and friendship level
     const testRoadPoemPrompt = new RoadPoemPrompt(0, undefined, ["Thine words share the same spit as mine.", "Malarkey!", "..."], ["We are one in this thought.", "Thunder bolt with your house!", "Your silence is highly eerie."]);
@@ -66,7 +67,9 @@ export class QuestIdlerComponent implements OnInit, OnChanges, OnDestroy {
 
     this.promptList.push(testRoadPoemPrompt);
     this.promptList.push(testRoadPoemPrompt2);
-    this.promptList.push(testRoadPoemPrompt3);        
+    this.promptList.push(testRoadPoemPrompt3);
+    
+    // TODO: pull real data from characterdb here
   }
 
   ngOnChanges(changes: SimpleChanges): void {}
@@ -116,15 +119,12 @@ export class QuestIdlerComponent implements OnInit, OnChanges, OnDestroy {
       this.partyModeActive = false;
       this.showPartyMode = false;
 
-      // TODO: Increment friendship levels      
+      // TODO: Increment friendship levels from the activePartyQuest object's registrants (need to change type from string to character)
+      // In their friendship object
     }
   }
 
   public updatePartyQuestDisplay(partyQuestData: PartyQuestData) {
     this.activePartyQuest = partyQuestData;    
-  }
-
-  public readDatabase() {
-    
   }
 }

@@ -4,6 +4,7 @@ import { Character } from './character';
 import { CircularQueue } from './queue';
 import { Friendship, FriendshipLevels } from './friendship';
 import { QuestPartyService } from './quest-party.service';
+import { CharacterDatabaseService } from './character-database.service';
 
 // This is the beginning of a social AI system, or social artificial intelligence heuristics/pragmatics
 // Tailored specifically for this game.
@@ -248,51 +249,15 @@ export class FriendCallerService {
   friendPrivateMessageSuccessSource$ = this.friendPrivateMessageSuccessSource.asObservable();
   public friendPrivateMessageFailureSource = new Subject<any>();
   friendPrivateMessageFailureSource$ = this.friendPrivateMessageFailureSource.asObservable();
-
-  // Conversation data pulled from /assets
-  conversationDatabaseURL: string;
-  assetsPathPrefix: String;
-  conversationNodes: ConversationNode[] = [];
   
-  constructor(private questPartyService: QuestPartyService) {
+  constructor(private questPartyService: QuestPartyService, private characterDatabaseService: CharacterDatabaseService) {
     this.activeConv = null;
     this.waitCapacity = 100;
     this.requestQueue = new CircularQueue<RequestInteraction>(this.waitCapacity);
-    this.conversationDatabaseURL = "languageofflowers_conversation_system_and_db - questIdlerConversations.tsv";
-    this.assetsPathPrefix = "../../assets/"; //ng serve entry point is integrationtests/launcher folder?
-    this.pullConversationDatabase();
   }
 
   public getQuestPartyService() {
     return this.questPartyService;
-  }
-
-  read(conversationDatabaseURL: string) {
-    // REVIEW: not sure if the fetch api for local files will work later on when the game is hosted remotely? Used this because there's a breaking issue with the File Reader node class from 'fs' needing a polyfill currently.
-    let lines;    
-    fetch(conversationDatabaseURL, {mode: 'no-cors'})
-      .then(response => response.text())
-      .then(data=> {
-        lines = data; 
-        const rows = lines.split("\r");
-        for (let i = 1; i < rows.length; i++) {
-          const cols = rows[i].split("\t");
-          const id = parseInt(cols[0]);
-          const characterA = cols[1];
-          const characterB = cols[2];
-          const friendshipLevel = cols[3];
-          const textArray = cols[4];
-          const actionArray = cols[5];
-          const conversationNode = new ConversationNode(id, characterA, characterB, friendshipLevel, textArray, actionArray);
-          this.conversationNodes.push(conversationNode);
-        }
-        console.log(this.conversationNodes);
-      })
-      .catch(error => console.error(error));
-  }
-
-  pullConversationDatabase() {
-    this.read(this.assetsPathPrefix + this.conversationDatabaseURL);
   }
 
   requestInteraction(requester: Character, target: Character) {
@@ -322,7 +287,7 @@ export class FriendCallerService {
 
   getInteractionFriendshipConversationTexts(c1: Character, c2: Character, fl: number) {
 
-    let ret = this.conversationNodes.filter(conversation => {
+    let ret = this.characterDatabaseService.conversationNodes.filter(conversation => {
       let eqn = (conversation.characterA === c1.name && conversation.characterB === c2.name) || 
       (conversation.characterA === c2.name && conversation.characterB === c1.name);
       let feq = FriendshipLevels[fl] === conversation.friendshipLevel;
