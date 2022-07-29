@@ -78,13 +78,18 @@ interface PromptBuilder {
 
 // Of course the builder is impure
 class PromptReplyBuilder implements PromptBuilder {
+  // Controls
   showPlayerOptions: boolean = false;
   showPlayerPromptReply: boolean = false;
   showCharacterPromptReply: boolean = false;
   showPrompt: boolean = false;
+
+  // Data
   activePromptReply: string | null = "";
   activeCharacterPromptReply: string | null = "";
   activePromptFadeTimeout: any;
+  
+  // Lock for preventing multiple builds for the same prompt
   locked: boolean = false;
   
   constructor(private director: AvatarPartyDisplayComponent, private promptList: CharacterPrompt[], private promptIterator: number, private choiceIndex: number) {}
@@ -96,7 +101,6 @@ class PromptReplyBuilder implements PromptBuilder {
   reset(promptIterator: number, choiceIndex: number = 0): void {
     this.promptIterator = promptIterator;
     this.choiceIndex = choiceIndex;
-    this.build();
   }
 
   build(): void {
@@ -106,7 +110,6 @@ class PromptReplyBuilder implements PromptBuilder {
       .setStringPromptReply(UserType.FRIEND, this.choiceIndex)
       .delayCharacterPromptReply(true)
       .delayShowPrompt(false);
-    this.Lock = true;
   }
 
   public displayPlayerOptions(value: boolean) {
@@ -121,9 +124,15 @@ class PromptReplyBuilder implements PromptBuilder {
 
   public setStringPromptReply(userType: UserType, choiceIndex: number) {
     if (userType === UserType.PLAYER) {
-      this.activePromptReply =  this.promptList[this.promptIterator].getPlayerOptions()![choiceIndex];
+      const playerOptions = this.promptList[this.promptIterator].getPlayerOptions();
+      if (playerOptions !== undefined) {
+        this.activePromptReply =  playerOptions[choiceIndex];
+      }
     } else {
-      this.activeCharacterPromptReply =  this.promptList[this.promptIterator].getCharacterOptions()![choiceIndex];
+      const characterOptions = this.promptList[this.promptIterator].getCharacterOptions();
+      if (characterOptions !== undefined) {
+        this.activeCharacterPromptReply =  characterOptions[choiceIndex];
+      }
     }
     return this;
   }
@@ -326,16 +335,23 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
 
   // TODO: Might have to put this in the controller and trigger an event instead
   public handleAvatarClicked(evt: MouseEvent): void {
-    // evt.stopImmediatePropagation();    
+
+    const prompt = this.promptReplyBuilder;
+
+    if (prompt?.IsLocked) {
+      return;
+    }
+
     this.avatarControllerService.handleAvatarClicked();
     this.clickCount = this.avatarControllerService.clickCount;
     
     if (this.shouldShowPartyQuestPrompt()) {
-      // Flush previous text buffers
-      this.promptReplyBuilder!.Lock = true;
-      this.promptReplyBuilder?.resetActiveTextBuffers();
-      this.promptReplyBuilder?.displayPrompt(true);
-      this.promptReplyBuilder?.displayPlayerOptions(true);  
+      if (prompt) {
+        prompt.Lock = true;
+        prompt.resetActiveTextBuffers();
+        prompt.displayPrompt(true);
+        prompt.displayPlayerOptions(true);    
+      }
     }
     this.handleAvatarStatsDisplay();
     this.updateAvatarDisplay();
@@ -347,12 +363,7 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   }
 
   public getNextClickCountToPromptThreshold(currentClickCount: number) {
-    // TOOD: If user is done then reset
     return currentClickCount + Math.ceil(Math.random() * 20);
-  }
-
-  public nextPromptIterator(promptIterator: number): number {
-    return promptIterator + 1;
   }
 
   public compareClickCountToPromptThreshold() {
@@ -368,7 +379,6 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   }
 
   public handlePromptReplyClick(choiceIndex: number) {
-    window.clearTimeout(this.promptReplyBuilder?.activePromptFadeTimeout);
 
     this.rebuildPromptReply(choiceIndex);
     this.promptReplyBuilder?.displayPlayerPromptReply(true);
@@ -379,16 +389,13 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   }
 
   public reinitPromptData(promptList: CharacterPrompt[]) {
-    this.promptReplyBuilder?.reinitData(this.promptList);
+    this.promptReplyBuilder?.reinitData(promptList);
   }
 
   public rebuildPromptReply(choiceIndex: number): void {
     let promptReplyBuilder = this.promptReplyBuilder;
-    promptReplyBuilder?.reset(this.promptIterator, choiceIndex);    
-  }
-
-  public resetActiveTextBuffers() {
-    this.promptReplyBuilder?.resetActiveTextBuffers();
+    promptReplyBuilder?.reset(this.promptIterator, choiceIndex);
+    promptReplyBuilder?.build();
   }
 
   public updateAvatarDisplay() {    

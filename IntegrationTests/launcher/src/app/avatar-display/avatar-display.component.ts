@@ -29,6 +29,7 @@ export class AvatarDisplayComponent implements OnInit, OnDestroy, AfterViewInit 
   // Video game poetry experiment
   friendPrivateMessagesSub: Subscription;
   poems: String[] = [];
+  controlLock: boolean = false;
 
   // Sounds
   avatarClickAudioSrc: any;
@@ -107,6 +108,9 @@ export class AvatarDisplayComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   public handleAvatarClicked() {
+    if (this.controlLock) {
+      return;
+    }
     // TODO Replace by events
     this.avatarControllerService.handleAvatarClicked();
     this.clickCount = this.avatarControllerService.clickCount;
@@ -142,8 +146,14 @@ export class AvatarDisplayComponent implements OnInit, OnDestroy, AfterViewInit 
     }
   }
 
+  public set ControlLock(value: boolean) {
+    this.controlLock = value;
+  }
+
   // Experimental poetry
   public updateVideoGamePoetry(conversationSession: ConversationSession) {
+
+    this.ControlLock = true;   
     let conversationTextIndex = 0;
 
     let chatInterval = setInterval( () => {
@@ -152,6 +162,7 @@ export class AvatarDisplayComponent implements OnInit, OnDestroy, AfterViewInit 
       
       if (conversationTextIndex >= conversationSession.conversationEndIndex) {
         clearInterval(chatInterval);
+        this.ControlLock = false;
         // End conversation
         conversationSession.endConversation();
         conversationSession.applyActions();

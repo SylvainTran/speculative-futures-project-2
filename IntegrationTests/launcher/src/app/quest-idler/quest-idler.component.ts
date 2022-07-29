@@ -77,9 +77,11 @@ export class QuestIdlerComponent implements OnInit, OnDestroy {
         this.updatePartyQuestDisplay(partyQuestData);
         const testRoadPoemPrompt = new RoadPoemPrompt(0, undefined, ["Thine words share the same spit as mine.", "Malarkey!", "..."], ["We are one in this thought.", "Thunder bolt with your house!", "Your silence is highly eerie."]);
         const testRoadPoemPrompt2 = new RoadPoemPrompt(0, "The clerksmen of heaven must be unconcerned to us.", ["Tis' a possibility.", "Nay.", "..."], ["It is only one of many possibilities.", "And why not?", "..."]);
+        const testRoadPoemPrompt3 = new RoadPoemPrompt(0, "You being here with me made my day better. If only just for this sun. So, Thank you for that.", undefined, undefined);
 
         this.promptList.push(testRoadPoemPrompt);
         this.promptList.push(testRoadPoemPrompt2);
+        this.promptList.push(testRoadPoemPrompt3);
       },
       error: (err: Error) => console.error('Observer got an error: ' + err),
       complete: () => console.log('Observer got a complete notification'),

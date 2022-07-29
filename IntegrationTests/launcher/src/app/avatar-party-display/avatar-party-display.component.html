@@ -7,20 +7,31 @@
             </div>
             <div class="flex-centered">
                 <div class="character-prompt-container">
-                    <div *ngIf="promptReplyBuilder?.showPrompt && activePartyQuest">
-                        <p>{{ activePartyQuest!.getRegistrants()[1] }}: {{ ActivePrompt.getText() }}</p><br>
-                        <p *ngIf="promptReplyBuilder?.showPlayerPromptReply">Autumn: {{ promptReplyBuilder?.activePromptReply }}</p><br>
-                        <p *ngIf="promptReplyBuilder?.showCharacterPromptReply">{{ activePartyQuest!.getRegistrants()[1] }}: {{ promptReplyBuilder?.activeCharacterPromptReply }}</p>
+                    <div *ngIf="promptReplyBuilder?.showPrompt && activePartyQuest && promptReplyBuilder as prompt">
+                        <p>{{ activePartyQuest.getRegistrants()[1] }}: {{ ActivePrompt.getText() }}</p><br>
+                        <p *ngIf="prompt.activePromptReply && prompt.showPlayerPromptReply">Autumn: {{ prompt.activePromptReply }}</p><br>
+                        <p *ngIf="prompt.activeCharacterPromptReply && prompt.showCharacterPromptReply">{{ activePartyQuest.getRegistrants()[1] }}: {{ prompt.activeCharacterPromptReply }}</p>
                         
-                        <div *ngIf="promptReplyBuilder?.showPlayerOptions">
-                            <button id="prompt-bt-a" (click)='handlePromptReplyClick(0)'>{{ this.promptList[this.promptIterator].getPlayerOptions()![0] }}</button>
-                            <button id="prompt-bt-b" (click)='handlePromptReplyClick(1)'>{{ this.promptList[this.promptIterator].getPlayerOptions()![1] }}</button>
-                            <button id="prompt-bt-c" (click)='handlePromptReplyClick(2)'>{{ this.promptList[this.promptIterator].getPlayerOptions()![2] }}</button>    
+                        <div *ngIf="promptList[this.promptIterator].getPlayerOptions() as optionList">
+                            <div *ngIf="optionList.length > 0 && prompt.showPrompt">                           
+                                <ul>
+                                    <li *ngFor="let option of optionList; let i=index;" >
+                                        <button *ngIf="prompt.showPlayerOptions" id="prompt-bt-a" (click)='handlePromptReplyClick(i)' clickable>
+                                            {{option}}
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <label for="avatar-pic-id">Click \|/</label>
+            <hr>            
+            <label for="avatar-pic-id">
+                {{ !promptReplyBuilder?.IsLocked? "As One Clicks Below" : "One Reads Above" }}
+            </label>
+            <hr>
+            <br>
             <div class="gameClickHandler">
                 <h3>{{ AvatarName }}</h3>&nbsp;&nbsp;
                 <div id="avatar-pic-id" [class.avatar-alive]="AvatarStats.currentHealth > 0" [class.avatar-dead]="AvatarStats.currentHealth <= 0" class="avatar-pic" (click)="handleAvatarClicked($event)" clickable>
