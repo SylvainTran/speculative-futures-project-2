@@ -11,9 +11,9 @@
 
                     </div>
                     <div *ngIf="promptReplyBuilder?.showPrompt && activePartyQuest && promptReplyBuilder as prompt">
-                        <p>{{ activePartyQuest.getRegistrants()[1] }}: {{ ActivePrompt.getText() }}</p><br>
+                        <p>{{ activePartyQuest.getRegistrants()[1].name }}: {{ ActivePrompt.getText() }}</p><br>
                         <p *ngIf="prompt.activePromptReply && prompt.showPlayerPromptReply">Autumn: {{ prompt.activePromptReply }}</p><br>
-                        <p *ngIf="prompt.activeCharacterPromptReply && prompt.showCharacterPromptReply">{{ activePartyQuest.getRegistrants()[1] }}: {{ prompt.activeCharacterPromptReply }}</p>
+                        <p *ngIf="prompt.activeCharacterPromptReply && prompt.showCharacterPromptReply">{{ activePartyQuest.getRegistrants()[1].name }}: {{ prompt.activeCharacterPromptReply }}</p>
                         
                         <div *ngIf="promptList[this.promptIterator].getPlayerOptions() as optionList">
                             <div *ngIf="optionList.length > 0 && prompt.showPrompt">                           
@@ -55,7 +55,7 @@
                     </div>
                 </div>&nbsp;&nbsp;
                 <!-- Friend -->
-                <h3>{{ activePartyQuest!.getRegistrants()[1] }}</h3>&nbsp;&nbsp;
+                <h3>{{ activePartyQuest!.getRegistrants()[1].name }}</h3>&nbsp;&nbsp;
                 <div class="avatar-pic">
                     <div *ngIf="PlayerDisplayState === 0">
                         {{ FriendAvatar.Idle }}

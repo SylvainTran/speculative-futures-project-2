@@ -1,4 +1,5 @@
 import { Character } from "./character";
+import { CharacterDatabaseService, ConversationNode } from "./character-database.service";
 
 export enum FriendshipLevels {
     C = 0, B = 1, A = 2
@@ -8,7 +9,8 @@ export class Friendship {
 
     character1: Character;
     character2: Character;
-    friendshipLevel: number; // Should be a float or double - want to increase by .5 of a level each time, and force the new interaction to be in a different app
+    friendshipLevel: number;
+    conversationData: ConversationNode[] = [];
 
     constructor(requester: Character, target: Character) {
         this.character1 = requester;
@@ -21,6 +23,17 @@ export class Friendship {
     }
 
     increaseFriendshipLevel() {
-        this.character1.friendsMap.get(this.character2.name)!.friendshipLevel += 1; // TODO: friendship levels should be the same in the two characters' Friendship object. Is this pass by reference?
+        this.character1.friendsMap.get(this.character2.name)!.friendshipLevel++;
+    }
+
+    // Sets up the prompts, options, option replies to the friendships db  
+    public setupFriendshipsData(characterDatabaseService: CharacterDatabaseService) {
+        this.conversationData = characterDatabaseService.conversationNodes.filter(conversation => {
+            let eqn = (conversation.characterA === this.character1.name && conversation.characterB.name === this.character2.name) || 
+            (conversation.characterA === this.character2.name && conversation.characterB.name === this.character1.name);
+            let feq = FriendshipLevels[this.friendshipLevel] === conversation.friendshipLevel;        
+            return eqn && feq;
+        });   
+        console.log("Convo data for this friendship only: " + this.conversationData);
     }
 }

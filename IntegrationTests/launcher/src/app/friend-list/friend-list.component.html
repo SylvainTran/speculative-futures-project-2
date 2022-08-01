@@ -14,5 +14,5 @@
         <app-avatar-stats></app-avatar-stats>
         <app-collectables></app-collectables>
     </div>
-    <app-friend-detail *ngIf="this.getSelectedFriend()" [selectedFriend]="this.getSelectedFriend()"></app-friend-detail>   
+    <app-friend-detail [playerRef]="playerRef" *ngIf="this.getSelectedFriend()" [selectedFriend]="this.getSelectedFriend()"></app-friend-detail>   
 </div>

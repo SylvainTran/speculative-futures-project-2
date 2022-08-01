@@ -4,7 +4,7 @@ import { Character } from './character';
 import { CircularQueue } from './queue';
 import { Friendship, FriendshipLevels } from './friendship';
 import { QuestPartyService } from './quest-party.service';
-import { CharacterDatabaseService } from './character-database.service';
+import { CharacterDatabaseService, ConversationNode } from './character-database.service';
 
 // This is the beginning of a social AI system, or social artificial intelligence heuristics/pragmatics
 // Tailored specifically for this game.
@@ -72,6 +72,8 @@ export class ConversationSession {
   conversationTexts: string[] = [];
   conversationRequesterName: string = ""; 
   conversationTargetName: string = "";
+  conversationRequester: Character | undefined;
+  conversationTarget: Character | undefined;
   // conversationURL: string = "http://127.0.0.1:8080/";
   conversations: ConversationNode[] | undefined;
   conversationEndIndex: number = 0;
@@ -81,6 +83,8 @@ export class ConversationSession {
 
   constructor(private friendCallerService: FriendCallerService, private requestInteraction: RequestInteraction, private questPartyService: QuestPartyService) {
     this.conversationRequesterName = requestInteraction.requester.name;
+    this.conversationRequester = requestInteraction.requester;
+    this.conversationTarget = requestInteraction.target;
   }
 
   init() {
@@ -88,8 +92,6 @@ export class ConversationSession {
     this.pullConversationDataNodes();
     this.pullActions();
     this.parseConversationTextArray();
-    // this.displayConversationIteratorNode();
-    // this.waitOnPlayerInput();
   }
 
   getFriendshipLevel() {
@@ -119,13 +121,10 @@ export class ConversationSession {
   pullActions() {
     const conversation = this.conversations![0];
     const actionsText = conversation.actionsText;
-    const splits = actionsText
-                    .replace('[', '')
-                    .replace(']', '')      
-                    .split(",");
+    const splits = actionsText;
     const actions: number[] = [];
 
-    splits.forEach( split => {
+    splits.forEach( (split: string) => {
       const parsed = parseInt(split);
       if (isNaN(parsed)) {
         console.error("action parsed is NaN!");
@@ -146,12 +145,12 @@ export class ConversationSession {
     let _splits = splits.split("$");
     _splits = _splits.slice(1);
 
-    _splits = _splits.map(text => {
+    _splits = _splits.map((text: string) => {
       text = text.replace('.,', '.')  
             .replace('?,', '?')
             .replace('!,', '!')
             .replace('A:', requestedConversation.characterA + ":")
-            .replace('B:', requestedConversation.characterB + ":")
+            .replace('B:', requestedConversation.characterB.name + ":")
             .trimEnd();
       console.log("TEXT: " + text);
       ++this.conversationEndIndex; // this refers to count of replies in this conv
@@ -171,7 +170,6 @@ export class ConversationSession {
   }
 
   endConversation() {
-    this.increaseFriendshipLevel();
     this.friendCallerService.endInteraction(this.requestInteraction);
   }
 
@@ -211,24 +209,6 @@ export class PartyRequestCommand extends ActionCommand {
 
   public getConversationSession() {
     return this.conversationSession;
-  }
-}
-
-export class ConversationNode {
-  conversationID: number = 0;
-  characterA: string = "";
-  characterB: string = "";
-  friendshipLevel: string = "";
-  conversationText: string = "";
-  actionsText: string = "";
-
-  constructor(conversationID: number, characterA: string, characterB: string, friendshipLevel: string, conversationText: string, actionsText: string) {
-    this.conversationID = conversationID;
-    this.characterA = characterA;
-    this.characterB = characterB;
-    this.friendshipLevel = friendshipLevel;
-    this.conversationText = conversationText;
-    this.actionsText = actionsText;
   }
 }
 
@@ -288,8 +268,8 @@ export class FriendCallerService {
   getInteractionFriendshipConversationTexts(c1: Character, c2: Character, fl: number) {
 
     let ret = this.characterDatabaseService.conversationNodes.filter(conversation => {
-      let eqn = (conversation.characterA === c1.name && conversation.characterB === c2.name) || 
-      (conversation.characterA === c2.name && conversation.characterB === c1.name);
+      let eqn = (conversation.characterA === c1.name && conversation.characterB.name === c2.name) || 
+      (conversation.characterA === c2.name && conversation.characterB.name === c1.name);
       let feq = FriendshipLevels[fl] === conversation.friendshipLevel;
 
       return eqn && feq;

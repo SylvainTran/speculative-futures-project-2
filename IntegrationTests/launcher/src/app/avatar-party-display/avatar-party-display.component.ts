@@ -443,6 +443,11 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
 
     this.avatarControllerService.handleAvatarClicked();
     this.clickCount = this.avatarControllerService.clickCount;
+
+    console.log("curr click count: " + this.clickCount);
+    console.log("next threshold: " + this.clickCountTillNextPrompt);
+    console.log("curr iterator: " + this.promptIterator);
+    console.log("max prompts: " + this.maxPrompts);
     
     if (this.shouldShowPartyQuestPrompt()) {
       if (prompt) {

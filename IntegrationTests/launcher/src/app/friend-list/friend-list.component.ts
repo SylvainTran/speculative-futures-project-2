@@ -1,7 +1,8 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Friend } from '../services/friend';
 import { FriendListService } from '../services/friend-list.service';
 import { MatDialog } from '@angular/material/dialog';
+import { Player } from '../services/player';
 
 @Component({
   selector: 'app-friend-list',
@@ -10,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class FriendListComponent implements OnInit {
   private friendListService: FriendListService;
+  @Input() playerRef: Player | undefined;
   @Output() private friendList?: Friend[] = [];
   @Output() private selectedFriend!: Friend;
   showPMBox: boolean = false;

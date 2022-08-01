@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { Character } from './character';
 import { PartyRequestCommand } from './friend-caller.service';
 
 export interface Quest {
@@ -21,16 +22,17 @@ export enum QuestStates {
 
 export class PartyQuestData {
 
-  private registrants: string[] = [];
+  private registrants: Character[] = []
+  
   private status: QuestStates;
 
-  constructor(r1: string, r2: string, private questData: Quest[]) {
+  constructor(r1: Character, r2: Character, private questData: Quest[]) {
     this.registrants[0] = r1;
     this.registrants[1] = r2;
     this.status = QuestStates.START;
   }
 
-  public getRegistrants(): string[] {
+  public getRegistrants(): Character[] {
     return this.registrants;
   }
 
@@ -64,11 +66,9 @@ export class QuestPartyService {
   partyQuestDataSource$: Observable<PartyQuestData> = this.partyQuestDataSource.asObservable();
   
   private actions: PartyRequestCommand[] = [];
-  private partyQuestData: PartyQuestData;
+  private partyQuestData: PartyQuestData | undefined;
 
-  constructor(private http: HttpClient) {
-    this.partyQuestData = new PartyQuestData("Default", "Default 2", []);
-  }
+  constructor(private http: HttpClient) {}
 
   public getPartyQuestData() {
     return this.partyQuestData;
@@ -91,8 +91,8 @@ export class QuestPartyService {
           mQuest = questData;
           console.log(mQuest);
           const conv = a.getConversationSession();
-          this.partyQuestData = new PartyQuestData(conv.conversationRequesterName, conv.conversationTargetName, mQuest);
-          this.partyQuestDataSource.next(this.partyQuestData);      
+          this.partyQuestData = new PartyQuestData(conv.conversationRequester as Character, conv.conversationTarget as Character, mQuest);
+          this.partyQuestDataSource.next(this.partyQuestData);   
         }
       }
     };

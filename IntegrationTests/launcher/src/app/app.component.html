@@ -13,7 +13,7 @@
                 <div class="schedule-entry">
                     <ul>
                         <!-- E.g., @19:00 PM - Meet with TryAgain34 in Chat Homes Jazzy Lounge -->
-                        <li *ngFor="let event in scheduledEvents">
+                        <li *ngFor="let event of scheduledEvents">
                             {{ event.name }}
                         </li>
                     </ul>
@@ -37,7 +37,7 @@
     </div>
 
     <div id="a1-c" class="carousel-cell">    
-        <app-quest-idler></app-quest-idler>   
+        <app-quest-idler (playerRefChange)="updatePlayerRef($event)" [playerRef]="playerRef"></app-quest-idler>   
     </div>
 
     <div id="a1-e" class="carousel-cell">       

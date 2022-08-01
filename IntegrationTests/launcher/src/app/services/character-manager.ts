@@ -13,12 +13,6 @@ export class CharacterManager {
 
     constructor(characterDatabaseService: CharacterDatabaseService) {
         this.characterDatabaseService = characterDatabaseService;
-        // Init the player
-        // this.createNewFriendship(player, );
-    }
-
-    public getCharactersFromDatabase() {
-
     }
 
     public createNewFriendship(character1: Character, character2: Character) {
@@ -28,5 +22,4 @@ export class CharacterManager {
     public addFriendship(newFriendship: Friendship) {
         this.friendships.push(newFriendship);
     }
-
 }

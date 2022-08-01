@@ -13,8 +13,8 @@ import { Player } from '../services/player';
   styleUrls: ['./friend-detail.component.css']
 })
 export class FriendDetailComponent implements OnInit {
-  //Temp
-  player: Player;
+  // The player ref is sent all the way from the AppComponent.ts
+  @Input() playerRef: Player | undefined;
   lastPMSent: boolean = false;
   lastPMSentSuccess: boolean = false;
   activeFriendTarget: string | undefined = "";
@@ -24,8 +24,6 @@ export class FriendDetailComponent implements OnInit {
 
   @Input() selectedFriend!: Friend;
   constructor(private friendListService: FriendListService) {
-    this.player = new Player("Autumn");
-
     const obs = {
       next: (conversationSession: ConversationSession) => {
         this.updatePMStatus(conversationSession, true);
@@ -60,17 +58,23 @@ export class FriendDetailComponent implements OnInit {
     const targetName = this.selectedFriend.name;
     let f: Friendship | undefined;
 
-    if(!this.player.friendsMap.has(targetName)) {
-      f = this.addFriend(this.player, this.selectedFriend);
-      this.player.friendsMap.set(targetName, f);
+    if (this.playerRef) {
+      if(!this.playerRef.friendsMap.has(targetName)) {
+        f = this.addFriend(this.playerRef, this.selectedFriend);
+        this.playerRef.friendsMap.set(targetName, f);
+      } else {
+        f = this.playerRef.friendsMap.get(targetName);
+      }
+      if (f !== undefined) {
+        if (f.friendshipLevel < 3) {
+          this.friendListService.sendPrivateMessage(f);
+        }
+        this.notifyLastPMStatus();  
+      } else {
+        console.log("Error: friendship was not defined properly.");
+      }
     } else {
-      f = this.player.friendsMap.get(targetName);
-    }
-    if (f !== undefined) {
-      this.friendListService.sendPrivateMessage(f);
-      this.notifyLastPMStatus();
-    } else {
-      console.log("Error: friendship was not defined properly.");
+      console.warn("Player ref not defined yet. See AppComponent.ts");
     }
   }
 

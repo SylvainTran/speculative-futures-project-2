@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Player } from '../services/player';
 
 @Component({
   selector: 'app-single-player-view',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-player-view.component.css']
 })
 export class SinglePlayerViewComponent implements OnInit {
+
+  @Input() playerRef: Player | undefined;
 
   constructor() { }
 

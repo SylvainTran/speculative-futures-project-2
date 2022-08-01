@@ -3,7 +3,7 @@
     <button type="button" (click)="restartGame();">Restart Over</button>    
 </div>
 <div *ngIf="partyModeActive && showPartyButton" class="bard-declaration">
-    <h1>{{activePartyQuest!.getRegistrants()[1]}} wants to party with you. Click on the button above to start a new quest together.</h1>
+    <h1>{{activePartyQuest!.getRegistrants()[1].name}} wants to party with you. Click on the button above to start a new quest together.</h1>
 </div>
-<app-single-player-view  *ngIf="!partyModeActive"></app-single-player-view>
+<app-single-player-view [playerRef]="playerRef" *ngIf="!partyModeActive"></app-single-player-view>
 <app-avatar-party-display [promptList]="promptList"  (activePartyQuestChange)="updatePartyQuestState($event)" [(activePartyQuest)]="activePartyQuest" *ngIf="partyModeActive && showPartyMode"></app-avatar-party-display>
