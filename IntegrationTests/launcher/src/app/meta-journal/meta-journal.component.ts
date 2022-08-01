@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+class Attachment {
+  visible: boolean = false;
+  constructor() {}
+}
+
 @Component({
   selector: 'app-meta-journal',
   templateUrl: './meta-journal.component.html',
@@ -8,8 +13,11 @@ import { Component, OnInit } from '@angular/core';
 export class MetaJournalComponent implements OnInit {
 
   activeText: string = "cover-letter";
+  showAttachments: boolean = false;
+  attachments: Attachment[] = [];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -18,4 +26,8 @@ export class MetaJournalComponent implements OnInit {
     this.activeText = textName;
   }
 
+  public showAttachment(index: number) {
+    this.attachments[index].visible = true;
+    console.log("SHOWING INDEX : " + index);
+  }
 }

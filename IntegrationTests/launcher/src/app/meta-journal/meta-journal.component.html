@@ -1,10 +1,10 @@
 <mat-card class="meta-journal-window">
     <div *ngIf="activeText == 'cover-letter'">
-        <h3>Istae litterae adsignantur. Non festinarem nisi Deus meus me fecit.</h3>
+        <h1>Istae litterae adsignantur. Non festinarem nisi Deus meus me fecit.</h1>
         <br>
-        <h4>Postscript: My love. Please do not delay. Hasten what you must do, and come find me at the summer quai.</h4>
-        <h4>Admist all the verses, where our blue dreams met.</h4>
-        <h4>The meadow of my heart is bare for you.</h4>
+        <p>Postscript: My love. Please do not delay. Hasten what you must do, and come find me at the summer quai.
+        Admist all the verses, where our blue dreams met.
+        The meadow of my heart is bare for you.</p>
         <h5>- Autumn (Q)</h5><br>
         <h6>PS: Since you are here, I have left some letters penned throughout my journey in the Twelve Verses. As you are aware of my real identity within the Empire, kindly do not let prying eyes see this.</h6>
     </div>
@@ -64,7 +64,26 @@
             <p>my spirit shall not rest.</p>
         </div>
         <br>
-        <h3>Attachments</h3>
+        <h2>Attachments</h2><hr>
+        <div class="attachments">
+            <div *ngIf="attachments[0].visible">
+                <h1>Showing a video!</h1>
+                <video></video>
+            </div>
+            <div *ngIf="attachments[1].visible">
+                <h1>Showing a pic!</h1>
+                <img src="" alt="">
+            </div>
+            <div *ngIf="attachments[2].visible">
+                <p>Note: I changed my password for the Quest Idler app yesterday. I never remember those. I wonder why?</p>
+                <h2>bluehills</h2>
+            </div>
+            <ul>
+                <li><button (click)="showAttachment(0)">Video</button></li> 
+                <li><button (click)="showAttachment(1)">Button</button></li>
+                <li><button (click)="showAttachment(2)">Important Note</button></li>
+            </ul>
+        </div>
         <br>
         <h1>Pig tar</h1>
         <hr>

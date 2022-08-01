@@ -71,3 +71,9 @@ h1 {
     text-align: center;
     font-size: 2.5rem;
 }
+
+.attachments ul, h2 {
+    font-family: 'Cantarell', 'sans-serif';
+    font-size: 3rem;
+    list-style-type: circle;
+}

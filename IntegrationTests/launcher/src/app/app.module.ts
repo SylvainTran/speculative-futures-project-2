@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 // Services
 import { FriendListService } from './services/friend-list.service';
@@ -71,6 +72,7 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
     CdkTreeModule,
     MatIconModule,
     MatCardModule,

@@ -1,12 +1,16 @@
 <div id="a3-1" class="carousel-cell">       
     <div class="main-unit">
         <div class="identity-section text-middle-container my-is-flex is-centered is-absolute">
-        <!-- Message form for sending stuff to Unity -->
-        <!-- <div class="message-form centered">
-            <h2>Message for Unity</h2>
-            <input type="text" name="txtMessage" id="txtMessage" placeholder="Enter message..." />
-            <button onclick="sendMessageToUnity()">Send</button>
-        </div> -->
+        <!--Mock login that hides the black bg-->        
+        <div class="message-form centered">
+            <h2>Chat Homes 3D</h2>
+            <form #f="ngForm">
+                <input type="text" name="chat-homes-login" id="chat-homes-login" placeholder="autumn" />&nbsp;&nbsp;
+                <input type="text" name="chat-homes-password" id="chat-homes-password" placeholder="Enter password." />
+                <br><button onclick="">Submit</button>
+                <button onclick="">About</button>
+            </form>
+        </div>
         <div id="unity-container" class="unity-desktop">
             <canvas id="unity-canvas" width=960 height=600></canvas>
             <div id="unity-loading-bar">
