@@ -1,5 +1,5 @@
 .avatar-display {
-    display: inline-block;
+    display: flex;
     border: 5px solid blue;
     width: 70vw;
     height: 80vh;
@@ -43,13 +43,13 @@
     font-style: italic;
     font-family: 'Press Start 2P', cursive;
     font-size: 1rem;
-    position: relative;
-    top: 100px;
+    /* position: relative;
+    top: 100px; */
 }
 
 .quest-location {
     font-family: 'Press Start 2P', cursive;
-    font-size: 3rem;
+    font-size: 1rem;
 }
 
 .poetry-game-section {
@@ -59,6 +59,7 @@
 
 .poems {
     display: flex;
+    flex-direction: column;
     width: 100%;
     line-height: 2rem;
     flex-direction: row;
@@ -81,8 +82,8 @@
 
 .gameClickHandler {
     display: flex;
-    flex-direction: column;
-    width: 30vw;
+    flex-direction: row;
+    width: 100vw;
     line-height: 3rem;
 }
 
@@ -97,9 +98,17 @@
 }
 
 .locationBg {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     background-image: url('../../assets/sunbg.png');
     background-size: cover; /* Resize the background image to cover the entire container */
     background-position: center; /* Center the image */
     height: 400px;
-    width: 400px;
+    width: 100vw;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
 }

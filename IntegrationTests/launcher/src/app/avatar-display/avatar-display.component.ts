@@ -16,6 +16,11 @@ export class AvatarDisplayComponent implements OnInit, OnDestroy, AfterViewInit 
 
   // Bindings
   private avatar: String = "(._.)";
+  public TEXT_BUFFER_STREAM: string = "";
+  public POEM_OUTPUT: string = "";
+  public activeClicksRemaining: number = 5;
+
+  public result: string = "";
   private avatarName: String = "";
   private enemyPlaceholder: String = "The mountains are breezy and the wind pushes you forth.";
   private location: String = "//\\//\\";
@@ -106,6 +111,42 @@ export class AvatarDisplayComponent implements OnInit, OnDestroy, AfterViewInit 
   public getLocationName() {
     return this.locationName;
   }
+  
+  public getVerbFromRandomSample(index: number): string {
+    let group = index % 2 === 0? 1 : 2;
+    const m_physicalActions: string[] = ["pulverize", "push", "hammer", "cut", "pummel", "break", "throw", "blow"];
+    const m_nonPhysicalActions: string[] = ["reflect", "prepare", "anticipate", "tear up"];
+
+    if (group === 1) {
+      return m_physicalActions[index % m_physicalActions.length];
+    } else {
+      return m_nonPhysicalActions[index % m_nonPhysicalActions.length];
+    }
+  }
+
+  public executeStream() {
+    this.POEM_OUTPUT = this.TEXT_BUFFER_STREAM;
+    setTimeout(()=> {this.POEM_OUTPUT = ""}, 3000);
+    
+    if (this.clickCount % 2 === 0) {
+      this.location = "/\\/\\";
+      this.enemyPlaceholder = "(You are out in the mountains, looking for new adventure.)";
+    } else if (this.clickCount % 3 === 0) {
+      this.result = "[Victorious.]"
+      this.location = "/\\/\\";
+      this.enemyPlaceholder = "(The songs tell of a tale when you defeated a wild, naked goblin.)";
+      this.avatarVictoryAudioSrc.play();
+    } else {
+      this.result = "[Defeated.]";
+      this.enemyPlaceholder = "(You faded from history, alas defeated by a wild, naked goblin.)";
+      this.currentHealth = this.avatarControllerService.getAvatarHealthService().changeHealth(-5);
+      this.avatarDeathAudioSrc.play();
+      if(this.avatarControllerService.getAvatarHealthService().healthIsBelowZero()) {
+        this.result = "[Died.]";
+        this.avatarControllerService.alive = false;
+      }
+    }
+  }
 
   public handleAvatarClicked() {
     if (this.controlLock) {
@@ -124,24 +165,14 @@ export class AvatarDisplayComponent implements OnInit, OnDestroy, AfterViewInit 
 
   public updateAvatarDisplay() {    
     if (this.avatarControllerService.isAlive()) {
-      if (this.clickCount % 2 === 0) {
-        this.avatar = "<(o_o)> <( ... )";
-        this.location = "/\\/\\";
-        this.enemyPlaceholder = "(You are out in the mountains, looking for new adventure.)";
-      } else if (this.clickCount % 3 == 0) {
-        this.avatar = "^(^_^)^_ <( Victorious. )"
-        this.location = "/\\/\\";
-        this.enemyPlaceholder = "(The songs tell of a tale when you defeated a wild, naked goblin.)";
-        this.avatarVictoryAudioSrc.play();
+      if (this.activeClicksRemaining > 0) {
+        this.avatar = this.getVerbFromRandomSample(this.clickCount);
+        this.TEXT_BUFFER_STREAM += " " + this.avatar;
+        --this.activeClicksRemaining;
       } else {
-        this.avatar = "<(*_*)> <( ... )";
-        this.enemyPlaceholder = "(You faded from history, alas defeated by a wild, naked goblin.)";
-        this.currentHealth = this.avatarControllerService.getAvatarHealthService().changeHealth(-5);
-        this.avatarDeathAudioSrc.play();
-        if(this.avatarControllerService.getAvatarHealthService().healthIsBelowZero()) {
-          this.avatar = "(RIP) <( Has Died. )";
-          this.avatarControllerService.alive = false;
-        }
+        this.executeStream();
+        this.activeClicksRemaining = 5;
+        this.TEXT_BUFFER_STREAM = "";
       }
     }
   }

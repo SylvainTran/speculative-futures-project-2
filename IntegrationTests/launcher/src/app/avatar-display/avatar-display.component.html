@@ -1,22 +1,20 @@
 <div class="avatar-display">
-    <h3 class="quest-location">{{this.getLocationName()}}</h3>
-    <div>{{this.getLocation()}}{{this.getLocation()}}{{this.getLocation()}}</div>
     <div class="poems">
-        <div class="poem-container">
-            <p>Script:</p>
-            <ul>
-                <li *ngFor="let poem of poems">
-                    {{ poem }} 
-                </li>
-            </ul>
-        </div>
         <div class="gameCanvas">
             <div class="locationBg">
                 <div class="enemy-pic" >Bard: {{this.getEnemyPlaceholder()}}</div>    
+                <div class="quest-location">{{this.getLocationName()}}</div>
+                <!-- <div>{{this.getLocation()}}{{this.getLocation()}}{{this.getLocation()}}</div> -->            
             </div>
             <div class="gameClickHandler">
+                <div class="flex-col">
+                    <div>INPUTS REMAINING >>> {{activeClicksRemaining}}</div>
+                    <div>OUTPUT >>> {{POEM_OUTPUT}}</div>
+                    <div>INPUT >>> {{TEXT_BUFFER_STREAM}}</div>    
+                </div>
                 <label for="avatar-pic-id">Autumn</label>
                 <div id="avatar-pic-id" [class.avatar-alive]="currentHealth > 0" [class.avatar-dead]="currentHealth <= 0" class="avatar-pic" (click)="handleAvatarClicked()">{{this.getAvatar()}}</div>
+                <div class="situation-result">{{result}}</div>
             </div>
             <div class="poetry-game-section">
                 <app-avatar-detail [currentHealth]="currentHealth" [currentLevel]="currentLevel" [currentExperience]="currentExperience" [experienceTotalRequired]="experienceTotalRequired"></app-avatar-detail>    
@@ -24,6 +22,15 @@
             <div>
                 <p>[set current click sound]: default</p>
             </div>
+            <div class="poem-container">
+                <p>Script:</p>
+                <ul>
+                    <li *ngFor="let poem of poems">
+                        {{ poem }} 
+                    </li>
+                </ul>
+            </div>
         </div>
+
     </div>
 </div>

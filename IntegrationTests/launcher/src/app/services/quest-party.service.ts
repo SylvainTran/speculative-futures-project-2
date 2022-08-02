@@ -20,6 +20,31 @@ export enum QuestStates {
   SUCCESS
 }
 
+// 1. bard declares state of party's quest
+// 2. describes location, threats, current hero's actions
+// 3. the bard's declarations contextualize the meaning of the idle clicker
+// 4. the clicker's display / avatar can be a semantic verb / collected from the hero's quests and stats
+// 4.1 clicking "focuses/applies/accents" the verbs -> multiple choices?
+// 5. the quest has sub milestones - locations change the background picture dynamically
+// 6. you progress / collect stats and poem verbs for future clicks
+// 7. progress location -> 1-1, 1/3 ... troll cave
+// 8. quests reflect the poem's structure/stanzas
+// 9. the verb may dynamically affect the poems/nuances/context?
+// pulverize pulverize pulverize pulverize pulverize pulverize pulverize
+// light light light love reflect reflect love light pulverize
+
+// User sees own created poem at the end result
+// computer picks semi-intelligently for the party friend, juxtaposes/puts alnogside your
+// entry and the friends' entry (collaborative poetry)
+// ... the poem mash combo window shows a string stream of clicked verbs, then stops when the relation prompt appears
+// the computer friend AI interjects their own verbs in that continuous stream
+
+// some characters are more interested in the "fantasy quest generator"
+// others in the "hangout in a pixel destination app"
+// the fantasy app's quest content language and verbs have to do with fighting / overcoming
+// the hangout app is about socialization / human processes
+// the available verbs to connect differ between these two apps
+
 export class PartyQuestData {
 
   private registrants: Character[] = []
