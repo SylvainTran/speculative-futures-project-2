@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Inject, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Inject, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AVATAR_NAME } from '../app.module';
 import { CharacterPrompt } from '../quest-idler/quest-idler.component';
 import { AvatarControllerService } from '../services/avatar-controller.service';
 import { AvatarExperienceService } from '../services/avatar-experience.service';
 import { PartyQuestData, QuestStates } from '../services/quest-party.service';
+import { Monster } from '../services/quest.service';
 
 export enum UserType {
   PLAYER,
@@ -29,7 +30,7 @@ interface StringAvatarArtStates {
 class Autumn implements StringAvatarArtStates {
 
   constructor(
-    public IDLE = "'(._.)'",
+    public IDLE = "'YOU STAND READY'",
     public FIGHTING = "'<(O`.O`)> <( Fighting! )'",
     public VICTORIOUS = '^(^_^)^_ <( Victorious. )',
     public DEFEATED = '_(*_*)_ <( Defeated. )',
@@ -97,7 +98,9 @@ class PromptReplyBuilder implements PromptBuilder {
   // Lock for preventing multiple builds for the same prompt
   locked: boolean = false;
   
-  constructor(private director: AvatarPartyDisplayComponent, private promptList: CharacterPrompt[], private promptIterator: number, private choiceIndex: number) {}
+  constructor(private director: AvatarPartyDisplayComponent, private promptList: CharacterPrompt[], private promptIterator: number, private choiceIndex: number) {
+
+  }
   
   // Re-initialize the prompt list obtained from the parent quest-idler
   reinitData(promptList: CharacterPrompt[]): void {
@@ -136,9 +139,32 @@ class PromptReplyBuilder implements PromptBuilder {
   // Shows the initial prompt window's state: the prompt container and
   // the player's options (not the replies that comes after clicking on an option!)
   // Also, the lock is set here because that's the first place where the prompt shows up
+  /**
+   * Note that the iterator deals with knowing which data
+   * is proper to show at this stage. All this does is turn on the flags
+   * for the *ngIf directives set in this component's templates to display the containers.
+   * 
+   * The location of a quest also should update after each new prompt, if there is a new one.
+   */
   show(): void {
     this.displayPrompt(true)
-      .displayPlayerOptions(true);
+      .displayPlayerOptions(true)
+      .updateLocationBg();
+  }
+
+  public updateLocationBg() {
+
+    if (this.director.locationBgEl) {
+
+      const locations = this.director.activePartyQuest?.getLocations();
+
+      console.log(locations);
+
+      if (locations && this.promptIterator < locations.length) {
+        this.director.activeLocation = locations[this.promptIterator];
+        this.director.locationBgEl.style.backgroundImage = "url(" + this.director.assetPathPrefix + this.director.activeLocation + ")";
+      }
+    }
   }
 
   public displayPlayerOptions(value: boolean) {
@@ -187,7 +213,7 @@ class PromptReplyBuilder implements PromptBuilder {
     setTimeout( () => {
       this.unlock()
         .advancePromptIterator()
-        .validateQuestState();
+        .validateQuestState(QuestStates.SUCCESS);
     }, this.promptTeardownDelay);
   }
 
@@ -199,11 +225,14 @@ class PromptReplyBuilder implements PromptBuilder {
   }
 
   // Signals the parent that the prompt/quest is ended, do whatever follows next
-  public validateQuestState() {
+  public validateQuestState(state: QuestStates) {
     // Temp - end quest regardless of quest state if prompts are done
     if (!this.director.promptIteratorIsLessThanMaxPrompts()) {
       // emit event end quest, partyModeActive && showPartyMode set to false in parent quest-idler component
-      this.director.triggerPartyQuestEnded(QuestStates.SUCCESS);
+      if (this.director.monsterIterator >= this.director.activePartyQuestMonsters.length) {
+        this.director.monstersAllDefeated = true;
+        this.director.triggerPartyQuestEnded(state);
+      }
     }
     return this;
   }
@@ -324,10 +353,25 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   public promptReplyBuilder?: PromptReplyBuilder;
 
   // Quest, location and battle windows
+  /**
+   * TODO: This is responsible for updating the new locations
+   * after each new prompt.
+   * 
+   * Location update: it should retrive the active key from the locations: string[]
+   * by using the promptIterator. Then it updates the template with the active location.
+   */
   public questWindowBuilder: QuestWindowBuilder;
-
+  public assetPathPrefix: string = "../../assets/locations/";
+  public activeLocation: string = "parallaxforest.gif"; // A path url to the active location src.
+  public locationBgEl: any = document.getElementById("locationBg");
   // Set to random: Used to decide when the show next prompt 
   private clickCountTillNextPrompt: number = 3;
+
+  // TODO: Temp
+  public activePartyQuestMonsters: Monster[] = [];
+  public activeMonster: Monster | undefined;
+  public monsterIterator: number = 0;
+  public monstersAllDefeated: boolean = false;
   
   // Sounds: TODO - put in SoundManager service
   avatarClickAudioSrc: any;
@@ -348,7 +392,7 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
     // TODO: dependency injection
     this.avatarStatsDisplay = new AvatarStatsDisplay();
     this.promptReplyBuilder = new PromptReplyBuilder(this, this.promptList, this.promptIterator, 0);
-    this.questWindowBuilder = new QuestWindowBuilder(this.activePartyQuest);
+    this.questWindowBuilder = new QuestWindowBuilder(this.activePartyQuest);  
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -358,6 +402,15 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
     }
     if (changes['activePartyQuest'].currentValue !== changes['activePartyQuest'].previousValue) {
       this.reinitActivePartyQuestData(changes['activePartyQuest'].currentValue);
+      const data = this.activePartyQuest?.getQuestData().monsters;
+      
+      // This is just an object rn
+      this.activePartyQuestMonsters = [];
+      data?.forEach(monster => {
+        this.activePartyQuestMonsters.push(new Monster(monster));
+      });
+      this.monsterIterator = 0;
+      this.activeMonster = this.activePartyQuestMonsters[this.monsterIterator];
     }
   }
 
@@ -373,6 +426,7 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
     this.avatarClickAudioSrc = document.getElementById("click-beep");
     this.avatarVictoryAudioSrc = document.getElementById("victory");
     this.avatarDeathAudioSrc = document.getElementById("death");
+    this.locationBgEl = document.getElementById("locationBg");
   }
 
   // Getters
@@ -393,7 +447,7 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   }
 
   public get ActiveQuestName() {
-    return this.activePartyQuest?.getActiveQuestName(0);
+    return this.activePartyQuest?.getActiveQuestName();
   }
 
   public get ActivePartyNames() {
@@ -444,6 +498,29 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
     this.avatarControllerService.handleAvatarClicked();
     this.clickCount = this.avatarControllerService.clickCount;
 
+    // Attacks monsters
+    if (this.activePartyQuestMonsters !== undefined && this.activePartyQuest) {
+      // Damage
+      if (this.monsterIterator < this.activePartyQuestMonsters.length) {
+
+        if (this.activeMonster) {
+
+          if (this.activeMonster.hp > 0) {
+            this.activeMonster.damage(this.activePartyQuest.getRegistrants());
+          } else {
+            this.monsterIterator++;
+            this.activeMonster = this.activePartyQuestMonsters[this.monsterIterator];
+            console.log("The monster was defeated");
+          }
+          // We may have just killed the last monster
+          prompt?.validateQuestState(QuestStates.SUCCESS);
+        }
+      } else {
+        console.log("All quest monsters were defeated.");
+        prompt?.validateQuestState(QuestStates.SUCCESS);
+      }
+    }
+
     console.log("curr click count: " + this.clickCount);
     console.log("next threshold: " + this.clickCountTillNextPrompt);
     console.log("curr iterator: " + this.promptIterator);
@@ -453,7 +530,7 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
       if (prompt) {
         prompt.lock();
         prompt.tearDown();
-        prompt.show();
+        prompt.show();        
       }
     }
     this.handleAvatarStatsDisplay();

@@ -1,17 +1,37 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Character } from './character';
 
 // Test quest fetch API
-export interface Monster {
-  name: string;
-  race: string;
-  hp: number;
-  expGain: number;
-  level: number;
-  stamina: number;
-  zone: string;
+export class Monster {
+
+  public name: string;
+  public race: string;
+  public hp: number;
+  public expGain: number;
+  public level: number;
+  public stamina: number;
+  public zone: string;
+
+  constructor(monster: Monster) {
+    this.name = monster.name;
+    this.race = monster.race
+    this.hp = monster.hp;
+    this.expGain = monster.expGain; 
+    this.level = monster.level;
+    this.stamina = monster.stamina;
+    this.zone = monster.zone;
+  }
+
+  public damage(party: Character[]): void {
+  if (this.hp > 0 && party) {
+    party.forEach(character => {
+      // Temp:
+      this.hp -= 1;
+      //this.hp -= character.attackDamage;
+    })
+  }
+  }
 }
 
 @Injectable({

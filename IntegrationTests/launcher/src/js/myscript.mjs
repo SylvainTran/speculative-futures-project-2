@@ -254,15 +254,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
       updateBannerVisibility();
   }
 
-  var buildUrl = "./assets/basilica/Build";
-  var loaderUrl = buildUrl + "/Builds.loader.js";
+  var buildUrl = "./assets/chathomes/Build";
+  var loaderUrl = buildUrl + "/v0.2.loader.js";
   var config = {
-      dataUrl: buildUrl + "/Builds.data.unityweb",
-      frameworkUrl: buildUrl + "/Builds.framework.js.unityweb",
-      codeUrl: buildUrl + "/Builds.wasm.unityweb",
+      dataUrl: buildUrl + "/v0.2.data.unityweb",
+      frameworkUrl: buildUrl + "/v0.2.framework.js.unityweb",
+      codeUrl: buildUrl + "/v0.2.wasm.unityweb",
       streamingAssetsUrl: "StreamingAssets",
       companyName: "DefaultCompany",
-      productName: "Churchverse",
+      productName: "ChatHomes3D",
       productVersion: "0.1",
       showBanner: unityShowBanner,
   };

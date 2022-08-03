@@ -1,15 +1,26 @@
 <div class="flex-container">
     <div class="gameCanvas">
         <div class="poetry-game-section avatar-display">
-            <div class="locationBg">
+            <div id="locationBg">
+                <div *ngIf="activePartyQuest && questWindowBuilder?.show"></div>
                 <div class="enemy-pic">Bard: The quest has started: {{ ActiveQuestName }}</div>
                 <div class="enemy-pic" >Bard: {{ BardText }}</div>
             </div>
             <div class="flex-centered">
+                <div *ngIf="!promptReplyBuilder?.showPrompt && !monstersAllDefeated" class="quest-window">
+                    A monster attacked your party! <br>
+                    <hr>
+                    {{activeMonster?.name}}: <br> 
+                    HP >>> {{activeMonster?.hp}} <br>
+                    LEVEL >>> {{activeMonster?.level}} <br>
+                    RACE >>> {{activeMonster?.race}} <br>
+                    EXPGAIN >>> {{activeMonster?.expGain}} <br><br>
+                    Monsters left: {{activePartyQuestMonsters.length - monsterIterator}}                    
+                </div>
+                <div *ngIf="monstersAllDefeated">
+                    With the quest completed successfully, you and your friend enjoy a peaceful respite...
+                </div>
                 <div class="character-prompt-container">
-                    <div *ngIf="activePartyQuest && questWindowBuilder?.show">
-
-                    </div>
                     <div *ngIf="promptReplyBuilder?.showPrompt && activePartyQuest && promptReplyBuilder as prompt">
                         <p>{{ activePartyQuest.getRegistrants()[1].name }}: {{ ActivePrompt.getText() }}</p><br>
                         <p *ngIf="prompt.activePromptReply && prompt.showPlayerPromptReply">Autumn: {{ prompt.activePromptReply }}</p><br>

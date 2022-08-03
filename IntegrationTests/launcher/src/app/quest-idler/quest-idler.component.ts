@@ -2,9 +2,8 @@ import { AfterContentInit, Component, EventEmitter, Input, OnChanges, OnDestroy,
 import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AvatarControllerService } from '../services/avatar-controller.service';
-import { Character } from '../services/character';
 import { CharacterDatabaseService } from '../services/character-database.service';
-import { Friendship, FriendshipLevels } from '../services/friendship';
+import { Friendship } from '../services/friendship';
 import { Player } from '../services/player';
 import { PartyQuestData, QuestPartyService, QuestStates } from '../services/quest-party.service';
 
@@ -74,7 +73,7 @@ export class QuestIdlerComponent implements OnInit, AfterContentInit, OnChanges,
   }
 
   ngOnInit(): void {
-    const obs = {
+    this.partyQuestSub = this.questPartyService.partyQuestDataSource$.subscribe({
       next: (partyQuestData: PartyQuestData) => {
         this.resetPromptList();
         this.updatePartyData(partyQuestData);
@@ -83,8 +82,7 @@ export class QuestIdlerComponent implements OnInit, AfterContentInit, OnChanges,
       },
       error: (err: Error) => console.error('Observer got an error: ' + err),
       complete: () => console.log('Observer got a complete notification'),
-    };
-    this.partyQuestSub = this.questPartyService.partyQuestDataSource$.subscribe(obs);
+    });
   }
 
   ngOnDestroy(): void {
@@ -106,6 +104,29 @@ export class QuestIdlerComponent implements OnInit, AfterContentInit, OnChanges,
     this.promptList = [];
   }
 
+  /**
+   * updatePartyData
+   * 
+   * This method updates the party quest data
+   * by pushing new CharacterPrompt objects to the promptList: CharacterPrompt[]
+   * This is in turn pushed down to the avatar party quest display component,
+   * which updates its view with this data.
+   * 
+   * The way this is done currently is by retrieving the player's friendship hash map,
+   * and retrieving the conversation data object from there.
+   * 
+   * In other words, all this method does is retriving the target friend hash key of this party quest, from the
+   * player's hashmap, and using that key to to retrive the data that's already in 
+   * the friendship object of the player (or the target friend actor).
+   * 
+   * TODO: Break this into three functions:
+   * 1. WHICH FRIEND TO PARTY WITH?
+   * 2. GET THAT FRIENDSHIP's DATA
+   * 3. UPDATE THE PROMPT LIST OUTPUT WITH IT
+   * 
+   * @param partyQuestData: The JSON parsed party quest data. It should contain all the 
+   * info required to create a new party quest.
+   */
   public updatePartyData(partyQuestData: PartyQuestData) {
     let player = partyQuestData.getRegistrants()[0] as Player;
     let fs: Friendship | undefined = player.friendsMap.get(partyQuestData.getRegistrants()[1].name);
@@ -127,11 +148,32 @@ export class QuestIdlerComponent implements OnInit, AfterContentInit, OnChanges,
     }
   }
 
+  /**
+   * updatePartyModeActive
+   * 
+   * This method sets the necessary flags for showing the party quest request html (the whole screen pop-up).
+   * These variables are bound in the template of this component by *ngIf directives: 
+   * (1) the party request button
+   * (2) the party request pop-up
+   * (3) the whole party display component
+   * 
+   * @param partyQuestData: The party quest data. Currently not needed?
+   */
   public updatePartyModeActive(partyQuestData: PartyQuestData) {
     this.partyModeActive = true;
     this.showPartyButton = true;
   }
 
+  /**
+   * 
+   * acceptPartyRequest
+   * 
+   * This method turns off the party request button and 
+   * toggles the flag to show the party mode.
+   * 
+   * In other words, both the showPartyMode flag and the partyModeActive need to be true
+   * for the party quest component to display.
+   */
   public acceptPartyRequest() {
     this.showPartyMode = true;
     this.showPartyButton = false;

@@ -6,7 +6,55 @@
         "goldGain": 100,
         "prerequisites": [],
         "questLevel": 1,
-        "zone": "1-1"
+        "zone": "1-1",
+        "locations": ["parallaxdesert.gif", "parallaxforest.gif", "forestfireflies.gif"],
+        "monsters": [
+            {
+                "name": "Goblou",
+                "race": "Goblin",
+                "hp": 10,
+                "expGain": 50,
+                "level": 1,
+                "stamina": 5,
+                "zone": "1-1"
+            },
+            {
+                "name": "Arry",
+                "race": "SheepToother",
+                "hp": 15,
+                "expGain": 75,
+                "level": 1,
+                "stamina": 5,
+                "zone": "1-2"
+            },
+            {
+                "name": "Harriet",
+                "race": "Feathery Slime",
+                "hp": 7,
+                "expGain": 20,
+                "level": 1,
+                "stamina": 2,
+                "zone": "1-1"
+            },
+            {
+                "name": "Dyson",
+                "race": "Bandit",
+                "hp": 29,
+                "expGain": 35,
+                "level": 2,
+                "stamina": 8,
+                "zone": "1-1"
+            },
+            {
+                "name": "Ron",
+                "race": "Peasant",
+                "hp": 4,
+                "expGain": 5,
+                "level": 1,
+                "stamina": 2,
+                "zone": "1-1"
+            }
+        ]
     },
     {
         "name": "Kill 15 Muffin Monsters",
@@ -15,7 +63,55 @@
         "goldGain": 300,
         "prerequisites": [],
         "questLevel": 2,
-        "zone": "1-1"
+        "zone": "1-1",
+        "locations": ["autumn.gif", "cloudspurplemountains.gif"],
+        "monsters": [
+            {
+                "name": "Goblou",
+                "race": "Goblin",
+                "hp": 10,
+                "expGain": 50,
+                "level": 1,
+                "stamina": 5,
+                "zone": "1-1"
+            },
+            {
+                "name": "Arry",
+                "race": "SheepToother",
+                "hp": 15,
+                "expGain": 75,
+                "level": 1,
+                "stamina": 5,
+                "zone": "1-2"
+            },
+            {
+                "name": "Harriet",
+                "race": "Feathery Slime",
+                "hp": 7,
+                "expGain": 20,
+                "level": 1,
+                "stamina": 2,
+                "zone": "1-1"
+            },
+            {
+                "name": "Dyson",
+                "race": "Bandit",
+                "hp": 29,
+                "expGain": 35,
+                "level": 2,
+                "stamina": 8,
+                "zone": "1-1"
+            },
+            {
+                "name": "Ron",
+                "race": "Peasant",
+                "hp": 4,
+                "expGain": 5,
+                "level": 1,
+                "stamina": 2,
+                "zone": "1-1"
+            }
+        ]
     },
     {
         "name": "Kill 1 Troll",
@@ -24,6 +120,54 @@
         "goldGain": 500,
         "prerequisites": [],
         "questLevel": 3,
-        "zone": "1-1"
+        "zone": "1-1",
+        "locations": ["sunnyforest.gif"],
+        "monsters": [
+            {
+                "name": "Goblou",
+                "race": "Goblin",
+                "hp": 10,
+                "expGain": 50,
+                "level": 1,
+                "stamina": 5,
+                "zone": "1-1"
+            },
+            {
+                "name": "Arry",
+                "race": "SheepToother",
+                "hp": 15,
+                "expGain": 75,
+                "level": 1,
+                "stamina": 5,
+                "zone": "1-2"
+            },
+            {
+                "name": "Harriet",
+                "race": "Feathery Slime",
+                "hp": 7,
+                "expGain": 20,
+                "level": 1,
+                "stamina": 2,
+                "zone": "1-1"
+            },
+            {
+                "name": "Dyson",
+                "race": "Bandit",
+                "hp": 29,
+                "expGain": 35,
+                "level": 2,
+                "stamina": 8,
+                "zone": "1-1"
+            },
+            {
+                "name": "Ron",
+                "race": "Peasant",
+                "hp": 4,
+                "expGain": 5,
+                "level": 1,
+                "stamina": 2,
+                "zone": "1-1"
+            }
+        ]
     }
 ]

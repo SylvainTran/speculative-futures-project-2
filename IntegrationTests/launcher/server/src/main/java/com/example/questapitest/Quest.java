@@ -8,6 +8,10 @@ public class Quest implements Comparable {
     String[] prerequisites;
     int questLevel;
     String zone = "1-1";
+    String[] locations = null;
+    Monster[] monsters = null;
+
+    // Longer quests -> 
 
     public Quest() {}
 
@@ -18,6 +22,8 @@ public class Quest implements Comparable {
         this.goldGain = goldGain;
         this.prerequisites = prerequisites;
         this.zone = zone;
+        this.locations = new String[3];
+        this.monsters = new Monster[3];
     }
 
     public Quest(String name) {
@@ -52,6 +58,14 @@ public class Quest implements Comparable {
         return this.zone;
     }
 
+    public String[] getLocations() {
+        return this.locations;
+    }
+
+    public Monster[] getMonsters() {
+        return this.monsters;
+    }
+
     public void startNewQuest(Player player) {
         player.questsCompletedHashMap.put(name, this);
         player.experience += experienceGain;
@@ -62,6 +76,7 @@ public class Quest implements Comparable {
     public boolean isSameQuestId(int id) {
         return this.id == id;
     }
+
     public boolean isSameQuestName(String name) {
         return this.name.equals(name);
     }

@@ -3,6 +3,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Character } from './character';
 import { PartyRequestCommand } from './friend-caller.service';
+import { Monster } from './quest.service';
 
 export interface Quest {
   name: string,
@@ -11,7 +12,9 @@ export interface Quest {
   goldGain: number,
   prerequisites: string[],
   questLevel: number,
-  zone: string
+  zone: string,
+  locations: string[],
+  monsters: Monster[]
 }
 
 export enum QuestStates {
@@ -26,10 +29,19 @@ export class PartyQuestData {
   
   private status: QuestStates;
 
+  private selectedQuestIndex: number = 0;
+
+  /**
+   * Constructor.
+   * @param r1
+   * @param r2 
+   * @param questData : This is all the quests. Must pick a random one here!
+   */
   constructor(r1: Character, r2: Character, private questData: Quest[]) {
     this.registrants[0] = r1;
     this.registrants[1] = r2;
     this.status = QuestStates.START;
+    this.selectedQuestIndex = Math.floor(Math.random() * (questData.length)); // Math.random's max bound is exclusive, so this is never more than len - 1
   }
 
   public getRegistrants(): Character[] {
@@ -40,12 +52,20 @@ export class PartyQuestData {
     return this.registrants[0] + " and " + this.registrants[1];
   }
 
-  public getActiveQuestName(questIteratorIndex: number): string {
-    return this.questData[questIteratorIndex].name;
+  public getActiveQuestName(): string {
+    return this.questData[this.selectedQuestIndex].name;
   }
 
-  public getQuestData(questIteratorIndex: number) {
-    return this.questData[questIteratorIndex];
+  public getQuestData() {
+    return this.questData[this.selectedQuestIndex];
+  }
+
+  public getLocations() {
+    return this.questData[this.selectedQuestIndex].locations;
+  }
+
+  public getMonsters(): Monster[] {
+    return this.questData[this.selectedQuestIndex].monsters;
   }
 
   public get QuestStatus() {
@@ -63,6 +83,12 @@ export class PartyQuestData {
 export class QuestPartyService {
 
   partyQuestDataSource = new Subject<PartyQuestData>();
+
+  /**
+   * Subscribers: quest-idler-component.ts
+   * This is emitted at the end of a conversation, with the party request action. 
+   * When an party action command is executed.
+   */
   partyQuestDataSource$: Observable<PartyQuestData> = this.partyQuestDataSource.asObservable();
   
   private actions: PartyRequestCommand[] = [];
@@ -82,10 +108,21 @@ export class QuestPartyService {
     return this.actions;
   }
 
+  /**
+   * Invokers: PartyRequestCommand's execute method in the friend-caller-service
+   * is reponsible for invoking this method.
+   * 
+   * This sends along the fetched party quest data to subscribers.
+   * 
+   * Subscribers: quest-idler-component.ts
+   * 
+   * @param a 
+   * 
+   */
   public setupQuestParty(a: PartyRequestCommand) {
     let mQuest: any[] = [];
 
-    const obs = {
+    this.fetchNewQuestData().subscribe({
       next: (questData: any) => {
         if (questData !== null) {
           mQuest = questData;
@@ -94,9 +131,10 @@ export class QuestPartyService {
           this.partyQuestData = new PartyQuestData(conv.conversationRequester as Character, conv.conversationTarget as Character, mQuest);
           this.partyQuestDataSource.next(this.partyQuestData);   
         }
-      }
-    };
-    this.fetchNewQuestData().subscribe(obs);
+      },
+      error: (err: Error) => console.error('Observer got an error: ' + err),
+      complete: () => console.log('Observer got a complete notification')      
+    });
   }
   
   public fetchNewQuestData() {

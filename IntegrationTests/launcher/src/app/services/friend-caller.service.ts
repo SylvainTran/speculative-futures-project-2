@@ -186,7 +186,10 @@ export class ConversationSession {
         const party = new PartyRequestCommand(this.friendCallerService, this.questPartyService, this);
         // TODO: for later - party.execute();
         this.questPartyService.setupQuestParty(party);
+      } else if (action === ActionCommands.MESSAGE_CENTER_CORRESPONDENCE) {
+        // TODO: 
       }
+
     });
   }
 }
