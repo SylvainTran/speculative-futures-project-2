@@ -47,7 +47,7 @@
     height: 100vh;
 }
 
-.locationBg {
+#locationBg {
     background-image: url('../../assets/sunbg.png');
     background-size: cover; /* Resize the background image to cover the entire container */
     background-position: center; /* Center the image */
@@ -85,4 +85,8 @@
     align-content: center;
     justify-content: center;
     align-items: center;
+}
+
+.quest-window {
+    margin-right: 1.5rem;
 }
