@@ -34,10 +34,12 @@ p {
     line-height: 6rem;
     font-size: 4.5rem;
     font-weight: bold;
+    transform: rotate3d(1, 1, 1, 3deg);
 }
 
 h1 {
     font-size: 7.5rem;
+    transform: rotate3d(1, 1, 1, 14deg);
 }
 
 #liberation-p {
