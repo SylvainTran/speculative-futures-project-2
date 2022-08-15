@@ -28,6 +28,8 @@ export class AvatarDisplayComponent implements OnInit, OnDestroy, AfterViewInit 
 
   // Video game poetry experiment
   friendPrivateMessagesSub: Subscription;
+  conversationSession?: ConversationSession | null;
+  conversationTextIndex = 0;
   poems: String[] = [];
   controlLock: boolean = false;
 
@@ -109,8 +111,10 @@ export class AvatarDisplayComponent implements OnInit, OnDestroy, AfterViewInit 
 
   public handleAvatarClicked() {
     if (this.controlLock) {
+      this.poetryClickHandler();
       return;
     }
+    // Else normal clicker behaviour
     // TODO Replace by events
     this.avatarControllerService.handleAvatarClicked();
     this.clickCount = this.avatarControllerService.clickCount;
@@ -152,27 +156,35 @@ export class AvatarDisplayComponent implements OnInit, OnDestroy, AfterViewInit 
 
   // Experimental poetry
   public updateVideoGamePoetry(conversationSession: ConversationSession) {
-
+    // Switch control lock to poetry click handling
     this.ControlLock = true;   
-    let conversationTextIndex = 0;
+    this.conversationSession = conversationSession;
+    this.updateTextDisplay();
+  }
 
-    let chatInterval = setInterval( () => {
+  public poetryClickHandler() {
+    if (this.conversationSession === undefined || this.conversationSession === null) {
+      return;
+    } 
+    if (this.conversationTextIndex >= this.conversationSession.conversationEndIndex) {
+      this.ControlLock = false;
+      // End conversation
+      this.conversationSession.endConversation();
+      this.conversationSession.applyActions();
+      this.conversationSession = null;
+      this.conversationTextIndex = 0;
+      return;
+    } else {
+      this.updateTextDisplay();
+    }
+  }
 
-      console.log("Console text index : " + conversationTextIndex + " , conversation end index: " + conversationSession.conversationEndIndex);
-      
-      if (conversationTextIndex >= conversationSession.conversationEndIndex) {
-        clearInterval(chatInterval);
-        this.ControlLock = false;
-        // End conversation
-        conversationSession.endConversation();
-        conversationSession.applyActions();
-        return;
-      }
-
-      const dialogueNode = conversationSession.conversationTexts[conversationTextIndex++];
-      this.poems.push(dialogueNode);
-
-    }, 1000 * Math.ceil(Math.random() * 5));  
+  public updateTextDisplay() {
+    if (this.conversationSession === undefined || this.conversationSession === null) {
+      return;
+    } 
+    const dialogueNode = this.conversationSession.conversationTexts[this.conversationTextIndex++];
+    this.poems.push(dialogueNode);  
   }
 
   public updatePartyModeActive(partyQuestData: PartyQuestData) {

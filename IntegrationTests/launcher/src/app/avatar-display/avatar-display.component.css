@@ -12,7 +12,6 @@
 .avatar-pic {
     display: flex;
     font-size: 2.5rem;
-    cursor: pointer;
     border: 3px solid cyan;
     width: 400px;
     height: 300px;
@@ -102,4 +101,12 @@
     background-position: center; /* Center the image */
     height: 400px;
     width: 400px;
+}
+
+#avatar-pic-id {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10rem;
+    cursor: pointer;
 }

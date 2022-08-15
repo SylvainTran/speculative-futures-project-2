@@ -40,9 +40,18 @@
 
 .apps-installed-list {
     text-align: left;
-    margin-top: 30vh;
+    margin-top: 3vh;
 }
 
 .apps-installed-list ul {
     list-style-type: square;
+}
+
+#grouppic {
+    width: 60vw;
+    height: 30vh;
+}
+
+.main-unit {
+    overflow: scroll;
 }

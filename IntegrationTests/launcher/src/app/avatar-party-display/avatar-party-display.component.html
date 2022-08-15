@@ -1,21 +1,67 @@
 <div class="flex-container">
+    <app-avatar-detail [currentHealth]="AvatarStats.currentHealth" [currentLevel]="AvatarStats.currentLevel" [currentExperience]="AvatarStats.currentExperience" [experienceTotalRequired]="AvatarStats.experienceTotalRequired"></app-avatar-detail>            
+
+    <!-- <div class="gameClickHandler">
+        <h3>{{ AvatarName }}</h3>&nbsp;&nbsp;
+        <div id="avatar-pic-id" [class.avatar-alive]="AvatarStats.currentHealth > 0" [class.avatar-dead]="AvatarStats.currentHealth <= 0" class="avatar-pic">
+            <div *ngIf="PlayerDisplayState === 0">
+                {{ PlayerAvatar.Idle }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 1">
+                {{ PlayerAvatar.Fighting }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 2">
+                {{ PlayerAvatar.Victorious }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 3">
+                {{ PlayerAvatar.Defeated }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 4">
+                {{ PlayerAvatar.Dead }}
+            </div>
+        </div>&nbsp;&nbsp;
+        <h3>{{ activePartyQuest!.getRegistrants()[1].name }}</h3>&nbsp;&nbsp;
+        <div class="avatar-pic">
+            <div *ngIf="PlayerDisplayState === 0">
+                {{ FriendAvatar.Idle }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 1">
+                {{ FriendAvatar.Fighting }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 2">
+                {{ FriendAvatar.Victorious }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 3">
+                {{ FriendAvatar.Defeated }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 4">
+                {{ FriendAvatar.Dead }}
+            </div>
+        </div>    
+    </div> -->
     <div class="gameCanvas">
         <div class="poetry-game-section avatar-display">
-            <div id="locationBg">
+            <div id="locationBg" (click)="handleAvatarClicked($event)" clickable>
+                <div id="avatar-pic-id" [class.avatar-alive]="AvatarStats.currentHealth > 0" [class.avatar-dead]="AvatarStats.currentHealth <= 0">{{ !promptReplyBuilder?.IsLocked? "[Tap Here]" : "[Read]" }}
+                </div>
                 <div *ngIf="activePartyQuest && questWindowBuilder?.show"></div>
                 <div class="enemy-pic">Bard: The quest has started: {{ ActiveQuestName }}</div>
-                <div class="enemy-pic" >Bard: {{ BardText }}</div>
+                <div class="enemy-pic" >Bard: {{ BardText }}</div> 
             </div>
             <div class="flex-centered">
-                <div *ngIf="!promptReplyBuilder?.showPrompt && !monstersAllDefeated" class="quest-window">
-                    A monster attacked your party! <br>
-                    <hr>
-                    {{activeMonster?.name}}: <br> 
-                    HP >>> {{activeMonster?.hp}} <br>
-                    LEVEL >>> {{activeMonster?.level}} <br>
-                    RACE >>> {{activeMonster?.race}} <br>
-                    EXPGAIN >>> {{activeMonster?.expGain}} <br><br>
-                    Monsters left: {{activePartyQuestMonsters.length - monsterIterator}}                    
+                <div class="flex-row">
+                    <div *ngIf="!promptReplyBuilder?.showPrompt && !monstersAllDefeated" class="quest-window">
+                        A monster attacked your party! <br>
+                        Monsters left: {{activePartyQuestMonsters.length - monsterIterator}}                    
+                        <hr>
+                    </div>
+                    <div *ngIf="!promptReplyBuilder?.showPrompt && !monstersAllDefeated" class="">
+                        {{activeMonster?.name}}: <br> 
+                        HP >>> {{activeMonster?.hp}} <br>
+                        LEVEL >>> {{activeMonster?.level}} <br>
+                        RACE >>> {{activeMonster?.race}} <br>
+                        EXPGAIN >>> {{activeMonster?.expGain}} <br><br>
+                    </div>
                 </div>
                 <div *ngIf="monstersAllDefeated">
                     With the quest completed successfully, you and your friend enjoy a peaceful respite...
@@ -40,51 +86,12 @@
                     </div>
                 </div>
             </div>
-            <hr>            
+            <!-- <hr>            
             <label for="avatar-pic-id">
                 {{ !promptReplyBuilder?.IsLocked? "As One Clicks Below" : "One Reads Above" }}
-            </label>
+            </label>     -->
             <hr>
             <br>
-            <div class="gameClickHandler">
-                <h3>{{ AvatarName }}</h3>&nbsp;&nbsp;
-                <div id="avatar-pic-id" [class.avatar-alive]="AvatarStats.currentHealth > 0" [class.avatar-dead]="AvatarStats.currentHealth <= 0" class="avatar-pic" (click)="handleAvatarClicked($event)" clickable>
-                    <div *ngIf="PlayerDisplayState === 0">
-                        {{ PlayerAvatar.Idle }}
-                    </div>
-                    <div *ngIf="PlayerDisplayState === 1">
-                        {{ PlayerAvatar.Fighting }}
-                    </div>
-                    <div *ngIf="PlayerDisplayState === 2">
-                        {{ PlayerAvatar.Victorious }}
-                    </div>
-                    <div *ngIf="PlayerDisplayState === 3">
-                        {{ PlayerAvatar.Defeated }}
-                    </div>
-                    <div *ngIf="PlayerDisplayState === 4">
-                        {{ PlayerAvatar.Dead }}
-                    </div>
-                </div>&nbsp;&nbsp;
-                <!-- Friend -->
-                <h3>{{ activePartyQuest!.getRegistrants()[1].name }}</h3>&nbsp;&nbsp;
-                <div class="avatar-pic">
-                    <div *ngIf="PlayerDisplayState === 0">
-                        {{ FriendAvatar.Idle }}
-                    </div>
-                    <div *ngIf="PlayerDisplayState === 1">
-                        {{ FriendAvatar.Fighting }}
-                    </div>
-                    <div *ngIf="PlayerDisplayState === 2">
-                        {{ FriendAvatar.Victorious }}
-                    </div>
-                    <div *ngIf="PlayerDisplayState === 3">
-                        {{ FriendAvatar.Defeated }}
-                    </div>
-                    <div *ngIf="PlayerDisplayState === 4">
-                        {{ FriendAvatar.Dead }}
-                    </div>
-                </div>    
-            </div>
             <app-avatar-detail [currentHealth]="AvatarStats.currentHealth" [currentLevel]="AvatarStats.currentLevel" [currentExperience]="AvatarStats.currentExperience" [experienceTotalRequired]="AvatarStats.experienceTotalRequired"></app-avatar-detail>            
         </div>
     </div>

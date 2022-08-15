@@ -23,5 +23,10 @@ button {
     text-align: center;
     color: pink;
     padding: 6rem;
-    font-size: 5rem;
+    font-size: 1.2rem;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#restartOverButton {
+    z-index: -1;
 }
