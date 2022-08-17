@@ -198,6 +198,11 @@ export class MetaFriendListComponent implements OnInit {
 
   sendPM(node: FriendDataFlatNode) {
     console.log("Sending pm!!!!" + node.userName);
+    alert("Sent a private message to " + node.userName);
+  }
+
+  checkConversationHistory(node: FriendDataFlatNode) {
+    
   }
 
   viewProfile(node: FriendDataFlatNode) {
