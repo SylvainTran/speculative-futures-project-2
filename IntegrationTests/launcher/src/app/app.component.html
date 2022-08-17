@@ -1,7 +1,7 @@
-<!-- Main Carousel -->    
-<div id="the-carousel" class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
+<!-- Main Carousel should contain emulator tabs, not the apps directly! -->    
+<div *ngIf="mainActivityActive" id="the-carousel" class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
     <!-- Nav menu -->
-    <div id="a1-a" class="carousel-cell">       
+    <div id="a1-a" class="carousel-cell">
         <!-- Vertical slide target -->    
         <div class="vertical-slide-target"></div>  
         <div class="main-unit">
@@ -21,28 +21,42 @@
 
                 <img id="grouppic" src="../assets/grouppic.jpeg"/>
                 
-                <!--Apps installed -->
-                <div class="apps-installed-list">
-                    <h1>Apps Installed</h1><hr>
-                    <ul>
-                        <li>Sticky Writer Pro</li>
-                        <li>Bard Tales: Retro 2D Edition</li> 
-                        <li>Chat Homes VR</li>
-                    </ul>    
-                </div>
             </div>           
         </div>
     </div> 
 
-    <div id="a1-b" class="carousel-cell">
+    <div id="app-list" class="carousel-cell">
+        <div class="main-unit">
+            <div class="app-icon">
+                <img (click)="launchActivity('quest-idler')" src="../assets/app-icons/fire.png" alt="quest-idler">
+                <h1>Quest Idler: Retro Edition</h1>
+            </div>
+            <div class="app-icon">
+                <img (click)="launchActivity('reader')" src="../assets/app-icons/book.png" alt="book reader">
+                <h1>Reader</h1>
+            </div>
+            <div class="app-icon">
+                <img (click)="launchActivity('chat-homes')" src="../assets/app-icons/speak.png" alt="chat homes 3Dr">
+                <h1>Chat Homes 3D</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="activeActivity === 'reader'" class="activity">
+    <div id="reader-app">
         <app-meta-journal></app-meta-journal>
     </div>
+</div>
 
-    <div id="a1-c" class="carousel-cell">    
+<div *ngIf="activeActivity === 'quest-idler'" class="activity">
+    <div id="quest-idler-app">    
         <app-quest-idler (playerRefChange)="updatePlayerRef($event)" [playerRef]="playerRef"></app-quest-idler>   
     </div>
+</div>
 
-    <div id="a1-e" class="carousel-cell">       
+<div [class.activity]="activeActivity === 'chat-homes'" [class.activity-hidden]="activeActivity !== 'chat-homes'">
+    <div id="chat-homes-app">       
         <app-chat-homes></app-chat-homes>
     </div> 
 </div>
@@ -60,5 +74,8 @@
         <mat-icon class="mat-icon-rtl-mirror">
             {{ this.friendListVisible? 'cancel' : 'hub' }} 
         </mat-icon>     
+    </button>
+    <button *ngIf="!this.mainActivityActive" (click)="returnToMainActivity()" class="">
+        <mat-icon class="">keyboard_return</mat-icon>     
     </button>
 </nav>

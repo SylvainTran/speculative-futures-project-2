@@ -18,6 +18,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   currentTime: string | undefined;
   showFiller = false;
   scheduledEvents: ScheduledEvent[] = [];
+  mainActivityActive: boolean = true;
+  activeActivity: string = "";
 
   constructor(private avatarControllerService: AvatarControllerService, private characterDatabaseService: CharacterDatabaseService) {
     this.playerRef = new Player("Autumn");
@@ -81,5 +83,17 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   public updatePlayerRef(evt: Player) {
     this.playerRef = evt;
+  }
+
+  public launchActivity(appID: string): void {
+    console.log("Launching activity: " + appID);
+    this.mainActivityActive = false;
+    this.activeActivity = appID;
+  }
+
+  public returnToMainActivity() {
+    this.mainActivityActive = true;
+    this.activeActivity = "mainActivity";
+    location.reload();
   }
 }
