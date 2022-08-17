@@ -16,6 +16,9 @@ export class FriendListComponent implements OnInit {
   @Output() private selectedFriend!: Friend;
   showPMBox: boolean = false;
   
+  @Input() loots?: Map<String, number>;
+  @Input() lastLootGained?: string = "";
+
   constructor(friendListService: FriendListService) { 
     this.friendListService = friendListService;
   }

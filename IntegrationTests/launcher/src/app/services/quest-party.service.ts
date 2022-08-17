@@ -82,15 +82,20 @@ export class PartyQuestData {
 })
 export class QuestPartyService {
 
-  partyQuestDataSource = new Subject<PartyQuestData>();
-
   /**
    * Subscribers: quest-idler-component.ts
    * This is emitted at the end of a conversation, with the party request action. 
    * When an party action command is executed.
    */
+  partyQuestDataSource = new Subject<PartyQuestData>();
   partyQuestDataSource$: Observable<PartyQuestData> = this.partyQuestDataSource.asObservable();
   
+  /**
+   * Used to communicate between the collectables and quest party to award loot.
+   */
+  monsterDeathEventSource = new Subject<any>();
+  monsterDeathEventSource$: Observable<any> = this.monsterDeathEventSource.asObservable();
+
   private actions: PartyRequestCommand[] = [];
   private partyQuestData: PartyQuestData | undefined;
 

@@ -45,14 +45,18 @@
                 <div id="avatar-pic-id" [class.avatar-alive]="AvatarStats.currentHealth > 0" [class.avatar-dead]="AvatarStats.currentHealth <= 0">{{ !promptReplyBuilder?.IsLocked? "[Tap Here]" : "[Read]" }}
                 </div>
                 <div *ngIf="activePartyQuest && questWindowBuilder?.show"></div>
-                <div class="enemy-pic">Bard: The quest has started: {{ ActiveQuestName }}</div>
+                <div class="enemy-pic">Bard: {{ ActiveQuestName }}</div>
                 <div class="enemy-pic" >Bard: {{ BardText }}</div> 
             </div>
             <div class="flex-centered">
                 <div class="flex-row">
                     <div *ngIf="!promptReplyBuilder?.showPrompt && !monstersAllDefeated" class="quest-window">
                         A monster attacked your party! <br>
-                        Monsters left: {{activePartyQuestMonsters.length - monsterIterator}}                    
+                        Monsters left: {{activePartyQuestMonsters.length - monsterIterator}}
+                        
+                        <div *ngIf='lastLootGained !== ""'>
+                            YOU FOUND: {{lastLootGained}} (!)
+                        </div>
                         <hr>
                     </div>
                     <div *ngIf="!promptReplyBuilder?.showPrompt && !monstersAllDefeated" class="">

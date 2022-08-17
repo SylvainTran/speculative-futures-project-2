@@ -1,21 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { QuestPartyService } from '../services/quest-party.service';
+import { Monster } from '../services/quest.service';
 
 @Component({
   selector: 'app-collectables',
   templateUrl: './collectables.component.html',
   styleUrls: ['./collectables.component.css']
 })
-export class CollectablesComponent implements OnInit {
+export class CollectablesComponent implements OnInit, OnDestroy {
+
   // TODO: move into loot service
-  public loots: Map<String, number>;
+  @Input() loots?: Map<String, number>;
 
   constructor() {
-    // TODO: refactor
-    this.loots = new Map();
-    this.loots.set("Training Stick", 1);
+
   }
 
   ngOnInit(): void {
+
+  }
+
+  ngOnDestroy(): void { 
   }
 
 }

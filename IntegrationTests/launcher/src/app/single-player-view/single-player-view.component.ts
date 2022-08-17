@@ -9,6 +9,7 @@ import { Player } from '../services/player';
 export class SinglePlayerViewComponent implements OnInit {
 
   @Input() playerRef: Player | undefined;
+  @Input() loots?: Map<String, number>;
 
   constructor() { }
 

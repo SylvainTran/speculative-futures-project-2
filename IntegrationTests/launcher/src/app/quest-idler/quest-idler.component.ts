@@ -6,6 +6,7 @@ import { CharacterDatabaseService } from '../services/character-database.service
 import { Friendship } from '../services/friendship';
 import { Player } from '../services/player';
 import { PartyQuestData, QuestPartyService, QuestStates } from '../services/quest-party.service';
+import { Monster } from '../services/quest.service';
 
 
 export abstract class CharacterPrompt {  
@@ -61,8 +62,28 @@ export class QuestIdlerComponent implements OnInit, AfterContentInit, OnChanges,
   showPartyButton: boolean = true;
   activePartyQuest?: PartyQuestData; // 2-way bound
   @Output() promptList: CharacterPrompt[] = [];
+
+  // Shenannigans
+  monsterDeathSubscription: Subscription;
+  @Output() loots: Map<String, number>;
+  @Output() lastLootGained: string = "";
   
-  constructor(private avatarControllerService: AvatarControllerService, private questPartyService: QuestPartyService, private characterDatabaseService: CharacterDatabaseService) {}
+  constructor(private avatarControllerService: AvatarControllerService, private questPartyService: QuestPartyService, private characterDatabaseService: CharacterDatabaseService) {
+
+    this.monsterDeathSubscription = this.questPartyService.monsterDeathEventSource$.subscribe(
+      {
+        next: (monsterDefeated: any) => {
+          if (monsterDefeated !== null) {
+            this.calculateRandomLoot(monsterDefeated)
+          }
+        },
+        error: (err: Error) => console.error('Observer got an error: ' + err),
+        complete: () => console.log('Observer got a complete notification')      
+      }
+    );
+    this.loots = new Map();
+    this.loots.set("Training Stick", 1);
+  }
 
   ngAfterContentInit(): void {
     
@@ -87,6 +108,7 @@ export class QuestIdlerComponent implements OnInit, AfterContentInit, OnChanges,
 
   ngOnDestroy(): void {
     this.partyQuestSub.unsubscribe();
+    this.monsterDeathSubscription.unsubscribe();
   }
 
   public restartGame() {
@@ -204,5 +226,43 @@ export class QuestIdlerComponent implements OnInit, AfterContentInit, OnChanges,
 
   public updatePartyQuestDisplay(partyQuestData: PartyQuestData) {
     this.activePartyQuest = partyQuestData;    
+  }
+
+  public calculateRandomLoot(monsterDefeated: Monster): void {
+    
+    const lootTableGrade = monsterDefeated.level;
+    let baseProbability = 0;
+    let lootTable: string[] = [];
+    let lootsT1 = ["Training Stick", "Blue Dagger", "Burning Candle"]
+    let lootsT2 = ["Sword of Destiny", "Emerald Bow", "Virtue of Youth"]
+
+    if (lootTableGrade < 50) {
+      baseProbability = 0.10;
+      lootTable = lootsT1;
+    } else if (lootTableGrade >= 50 && lootTableGrade < 100) {
+      baseProbability = 0.05;
+      lootTable = lootsT2;
+    }
+
+    let dice = Math.random();
+    let lootIndex = Math.floor(Math.random() * lootTable?.length);
+
+    if (dice > baseProbability) {
+      let count = this.loots.get(lootTable[lootIndex])?.valueOf();
+      if (count === undefined) {
+        count = 1;
+      } else {
+        count++;
+      }
+      this.loots.set(lootTable[lootIndex], count);
+      this.lastLootGained = lootTable[lootIndex];
+      this.resetLastLootGained();
+    }
+  }
+
+  public resetLastLootGained() {
+    setTimeout(() => {
+      this.lastLootGained = "";
+    }, 4000);
   }
 }

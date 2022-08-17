@@ -3,7 +3,7 @@ import { AVATAR_NAME } from '../app.module';
 import { CharacterPrompt } from '../quest-idler/quest-idler.component';
 import { AvatarControllerService } from '../services/avatar-controller.service';
 import { AvatarExperienceService } from '../services/avatar-experience.service';
-import { PartyQuestData, QuestStates } from '../services/quest-party.service';
+import { PartyQuestData, QuestPartyService, QuestStates } from '../services/quest-party.service';
 import { Monster } from '../services/quest.service';
 
 export enum UserType {
@@ -372,6 +372,9 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   public activeMonster: Monster | undefined;
   public monsterIterator: number = 0;
   public monstersAllDefeated: boolean = false;
+
+  // Loots
+  @Input() lastLootGained?: string = "";
   
   // Sounds: TODO - put in SoundManager service
   avatarClickAudioSrc: any;
@@ -382,7 +385,8 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   avatarExperienceService: AvatarExperienceService;
     
   constructor(@Inject(AVATAR_NAME) avatarName: string,
-              private avatarControllerService: AvatarControllerService)  
+              private avatarControllerService: AvatarControllerService,
+              private questPartyService: QuestPartyService)  
   {
     this.avatarName = avatarName;
     this.avatarExperienceService = avatarControllerService.getAvatarExperienceService();
@@ -508,6 +512,8 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
           if (this.activeMonster.hp > 0) {
             this.activeMonster.damage(this.activePartyQuest.getRegistrants());
           } else {
+            // Award random loot
+            this.questPartyService.monsterDeathEventSource.next(this.activeMonster);
             this.monsterIterator++;
             this.activeMonster = this.activePartyQuestMonsters[this.monsterIterator];
             console.log("The monster was defeated");
