@@ -1,6 +1,6 @@
 <div class="meta-message-center-window">
-    <h1>Message Center</h1>
     <div class="message-container">
+        <h1>Message Center</h1>
         <ul>
             <li *ngFor="let message of outputMessages">                
                 <p>id: {{ message.id }} </p>
@@ -9,10 +9,6 @@
                 <p>title: {{ message.title }}</p>
                 <p>date: {{ message.date }}</p>
                 <p id="message-center-body">{{ message.body }}</p>
-                <p>reply: <br>
-                    <button>"Agreed."</button>
-                    <button>"Declined."</button>
-                </p>
             </li>
         </ul>
         <br>

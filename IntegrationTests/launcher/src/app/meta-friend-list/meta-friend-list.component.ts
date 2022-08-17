@@ -32,7 +32,7 @@ export class MetaFriendListComponent implements OnInit {
       level: 0,
     },
     {
-      name: "Bard of Diegesia: V-917",
+      name: "Quest Idler: Retro Edition",
       expandable: true,
       hasHandler: false,
       level: 1
@@ -44,7 +44,7 @@ export class MetaFriendListComponent implements OnInit {
         level: 2,
       },   
         {
-          name: 'In-Game: Bard of Diegesia: V-917',
+          name: 'In-Game: Quest Idler: Retro Edition',
           expandable: false,
           hasHandler: false,
           level: 3,
@@ -94,28 +94,10 @@ export class MetaFriendListComponent implements OnInit {
       level: 2,
     },
     {
-      name: 'Catherine',
-      expandable: true,
-      hasHandler: false,
-      level: 2,
-    },
-    {
       name: 'Chat Homes 3D',
       expandable: true,
       hasHandler: false,
       level: 1,
-    },
-    {
-      name: 'Hilda9',
-      expandable: true,
-      hasHandler: false,
-      level: 2,
-    },
-    {
-      name: 'Aingealag',
-      expandable: true,
-      hasHandler: false,
-      level: 2,
     },
     {
       name: 'Other Games',
@@ -124,34 +106,10 @@ export class MetaFriendListComponent implements OnInit {
       level: 1,
     },
     {
-      name: 'D_Jeanne58',
-      expandable: true,
-      hasHandler: false,
-      level: 2,
-    },
-    {
       name: 'Offline',
       expandable: true,
       hasHandler: false,
       level: 0,
-    },
-    {
-      name: 'Eden_Martrop',
-      expandable: true,
-      hasHandler: false,
-      level: 1,
-    },
-    {
-      name: 'fallingheadfirst49',
-      expandable: true,
-      hasHandler: false,
-      level: 1,
-    },
-    {
-      name: 'BoboCannon',
-      expandable: true,
-      hasHandler: false,
-      level: 1,
     }
   ];
   

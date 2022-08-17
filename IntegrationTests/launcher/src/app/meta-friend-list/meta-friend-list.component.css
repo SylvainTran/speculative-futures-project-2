@@ -34,10 +34,22 @@
     margin: 1.5rem;
 }
 
+.friend-info-details {
+    display: flex;
+    flex-direction: column;
+}
+
 .friend-cdk-tree {
     padding: 2rem;
 }
 
 .small-margin-right {
     margin-right: 1.5rem;
+}
+
+.profile-avatar {
+    height: 100px;
+    width: 100px;
+    border: 5px solid goldenrod;
+    margin-right: 1rem;
 }
