@@ -75,10 +75,14 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   public setFriendListVisible(value: boolean) : void {
     this.friendListVisible = value;
+    const container = document.getElementById("meta-friend-list-tag");
+    if(container) container.focus();
   }
 
   public setMessageCenterVisible(value: boolean) : void {
     this.messageCenterVisible = value;
+    const container = document.getElementById("meta-message-center-tag");
+    if(container) container.focus();
   }
 
   public updatePlayerRef(evt: Player) {
@@ -89,11 +93,30 @@ export class AppComponent implements OnInit, AfterViewInit {
     console.log("Launching activity: " + appID);
     this.mainActivityActive = false;
     this.activeActivity = appID;
+    this.disableKeyDownEvents(['Evening-in-the-Promised-Land', 'UpperCanvas', 'GameVideo', 'GameCanvas']);
   }
 
   public returnToMainActivity() {
     this.mainActivityActive = true;
     this.activeActivity = "mainActivity";
     location.reload();
+  }
+
+  public disableKeyDownEvents(ids: string[]) {
+
+    ids.forEach ((id: string) => {
+      let noInteracts = document.getElementById(id);
+
+      if (noInteracts) {
+        noInteracts.addEventListener("keydown", function(e) {
+          e.preventDefault();
+          return false;
+        }, true);
+        noInteracts.addEventListener("click", function(e) {
+          e.preventDefault();
+          return false;
+        }, true);
+      }  
+    })
   }
 }
