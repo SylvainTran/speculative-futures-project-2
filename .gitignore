@@ -87,5 +87,5 @@ Documentation/speculative-play-art-moodboard.pur
 /IntegrationTests/launcher/node_modules
 todo.rtf
 
-# Pixi JS
+# Pixi engine
 IntegrationTests/launcher/src/assets/autumn/www/*
