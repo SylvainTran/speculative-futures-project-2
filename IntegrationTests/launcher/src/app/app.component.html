@@ -36,9 +36,13 @@
                 <h1>Writer</h1>
             </div>
             <div class="app-icon">
-                <img (click)="launchActivity('chat-homes')" src="../assets/app-icons/speak.png" alt="chat homes 3Dr">
+                <img (click)="launchActivity('chat-homes')" src="../assets/app-icons/speak.png" alt="chat homes 3D">
                 <h1>Chat Homes 3D</h1>
-            </div>            
+            </div>        
+            <div class="app-icon">
+                <img (click)="launchActivity('Evening-in-the-Promised-Land')" src="../assets/app-icons/sword.png" alt="Evening-in-the-Promised-Land">
+                <h1>Evening in the Promised Land</h1>
+            </div>       
         </div>
     </div>
 </div>
@@ -58,6 +62,14 @@
 <div [class.activity]="activeActivity === 'chat-homes'" [class.activity-hidden]="activeActivity !== 'chat-homes'">
     <div id="chat-homes-app">       
         <app-chat-homes></app-chat-homes>
+    </div> 
+</div>
+
+<div [class.activity]="activeActivity === 'Evening-in-the-Promised-Land'" [class.activity-hidden]="activeActivity !== 'Evening-in-the-Promised-Land'">
+    <div id="Evening-in-the-Promised-Land">
+        <video id="GameVideo"></video>
+        <canvas id="GameCanvas"></canvas>
+        <canvas id="UpperCanvas"></canvas>
     </div> 
 </div>
 
