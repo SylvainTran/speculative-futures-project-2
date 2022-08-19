@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Services
 import { FriendListService } from './services/friend-list.service';
@@ -33,6 +34,7 @@ import { MetaFriendListComponent } from './meta-friend-list/meta-friend-list.com
 import { MetaMessageCenterComponent } from './meta-message-center/meta-message-center.component';
 import { MetaJournalComponent } from './meta-journal/meta-journal.component';
 import { MenuInterfaceComponent } from './menu-interface/menu-interface.component';
+import { InvestigationFormComponent } from './investigation-form/investigation-form.component';
 
 // Material CDK
 import { CdkTreeModule } from '@angular/cdk/tree';
@@ -64,12 +66,14 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     MetaFriendListComponent,
     MenuInterfaceComponent,
     MetaMessageCenterComponent,
-    MetaJournalComponent
+    MetaJournalComponent,
+    InvestigationFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     CdkTreeModule,
     MatIconModule,

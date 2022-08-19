@@ -12,14 +12,25 @@ import { Friendship } from './services/friendship';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'quest-idler';
-  playerRef: Player | undefined;
-  friendListVisible: boolean = false;
-  messageCenterVisible: boolean = false;
   currentTime: string | undefined;
-  showFiller = false;
   scheduledEvents: ScheduledEvent[] = [];
+
+  // State control
+  playerRef: Player | undefined;
   mainActivityActive: boolean = true;
   activeActivity: string = "";
+  showFiller = false;
+
+  // Apps/activities display
+  friendListVisible: boolean = false;
+  messageCenterVisible: boolean = false;
+  showDarkwebTrojan: boolean = true;
+  investigationFormVisible: boolean = false;
+  showTodoApp: boolean = true;
+  showGalleryApp: boolean = true;
+  showSettingsActivity: boolean = true;
+  showNewsApp: boolean = true;
+  showBibleApp: boolean = true;
 
   constructor(private avatarControllerService: AvatarControllerService, private characterDatabaseService: CharacterDatabaseService) {
     this.playerRef = new Player("Autumn");
@@ -85,6 +96,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     if(container) container.focus();
   }
 
+  public setInvestigationFormVisible(value: boolean): void {
+    this.investigationFormVisible = value;
+  }
+
   public updatePlayerRef(evt: Player) {
     this.playerRef = evt;
   }
@@ -93,7 +108,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     console.log("Launching activity: " + appID);
     this.mainActivityActive = false;
     this.activeActivity = appID;
-    this.disableKeyDownEvents(['Evening-in-the-Promised-Land', 'UpperCanvas', 'GameVideo', 'GameCanvas']);
+    //this.disableKeyDownEvents(['Evening-in-the-Promised-Land', 'UpperCanvas', 'GameVideo', 'GameCanvas']);
   }
 
   public returnToMainActivity() {

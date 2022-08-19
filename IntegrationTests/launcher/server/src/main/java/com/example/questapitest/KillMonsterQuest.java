@@ -49,15 +49,7 @@ public class KillMonsterQuest extends Quest {
             Path of = Path.of(pathPrefix + dataPathPrefix + "MockQuests.json");
 
             subquestsList = Arrays.asList(mapper.readValue(of.toFile(), Quest[].class));
-            // ArrayList<Quest> selected = new ArrayList<Quest>();
-            // int[] randIndexes = new int[subquestsList.size()];
 
-            // for (int i = 0; i < this.getRandomIntRange(1, randIndexes.length); i++) {
-            //     randIndexes[i] = this.getRandomIntRange(0, randIndexes.length);
-            //     selected.add(subquestsList.get(randIndexes[i]));
-            // }
-            // subquestsList = selected;
-            // selected.toArray(arr);
             Quest[] arr = new Quest[subquestsList.size()]; 
             subquestsList.toArray(arr);
             String questsData = new ObjectMapper().writeValueAsString(arr);
@@ -67,5 +59,17 @@ public class KillMonsterQuest extends Quest {
             ex.printStackTrace();
         }
         return null;
+    }
+
+    public void getRandomQuestData() {
+        // ArrayList<Quest> selected = new ArrayList<Quest>();
+        // int[] randIndexes = new int[subquestsList.size()];
+
+        // for (int i = 0; i < this.getRandomIntRange(1, randIndexes.length); i++) {
+        //     randIndexes[i] = this.getRandomIntRange(0, randIndexes.length);
+        //     selected.add(subquestsList.get(randIndexes[i]));
+        // }
+        // subquestsList = selected;
+        // selected.toArray(arr);
     }
 }

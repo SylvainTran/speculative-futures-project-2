@@ -35,22 +35,12 @@
     width: 40vw;
 }
 
-button {
-    font-family: 'Cantarell', 'sans-serif';
-}
-
-img {
-    position: absolute;
-    right: 0;
-    width: 
-}
-
-#whiteListedAppsStyle {
-    color: blue;
-    pointer: cursor;
-}
-
 ul {
+    margin-left: 1.2rem;
     list-style-type: square;
-    margin-left: 2rem;
+}
+
+.missionControlMessages {
+    background-color: green;
+    color: white;
 }

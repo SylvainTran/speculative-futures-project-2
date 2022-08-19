@@ -19,7 +19,7 @@
                     </ul>
                 </div>
 
-                <img id="grouppic" src="../assets/grouppic.jpeg"/>
+                <img id="grouppic" src="../assets/queenpic_bw.png"/>
                 
             </div>           
         </div>
@@ -42,7 +42,35 @@
             <div class="app-icon">
                 <img (click)="launchActivity('Evening-in-the-Promised-Land')" src="../assets/app-icons/sword.png" alt="Evening-in-the-Promised-Land">
                 <h1>Evening in the Promised Land</h1>
-            </div>       
+            </div>
+            <div id="darkwebTrojanApp" *ngIf="showDarkwebTrojan" class="app-icon">
+                <img (click)="launchActivity('utopia-darkweb-trojan')" src="../assets/app-icons/mars.png" alt="dark web trojan planet">
+                <h1>Utopia in Neptunia</h1>
+            </div>
+        </div>
+    </div>
+    <div id="app-list" class="carousel-cell">
+        <div class="main-unit">
+            <div id="news-activity" *ngIf="showNewsApp" class="app-icon">
+                <img (click)="launchActivity('news-activity')" src="../assets/app-icons/news.png" alt="uk news activity">
+                <h1>UK News</h1>
+            </div>
+            <div id="bible-activity" *ngIf="showBibleApp" class="app-icon">
+                <img (click)="launchActivity('bible-activity')" src="../assets/app-icons/holy-bible.png" alt="bible verse activity">
+                <h1>Bible Verse</h1>
+            </div>
+            <div id="todoApp" *ngIf="showTodoApp" class="app-icon">
+                <img (click)="launchActivity('todoApp')" src="../assets/app-icons/to-do-list.png" alt="todo app">
+                <h1>TODO</h1>
+            </div>    
+            <div id="galleryApp" *ngIf="showGalleryApp" class="app-icon">
+                <img (click)="launchActivity('galleryApp')" src="../assets/app-icons/picture.png" alt="gallery app">
+                <h1>Gallery</h1>
+            </div>
+            <div id="settings-activity" *ngIf="showSettingsActivity" class="app-icon">
+                <img (click)="launchActivity('settings-activity')" src="../assets/app-icons/setting.png" alt="settings activity">
+                <h1>Settings</h1>
+            </div>
         </div>
     </div>
 </div>
@@ -54,14 +82,14 @@
 </div>
 
 <div *ngIf="activeActivity === 'quest-idler'" class="activity">
-    <div id="quest-idler-app">    
+    <div id="quest-idler-app">
         <app-quest-idler (playerRefChange)="updatePlayerRef($event)" [playerRef]="playerRef"></app-quest-idler>   
     </div>
 </div>
 
 <div [class.activity]="activeActivity === 'chat-homes'" [class.activity-hidden]="activeActivity !== 'chat-homes'">
     <div id="chat-homes-app">       
-        <app-chat-homes></app-chat-homes>
+        <!-- <app-chat-homes></app-chat-homes> -->
     </div> 
 </div>
 
@@ -73,15 +101,32 @@
     </div> 
 </div>
 
+<div [class.activity]="activeActivity === 'utopia-darkweb-trojan'" [class.activity-hidden]="activeActivity !== 'utopia-darkweb-trojan'">
+    <div id="utopia-darkweb-trojan">
+        <h1 class="large-font absolute red">You have been hacked. Mission failed.</h1>
+        <img id="demonpic" src="../assets/demonpic.jpg" alt="demon pic">
+    </div>
+</div>
+
 <app-meta-friend-list *ngIf="this.friendListVisible"></app-meta-friend-list>
 <app-meta-message-center *ngIf="this.messageCenterVisible"></app-meta-message-center>
+<app-investigation-form *ngIf="this.investigationFormVisible"></app-investigation-form>
 
 <nav class="navbar my-is-flex is-centered">
-    <button (click)="this.setMessageCenterVisible(!this.messageCenterVisible)" class="">
-        <mat-icon class="mat-icon-rtl-mirror">
-            {{ this.messageCenterVisible? 'cancel' : 'forum' }} 
-        </mat-icon>
-    </button>
+    <p><span id="device-name">SPHINX - Remote Device Emulator<br>Agent Name: John Cyfer<br>Live link: <span id="live-link-status">Connected</span><br>Security: Normal</span></p>
+    <div class="SPHINX-functions">
+        <button (click)="this.setMessageCenterVisible(!this.messageCenterVisible)" class="">
+            <mat-icon class="mat-icon-rtl-mirror">
+                {{ this.messageCenterVisible? 'cancel' : 'forum' }} 
+            </mat-icon>
+        </button>
+        <button (click)="this.setInvestigationFormVisible(!this.investigationFormVisible)" class="">
+            <mat-icon class="mat-icon-rtl-mirror">
+                {{ this.investigationFormVisible? 'cancel' : 'star' }} 
+            </mat-icon>
+        </button>
+    </div>
+    <div class="divider"></div>
     <button (click)="this.setFriendListVisible(!this.friendListVisible)" class="">
         <mat-icon class="mat-icon-rtl-mirror">
             {{ this.friendListVisible? 'cancel' : 'hub' }} 

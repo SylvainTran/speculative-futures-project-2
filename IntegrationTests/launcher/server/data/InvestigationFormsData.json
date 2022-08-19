@@ -1,0 +1,18 @@
+[
+    {
+        "name": "chapter1",
+        "id": 0,
+        "requestType": "data-submit",
+        "keywords": ["neptunia"],
+        "response": "Neptunia is a rumored location on Titan.",
+        "keywordsConcat": "neptunia"
+    },
+    {
+        "name": "chapter2",
+        "id": 0,
+        "requestType": "data-request",
+        "keywords": ["psych profile"],
+        "response": "Summary:",
+        "keywordsConcat": "psych profile"
+    }
+]

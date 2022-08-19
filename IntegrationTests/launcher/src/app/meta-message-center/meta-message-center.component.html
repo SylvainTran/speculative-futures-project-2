@@ -9,6 +9,63 @@
                 <p>title: {{ message.title }}</p>
                 <p>date: {{ message.date }}</p>
                 <p id="message-center-body">{{ message.body }}</p>
+                <div *ngIf="message.id === 2">
+                    <p>
+                        attachments: <span id="whiteListedAppsStyle" (click)="showWhiteListedApps()"><a>WHITE_LISTED_APPS.MD</a></span>
+                    </p>
+                    <ul *ngIf="showWhiteListedAppsFlag">
+                        <li>Quest Idler: Retro Edition (Situation Analysis: She apparently played a similar game in her youth, and got nostalgic)</li>
+                        <li>Writer (Situation Analysis: She had a love of plays, romance, Shakespeare and theater. It is possible that certain cues be scattered in these notes.</li>
+                        <li>Chat Homes 3D (Situation Analysis: Be warned that she had many unknowing suitors)</li>
+                        <li>Evening in the Promised Land (Situation Analysis: Her grace's love of video games like these is to remain confidential)</li>
+                        <li>UK News</li>
+                        <li>TODO App</li>
+                        <li>Gallery</li>
+                        <li>Settings</li>
+                    </ul>    
+                </div>
+                <div *ngIf="message.id === 4">
+                    <p>
+                        attachments: <span id="whiteListedAppsStyle" (click)="showWhiteListedApps()"><a>AUGUSTAVONLIN_PRELIMINARY_ANALYSIS_CONFIDENTIAL.MD</a></span>
+                    </p>
+                    <ul *ngIf="showWhiteListedAppsFlag">
+                        <li>Biological Health Record: Healthy</li>
+                        <li>Mental Health Record: Healthy</li>
+                        <li>IQ/EQ assessments: Gifted</li>
+                        <li>Medication or Drug Usage: Acetaminophen</li>
+                        <li>Historical Background: Augusta was born in Perlin, UK, 2094.</li>
+                        <li>Summary: The biological and medical history show a clean record. Psychological profiling tests resulted in the MBTI INFJ type. She has no drug or serious medication history.</li>
+                    </ul>
+                </div>
+                <div *ngIf="message.id === 6">
+                    <p>
+                        attachments: <span id="whiteListedAppsStyle" (click)="showWhiteListedApps()"><a>HARVURD_2110_OFFICIAL_RECORDS.MD</a></span>
+                    </p>
+                    <ul *ngIf="showWhiteListedAppsFlag">
+                        <li>Harvurd University</li>
+                        <li>GPA: 4.17</li>
+                        <li>Major: Divinity and Philosophy, Computer Science</li>
+                        <li>Extra-curriculars: Theater Performance, Creative Writing, Hackathon Club, Kendo Club (competed at regionals)</li>
+                        <li>Summary: Valedictorian</li>
+                        <li>Post Script 1: Did not engage with her classmates as much as would be desirable. The student seemed detached from her studies and repeatedly engaged in risky behaviours. The student has a perhaps exaggerated propensity for theatrics and debate instead of honoring studies, and showed complete disregard for authority on many occasions.</li>
+                    </ul>    
+                </div>
+                <div *ngIf="message.id === 7">
+                    <p>
+                        attachments: <span id="whiteListedAppsStyle" (click)="showWhiteListedApps()"><a>CBT_RECORDS_1.MD</a></span>
+                    </p>
+                    <ul *ngIf="showWhiteListedAppsFlag">
+                        <li>CBT Session</li>
+                        <li>Therapist: Dr. Kroen Tan, MD</li>
+                        <li>DR. KROEN TAN: HAVE YOU IDENTIFIED ANY CORE BELIEFS SINCE OUR LAST MEETING?</li>
+                        <li>AUGUSTA VON LI: IF YOU HAD ASKED ME, DO YOU BELIEVE IN GOD? THIS WOULD HAVE BEEN MORE INTERESTING FOR THE BOTH OF US. PEOPLE OFTEN ASK EACH OTHER IF THEY BELIEVE IN GOD. DO YOU NOT SEE HOW RIDICULOUS THAT IS? OR DID YOU FORGET THE ENGLISH MEANING OF IT? IT IS AS IF YOU ASKED ME, DO YOU TRUST THIS PERSON THAT I'VE NEVER SEEN OR HEARD? OR DO YOU TRUST HIS WORD? HOW SHOULD I KNOW WHY I AM DOING THE THINGS THAT I'M DOING OR SAYING? HOW CAN I TRUST HIS WORDS IF I HAVE NOT HEARD THEM? BUT IF YOU HEARD HIM, AND KNOW HE EXISTS, THEN WHY DO YOU ASK? PERHAPS YOU NEED NOT TO BE CONVINCED, BUT RATHER A HUG FROM HIM? ARE YOU NOT LEFT WANTING INSIDE TOO AFTER A LOVED ONE LEAVES? YOU ASK BECAUSE BELIEVING STARTS WITH RECOGNITION, NOT IDEAS, BUT BOTH ARE SEEDS. NOW YOU SHOULD ASK ME, HOW DOES ONE RECOGNIZE GOD THEN?</li>
+                        <li>DR. KROEN TAN: I APPRECIATE YOUR SENTIMENTS, BUT TO CLARIFY, I WAS ASKING IF SINCE OUR LAST MEETING, YOU HAD IDENTIFIED ANY DISFUNCTIONAL OR IRRATIONAL BELIEFS. AS YOU KNOW, BELIEFS ARE CONNECTED TO FEELINGS AND BEHAVIOURS. THOSE ARE BELIEFS THAT DO NOT HELP US UNDERSTAND THE WORLD IN A GOOD LIGHT, WHICH OFTEN BRINGS US DOWN.</li>
+                        <li>AUGUSTA VON LI: IRRATIONAL BELIEFS? THAT WE ARE NOT SINGING AND PRAISING THE BEAUTY OF CREATION EVERY INSTANT IS WHAT IRRATIONAL MEANS. DO YOU NOT SEE THE IRONY OF YOUR WORDS?</li>
+                        <li>DR. KROEN TAN: I AM AN AGNOSTIC, BUT I APPRECIATE WHAT YOU MEAN. WE SHOULD BE GRATEFUL ABOUT WHAT WE HAVE, FOR SURE. THIS WILL HELP YOU BECOME HAPPIER ACCORDING TO SCIENCE.</li>
+                        <li>AUGUSTA VON LI: NO, THAT IS NOT WHAT I MEANT. I WOULD ELABORATE, BUT PERHAPS WE ARE RUNNING OUT OF TIME.</li>
+                        <li>DR. KROEN TAN: YES, PLEASE ELABORATE ON YOUR IDEAS FOR OUR NEXT SESSION. CONSIDER THAT OTHERS MAY SHARE DIFFERENT BELIEFS.</li>
+                    </ul>    
+                </div>
             </li>
         </ul>
         <br>

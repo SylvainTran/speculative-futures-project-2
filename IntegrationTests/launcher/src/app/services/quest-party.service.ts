@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Character } from './character';
 import { PartyRequestCommand } from './friend-caller.service';
 import { Monster } from './quest.service';
@@ -98,6 +99,8 @@ export class QuestPartyService {
 
   private actions: PartyRequestCommand[] = [];
   private partyQuestData: PartyQuestData | undefined;
+  private url: string = environment.url;
+  private port: string = environment.port;
 
   constructor(private http: HttpClient) {}
 
@@ -127,7 +130,7 @@ export class QuestPartyService {
   public setupQuestParty(a: PartyRequestCommand) {
     let mQuest: any[] = [];
 
-    this.fetchNewQuestData().subscribe({
+    this.fetchNewQuestData("/newquest").subscribe({
       next: (questData: any) => {
         if (questData !== null) {
           mQuest = questData;
@@ -142,8 +145,14 @@ export class QuestPartyService {
     });
   }
   
-  public fetchNewQuestData() {
+  public fetchNewQuestData(routeName: string) {
     console.log("Fetching new quest data from backend.");
-    return this.http.get<any>("http://127.0.0.1:8080/newquest");
+    
+    let params = new HttpParams();
+    params = params.append('level', 10);
+    params = params.append('prereqs', "Tutorial 1");
+    params = params.append('prereqs', "Tutorial 2");
+    params = params.append('zone', "1-1");
+    return this.http.get<any>(this.url + this.port + routeName, {params: params});
   }
 }

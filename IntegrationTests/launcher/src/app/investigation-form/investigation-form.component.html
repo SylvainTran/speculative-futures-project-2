@@ -1,0 +1,40 @@
+<div id="meta-message-center-tag" class="meta-message-center-window">
+    <div class="message-container">
+        <h1>C-PIC Investigation Form [CONFIDENTIAL - SECURITY LEVEL 4]</h1><hr>
+        <form [formGroup]="formModel" (ngSubmit)="onSubmit()">
+            <div formGroupName="requestType">
+                <label for="request-type-a">This is a Data Request</label>&nbsp;
+                <input formControlName="typeA" value="data-request" id="typeA" type="radio" (change)="changeRequestType($event)"/><br>    
+                <div *ngIf="requestType === 'data-request'">
+                    <h1>Keyword Options:</h1>
+                    <hr>
+                    <ul>
+                        <li>biological report</li>
+                        <li>psychological report</li>
+                        <li>historical report</li>
+                    </ul>
+                </div>
+                <hr>
+                <label for="request-type-b">This is a Data Submission</label>&nbsp;
+                <input formControlName="typeA" value="data-submit" id="typeB" type="radio" (change)="changeRequestType($event)"/><br>    
+            </div>
+            <hr>
+            <h1>Enter Keywords</h1>
+            <hr>            
+            <div formArrayName="keywords" *ngFor="let k of keywords.controls; let i = index">
+                <div [formGroupName]="i">
+                    <label for="{{ k.value + i }}">Keyword: </label>&nbsp;<input formControlName="keywordName" id="{{ k.value + i }}" type="text" placeholder="Enter keyword"/>
+                    &nbsp;<button (click)="removeKeyword(i)">Remove</button>
+                </div>
+                <br>
+            </div>
+            <button (click)="addKeyword()">Add keyword field</button>&nbsp;&nbsp;
+            <button type="submit" [disabled]="!formModel.valid">Submit</button>    
+        </form>
+        <br>
+        <div class="missionControlMessages" *ngIf='successResponse !== ""'>
+            Mission Control Response: {{ successResponse }}
+        </div>
+    </div>
+    <hr>
+</div>   
