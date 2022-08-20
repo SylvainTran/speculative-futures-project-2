@@ -46,7 +46,9 @@ public class QuestApiTestApplication {
 	@CrossOrigin(origins = "*")
     @GetMapping("/formRequest")
     public String handleFormRequest(@RequestParam(value = "requestType", defaultValue = "data-submit") String requestType, @RequestParam(value = "keywords", defaultValue = "") ArrayList<String> keywords) {
-        System.out.printf("Request Type %s, Keyword[0] %s", requestType, keywords.get(0));
+        if (keywords.size() > 0) {
+            System.out.printf("Request Type %s, Keyword[0] %s", requestType, keywords.get(0));
+        }
 
         InvestigationRequestForm form = new InvestigationRequestForm(requestType, keywords);
         return form.getData();

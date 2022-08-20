@@ -1,0 +1,18 @@
+<div class="meta-friend-list-window">
+    <div class="friend-info">
+      <img class="profile-avatar" src="../../assets/queenpic_bw.png" alt="profile-icon"/>
+      <div class="friend-info-details">
+        <p>Autumn</p>
+        <p>Status: <span style="color: lime">Online</span></p>  
+      </div>
+    </div>
+    <section class="text-section">
+        <ul *ngFor="let text of textData; index as i">
+            <li>{{ text }}<span class="timeStamp">{{ dateData[i] }}</span></li><br>
+        </ul>
+    </section>
+    <section class="text-input">
+        <input disabled id="playerTextInput" type="text" placeholder="Type here"/>
+        <button (click)="continueConversation()">Send</button>
+    </section>
+</div> 

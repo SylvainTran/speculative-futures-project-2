@@ -34,6 +34,5 @@ export class Friendship {
             let feq = FriendshipLevels[this.friendshipLevel] === conversation.friendshipLevel;        
             return eqn && feq;
         });   
-        console.log("Convo data for this friendship only: " + this.conversationData);
     }
 }

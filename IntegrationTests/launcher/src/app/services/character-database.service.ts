@@ -89,7 +89,6 @@ export class CharacterDatabaseService implements OnInit {
           });
           this.conversationNodes.push(conversationNode);
         }
-        console.log(this.conversationNodes);
         this.databaseLoadedEventSource.next(this.conversationNodes);
         console.log("Db loaded");
       })

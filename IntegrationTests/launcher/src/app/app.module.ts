@@ -41,6 +41,7 @@ import { CdkTreeModule } from '@angular/cdk/tree';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { SmsWindowComponent } from './sms-window/sms-window.component';
 
 // Move into naming service
 export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {     
@@ -67,7 +68,8 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     MenuInterfaceComponent,
     MetaMessageCenterComponent,
     MetaJournalComponent,
-    InvestigationFormComponent
+    InvestigationFormComponent,
+    SmsWindowComponent
   ],
   imports: [
     BrowserModule,

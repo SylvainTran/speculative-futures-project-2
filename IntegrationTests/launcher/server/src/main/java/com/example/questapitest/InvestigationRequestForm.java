@@ -7,12 +7,14 @@ import java.util.ArrayList;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class InvestigationRequestForm {
 
     ValidFormRequest validFormRequest;
     String keywordsConcat = "";
     String validRequestResponse = "";
+    String validRequestResponseKey = "";
 
     public InvestigationRequestForm(String requestType, ArrayList<String> keywords) {
         keywords.forEach(keyword -> keywordsConcat += (keyword.trim().toLowerCase()));
@@ -46,10 +48,18 @@ public class InvestigationRequestForm {
                 // The requestType and the keywords are matched only for equality
                 if (request.equals(validFormRequest)) {
                     validRequestResponse = request.getResponse();
+                    validRequestResponseKey = request.getResponseKey();
                 }
             });
             System.out.println("Valid request response: " + validRequestResponse);
-            return "{ \"response\": " + "\"" + validRequestResponse + "\"" + " }";
+
+            ObjectNode responseObject = mapper.createObjectNode();
+            responseObject.put("response", validRequestResponse);
+            responseObject.put("eventKey", validRequestResponseKey);
+
+            String jsonResponse = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(responseObject);
+            System.out.println(jsonResponse);
+            return jsonResponse;
 
         } catch (Exception ex) {
             ex.printStackTrace();

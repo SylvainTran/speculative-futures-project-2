@@ -1,7 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { MainQuestService } from '../services/main-quest.service';
 
 @Component({
   selector: 'app-investigation-form',
@@ -13,11 +15,16 @@ export class InvestigationFormComponent implements OnInit {
   formModel: FormGroup;
   requestType?: string;
   successResponse: string = "";
-  // keywords?: string[] = [];
+  lastSuccessResponseKey: string = "";
   private url: string = environment.url;
   private port: string = environment.port;
 
-  constructor(private http: HttpClient, private fb: FormBuilder) {
+  constructor(
+    private http: HttpClient, 
+    private fb: FormBuilder,
+    private mainQuestService: MainQuestService
+  ) 
+  {
     this.formModel = this.fb.group({
       requestType: this.fb.group({
         typeA: [null],
@@ -55,6 +62,9 @@ export class InvestigationFormComponent implements OnInit {
         if (data.response !== null && data.response !== "") {
           console.log("Form request data received from Mission Control: " + data.response);
           this.successResponse = data.response;
+          // Fire new unlock event as data response's key (any order is ok)
+          this.lastSuccessResponseKey = data.eventKey;
+          this.mainQuestService.questEventSuccessSource.next(this.lastSuccessResponseKey);
         } else {
           this.successResponse = "";
         }
@@ -73,7 +83,6 @@ export class InvestigationFormComponent implements OnInit {
 
     let keywordStrArray: string[] = [];
     console.log("OBJECT: " + JSON.stringify(this.keywords.value));
-    console.log("LEN: " + this.keywords.value.length);
 
     for(let i = 0; i < this.keywords.length; i++) {
       let val = this.keywords.value[i];

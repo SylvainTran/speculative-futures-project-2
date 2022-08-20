@@ -98,7 +98,7 @@
         <video id="GameVideo"></video>
         <canvas id="GameCanvas"></canvas>
         <canvas id="UpperCanvas"></canvas>
-    </div> 
+    </div>
 </div>
 
 <div [class.activity]="activeActivity === 'utopia-darkweb-trojan'" [class.activity-hidden]="activeActivity !== 'utopia-darkweb-trojan'">
@@ -111,6 +111,7 @@
 <app-meta-friend-list *ngIf="this.friendListVisible"></app-meta-friend-list>
 <app-meta-message-center *ngIf="this.messageCenterVisible"></app-meta-message-center>
 <app-investigation-form *ngIf="this.investigationFormVisible"></app-investigation-form>
+<app-sms-window></app-sms-window>
 
 <nav class="navbar my-is-flex is-centered">
     <p><span id="device-name">SPHINX - Remote Device Emulator<br>Agent Name: John Cyfer<br>Live link: <span id="live-link-status">Connected</span><br>Security: Normal</span></p>

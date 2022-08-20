@@ -10,6 +10,7 @@ public class ValidFormRequest {
     private ArrayList<String> keywords;
     private String response;
     private String keywordsConcat = "";
+    private String responseKey = "";
 
     public ValidFormRequest() {}
 
@@ -54,6 +55,14 @@ public class ValidFormRequest {
 
     public String getKeywordsConcat() {
         return this.keywordsConcat;
+    }
+
+    public String getResponseKey() {
+        return responseKey;
+    }
+
+    public void setResponseKey(String responseKey) {
+        this.responseKey = responseKey;
     }
 
     @Override
