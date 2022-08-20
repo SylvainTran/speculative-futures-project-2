@@ -4,7 +4,7 @@ import { AvatarControllerService } from './services/avatar-controller.service';
 import { Player } from './services/player';
 import { CharacterDatabaseService, ConversationNode } from './services/character-database.service';
 import { Friendship } from './services/friendship';
-import { MainQuestService } from './services/main-quest.service';
+import { MainQuestService, SMSQUEST_GameEventObject } from './services/main-quest.service';
 
 @Component({
   selector: 'app-root',
@@ -49,7 +49,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       complete: () => console.log('Observer got a complete notification') // this unsubscribes as well
     });
 
-    this.mainQuestService.questEventSuccessSource$.subscribe({
+    this.mainQuestService.TRIGGER_SMS_EVENT$.subscribe({
       next: (eventKey) => this.handleSMSPopUp(eventKey)
     });
     this.smsNotificationSoundSrc = document.getElementById('smsNotification');
@@ -121,6 +121,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   public handleSMSPopUp(eventKey: any) {
+    const g: SMSQUEST_GameEventObject | undefined = this.mainQuestService.progressionHashMap.get(eventKey) as SMSQUEST_GameEventObject;
+
+    if (!g.prerequisitesAreSatisfied(this.mainQuestService.SMSEventsCompleted)) {
+      return;
+    }
     this.smsWindowVisible = true;
     this.smsNotificationSoundSrc.play();
   }

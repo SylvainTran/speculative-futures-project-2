@@ -61,10 +61,15 @@ export class InvestigationFormComponent implements OnInit {
       next: (data: any) => {
         if (data.response !== null && data.response !== "") {
           console.log("Form request data received from Mission Control: " + data.response);
+
           this.successResponse = data.response;
-          // Fire new unlock event as data response's key (any order is ok)
           this.lastSuccessResponseKey = data.eventKey;
-          this.mainQuestService.questEventSuccessSource.next(this.lastSuccessResponseKey);
+
+          // Distinguish between form event keys
+          if (data.eventKey === 'neptunia') {
+            this.mainQuestService.TRIGGER_SMS_EVENT.next(this.lastSuccessResponseKey);
+          } 
+
         } else {
           this.successResponse = "";
         }

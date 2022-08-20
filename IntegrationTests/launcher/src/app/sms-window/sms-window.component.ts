@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { GameEventObject, MainQuestService } from '../services/main-quest.service';
+import { GameEventObject, MainQuestService, SMSQUEST_GameEventObject } from '../services/main-quest.service';
 
 @Component({
   selector: 'app-sms-window',
@@ -18,26 +18,29 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
 
   constructor(private mainQuestService: MainQuestService) 
   {
-    this.mainQuestService.questEventSuccessSource$.subscribe({
+    this.mainQuestService.TRIGGER_SMS_EVENT$.subscribe({
       next: (eventKey) => this.startAutoSMSProcess(eventKey, 0)
     })
   }
   ngOnDestroy(): void {
-    this.mainQuestService.questEventSuccessSource.unsubscribe();
+    this.mainQuestService.TRIGGER_SMS_EVENT.unsubscribe();
   }
 
   ngOnInit(): void {
   }
 
   public async startAutoSMSProcess(eventKey: string, currentIndex?: number) {
-    const g: GameEventObject | undefined = this.mainQuestService.progressionHashMap.get(eventKey);
+    const g: SMSQUEST_GameEventObject | undefined = this.mainQuestService.progressionHashMap.get(eventKey) as SMSQUEST_GameEventObject;
     if (g === undefined) {
       // can't retrieve the data
       return;
     } else if (g?.Success && currentIndex! >= g.Response.length) {
       // completed condition
-      this.currentIndex = 0;
-      this.lastEventKey = "";
+      this.addToSMSEventsCompleted(this.lastEventKey);
+      this.resetSMSState();
+      return;
+    } else if (!g?.prerequisitesAreSatisfied(this.mainQuestService.SMSEventsCompleted)) {
+      console.log("Still missing prerequisites for this event to occur!");
       return;
     }
 
@@ -59,18 +62,17 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
         const annotationBegin = text.indexOf('@');
 
         if (annotationBegin !== -1) {
+          // Possible list of annotations
           const action = text.slice(annotationBegin + 1);
           const textOnly = text.slice(currentIndex, annotationBegin);
           const nextText = textToPush[this.currentIndex + 1];
+          const actions = action.split("&");
+          actions.forEach(action => this.processAnnotations(action, nextText));
 
-          if (action === "waitReply") {
-            const inputField = document.getElementById('playerTextInput')! as HTMLInputElement;
-            if (nextText) {
-              inputField.value = nextText;
-            }
-          }
           this.textData.push(textOnly);
-          this.currentIndex++
+          if (!actions.includes('end')) {
+            this.currentIndex++
+          }
           // Wait for player to click on reply button to break out of lock
           return;
         } else {
@@ -95,6 +97,31 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
       }
     }
   }
+  
+  public resetSMSState() {
+    // completed condition
+    this.currentIndex = 0;
+    this.lastEventKey = "";
+  }
+
+  public processAnnotations(action: string, nextText: string) {
+    //@waitReply
+    if (action === "waitReply") {
+      const inputField = document.getElementById('playerTextInput')! as HTMLInputElement;
+      if (nextText) {
+        inputField.value = nextText;
+      }
+    }
+    //@cutLiveConnection&waitReply
+    if (action === 'cutLiveConnection') {
+      console.log("Cutting live connection");
+    }
+
+    if (action === 'end') {
+      this.addToSMSEventsCompleted(this.lastEventKey);
+      this.resetSMSState();
+    }
+  }
 
   // Used for async/await mock delays
   public until(conditionFunction: Function) {
@@ -114,6 +141,10 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
     const inputField = document.getElementById('playerTextInput')! as HTMLInputElement;
     inputField.value = "";
     this.startAutoSMSProcess(this.lastEventKey);
+  }
+
+  public addToSMSEventsCompleted(eventKey: string): void {
+    this.mainQuestService.SMSEventsCompleted.push(eventKey);
   }
 
   // Adds delay text depending on the mock delay units used earlier
