@@ -56,7 +56,6 @@ h1 {
 .file-selection {
     display: fixed;
     top: 0;
-    overflow: scroll;
 }
 
 .file-selection button {
