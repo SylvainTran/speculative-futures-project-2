@@ -4,6 +4,16 @@
 
 Hello! This project is an interactive storybook with game-based and gamified elements.
 
+
+![sms gif](https://github.com/SylvainTran/the-language-of-flowers/blob/main/Documentation/ezgif.com-gif-maker.gif)
+
+
+![quest-idler looking neat](https://github.com/SylvainTran/the-language-of-flowers/blob/main/Documentation/quest-idler-gif-2.gif)
+
+
+![new ios interface + jumping into quest idler app](https://github.com/SylvainTran/the-language-of-flowers/blob/main/Documentation/ios%20mode.gif)
+
+
 This project is being developed in the Summer of 2022, remotely. :building_construction: :bricks:
 
 The project officially started development on May 9th, 2022.
