@@ -111,7 +111,7 @@
 <app-meta-friend-list *ngIf="this.friendListVisible"></app-meta-friend-list>
 <app-meta-message-center *ngIf="this.messageCenterVisible"></app-meta-message-center>
 <app-investigation-form *ngIf="this.investigationFormVisible"></app-investigation-form>
-<app-sms-window></app-sms-window>
+<app-sms-window [hidden]="!this.smsWindowVisible"></app-sms-window>
 
 <nav class="navbar my-is-flex is-centered">
     <p><span id="device-name">SPHINX - Remote Device Emulator<br>Agent Name: John Cyfer<br>Live link: <span id="live-link-status">Connected</span><br>Security: Normal</span></p>
@@ -124,6 +124,11 @@
         <button (click)="this.setInvestigationFormVisible(!this.investigationFormVisible)" class="">
             <mat-icon class="mat-icon-rtl-mirror">
                 {{ this.investigationFormVisible? 'cancel' : 'star' }} 
+            </mat-icon>
+        </button>
+        <button (click)="setSmsWindowVisible(!smsWindowVisible)" class="">
+            <mat-icon class="mat-icon-rtl-mirror">
+                {{ this.smsWindowVisible? 'cancel' : 'textsms' }} 
             </mat-icon>
         </button>
     </div>

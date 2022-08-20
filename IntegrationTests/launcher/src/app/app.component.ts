@@ -4,6 +4,7 @@ import { AvatarControllerService } from './services/avatar-controller.service';
 import { Player } from './services/player';
 import { CharacterDatabaseService, ConversationNode } from './services/character-database.service';
 import { Friendship } from './services/friendship';
+import { MainQuestService } from './services/main-quest.service';
 
 @Component({
   selector: 'app-root',
@@ -21,18 +22,25 @@ export class AppComponent implements OnInit, AfterViewInit {
   activeActivity: string = "";
   showFiller = false;
 
-  // Apps/activities display
+  // Windows display
   friendListVisible: boolean = false;
   messageCenterVisible: boolean = false;
-  showDarkwebTrojan: boolean = true;
   investigationFormVisible: boolean = false;
+  smsWindowVisible: boolean = false;
+
+  // Apps display
+  showDarkwebTrojan: boolean = true;
   showTodoApp: boolean = true;
   showGalleryApp: boolean = true;
   showSettingsActivity: boolean = true;
   showNewsApp: boolean = true;
   showBibleApp: boolean = true;
+  smsNotificationSoundSrc: any;
 
-  constructor(private avatarControllerService: AvatarControllerService, private characterDatabaseService: CharacterDatabaseService) {
+  constructor(
+    private avatarControllerService: AvatarControllerService, 
+    private characterDatabaseService: CharacterDatabaseService, 
+    private mainQuestService: MainQuestService) {
     this.playerRef = new Player("Autumn");
     // Subscribe to db loaded event source
     this.characterDatabaseService.databaseLoadedEventSource.subscribe({
@@ -40,6 +48,11 @@ export class AppComponent implements OnInit, AfterViewInit {
       error: (err: Error) => console.error('Observer got an error: ' + err),
       complete: () => console.log('Observer got a complete notification') // this unsubscribes as well
     });
+
+    this.mainQuestService.questEventSuccessSource$.subscribe({
+      next: (eventKey) => this.handleSMSPopUp(eventKey)
+    });
+    this.smsNotificationSoundSrc = document.getElementById('smsNotification');
   }
 
   ngAfterViewInit(): void {
@@ -72,13 +85,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // public restartGame() {
-  //   console.log("restarting game");
-  //   this.avatarControllerService.clickCount = 0;
-  //   this.avatarControllerService.setIsAlive(true);
-  //   this.avatarControllerService.getAvatarHealthService().setHealth(100);    
-  // }
-
   // Getters
   public get CharacterDatabaseService() {
     return this.characterDatabaseService;
@@ -100,6 +106,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.investigationFormVisible = value;
   }
 
+  public setSmsWindowVisible(value: boolean): void {
+    this.smsWindowVisible = value;
+  }
+
   public updatePlayerRef(evt: Player) {
     this.playerRef = evt;
   }
@@ -108,7 +118,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     console.log("Launching activity: " + appID);
     this.mainActivityActive = false;
     this.activeActivity = appID;
-    //this.disableKeyDownEvents(['Evening-in-the-Promised-Land', 'UpperCanvas', 'GameVideo', 'GameCanvas']);
+  }
+
+  public handleSMSPopUp(eventKey: any) {
+    this.smsWindowVisible = true;
+    this.smsNotificationSoundSrc.play();
   }
 
   public returnToMainActivity() {
