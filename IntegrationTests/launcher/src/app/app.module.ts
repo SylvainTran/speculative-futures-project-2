@@ -35,18 +35,20 @@ import { MetaMessageCenterComponent } from './meta-message-center/meta-message-c
 import { MetaJournalComponent } from './meta-journal/meta-journal.component';
 import { MenuInterfaceComponent } from './menu-interface/menu-interface.component';
 import { InvestigationFormComponent } from './investigation-form/investigation-form.component';
+import { SmsWindowComponent } from './sms-window/sms-window.component';
+import { SettingsActivityComponent } from './settings-activity/settings-activity.component';
 
 // Material CDK
 import { CdkTreeModule } from '@angular/cdk/tree';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { SmsWindowComponent } from './sms-window/sms-window.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 // Move into naming service
 export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {     
   providedIn: 'root',
-  factory: () => 'Myella'
+  factory: () => 'Autumn'
 });
 
 @NgModule({
@@ -69,7 +71,8 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     MetaMessageCenterComponent,
     MetaJournalComponent,
     InvestigationFormComponent,
-    SmsWindowComponent
+    SmsWindowComponent,
+    SettingsActivityComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +83,8 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     CdkTreeModule,
     MatIconModule,
     MatCardModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSlideToggleModule
   ],
   providers: [{ provide: AVATAR_NAME, useValue: 'Autumn' },
               { provide: FriendListService, useClass: FriendListService }, 

@@ -6,7 +6,7 @@
         <div class="vertical-slide-target"></div>  
         <div class="main-unit">
             <div class="identity-section text-middle-container my-is-flex is-centered is-absolute">
-                <h1>Autumn's Home</h1>
+                <h1>Autumn's Device</h1>
                 <h2>It is windy today.</h2>
                 <h3>{{ currentTime }}<br>Last Login: 5 days ago.</h3>
                 <div *ngIf="scheduledEvents.length > 0" class="schedule-events-title">Metaverse Events</div>
@@ -106,6 +106,10 @@
         <h1 class="large-font absolute red">You have been hacked. Mission failed.</h1>
         <img id="demonpic" src="../assets/demonpic.jpg" alt="demon pic">
     </div>
+</div>
+
+<div [class.activity]="activeActivity === 'settings-activity'" [class.activity-hidden]="activeActivity !== 'settings-activity'">
+    <app-settings-activity></app-settings-activity>
 </div>
 
 <app-meta-friend-list *ngIf="this.friendListVisible"></app-meta-friend-list>
