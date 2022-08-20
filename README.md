@@ -2,8 +2,9 @@
 
 # Welcome :palm_tree::hibiscus:🌷
 
-Hello! This project is an interactive storybook with game-based and gamified elements.
+Hello! This project is an exploration that blends poetics, English literature, and video games together to talk about digital peoples, cyber friendships, and pursuing God's presence in the digital. And speculative surveillance possibilities! Become a detective and investigate a fictional Queen's disappearance by remotely accessing their phone apps and contacts! 
 
+Free to play: a link will be posted soon
 
 ![sms gif](https://github.com/SylvainTran/the-language-of-flowers/blob/main/Documentation/ezgif.com-gif-maker.gif)
 
