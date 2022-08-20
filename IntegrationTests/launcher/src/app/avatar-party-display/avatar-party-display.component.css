@@ -4,7 +4,7 @@
 }
 
 .avatar-display, .avatar-pic, .inline-container {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'GameFont';
 }
 
 .avatar-display {
@@ -42,7 +42,7 @@
 
 .enemy-pic {
     font-style: italic;
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'GameFont';
     font-size: 1rem;
     position: relative;
     top: 150px;

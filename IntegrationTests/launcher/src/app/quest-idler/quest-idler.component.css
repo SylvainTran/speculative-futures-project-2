@@ -1,5 +1,11 @@
+@font-face {
+    font-family: GameFont;
+    src: url("../../assets/Silkscreen-Regular.ttf");
+}
+
 .quest-idler-routes button {
-    font-family: 'Press Start 2P', cursive;
+    /* font-family: 'Press Start 2P', cursive; */
+    font-family: 'GameFont';
 }
 button {
     margin-right: 0.5rem;
@@ -24,7 +30,7 @@ button {
     color: pink;
     padding: 6rem;
     font-size: 1.2rem;
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'GameFont';
 }
 
 #restartOverButton {

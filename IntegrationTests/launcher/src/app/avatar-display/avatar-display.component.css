@@ -40,14 +40,14 @@
 
 .enemy-pic {
     font-style: italic;
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'GameFont';
     font-size: 1rem;
     position: relative;
     top: 100px;
 }
 
 .quest-location {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'GameFont';
     font-size: 3rem;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .poems, .poetry-game-section, .enemy-pic, .quest-location {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'GameFont';
 }
 
 #game-canvas {
