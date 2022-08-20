@@ -44,6 +44,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { InvestigationTableComponent } from './investigation-table/investigation-table.component';
 
 // Move into naming service
 export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {     
@@ -72,7 +73,8 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     MetaJournalComponent,
     InvestigationFormComponent,
     SmsWindowComponent,
-    SettingsActivityComponent
+    SettingsActivityComponent,
+    InvestigationTableComponent
   ],
   imports: [
     BrowserModule,

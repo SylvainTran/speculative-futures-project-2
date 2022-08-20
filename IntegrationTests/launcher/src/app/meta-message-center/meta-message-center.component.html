@@ -2,7 +2,7 @@
     <div class="message-container">
         <h1>Message Center</h1>
         <ul>
-            <li *ngFor="let message of outputMessages">                
+            <li *ngFor="let message of outputMessages; let i = index">                
                 <p>id: {{ message.id }} </p>
                 <p>sender: {{ message.sender }}</p>
                 <p>recipient: {{ message.recipient }}</p>
@@ -11,9 +11,9 @@
                 <p id="message-center-body">{{ message.body }}</p>
                 <div *ngIf="message.id === 2">
                     <p>
-                        attachments: <span id="whiteListedAppsStyle" (click)="showWhiteListedApps()"><a>WHITE_LISTED_APPS.MD</a></span>
+                        attachments: <span id="whiteListedAppsStyle" (click)="bitmapHashMap.set(i, !bitmapHashMap.get(i))"><a>WHITE_LISTED_APPS.MD</a></span>
                     </p>
-                    <ul *ngIf="showWhiteListedAppsFlag">
+                    <ul *ngIf="bitmapHashMap.get(i)">
                         <li>Quest Idler: Retro Edition (Situation Analysis: She apparently played a similar game in her youth, and got nostalgic)</li>
                         <li>Writer (Situation Analysis: She had a love of plays, romance, Shakespeare and theater. It is possible that certain cues be scattered in these notes.</li>
                         <li>Chat Homes 3D (Situation Analysis: Be warned that she had many unknowing suitors)</li>
@@ -26,9 +26,9 @@
                 </div>
                 <div *ngIf="message.id === 4">
                     <p>
-                        attachments: <span id="whiteListedAppsStyle" (click)="showWhiteListedApps()"><a>AUGUSTAVONLIN_PRELIMINARY_ANALYSIS_CONFIDENTIAL.MD</a></span>
+                        attachments: <span id="whiteListedAppsStyle" (click)="bitmapHashMap.set(i, !bitmapHashMap.get(i))"><a>AUGUSTAVONLIN_PRELIMINARY_ANALYSIS_CONFIDENTIAL.MD</a></span>
                     </p>
-                    <ul *ngIf="showWhiteListedAppsFlag">
+                    <ul *ngIf="bitmapHashMap.get(i)">
                         <li>Biological Health Record: Healthy</li>
                         <li>Mental Health Record: Healthy</li>
                         <li>IQ/EQ assessments: Gifted</li>
@@ -39,9 +39,9 @@
                 </div>
                 <div *ngIf="message.id === 6">
                     <p>
-                        attachments: <span id="whiteListedAppsStyle" (click)="showWhiteListedApps()"><a>HARVURD_2110_OFFICIAL_RECORDS.MD</a></span>
+                        attachments: <span id="whiteListedAppsStyle" (click)="bitmapHashMap.set(i, !bitmapHashMap.get(i))"><a>HARVURD_2110_OFFICIAL_RECORDS.MD</a></span>
                     </p>
-                    <ul *ngIf="showWhiteListedAppsFlag">
+                    <ul *ngIf="bitmapHashMap.get(i)">
                         <li>Harvurd University</li>
                         <li>GPA: 4.17</li>
                         <li>Major: Divinity and Philosophy, Computer Science</li>
@@ -52,9 +52,9 @@
                 </div>
                 <div *ngIf="message.id === 7">
                     <p>
-                        attachments: <span id="whiteListedAppsStyle" (click)="showWhiteListedApps()"><a>CBT_RECORDS_1.MD</a></span>
+                        attachments: <span id="whiteListedAppsStyle" (click)="bitmapHashMap.set(i, !bitmapHashMap.get(i))"><a>CBT_RECORDS_1.MD</a></span>
                     </p>
-                    <ul *ngIf="showWhiteListedAppsFlag">
+                    <ul *ngIf="bitmapHashMap.get(i)">
                         <li>CBT Session</li>
                         <li>Therapist: Dr. Kroen Tan, MD</li>
                         <li>DR. KROEN TAN: HAVE YOU IDENTIFIED ANY CORE BELIEFS SINCE OUR LAST MEETING?</li>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 class Message {
   constructor(
     public id: number, 
@@ -24,9 +23,16 @@ class Message {
 export class MetaMessageCenterComponent implements OnInit {
   rawMessages: Message[] = [];
   outputMessages: Message[] = [];
-  showWhiteListedAppsFlag: boolean = false;
+  bitmapHashMap: Map<number, boolean>;
 
-  constructor() {}
+  constructor() {
+    this.bitmapHashMap = new Map<number, boolean>();
+    let maxId: number = 7;
+
+    for (let i = 0; i < maxId; i++) {
+      this.bitmapHashMap.set(i, false);
+    }
+  }
 
   ngOnInit(): void {
     // Test
@@ -44,7 +50,7 @@ export class MetaMessageCenterComponent implements OnInit {
     this.outputMessages.push(new Message(7, "Dr. Chillen, PhD, MD", "John - Cyber Investigation Expert", "CBT Sessions", "2022-06-12 14:51:04", "Mr. Cyfer, Please find attached a text record of a CBT session (second university year). Good luck. - Dr. Chillen", true));
   }
 
-  public showWhiteListedApps(): void {
-    this.showWhiteListedAppsFlag = true;
+  public setBitMapValue(index: number, state: boolean): void {
+    this.bitmapHashMap.set(index, state);
   }
 }
