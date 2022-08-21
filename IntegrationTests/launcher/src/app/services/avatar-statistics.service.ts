@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { SaveDataService } from './save-data-service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,14 +8,13 @@ export class AvatarStatisticsService {
 
   statisticLabels = ["str", "mag", "dex", "spd", "vit", "char", "int"];
   statistics: Map<String, number>;
+  avatarStatisticsData: Object | undefined;
   
-  constructor() {
+  constructor(private saveDataService: SaveDataService) {
     this.statistics = new Map();
     this.statisticLabels.forEach( label => {
       this.statistics.set(label, 5 + Math.ceil(Math.random() * 5));
     });
-
-    // Check for saved data
     this.loadFromLocalStorage();
   }
 
@@ -45,33 +45,16 @@ export class AvatarStatisticsService {
     let buffer : String[] = [];
     this.selectStats(buffer); 
     buffer.forEach(stat => this.incrementStat(stat));
-    this.saveAvatarStatisticsData();
+    this.saveDataService.saveAvatarStatisticsData(this.statistics);
     return this.statistics;
   }
 
-  public saveAvatarStatisticsData() {
-    const avatarStatisticsData = {
-      "str": this.statistics.get("str"),
-      "mag": this.statistics.get("mag"),
-      "dex": this.statistics.get("dex"),
-      "spd": this.statistics.get("spd"),
-      "vit": this.statistics.get("vit"),
-      "char": this.statistics.get("char"),
-      "int": this.statistics.get("int")    
-    };
-    window.localStorage.setItem("com.soberfoxgames.questidler.avatarStatisticsData", JSON.stringify(avatarStatisticsData));
-  }
-
   public loadFromLocalStorage() {
-    let storedAvatarStatisticsData: any = window.localStorage.getItem("com.soberfoxgames.questidler.avatarStatisticsData");
-    if (storedAvatarStatisticsData !== null) {
-      const result = JSON.parse(storedAvatarStatisticsData);
-    
-      for (let [key, value] of this.statistics) {
-        let val = result[key as string];
-        let _val: number = parseInt(val);
-        this.statistics.set(key, val);  
-      }
+    const loadedStatistics = this.saveDataService.loadAvatarStatisticsFromLocalStorage();
+    if (loadedStatistics === null) {
+      return;
+    } else {
+      this.statistics = loadedStatistics;
     }
   }
 }

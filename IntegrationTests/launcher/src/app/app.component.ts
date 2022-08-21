@@ -121,9 +121,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   public handleSMSPopUp(eventKey: any) {
-    const g: SMSQUEST_GameEventObject | undefined = this.mainQuestService.progressionHashMap.get(eventKey) as SMSQUEST_GameEventObject;
+    const g: SMSQUEST_GameEventObject = this.mainQuestService.progressionHashMap.get(eventKey) as SMSQUEST_GameEventObject;
 
-    if (!g.prerequisitesAreSatisfied(this.mainQuestService.SMSEventsCompleted)) {
+    let completed: string[] = this.mainQuestService.getSMSEventsCompleted();
+    let satisfiedPreconditions = g.prerequisiteEventKeys.length === 0 || g.prerequisiteEventKeys.every( (key) => completed.includes(key) );
+    if (g.success || !satisfiedPreconditions) {
       return;
     }
     this.smsWindowVisible = true;

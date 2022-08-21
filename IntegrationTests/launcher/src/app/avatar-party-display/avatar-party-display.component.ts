@@ -420,10 +420,10 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
 
   ngOnInit(): void {
     const avatarStatsDisplay = this.avatarStatsDisplay;
-    avatarStatsDisplay.currentHealth = this.avatarControllerService.getAvatarHealthService().getHealth();
-    avatarStatsDisplay.currentLevel = this.avatarExperienceService.getCurrentLevel();
-    avatarStatsDisplay.currentExperience = this.avatarExperienceService.getCurrentExperience();
-    avatarStatsDisplay.experienceTotalRequired = this.avatarExperienceService.getExperienceTotalRequired();
+    avatarStatsDisplay.currentHealth = this.avatarControllerService.getAvatarHealthService().Health;
+    avatarStatsDisplay.currentLevel = this.avatarExperienceService.CurrentLevel;
+    avatarStatsDisplay.currentExperience = this.avatarExperienceService.CurrentExperience;
+    avatarStatsDisplay.experienceTotalRequired = this.avatarExperienceService.ExperienceTotalRequired;
   }
 
   ngAfterViewInit(): void {
@@ -485,9 +485,9 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
 
   public handleAvatarStatsDisplay() {
     const avatarStatsDisplay = this.avatarStatsDisplay;
-    avatarStatsDisplay.currentLevel = this.avatarExperienceService.getCurrentLevel();
-    avatarStatsDisplay.currentExperience = this.avatarExperienceService.getCurrentExperience();
-    avatarStatsDisplay.experienceTotalRequired = this.avatarExperienceService.getExperienceTotalRequired();
+    avatarStatsDisplay.currentLevel = this.avatarExperienceService.CurrentLevel;
+    avatarStatsDisplay.currentExperience = this.avatarExperienceService.CurrentExperience;
+    avatarStatsDisplay.experienceTotalRequired = this.avatarExperienceService.ExperienceTotalRequired;
   }
 
   // TODO: Might have to put this in the controller and trigger an event instead

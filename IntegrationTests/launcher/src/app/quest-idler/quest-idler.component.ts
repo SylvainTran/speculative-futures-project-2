@@ -114,7 +114,7 @@ export class QuestIdlerComponent implements OnInit, AfterContentInit, OnChanges,
   public restartGame() {
     console.log("restarting game");
     this.avatarControllerService.setIsAlive(true);
-    this.avatarControllerService.getAvatarHealthService().setHealth(100);    
+    this.avatarControllerService.getAvatarHealthService().Health = 100;    
   }
 
   public handleStartGame() {

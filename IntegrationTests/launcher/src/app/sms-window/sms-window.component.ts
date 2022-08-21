@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { GameEventObject, MainQuestService, SMSQUEST_GameEventObject } from '../services/main-quest.service';
+import { SaveDataService } from '../services/save-data-service';
 
 @Component({
   selector: 'app-sms-window',
@@ -15,8 +16,11 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
   waitForDelay = false;                               // Flag to register mock delay happening
   breakpointLockActive: boolean = false;              // Used to prevent user pressing send button while mock delay is happening
   currentIndex: number = 0;                           // The current index of the Response text array of the GameEventObject we're actively reading
-
-  constructor(private mainQuestService: MainQuestService) 
+  preventSpam: boolean = false;
+  
+  constructor(
+    private mainQuestService: MainQuestService
+  ) 
   {
     this.mainQuestService.TRIGGER_SMS_EVENT$.subscribe({
       next: (eventKey) => this.startAutoSMSProcess(eventKey, 0)
@@ -31,23 +35,29 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
 
   public async startAutoSMSProcess(eventKey: string, currentIndex?: number) {
     const g: SMSQUEST_GameEventObject | undefined = this.mainQuestService.progressionHashMap.get(eventKey) as SMSQUEST_GameEventObject;
+
+    let completed: string[] = this.mainQuestService.getSMSEventsCompleted();   
+    let satisfiedPreconditions = g.prerequisiteEventKeys.length === 0 || g.prerequisiteEventKeys.every( (key) => completed.includes(key) );
+    
     if (g === undefined) {
       // can't retrieve the data
       return;
-    } else if (g?.Success && currentIndex! >= g.Response.length) {
-      // completed condition
+    } else if (g.success) {
+      // completed condition -> through using @end annotation
       this.addToSMSEventsCompleted(this.lastEventKey);
-      this.resetSMSState();
+      this.mainQuestService.saveCompletedSMSEvents();
       return;
-    } else if (!g?.prerequisitesAreSatisfied(this.mainQuestService.SMSEventsCompleted)) {
+    } else if (!satisfiedPreconditions) {
       console.log("Still missing prerequisites for this event to occur!");
+      return;
+    } else if (this.currentIndex >= g.response.length) {
       return;
     }
 
     this.lastEventKey = eventKey;
 
-    const textToPush: string[] | undefined = g?.Response;    
-    let dateToPush: string | undefined = g?.TimeStamp;
+    const textToPush: string[] | undefined = g.response;    
+    let dateToPush: string | undefined = g.timeStamp;
     
     if (textToPush !== undefined) {
 
@@ -91,9 +101,6 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
           this.waitForDelay = false;
         }, mockDelay);
         await this.until(() => !this.waitForDelay);
-
-        // Prevent spamming same conversation
-        g.Success = true;
       }
     }
   }
@@ -104,6 +111,7 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
     this.lastEventKey = "";
   }
 
+  // TODO: Clean code, polymorphism..
   public processAnnotations(action: string, nextText: string) {
     //@waitReply
     if (action === "waitReply") {
@@ -119,7 +127,9 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
 
     if (action === 'end') {
       this.addToSMSEventsCompleted(this.lastEventKey);
+      this.mainQuestService.saveCompletedSMSEvents();
       this.resetSMSState();
+      this.clearInputText();
     }
   }
 
@@ -133,18 +143,29 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
   }
 
   public continueConversation(): void {
-    if (!this.breakpointLockActive) {
+    if (!this.breakpointLockActive || this.waitForDelay || this.lastEventKey === "") {
       // Prevents continuing the conversation if we're still in the 
       // middle of a mock delay happening
       return;
     }
+    this.clearInputText();
+    this.startAutoSMSProcess(this.lastEventKey);
+    // Lock for a while
+    this.preventSpam = true;
+    setTimeout(()=>this.preventSpam = false, 5000);
+  }
+  
+  public clearInputText() {
     const inputField = document.getElementById('playerTextInput')! as HTMLInputElement;
     inputField.value = "";
-    this.startAutoSMSProcess(this.lastEventKey);
   }
 
   public addToSMSEventsCompleted(eventKey: string): void {
-    this.mainQuestService.SMSEventsCompleted.push(eventKey);
+    let g = this.mainQuestService.progressionHashMap.get(eventKey);
+    if (g) {
+      g.success = true;
+      this.mainQuestService.progressionHashMap.set(eventKey, g);
+    }
   }
 
   // Adds delay text depending on the mock delay units used earlier

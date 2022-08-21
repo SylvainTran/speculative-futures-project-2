@@ -1,60 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject, timestamp } from 'rxjs';
+import { SaveDataService } from './save-data-service';
 
 export abstract class GameEventObject {
   
   constructor(
-    protected key: string,                      // when a successful data-submit request is done, the subject fires this key - listeners receive it and accesses this game event object by that key, then do what they need to do with the response
-    protected success: boolean,
-    protected response: string[],               // when talker alternates with subject - list of indexes when this occurs in order to fake timeouts / delay responses between two actors
-    protected timeStamp?: string,
-    protected callbacks?: Function[],
-    protected callerObject?: Object,
-    protected args?: any[])
+    public key: string,                      // when a successful data-submit request is done, the subject fires this key - listeners receive it and accesses this game event object by that key, then do what they need to do with the response
+    public success: boolean,
+    public response: string[],               // when talker alternates with subject - list of indexes when this occurs in order to fake timeouts / delay responses between two actors
+    public prerequisiteEventKeys: string[],
+    public timeStamp?: string,
+    public callbacks?: Function[],
+    public args?: any[])
   {}
 
-  get Key() {
-    return this.key;
-  }
-
-  get Success() {
-    return this.success;
-  }
-
-  get Response() {
-    return this.response;
-  }
-
-  get TimeStamp() {
-    return this.timeStamp;
-  }
-
-  get Callbacks() {
-    return this.callbacks;
-  }
-
-  set Key(val) {
-    this.key = val;
-  }
-
-  set Success(val) {
-    this.success = val;
-  }
-
-  set Response(val) {
-    this.response = val;
-  }
-
-  set TimeStamp(val) {
-    this.timeStamp = val;
-  }
-
-  set Callbacks(val) {
-    this.callbacks = val;
+  // prerequisitesAreSatisfied
+  //
+  // Used to make sure the user can't run a game event unless all prerequisites are met
+  public prerequisitesAreSatisfied(values: string[]): boolean {
+    if (this.prerequisiteEventKeys.length === 0) {
+      return true;
+    } else {
+      return this.prerequisiteEventKeys.every( (key) => values.includes(key) );
+    }
   }
 
   public applyCallbacks() {
-    this.Callbacks?.forEach(callback => callback.call(this.callerObject, this.args))
+    this.callbacks?.forEach(callback => callback.call(this, this.args))
   }
 }
 
@@ -64,33 +36,13 @@ export class SMSQUEST_GameEventObject extends GameEventObject {
     key: string,
     success: boolean,
     response: string[],
-    protected prerequisiteSMSEventKeys: string[],
+    prerequisiteEventKeys: string[],
     timeStamp?: string,
     callbacks?: Function[],
-    callerObject?: Object,
     args?: any[],
   ) 
   {
-    super(key, success, response, timeStamp, callbacks, callerObject, args);
-  }
-
-  public get PrerequisiteSMSEventKeys() {
-    return this.prerequisiteSMSEventKeys;
-  }
-
-  public set PrerequisiteSMSEventKeys(value: string[]) {
-    this.prerequisiteSMSEventKeys = value;
-  }
-
-  // prerequisitesAreSatisfied
-  //
-  // Used to make sure the user can't run a game event unless all prerequisites are met
-  public prerequisitesAreSatisfied(values: string[]): boolean {
-    if (this.prerequisiteSMSEventKeys.length === 0) {
-      return true;
-    } else {
-      return this.prerequisiteSMSEventKeys.every( (key) => values.includes(key) );
-    }
+    super(key, success, response, prerequisiteEventKeys, timeStamp, callbacks, args);
   }
 }
 
@@ -104,10 +56,10 @@ export class MainQuestService {
   // Events
   TRIGGER_SMS_EVENT = new Subject<string>();
   TRIGGER_SMS_EVENT$: Observable<string> = this.TRIGGER_SMS_EVENT.asObservable();
-  // Events completed before for validation
-  SMSEventsCompleted: string[] = [];
 
-  constructor() { 
+  constructor(
+    public saveDataService: SaveDataService
+  ) { 
     this.progressionHashMap = new Map<String, GameEventObject>();
     this.progressionHashMap.set("neptunia", 
       new SMSQUEST_GameEventObject("neptunia", 
@@ -116,7 +68,6 @@ export class MainQuestService {
                           [],
                           "Tue, July 18th, 19:35:09, 2111", 
                           [this.log], 
-                          this, 
                           ["Player has progressed in the game!"]
                         ));
 
@@ -127,10 +78,36 @@ export class MainQuestService {
                           ["neptunia"],
                           "Tue, July 18th, 19:40:00, 2111",
                           [this.log],
-                          this,
                           ["Player has rooted the device!"]
                         ));
+
+    this.loadCompletedSMSEvents();
   }
 
   public log() {}
+
+  public getSMSEventsCompleted(): string[] {
+    let completed: string[] = [];
+
+    let gameEventObjects = this.progressionHashMap.values();
+
+    for (const gameEventObject of gameEventObjects) {
+      if (gameEventObject.success) {
+        completed.push(gameEventObject.key);
+      }
+    }
+    return completed;
+  }
+
+  public saveCompletedSMSEvents() {
+    this.saveDataService.saveCompletedSMSEvents(this.progressionHashMap);
+  }
+
+  public loadCompletedSMSEvents() {
+    let results: any = this.saveDataService.loadCompletedSMSEvents();
+
+    if (results) {
+      this.progressionHashMap = results;
+    }
+  }
 }

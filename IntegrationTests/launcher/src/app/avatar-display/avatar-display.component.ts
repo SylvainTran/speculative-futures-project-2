@@ -76,12 +76,12 @@ export class AvatarDisplayComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   ngOnInit(): void {
-    this.currentHealth = this.avatarControllerService.getAvatarHealthService().getHealth();
+    this.currentHealth = this.avatarControllerService.getAvatarHealthService().Health;
 
     let aes = this.avatarControllerService.getAvatarExperienceService();
-    this.currentLevel = aes.getCurrentLevel();
-    this.currentExperience = aes.getCurrentExperience();
-    this.experienceTotalRequired = aes.getExperienceTotalRequired();
+    this.currentLevel = aes.CurrentLevel;
+    this.currentExperience = aes.CurrentExperience;
+    this.experienceTotalRequired = aes.ExperienceTotalRequired;
   }
 
   ngOnDestroy(): void {
@@ -118,9 +118,9 @@ export class AvatarDisplayComponent implements OnInit, OnDestroy, AfterViewInit 
     // TODO Replace by events
     this.avatarControllerService.handleAvatarClicked();
     this.clickCount = this.avatarControllerService.clickCount;
-    this.currentLevel = this.avatarControllerService.getAvatarExperienceService().getCurrentLevel();
-    this.currentExperience = this.avatarControllerService.getAvatarExperienceService().getCurrentExperience();
-    this.experienceTotalRequired = this.avatarControllerService.getAvatarExperienceService().getExperienceTotalRequired();
+    this.currentLevel = this.avatarControllerService.getAvatarExperienceService().CurrentLevel;
+    this.currentExperience = this.avatarControllerService.getAvatarExperienceService().CurrentExperience;
+    this.experienceTotalRequired = this.avatarControllerService.getAvatarExperienceService().ExperienceTotalRequired;
     this.updateAvatarDisplay();
     // Sounds
     this.avatarClickAudioSrc.play();

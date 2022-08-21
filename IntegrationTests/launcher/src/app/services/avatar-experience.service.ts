@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { SaveDataService } from './save-data-service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,23 +9,41 @@ export class AvatarExperienceService {
   private currentLevel: number = 1;
   private currentExperience: number = 0;
   private experienceTotalRequired: number = 100;
+  private experienceDataToJSON: Object | undefined;
 
   // Event bus
   private levelUpSource = new Subject<any>();
   levelUpSource$ = this.levelUpSource.asObservable();
 
-  constructor() {
-    this.loadExperienceData();
+  constructor(
+    private saveDataService: SaveDataService
+  ) {
+    this.loadFromLocalStorage();
   }
-  public getCurrentLevel() {
+  // getters
+  public get CurrentLevel() {
     return this.currentLevel;
   }
-  public getCurrentExperience() {
+  public get CurrentExperience() {
     return this.currentExperience;
   }
-  public getExperienceTotalRequired() {
+  public get ExperienceTotalRequired() {
     return this.experienceTotalRequired;
   }
+  public get ExperienceDataToJSON() {
+    return this.experienceDataToJSON;
+  }
+  // Setters
+  public set CurrentLevel(value: number) {
+    this.currentLevel = value;
+  }
+  public set CurrentExperience(value: number) {
+    this.currentExperience = value;
+  }
+  public set ExperienceTotalRequired(value: number) {
+    this.experienceTotalRequired = value;
+  }
+
   public handleLevel(clickCount: number) {
     this.currentExperience += clickCount;
     
@@ -32,34 +51,18 @@ export class AvatarExperienceService {
       ++this.currentLevel;
       this.experienceTotalRequired *= 2;  
       this.levelUpSource.next(this.currentLevel);
-      this.saveExperienceData();
-      this.currentExperience = 0;        
+      this.currentExperience = 0;
+      this.saveDataService.saveExperienceData(this.currentLevel, this.currentExperience, this.experienceTotalRequired);
     }
   }
 
-  public saveExperienceData() {
-    const experienceDataToJSON = {
-      "currentLevel": this.currentLevel,
-      "currentExperience": this.currentExperience,
-      "experienceTotalRequired": this.experienceTotalRequired
-    };
-    window.localStorage.setItem("com.soberfoxgames.questidler.experienceData", JSON.stringify(experienceDataToJSON));
-  }
+  public loadFromLocalStorage() {
+    let result: any = this.saveDataService.loadExperienceData();
 
-  public loadExperienceData() {
-    let storedExperienceData: any = window.localStorage.getItem("com.soberfoxgames.questidler.experienceData");
-    
-    if (storedExperienceData !== null) {
-      const result = JSON.parse(storedExperienceData);
-
-      this.currentLevel = parseInt(result.currentLevel);      
-      this.currentExperience = parseInt(result.currentExperience);
-      this.experienceTotalRequired = parseInt(result.experienceTotalRequired);
-
-    } else {
-      this.currentLevel = 1;
-      this.currentExperience = 0;
-      this.experienceTotalRequired = 100;
+    if (result) {
+      this.currentLevel = result.currentLevel;      
+      this.currentExperience = result.currentExperience;
+      this.experienceTotalRequired = result.experienceTotalRequired;
     }
   }
 }

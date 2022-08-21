@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { SaveDataService } from './save-data-service';
 
 @Injectable({
   providedIn: 'root'
@@ -6,21 +7,21 @@ import { Injectable } from '@angular/core';
 export class AvatarHealthService {
   private health: number = 100;
 
-  constructor() {
-    this.loadHealthData();
+  constructor(private saveDataService: SaveDataService) {
+    this.loadFromLocalStorage();
   }
 
-  public getHealth() {
+  public get Health() {
     return this.health;
   }
 
-  public setHealth(value: number) {
+  public set Health(value: number) {
     this.health = value;
   }
 
   public changeHealth(value: number) {
     this.health += value;
-    this.saveHealthData();
+    this.saveDataService.saveHealthData(this.health);
     return this.health;
   }
   
@@ -28,22 +29,11 @@ export class AvatarHealthService {
     return this.health <= 0;
   }
 
-  public saveHealthData() {
-    const healthData = {
-      "avatarHealth": this.health
-    }
-    window.localStorage.setItem("com.soberfoxgames.questidler.avatarHealth", JSON.stringify(healthData));
-  }
+  public loadFromLocalStorage() {
+    let healthResult = this.saveDataService.loadHealthData();
 
-  public loadHealthData() {
-    let storedHealth: any = window.localStorage.getItem("com.soberfoxgames.questidler.avatarHealth");    
-
-    if (storedHealth !== null) {
-      const result = JSON.parse(storedHealth);
-      const health = parseInt(result.avatarHealth);  
-      this.setHealth(health);
-    } else {
-      this.setHealth(100);
+    if (healthResult !== null) {
+      this.health = healthResult.health;
     }
   }
 }

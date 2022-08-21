@@ -13,6 +13,6 @@
     </section>
     <section class="text-input">
         <input disabled id="playerTextInput" type="text" placeholder="Type here"/>
-        <button (click)="continueConversation()">Send</button>
+        <button [disabled]='lastEventKey=="" || waitForDelay || preventSpam' (click)="continueConversation()">Send</button>
     </section>
 </div> 
