@@ -96,7 +96,6 @@ let aspectRatio = 1;
 
 window.addEventListener('resize', () => {
   aspectRatio = (window.outerWidth - 8) / window.innerWidth;
-  console.log(aspectRatio)
 });
 
 $(".keyboard-rectangle").each(function( index ) {

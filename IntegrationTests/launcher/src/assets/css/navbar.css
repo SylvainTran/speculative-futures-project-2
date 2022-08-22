@@ -7,7 +7,7 @@
     color: var(--nav-color);
 
     font-size: var(--nav-font-size);
-    z-index: 5;
+    z-index: 2;
 }
 
 .navbar:hover {

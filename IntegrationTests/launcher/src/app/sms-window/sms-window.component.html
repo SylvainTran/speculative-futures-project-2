@@ -1,9 +1,10 @@
 <div class="meta-friend-list-window">
+  <div class="sms-window">
     <div class="friend-info">
       <img class="profile-avatar" src="../../assets/queenpic_bw.png" alt="profile-icon"/>
       <div class="friend-info-details">
-        <p>Sixth3489</p>
-        <p>Status: <span style="color: lime">Online</span></p>  
+        <p>Autumn</p>
+        <p>Status: <span style="color: lime">Contemplative</span></p>  
       </div>
     </div>
     <section class="text-section">
@@ -12,7 +13,8 @@
         </ul>
     </section>
     <section class="text-input">
-        <input disabled id="playerTextInput" type="text" placeholder="Type here"/>
-        <button [disabled]='lastEventKey=="" || waitForDelay || preventSpam' (click)="continueConversation()">Send</button>
+        <input disabled id="playerTextInput" type="text" placeholder="Breathe"/>
+        <button [disabled]='lastEventKey === "" || waitForDelay || preventSpam' (click)="continueConversation('playerTextInput', textData, this.lastEventKey)">Send</button>
     </section>
+  </div>
 </div> 

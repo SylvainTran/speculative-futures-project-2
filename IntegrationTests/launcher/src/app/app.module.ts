@@ -46,6 +46,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { InvestigationTableComponent } from './investigation-table/investigation-table.component';
 import { SaveDataService } from './services/save-data-service';
+import { BibleActivityComponent } from './bible-activity/bible-activity.component';
 
 // Move into naming service
 export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {     
@@ -75,7 +76,8 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     InvestigationFormComponent,
     SmsWindowComponent,
     SettingsActivityComponent,
-    InvestigationTableComponent
+    InvestigationTableComponent,
+    BibleActivityComponent
   ],
   imports: [
     BrowserModule,

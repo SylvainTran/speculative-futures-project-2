@@ -10,8 +10,8 @@
     justify-content: flex-start;
     align-items: left;
 
-    background-color: #a3a3a3;
-    color: black;
+    background-color: hsla(0, 0%, 20%, 0.903);
+    color: cyan;
     z-index: 2;
     
     width: 50vw;
@@ -30,7 +30,7 @@
     font-family: 'Cantarell', cursive;
     padding: 3rem;
     line-height: 2rem;
-    color: black;
+    color: white;
     font-size: 1.5rem;
     width: 40vw;
 }

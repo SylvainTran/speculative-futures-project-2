@@ -1,25 +1,26 @@
 <div id="meta-message-center-tag" class="meta-message-center-window">
     <div class="message-container">
-        <h1>C-PIC Investigation Form [CONFIDENTIAL - SECURITY LEVEL 4]</h1><hr>
+        <h1 class="title-big">Help Center</h1><hr>
         <form [formGroup]="formModel" (ngSubmit)="onSubmit()">
             <div formGroupName="requestType">
-                <label for="request-type-a">This is a Data Request</label>&nbsp;
+                <label for="request-type-a">Knowledge Request</label>&nbsp;
                 <input formControlName="typeA" value="data-request" id="typeA" type="radio" (change)="changeRequestType($event)"/><br>    
                 <div *ngIf="requestType === 'data-request'">
                     <h1>Keyword Options:</h1>
-                    <hr>
                     <ul>
-                        <li>biological report</li>
-                        <li>psychological report</li>
-                        <li>historical report</li>
+                        <li>Mountain</li>
+                        <li>Moon</li>
+                        <li>River</li>
                     </ul>
+                    <h3>For help:</h3>
+                    <p>1-74-10</p>
                 </div>
                 <hr>
-                <label for="request-type-b">This is a Data Submission</label>&nbsp;
+                <label for="request-type-b">Write Request</label>&nbsp;
                 <input formControlName="typeA" value="data-submit" id="typeB" type="radio" (change)="changeRequestType($event)"/><br>    
             </div>
             <hr>
-            <h1>Enter Keywords</h1>
+            <h1>Enter Words of Interest</h1>
             <hr>            
             <div formArrayName="keywords" *ngFor="let k of keywords.controls; let i = index">
                 <div [formGroupName]="i">
@@ -29,11 +30,11 @@
                 <br>
             </div>
             <button (click)="addKeyword()">Add keyword field</button>&nbsp;&nbsp;
-            <button type="submit" [disabled]="!formModel.valid">Submit</button>    
+            <button type="submit" [disabled]="!formModel.valid">Send</button>    
         </form>
         <br>
         <div class="missionControlMessages" *ngIf='successResponse !== ""'>
-            Mission Control Response: {{ successResponse }}
+            Response: {{ successResponse }}
         </div>
     </div>
     <hr>

@@ -7,14 +7,5 @@
         "response": "Neptunia is a rumored location on Titan.",
         "keywordsConcat": "neptunia",
         "responseKey": "neptunia"
-    },
-    {
-        "name": "chapter2",
-        "id": 1,
-        "requestType": "data-request",
-        "keywords": ["psych profile"],
-        "response": "Summary:",
-        "keywordsConcat": "psych profile",
-        "responseKey": "psych-profile-001"
     }
 ]

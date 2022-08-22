@@ -4,7 +4,7 @@ import { AvatarControllerService } from './services/avatar-controller.service';
 import { Player } from './services/player';
 import { CharacterDatabaseService, ConversationNode } from './services/character-database.service';
 import { Friendship } from './services/friendship';
-import { MainQuestService, SMSQUEST_GameEventObject } from './services/main-quest.service';
+import { MainQuestService, SMSQUEST_GameEventObject, SMS_CLASS } from './services/main-quest.service';
 
 @Component({
   selector: 'app-root',
@@ -60,6 +60,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   
   ngOnInit(): void {
     this.currentTime = new Date().toISOString();
+    const year = [parseInt(this.currentTime.charAt(1))];
+    const newValue = year[0] + 1;
+    let newTimeStamp = this.currentTime.substring(0, 1) + newValue + this.currentTime.substring(2);
+    this.currentTime = newTimeStamp;
   }
 
   public setupPlayer(conversationNodes: ConversationNode[]) {
@@ -120,8 +124,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.activeActivity = appID;
   }
 
-  public handleSMSPopUp(eventKey: any) {
-    const g: SMSQUEST_GameEventObject = this.mainQuestService.progressionHashMap.get(eventKey) as SMSQUEST_GameEventObject;
+  public handleSMSPopUp(data: SMS_CLASS) {
+    const g: SMSQUEST_GameEventObject = this.mainQuestService.progressionHashMap.get(data.eventKey) as SMSQUEST_GameEventObject;
+    if (g === undefined) {
+      return;
+    }
 
     let completed: string[] = this.mainQuestService.getSMSEventsCompleted();
     let satisfiedPreconditions = g.prerequisiteEventKeys.length === 0 || g.prerequisiteEventKeys.every( (key) => completed.includes(key) );

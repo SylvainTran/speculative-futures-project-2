@@ -46,6 +46,14 @@ export class SMSQUEST_GameEventObject extends GameEventObject {
   }
 }
 
+export class SMS_CLASS {
+  constructor(public eventKey: string, public sender: ACTORS) {}
+};
+
+export enum ACTORS {
+  QUEEN, BOSS
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -54,8 +62,8 @@ export class MainQuestService {
   // flags
   progressionHashMap: Map<String, GameEventObject>;
   // Events
-  TRIGGER_SMS_EVENT = new Subject<string>();
-  TRIGGER_SMS_EVENT$: Observable<string> = this.TRIGGER_SMS_EVENT.asObservable();
+  TRIGGER_SMS_EVENT = new Subject<SMS_CLASS>();
+  TRIGGER_SMS_EVENT$: Observable<SMS_CLASS> = this.TRIGGER_SMS_EVENT.asObservable();
 
   constructor(
     public saveDataService: SaveDataService
@@ -64,7 +72,7 @@ export class MainQuestService {
     this.progressionHashMap.set("neptunia", 
       new SMSQUEST_GameEventObject("neptunia", 
                           false, 
-                          ["Sixth3489: Ask, and it will be given to you; seek, and you will find; knock, and the door will be opened to you.", "Sixth3489: Are you having fun on that account?@waitReply", "Autumn: Hey... long time no talk. I haven't used this account in a while", "Sixth3489: You can stop pretending. I know who you are.@waitReply", "Autumn: Okay, so who am I?", "Sixth3489: John Cyfer. You work for the NSA.", "Sixth3489: I have the information that you seek. But you'll have to do what I say first.@waitReply", "Autumn: Why should I trust you?", "Sixth3489: I know how long you've been trying. You're in the dark. So take a chance.@cutLiveConnection&waitReply", "Autumn: How did you do that?", "Sixth3489: I know that device well. Go to the Settings app, and enable dev mode. Then root the phone. After that, activate the VPN app. We'll talk again once you do that.@end"], 
+                          ["Autumn: I want to go there. A place of green springs and where the sun falls on people who love peace.", "Autumn: There is a place hidden that people call Neptunia. I was not able to find the exact location yet.@waitReply", "YOU: Maybe the place isn't meant to be discovered.", "Autumn: That's a good observation. I believe certain things... are meant to be secrets.", "Autumn: But we shouldn't stop looking for that place. It is there, somewhere. Don't you agree?@end"],
                           [],
                           "Tue, July 18th, 19:35:09, 2111", 
                           [this.log], 
@@ -74,14 +82,23 @@ export class MainQuestService {
     this.progressionHashMap.set("rootedPhone", 
       new SMSQUEST_GameEventObject("rootedPhone",
                           false,
-                          ["Sixth3489: Thank you for trusting me.", "Your faith will be rewarded.@end"],
-                          ["neptunia"],
+                          ["Autumn: A user can root their phone to enable special functions. These functions are not otherwise possible for unrooted users."],
+                          [],
                           "Tue, July 18th, 19:40:00, 2111",
                           [this.log],
                           ["Player has rooted the device!"]
                         ));
 
-    this.loadCompletedSMSEvents();
+    this.progressionHashMap.set("bibleAppFirstLaunch", 
+    new SMSQUEST_GameEventObject("bibleAppFirstLaunch",
+                      false,
+                      ["Autumn: When it's wind and it rains, people go inside. When it's sunny, people go outside."],
+                      [],
+                      "Tue, July 18th, 19:40:00, 2111",
+                      [this.log],
+                      ["Player has rooted the device!"]
+                    ));
+    //this.loadCompletedSMSEvents();
   }
 
   public log() {}

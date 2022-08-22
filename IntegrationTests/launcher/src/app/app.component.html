@@ -6,10 +6,7 @@
         <div class="vertical-slide-target"></div>  
         <div class="main-unit">
             <div class="identity-section text-middle-container my-is-flex is-centered is-absolute">
-                <h1>Autumn's Device</h1>
-                <h2>It is windy today.</h2>
-                <h3>{{ currentTime }}<br>Last Login: 5 days ago.</h3>
-                <div *ngIf="scheduledEvents.length > 0" class="schedule-events-title">Metaverse Events</div>
+                <h1>Cyfer's eOS</h1>
                 <div class="schedule-entry">
                     <ul>
                         <!-- E.g., @19:00 PM - Meet with TryAgain34 in Chat Homes Jazzy Lounge -->
@@ -18,10 +15,11 @@
                         </li>
                     </ul>
                 </div>
-
-                <img id="grouppic" src="../assets/queenpic_bw.png"/>
-                
-            </div>           
+                <img id="grouppic" src="../assets/pexels-eberhard-grossgasteiger-1624438.jpg"/>
+                <h2>It is windy today.</h2>
+                <h3>{{ currentTime }}<br>Last Login: 1 day ago.</h3>
+                <div *ngIf="scheduledEvents.length > 0" class="schedule-events-title">Metaverse Events</div>    
+            </div>
         </div>
     </div> 
 
@@ -32,10 +30,6 @@
                 <h1>Quest Idler: Retro Edition</h1>
             </div>
             <div class="app-icon">
-                <img (click)="launchActivity('reader')" src="../assets/app-icons/book.png" alt="book reader">
-                <h1>Writer</h1>
-            </div>
-            <div class="app-icon">
                 <img (click)="launchActivity('chat-homes')" src="../assets/app-icons/speak.png" alt="chat homes 3D">
                 <h1>Chat Homes 3D</h1>
             </div>        
@@ -43,22 +37,10 @@
                 <img (click)="launchActivity('Evening-in-the-Promised-Land')" src="../assets/app-icons/sword.png" alt="Evening-in-the-Promised-Land">
                 <h1>Evening in the Promised Land</h1>
             </div>
-            <div id="darkwebTrojanApp" *ngIf="showDarkwebTrojan" class="app-icon">
-                <img (click)="launchActivity('utopia-darkweb-trojan')" src="../assets/app-icons/mars.png" alt="dark web trojan planet">
-                <h1>Utopia in Neptunia</h1>
-            </div>
         </div>
     </div>
-    <div id="app-list" class="carousel-cell">
+    <div id="app-list-2" class="carousel-cell">
         <div class="main-unit">
-            <div id="news-activity" *ngIf="showNewsApp" class="app-icon">
-                <img (click)="launchActivity('news-activity')" src="../assets/app-icons/news.png" alt="uk news activity">
-                <h1>UK News</h1>
-            </div>
-            <div id="bible-activity" *ngIf="showBibleApp" class="app-icon">
-                <img (click)="launchActivity('bible-activity')" src="../assets/app-icons/holy-bible.png" alt="bible verse activity">
-                <h1>Bible Verse</h1>
-            </div>
             <div id="todoApp" *ngIf="showTodoApp" class="app-icon">
                 <img (click)="launchActivity('todoApp')" src="../assets/app-icons/to-do-list.png" alt="todo app">
                 <h1>TODO</h1>
@@ -70,6 +52,14 @@
             <div id="settings-activity" *ngIf="showSettingsActivity" class="app-icon">
                 <img (click)="launchActivity('settings-activity')" src="../assets/app-icons/setting.png" alt="settings activity">
                 <h1>Settings</h1>
+            </div>
+        </div>
+    </div>
+    <div id="app-list-3" class="carousel-cell">
+        <div class="main-unit">
+            <div class="app-icon">
+                <img (click)="launchActivity('reader')" src="../assets/app-icons/book.png" alt="book reader">
+                <h1>Writer</h1>
             </div>
         </div>
     </div>
@@ -101,16 +91,13 @@
     </div>
 </div>
 
-<div [class.activity]="activeActivity === 'utopia-darkweb-trojan'" [class.activity-hidden]="activeActivity !== 'utopia-darkweb-trojan'">
-    <div id="utopia-darkweb-trojan">
-        <h1 class="large-font absolute red">You have been hacked. Mission failed.</h1>
-        <img id="demonpic" src="../assets/demonpic.jpg" alt="demon pic">
-    </div>
-</div>
-
 <div [class.activity]="activeActivity === 'settings-activity'" [class.activity-hidden]="activeActivity !== 'settings-activity'">
     <app-settings-activity></app-settings-activity>
 </div>
+
+<!-- <div [class.activity]="activeActivity === 'bible-activity'" [class.activity-hidden]="activeActivity !== 'bible-activity'">
+    <app-bible-activity></app-bible-activity>
+</div> -->
 
 <app-meta-friend-list *ngIf="this.friendListVisible"></app-meta-friend-list>
 <app-meta-message-center *ngIf="this.messageCenterVisible"></app-meta-message-center>
@@ -118,7 +105,6 @@
 <app-sms-window [hidden]="!this.smsWindowVisible"></app-sms-window>
 
 <nav class="navbar my-is-flex is-centered">
-    <p><span id="device-name">SPHINX - Remote Device Emulator<br>Agent Name: John Cyfer<br>Live link: <span id="live-link-status">Connected</span><br>Security: Normal</span></p>
     <div class="SPHINX-functions">
         <button (click)="this.setMessageCenterVisible(!this.messageCenterVisible)" class="">
             <mat-icon class="mat-icon-rtl-mirror">
@@ -145,4 +131,5 @@
     <button *ngIf="!this.mainActivityActive" (click)="returnToMainActivity()" class="">
         <mat-icon class="">keyboard_return</mat-icon>     
     </button>
+    <p><span id="device-name">SPHINX - eOS Device Emulator<br><br>Song: <span id="live-link-status">I'm Connected</span><br></span></p>
 </nav>

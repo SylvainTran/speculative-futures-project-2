@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { GameEventObject, MainQuestService, SMSQUEST_GameEventObject } from '../services/main-quest.service';
-import { SaveDataService } from '../services/save-data-service';
+import { ACTORS, MainQuestService, SMSQUEST_GameEventObject, SMS_CLASS } from '../services/main-quest.service';
 
 @Component({
   selector: 'app-sms-window',
@@ -9,7 +8,8 @@ import { SaveDataService } from '../services/save-data-service';
 })
 export class SmsWindowComponent implements OnInit, OnDestroy {
 
-  textData: string[] = [];
+  textData: string[] = [];                            // For the Queen
+  bossData: string[] = [];                            // For the Boss
   dateData: string[] = [];
   lastEventKey: string = "";
   lastTimeStamp: string = "";
@@ -17,14 +17,15 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
   breakpointLockActive: boolean = false;              // Used to prevent user pressing send button while mock delay is happening
   currentIndex: number = 0;                           // The current index of the Response text array of the GameEventObject we're actively reading
   preventSpam: boolean = false;
-  
+  activeSMSClass: SMS_CLASS | null | undefined;
+
   constructor(
     private mainQuestService: MainQuestService
   ) 
   {
     this.mainQuestService.TRIGGER_SMS_EVENT$.subscribe({
-      next: (eventKey) => this.startAutoSMSProcess(eventKey, 0)
-    })
+      next: (data) => this.dispatchSMS(data)
+    });
   }
   ngOnDestroy(): void {
     this.mainQuestService.TRIGGER_SMS_EVENT.unsubscribe();
@@ -33,19 +34,58 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
   }
 
-  public async startAutoSMSProcess(eventKey: string, currentIndex?: number) {
-    const g: SMSQUEST_GameEventObject | undefined = this.mainQuestService.progressionHashMap.get(eventKey) as SMSQUEST_GameEventObject;
+  public dispatchSMS(data: SMS_CLASS) {
+    this.activeSMSClass = data;
+    if (data.sender === ACTORS.BOSS) {
+      this.startAutoSMSProcess(this.bossData, data.eventKey);
+    }
+    if (data.sender === ACTORS.QUEEN) {
+      this.startAutoSMSProcess(this.textData, data.eventKey);
+    }
+  }
 
+  public async startAutoSMSProcess(outputArray: string[], eventKey: string, currentIndex?: number) {
+    const g: SMSQUEST_GameEventObject | undefined = this.mainQuestService.progressionHashMap.get(eventKey) as SMSQUEST_GameEventObject;
+    
+    this.validateSMSState(g, eventKey);
+
+    this.lastEventKey = eventKey;
+    const textToPush: string[] | undefined = g.response;    
+    const dateToPush: string | undefined = g.timeStamp;
+    
+    if (textToPush !== undefined) {
+
+      const mockDelayUnits = Math.floor(Math.random() * 7);
+      const mockDelay = mockDelayUnits * 1000;
+      
+      for(; this.currentIndex < textToPush.length;) {
+        const text = textToPush[this.currentIndex];
+        // Add fake date delays
+        this.addDateDelayText(dateToPush!, mockDelayUnits);
+
+        // Check for @action annotations
+        const annotationBegin = text.indexOf('@');
+        if (!this.parseAnnotations(text, annotationBegin, currentIndex!, textToPush, outputArray)) {
+          return;
+        }
+        // Simulate delay
+        this.simulateDelay(mockDelay);
+        await this.until(() => !this.waitForDelay);
+      }
+    }
+  }
+
+  public validateSMSState(g: SMSQUEST_GameEventObject, eventKey: string) {
     let completed: string[] = this.mainQuestService.getSMSEventsCompleted();   
     let satisfiedPreconditions = g.prerequisiteEventKeys.length === 0 || g.prerequisiteEventKeys.every( (key) => completed.includes(key) );
-    
+
     if (g === undefined) {
       // can't retrieve the data
       return;
     } else if (g.success) {
       // completed condition -> through using @end annotation
-      this.addToSMSEventsCompleted(this.lastEventKey);
-      this.mainQuestService.saveCompletedSMSEvents();
+      this.addToSMSEventsCompleted(eventKey);
+      // this.mainQuestService.saveCompletedSMSEvents();
       return;
     } else if (!satisfiedPreconditions) {
       console.log("Still missing prerequisites for this event to occur!");
@@ -53,64 +93,48 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
     } else if (this.currentIndex >= g.response.length) {
       return;
     }
-
-    this.lastEventKey = eventKey;
-
-    const textToPush: string[] | undefined = g.response;    
-    let dateToPush: string | undefined = g.timeStamp;
-    
-    if (textToPush !== undefined) {
-
-      const mockDelayUnits = Math.floor(Math.random() * 3);
-      const mockDelay = mockDelayUnits * 1000;
-      
-      for(; this.currentIndex < textToPush.length;) {
-        const text = textToPush[this.currentIndex];
-        this.addDateDelayText(dateToPush!, mockDelayUnits);
-
-        // Check for @action annotations
-        const annotationBegin = text.indexOf('@');
-
-        if (annotationBegin !== -1) {
-          // Possible list of annotations
-          const action = text.slice(annotationBegin + 1);
-          const textOnly = text.slice(currentIndex, annotationBegin);
-          const nextText = textToPush[this.currentIndex + 1];
-          const actions = action.split("&");
-          actions.forEach(action => this.processAnnotations(action, nextText));
-
-          this.textData.push(textOnly);
-          if (!actions.includes('end')) {
-            this.currentIndex++
-          }
-          // Wait for player to click on reply button to break out of lock
-          return;
-        } else {
-          this.textData.push(text);
-          this.currentIndex++
-        }
-
-        // Set lock to prevent user from clicking on send at the same time
-        this.breakpointLockActive = false;
-
-        // Simulate delay
-        this.waitForDelay = true;
-
-        setTimeout( () => {
-          this.breakpointLockActive = true;
-          this.waitForDelay = false;
-        }, mockDelay);
-        await this.until(() => !this.waitForDelay);
-      }
-    }
   }
   
   public resetSMSState() {
     // completed condition
     this.currentIndex = 0;
     this.lastEventKey = "";
+    this.activeSMSClass = null;
   }
 
+  public parseAnnotations(text: string, annotationBegin: number, currentIndex: number, textToPush: string[], outputArray: string[]) {
+    if (annotationBegin !== -1) {
+      // Possible list of annotations
+      const action = text.slice(annotationBegin + 1);
+      const textOnly = text.slice(currentIndex, annotationBegin);
+      const nextText = textToPush[this.currentIndex + 1];
+      const actions = action.split("&");
+      actions.forEach(_action => this.processAnnotations(_action, nextText));
+
+      outputArray.push(textOnly);
+      if (!actions.includes('end')) {
+        this.currentIndex++
+      }
+      // Wait for player to click on reply button to break out of lock
+      return false;
+    } else {
+      outputArray.push(text);
+      this.currentIndex++;
+      return true;
+    }
+  }
+
+  public simulateDelay(mockDelay: number) {
+    // Set lock to prevent user from clicking on send at the same time
+    this.breakpointLockActive = false;
+    // Simulate delay
+    this.waitForDelay = true;
+
+    setTimeout( () => {
+      this.breakpointLockActive = true;
+      this.waitForDelay = false;
+    }, mockDelay);
+  }
   // TODO: Clean code, polymorphism..
   public processAnnotations(action: string, nextText: string) {
     //@waitReply
@@ -120,16 +144,12 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
         inputField.value = nextText;
       }
     }
-    //@cutLiveConnection&waitReply
-    if (action === 'cutLiveConnection') {
-      console.log("Cutting live connection");
-    }
 
     if (action === 'end') {
       this.addToSMSEventsCompleted(this.lastEventKey);
       this.mainQuestService.saveCompletedSMSEvents();
       this.resetSMSState();
-      this.clearInputText();
+      this.clearInputText('playerTextInput');
     }
   }
 
@@ -142,21 +162,22 @@ export class SmsWindowComponent implements OnInit, OnDestroy {
     return new Promise(poll);
   }
 
-  public continueConversation(): void {
+  public continueConversation(inputID: string, outputArray: string[], eventKey: string): void {
     if (!this.breakpointLockActive || this.waitForDelay || this.lastEventKey === "") {
       // Prevents continuing the conversation if we're still in the 
       // middle of a mock delay happening
-      return;
+      console.log("Blocking continue button" + this.waitForDelay + ", " + this.breakpointLockActive + ", " + this.lastEventKey);
+     return;
     }
-    this.clearInputText();
-    this.startAutoSMSProcess(this.lastEventKey);
+    this.clearInputText(inputID);
+    this.startAutoSMSProcess(outputArray, eventKey);
     // Lock for a while
     this.preventSpam = true;
     setTimeout(()=>this.preventSpam = false, 5000);
   }
   
-  public clearInputText() {
-    const inputField = document.getElementById('playerTextInput')! as HTMLInputElement;
+  public clearInputText(id: string) {
+    const inputField = document.getElementById(id)! as HTMLInputElement;
     inputField.value = "";
   }
 

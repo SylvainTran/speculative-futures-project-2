@@ -7,5 +7,5 @@
         <p class="friend-reply" *ngIf="lastPMSent && lastPMSentSuccess === true">Success: {{activeFriendTarget}} sent a reply.</p>
         <p class="friend-reply" *ngIf="lastPMSent && lastPMSentSuccess === false">Unsuccessful: Friend is unavailable. Try again later.</p>    
     </div>
-    <button (click)="sendPrivateMessage()">[Action cost: 1] Send private message</button>
+    <button (click)="sendPrivateMessage()">Send private message</button>
 </div>

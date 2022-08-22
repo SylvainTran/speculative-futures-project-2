@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { MainQuestService } from '../services/main-quest.service';
+import { ACTORS, MainQuestService, SMS_CLASS } from '../services/main-quest.service';
 
 @Component({
   selector: 'app-investigation-form',
@@ -65,10 +65,14 @@ export class InvestigationFormComponent implements OnInit {
           this.successResponse = data.response;
           this.lastSuccessResponseKey = data.eventKey;
 
-          // Distinguish between form event keys
-          if (data.eventKey === 'neptunia') {
-            this.mainQuestService.TRIGGER_SMS_EVENT.next(this.lastSuccessResponseKey);
-          } 
+          let sm: SMS_CLASS | undefined;
+          
+          if (this.lastSuccessResponseKey === "neptunia") {
+            sm = new SMS_CLASS(this.lastSuccessResponseKey, ACTORS.QUEEN);
+          }
+          if (sm) {
+            this.mainQuestService.TRIGGER_SMS_EVENT.next(sm);            
+          }
 
         } else {
           this.successResponse = "";

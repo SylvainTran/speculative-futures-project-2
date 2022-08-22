@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MainQuestService } from '../services/main-quest.service';
+import { ACTORS, MainQuestService, SMS_CLASS } from '../services/main-quest.service';
 
 @Component({
   selector: 'app-settings-activity',
@@ -15,7 +15,7 @@ export class SettingsActivityComponent implements OnInit {
   }
 
   public triggerEvent(eventType: string) {
-    this.mainQuestService.TRIGGER_SMS_EVENT.next('rootedPhone');
+    this.mainQuestService.TRIGGER_SMS_EVENT.next(new SMS_CLASS('rootedPhone', ACTORS.QUEEN));
   }
 
 }
