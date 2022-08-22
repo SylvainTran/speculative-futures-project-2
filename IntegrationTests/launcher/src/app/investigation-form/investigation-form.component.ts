@@ -66,7 +66,7 @@ export class InvestigationFormComponent implements OnInit {
           this.lastSuccessResponseKey = data.eventKey;
 
           let sm: SMS_CLASS | undefined;          
-          sm = new SMS_CLASS(this.lastSuccessResponseKey, ACTORS.QUEEN);
+          sm = new SMS_CLASS(this.lastSuccessResponseKey, ACTORS[ACTORS.Autumn]);
           
           if (sm) {
             this.mainQuestService.TRIGGER_SMS_EVENT.next(sm);            

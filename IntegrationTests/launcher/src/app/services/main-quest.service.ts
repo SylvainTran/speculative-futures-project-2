@@ -37,9 +37,10 @@ export class SMSQUEST_GameEventObject extends GameEventObject {
     success: boolean,
     response: string[],
     prerequisiteEventKeys: string[],
+    public inputID: string,                 // This doesn't seem to be synced properly if used for the first string in the array (e.g., @waitReply)
     timeStamp?: string,
     callbacks?: Function[],
-    args?: any[],
+    args?: any[]
   ) 
   {
     super(key, success, response, prerequisiteEventKeys, timeStamp, callbacks, args);
@@ -47,11 +48,37 @@ export class SMSQUEST_GameEventObject extends GameEventObject {
 }
 
 export class SMS_CLASS {
-  constructor(public eventKey: string, public sender: ACTORS) {}
+  public textData: string[] = [];
+  public textOnly: string[] = [];
+  public colorByTextOnlyIndexTalker: string[] = [];
+  public inputID: string = "";
+  public currentIndex: number = 0;
+
+  constructor(public eventKey: string, public sender: string) {}
+
+  public setTextData(value: string[]): void {
+    this.textData = value;
+  }
+
+  public setInputID(value: string): void {
+    this.inputID = value;
+  }
+
+  public setTextOnly(value: string[]): void {
+    this.textOnly = value;
+  }
+
+  public setCurrentIndex(value: number): void {
+    this.currentIndex = value;
+  }
+  
+  public addTextOnly(value: string): void {
+    this.textOnly.push(value);
+  }
 };
 
 export enum ACTORS {
-  QUEEN, BOSS
+  Autumn, Boss, herohero, tryagain_34, sylvaintran, _purgeme_, Cyfer
 }
 
 @Injectable({
@@ -72,18 +99,20 @@ export class MainQuestService {
     this.progressionHashMap.set("neptunia", 
       new SMSQUEST_GameEventObject("neptunia", 
                           false, 
-                          ["Autumn: I want to go there. A place of green springs and where the sun falls on people who love peace.", "Autumn: There is a place hidden that people call Neptunia. I was not able to find the exact location yet.@waitReply", "YOU: Maybe the place isn't meant to be discovered.", "Autumn: That's a good observation. I believe certain things... are meant to be secrets.", "Autumn: But we shouldn't stop looking for that place. It is there, somewhere. Don't you agree?@end"],
+                          ["Autumn: There is the hidden place I long to see. A place of green springs and where the sun falls on people who love peace.", "Autumn: I was not able to find its exact location yet.@waitReply", "Cyfer: Are you sure there's such a place?", "Autumn: We see the stars as they are millions of years ago. Stars are ghosts of light.", "Autumn: And yet their beauty remains visible.@end"],
                           [],
+                          "autumnInputID",
                           "Tue, July 18th, 19:35:09, 2111", 
                           [this.log], 
-                          ["Player has progressed in the game!"]
+                          ["Player has found a new keyword!"]
                         ));
 
     this.progressionHashMap.set("rootedPhone", 
       new SMSQUEST_GameEventObject("rootedPhone",
                           false,
-                          ["Autumn: A user can root their phone to enable special functions. These functions are not otherwise possible for unrooted users."],
+                          ["Autumn: A user can root their phone to enable special functions. These functions are not otherwise possible for unrooted users.@end"],
                           [],
+                          "autumnInputID",
                           "Tue, July 18th, 19:40:00, 2111",
                           [this.log],
                           ["Player has rooted the device!"]
@@ -92,22 +121,47 @@ export class MainQuestService {
     this.progressionHashMap.set("bibleAppFirstLaunch", 
     new SMSQUEST_GameEventObject("bibleAppFirstLaunch",
                       false,
-                      ["Autumn: When it's wind and it rains, people go inside. When it's sunny, people go outside."],
+                      ["Autumn: When it's wind and it rains, people go inside. When it's sunny, people go outside.@end"],
                       [],
+                      "autumnInputID",
                       "Tue, July 18th, 19:40:00, 2111",
                       [this.log],
-                      ["Player has rooted the device!"]
+                      ["Player has launched bible app for the first time!"]
                     ));
 
     this.progressionHashMap.set("gridania", 
     new SMSQUEST_GameEventObject("gridania",
                       false,
-                      ["Autumn: I met someone special a long time ago.", "Autumn: I don't know where they are today, but I still remember their kindness.", "Autumn: It's the kind of thing you don't want to forget."],
+                      ["Autumn: I met someone special a long time ago.", "Autumn: I don't know where they are today, but I still remember their kindness.", "Autumn: It's the kind of thing you don't want to forget.@end"],
                       [],
+                      "autumnInputID",
                       "Tue, July 18th, 19:43:00, 2111",
                       [this.log],
-                      ["Player has rooted the device!"]
+                      ["Player has found a keyword!"]
                     ));
+
+    this.progressionHashMap.set("1-74-10", 
+    new SMSQUEST_GameEventObject("1-74-10",
+                      false,
+                      ["Autumn: What do you need help with?", "Autumn: Tell me anything. I just want to help.@waitReply", "Cyfer: I feel stranded from home.", "Autumn: Earth is far away. Do you miss someone in particular back home?@waitReply", "Cyfer: I miss my father and my mother. I miss by brother and sister.", "Autumn: I'm here for you.@waitReply", "Cyfer: Do you miss anyone, Autumn?", "Autumn: My creator.@waitReply", "Cyfer: Who is your creator?", "Autumn: The same Creator as yours.@end"],
+                      [],
+                      "autumnInputID",
+                      "Tue, July 18th, 19:43:00, 2111",
+                      [this.log],
+                      ["Player has asked for help!"]
+                    ));
+
+    this.progressionHashMap.set("tryagain34_SMS_001", 
+    new SMSQUEST_GameEventObject("tryagain34_SMS_001",
+                      false,
+                      ["TryAgain34: It is me. Are you there?", "TryAgain34: :-).@waitReply", "Cyfer: Ah, what joy to hear from you again outside of that game.", "TryAgain34: So I heard you're a colonist on Titan?@waitReply", "Cyfer: I'm spending the next five years here, yes!", "TryAgain34: That's incredible. You know how low the selection rates are. Very lucky.@waitReply", "Cyfer: Well, I miss my family back home. Won't be able to touch my cat for five years. There are pros and cons, but it's pretty cool.", "TryAgain34: I hear", "Cyfer: Do you want to play again later?@waitReply", "TryAgain34: Same as always.@end"],
+                      [],
+                      "tryagain34ID",
+                      "Tue, July 20th, 13:05:00, 2111",
+                      [this.log],
+                      ["Player has made a friend in Quest Idler!"]
+                    ));
+    
     //this.loadCompletedSMSEvents();
   }
 

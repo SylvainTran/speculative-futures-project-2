@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ScheduledEvent } from './services/scheduled-event';
 import { AvatarControllerService } from './services/avatar-controller.service';
 import { Player } from './services/player';
@@ -26,10 +26,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   friendListVisible: boolean = false;
   messageCenterVisible: boolean = false;
   investigationFormVisible: boolean = false;
-  smsWindowVisible: boolean = false;
+  public smsWindowVisible: boolean = false;
 
   // Apps display
-  showDarkwebTrojan: boolean = true;
   showTodoApp: boolean = true;
   showGalleryApp: boolean = true;
   showSettingsActivity: boolean = true;
@@ -140,8 +139,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   public returnToMainActivity() {
-    this.mainActivityActive = true;
-    this.activeActivity = "mainActivity";
+    // this.mainActivityActive = true;
+    // this.activeActivity = "mainActivity";
+    // this.showTodoApp = false;
+    // this.showGalleryApp = false;
+    // this.showSettingsActivity = false;
+    // this.showNewsApp = false;
+    // this.showBibleApp = false;
     location.reload();
   }
 

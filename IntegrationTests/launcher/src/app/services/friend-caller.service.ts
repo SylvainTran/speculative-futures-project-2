@@ -5,6 +5,7 @@ import { CircularQueue } from './queue';
 import { Friendship, FriendshipLevels } from './friendship';
 import { QuestPartyService } from './quest-party.service';
 import { CharacterDatabaseService, ConversationNode } from './character-database.service';
+import { MainQuestService, SMS_CLASS } from './main-quest.service';
 
 // This is the beginning of a social AI system, or social artificial intelligence heuristics/pragmatics
 // Tailored specifically for this game.
@@ -64,7 +65,8 @@ export enum ActionCommands {
   DO_NOTHING,
   CHAT_HOMES_MEETUP,
   QUEST_IDLER_PARTY_REQUEST,
-  MESSAGE_CENTER_CORRESPONDENCE
+  MESSAGE_CENTER_CORRESPONDENCE,
+  SMS_EVENT
 }
 
 export class ConversationSession {
@@ -74,14 +76,19 @@ export class ConversationSession {
   conversationTargetName: string = "";
   conversationRequester: Character | undefined;
   conversationTarget: Character | undefined;
-  // conversationURL: string = "http://127.0.0.1:8080/";
+
   conversations: ConversationNode[] | undefined;
   conversationEndIndex: number = 0;
   friendshipLevel: FriendshipLevels | any;
   maxFriendshipLevel: number = 3;
   conversationActions: number[] = [];
 
-  constructor(private friendCallerService: FriendCallerService, private requestInteraction: RequestInteraction, private questPartyService: QuestPartyService) {
+  constructor(
+    private friendCallerService: FriendCallerService, 
+    private requestInteraction: RequestInteraction,
+    private questPartyService: QuestPartyService,
+    private mainQuestService: MainQuestService) 
+  {
     this.conversationRequesterName = requestInteraction.requester.name;
     this.conversationRequester = requestInteraction.requester;
     this.conversationTarget = requestInteraction.target;
@@ -119,7 +126,7 @@ export class ConversationSession {
   }
 
   pullActions() {
-    const conversation = this.conversations![0];
+    const conversation = this.conversations![0]; // it's always index 0 -> TODO remove array structure
     const actionsText = conversation.actionsText;
     const splits = actionsText;
     const actions: number[] = [];
@@ -127,6 +134,7 @@ export class ConversationSession {
     splits.forEach( (split: string) => {
       const parsed = parseInt(split);
       if (isNaN(parsed)) {
+        alert("Action error!");
         console.error("action parsed is NaN!");
       } else {
         actions.push(parsed);
@@ -188,8 +196,9 @@ export class ConversationSession {
         this.questPartyService.setupQuestParty(party);
       } else if (action === ActionCommands.MESSAGE_CENTER_CORRESPONDENCE) {
         // TODO: 
+      } else if (action === ActionCommands.SMS_EVENT) {                
+        this.mainQuestService.TRIGGER_SMS_EVENT.next(this.conversations![0].SMS_EVENT)
       }
-
     });
   }
 }
@@ -233,7 +242,11 @@ export class FriendCallerService {
   public friendPrivateMessageFailureSource = new Subject<any>();
   friendPrivateMessageFailureSource$ = this.friendPrivateMessageFailureSource.asObservable();
   
-  constructor(private questPartyService: QuestPartyService, private characterDatabaseService: CharacterDatabaseService) {
+  constructor(
+    private questPartyService: QuestPartyService, 
+    private characterDatabaseService: CharacterDatabaseService,
+    private mainQuestService: MainQuestService) 
+  {
     this.activeConv = null;
     this.waitCapacity = 100;
     this.requestQueue = new CircularQueue<RequestInteraction>(this.waitCapacity);
@@ -262,7 +275,7 @@ export class FriendCallerService {
   startInteraction(request: RequestInteraction) {
     // Remove from queue
     this.requestQueue.dequeue();
-    this.activeConv = new ConversationSession(this, request, this.questPartyService);
+    this.activeConv = new ConversationSession(this, request, this.questPartyService, this.mainQuestService);
     this.activeConv.init(); // Note: init from outside, unwinding problem
     // Notify friend detail of success and update displays
     this.friendPrivateMessageSuccessSource.next(this.activeConv);

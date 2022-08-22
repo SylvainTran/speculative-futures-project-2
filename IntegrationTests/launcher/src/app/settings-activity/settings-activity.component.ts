@@ -15,7 +15,8 @@ export class SettingsActivityComponent implements OnInit {
   }
 
   public triggerEvent(eventType: string) {
-    this.mainQuestService.TRIGGER_SMS_EVENT.next(new SMS_CLASS('rootedPhone', ACTORS.QUEEN));
+    let data = new SMS_CLASS('rootedPhone', ACTORS[ACTORS.Autumn]);
+    this.mainQuestService.TRIGGER_SMS_EVENT.next(data);
   }
 
 }

@@ -67,10 +67,8 @@
 }
 
 .text-section li {
-    background-color: #006AFF;
     border-radius: 5%;
     padding: 1.2rem;
-    color: white;
     line-height: 1.3rem;
     display: flex;
     flex-direction: column;
@@ -78,6 +76,7 @@
     justify-content: flex-end;
     align-content: flex-end;
     flex-wrap: wrap;
+    width: fit-content;
 }
 
 .text-input input {
@@ -100,4 +99,14 @@
     background-color: hsla(0, 0%, 20%, 0.903);
     border: 1px solid cyan;
     width: 20vw;
+}
+
+.userTextBubble {
+    background-color: white;
+    color: black;
+}
+
+.friendTextBubble {
+    background-color: #006AFF;
+    color: white;
 }

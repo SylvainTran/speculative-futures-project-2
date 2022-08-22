@@ -77,7 +77,7 @@
                 <div class="character-prompt-container">
                     <div *ngIf="promptReplyBuilder?.showPrompt && activePartyQuest && promptReplyBuilder as prompt">
                         <p>{{ activePartyQuest.getRegistrants()[1].name }}: {{ ActivePrompt.getText() }}</p><br>
-                        <p *ngIf="prompt.activePromptReply && prompt.showPlayerPromptReply">Autumn: {{ prompt.activePromptReply }}</p><br>
+                        <p *ngIf="prompt.activePromptReply && prompt.showPlayerPromptReply">Cyfer: {{ prompt.activePromptReply }}</p><br>
                         <p *ngIf="prompt.activeCharacterPromptReply && prompt.showCharacterPromptReply">{{ activePartyQuest.getRegistrants()[1].name }}: {{ prompt.activeCharacterPromptReply }}</p>
                         
                         <div *ngIf="promptList[this.promptIterator].getPlayerOptions() as optionList">

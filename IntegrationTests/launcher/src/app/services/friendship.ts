@@ -10,7 +10,7 @@ export class Friendship {
     character1: Character;
     character2: Character;
     friendshipLevel: number;
-    conversationData: ConversationNode[] = [];
+    conversationData: ConversationNode[] = [];                  // TODO: Rename as this is for quest idler only
 
     constructor(requester: Character, target: Character) {
         this.character1 = requester;
@@ -33,6 +33,6 @@ export class Friendship {
             (conversation.characterA === this.character2.name && conversation.characterB.name === this.character1.name);
             let feq = FriendshipLevels[this.friendshipLevel] === conversation.friendshipLevel;        
             return eqn && feq;
-        });   
+        });
     }
 }
