@@ -98,6 +98,16 @@ export class MainQuestService {
                       [this.log],
                       ["Player has rooted the device!"]
                     ));
+
+    this.progressionHashMap.set("gridania", 
+    new SMSQUEST_GameEventObject("gridania",
+                      false,
+                      ["Autumn: I met someone special a long time ago.", "Autumn: I don't know where they are today, but I still remember their kindness.", "Autumn: It's the kind of thing you don't want to forget."],
+                      [],
+                      "Tue, July 18th, 19:43:00, 2111",
+                      [this.log],
+                      ["Player has rooted the device!"]
+                    ));
     //this.loadCompletedSMSEvents();
   }
 

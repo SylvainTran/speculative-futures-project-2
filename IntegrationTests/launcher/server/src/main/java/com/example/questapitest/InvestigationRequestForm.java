@@ -1,5 +1,6 @@
 package com.example.questapitest;
 
+import java.util.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -41,26 +42,24 @@ public class InvestigationRequestForm {
             JsonNode jsonNode = mapper.readTree(of.toFile());
             jsonNode.forEach(node -> System.out.println((node)));
 
-            ArrayList<ValidFormRequest> listRequests = mapper.readValue(of.toFile(), new TypeReference<ArrayList<ValidFormRequest>>(){});
+            //ArrayList<ValidFormRequest> listRequests = mapper.readValue(of.toFile(), new TypeReference<ArrayList<ValidFormRequest>>(){});
+            Map<String, ValidFormRequest[]> listRequests = mapper.readValue(of.toFile(), new TypeReference<Map<String, ValidFormRequest[]>>(){});        	
+            ValidFormRequest[] arr = listRequests.get(validFormRequest.getRequestType());
 
-            // Find entry in list with request type and keywords
-            listRequests.forEach(request -> {
-                // The requestType and the keywords are matched only for equality
-                if (request.equals(validFormRequest)) {
-                    validRequestResponse = request.getResponse();
-                    validRequestResponseKey = request.getResponseKey();
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i].equals(validFormRequest)) {
+                    System.out.println("Found: " + arr[i]);
+                    validRequestResponse = arr[i].getResponse();
+                    validRequestResponseKey = arr[i].getResponseKey();
                 }
-            });
+            }
             System.out.println("Valid request response: " + validRequestResponse);
-
             ObjectNode responseObject = mapper.createObjectNode();
             responseObject.put("response", validRequestResponse);
             responseObject.put("eventKey", validRequestResponseKey);
-
             String jsonResponse = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(responseObject);
             System.out.println(jsonResponse);
             return jsonResponse;
-
         } catch (Exception ex) {
             ex.printStackTrace();
         }
