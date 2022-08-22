@@ -19,7 +19,7 @@ export class AvatarDisplayComponent implements OnInit, OnDestroy, AfterViewInit 
   private avatarName: String = "";
   private enemyPlaceholder: String = "The mountains are breezy and the wind pushes you forth.";
   private location: String = "//\\//\\";
-  private locationName: String = "Mountains of Uncertainty 1-1";
+  private locationName: String = "Titan's Mountains";
 
   public currentHealth: number = 100;
   public currentLevel: number = 1;
@@ -141,6 +141,9 @@ export class AvatarDisplayComponent implements OnInit, OnDestroy, AfterViewInit 
         this.avatar = "<(*_*)> <( ... )";
         this.enemyPlaceholder = "(You faded from history, alas defeated by a wild, naked goblin.)";
         this.currentHealth = this.avatarControllerService.getAvatarHealthService().changeHealth(-5);
+        if (this.currentHealth <= 0) {
+          this.currentHealth = 0;
+        }
         this.avatarDeathAudioSrc.play();
         if(this.avatarControllerService.getAvatarHealthService().healthIsBelowZero()) {
           this.avatar = "(RIP) <( Has Died. )";

@@ -28,6 +28,9 @@ export class Monster {
     party.forEach(character => {
       // Temp:
       this.hp -= 1;
+      if (this.hp < 0) {
+        this.hp = 0;
+      }
       //this.hp -= character.attackDamage;
     })
   }

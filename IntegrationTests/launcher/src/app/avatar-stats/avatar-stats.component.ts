@@ -10,20 +10,15 @@ import { AvatarStatisticsService } from '../services/avatar-statistics.service';
 })
 export class AvatarStatsComponent implements OnInit, OnDestroy {
   public statistics: Map<String, number>;
-  private avatarStatisticsService: AvatarStatisticsService;
-  private avatarExperienceService: AvatarExperienceService;
   subscription: Subscription;
   
   constructor(
-    @Inject(AvatarStatisticsService) avatarStatisticsService: AvatarStatisticsService,
-    @Inject(AvatarExperienceService) avatarExperienceService: AvatarExperienceService
+    @Inject(AvatarStatisticsService) private avatarStatisticsService: AvatarStatisticsService,
+    @Inject(AvatarExperienceService) private avatarExperienceService: AvatarExperienceService
     ) {
-    this.avatarStatisticsService = avatarStatisticsService;    
-    this.avatarExperienceService = avatarExperienceService;
 
-    this.statistics = avatarStatisticsService.statistics;
-    
-    this.subscription = avatarExperienceService.levelUpSource$.subscribe(() => {
+    this.statistics = this.avatarStatisticsService.statistics;    
+    this.subscription = this.avatarExperienceService.levelUpSource$.subscribe(() => {
       this.calculateAvatarLevelStats();
     });
   }

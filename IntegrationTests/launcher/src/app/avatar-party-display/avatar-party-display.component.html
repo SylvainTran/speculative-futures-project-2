@@ -50,6 +50,7 @@
             </div>
             <div class="flex-centered">
                 <div class="flex-row">
+                    <br>
                     <div *ngIf="!promptReplyBuilder?.showPrompt && !monstersAllDefeated" class="quest-window">
                         A monster attacked your party! <br>
                         Monsters left: {{activePartyQuestMonsters.length - monsterIterator}}
@@ -59,16 +60,19 @@
                         </div>
                         <hr>
                     </div>
-                    <div *ngIf="!promptReplyBuilder?.showPrompt && !monstersAllDefeated" class="">
+                    <div *ngIf="!promptReplyBuilder?.showPrompt && !monstersAllDefeated" [class.activeMonsterDefeated]="activeMonster && activeMonster.hp <= 0">
                         {{activeMonster?.name}}: <br> 
                         HP >>> {{activeMonster?.hp}} <br>
                         LEVEL >>> {{activeMonster?.level}} <br>
                         RACE >>> {{activeMonster?.race}} <br>
-                        EXPGAIN >>> {{activeMonster?.expGain}} <br><br>
+                        <div *ngIf="activeMonster && activeMonster.hp <= 0" class="activeMonsterExpGain">
+                            EXPGAIN >>> {{activeMonster.expGain}} <br><br>
+                        </div>
                     </div>
-                </div>
-                <div *ngIf="monstersAllDefeated">
-                    With the quest completed successfully, you and your friend enjoy a peaceful respite...
+                    <br>
+                    <div *ngIf="monstersAllDefeated">
+                        With the quest completed successfully, you and your friend enjoy a peaceful respite.
+                    </div>
                 </div>
                 <div class="character-prompt-container">
                     <div *ngIf="promptReplyBuilder?.showPrompt && activePartyQuest && promptReplyBuilder as prompt">
@@ -94,8 +98,6 @@
             <label for="avatar-pic-id">
                 {{ !promptReplyBuilder?.IsLocked? "As One Clicks Below" : "One Reads Above" }}
             </label>     -->
-            <hr>
-            <br>
             <app-avatar-detail [currentHealth]="AvatarStats.currentHealth" [currentLevel]="AvatarStats.currentLevel" [currentExperience]="AvatarStats.currentExperience" [experienceTotalRequired]="AvatarStats.experienceTotalRequired"></app-avatar-detail>            
         </div>
     </div>

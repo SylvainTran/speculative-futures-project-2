@@ -41,7 +41,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     private avatarControllerService: AvatarControllerService, 
     private characterDatabaseService: CharacterDatabaseService, 
     private mainQuestService: MainQuestService) {
-    this.playerRef = new Player("Autumn");
+    this.playerRef = new Player("Cyfer");
     // Subscribe to db loaded event source
     this.characterDatabaseService.databaseLoadedEventSource.subscribe({
       next: (c: ConversationNode[]) => this.setupPlayer(c),

@@ -1,6 +1,6 @@
 [
     {
-        "name": "Kill 5 Goblins",
+        "name": "Save the Forest Town!",
         "id": 0,
         "experienceGain": 50,
         "goldGain": 100,
@@ -57,7 +57,7 @@
         ]
     },
     {
-        "name": "Kill 15 Muffin Monsters",
+        "name": "Save the Port Town!",
         "id": 1,
         "experienceGain": 150,
         "goldGain": 300,
@@ -114,7 +114,7 @@
         ]
     },
     {
-        "name": "Kill 1 Troll",
+        "name": "Save the Mountain Villagers!",
         "id": 2,
         "experienceGain": 2500,
         "goldGain": 500,

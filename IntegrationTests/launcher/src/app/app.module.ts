@@ -50,7 +50,7 @@ import { SaveDataService } from './services/save-data-service';
 // Move into naming service
 export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {     
   providedIn: 'root',
-  factory: () => 'Autumn'
+  factory: () => 'Cyfer'
 });
 
 @NgModule({
@@ -89,7 +89,7 @@ export const AVATAR_NAME = new InjectionToken<string>('AVATAR_NAME', {
     MatSidenavModule,
     MatSlideToggleModule
   ],
-  providers: [{ provide: AVATAR_NAME, useValue: 'Autumn' },
+  providers: [{ provide: AVATAR_NAME, useValue: 'Cyfer' },
               { provide: FriendListService, useClass: FriendListService }, 
               { provide: MockFriendList, useClass: MockFriendList },
               { provide: AvatarControllerService, useClass: AvatarControllerService },

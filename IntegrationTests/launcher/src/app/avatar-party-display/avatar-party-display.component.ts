@@ -516,21 +516,20 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
             this.questPartyService.monsterDeathEventSource.next(this.activeMonster);
             this.monsterIterator++;
             this.activeMonster = this.activePartyQuestMonsters[this.monsterIterator];
+            const finisher = Math.random() * 100 > 50? this.ActivePartyNames![0].name : this.ActivePartyNames![1].name;
+            this.bardText = finisher + " dealt the vanquishing blow!";
             console.log("The monster was defeated");
           }
           // We may have just killed the last monster
           prompt?.validateQuestState(QuestStates.SUCCESS);
         }
       } else {
+        this.bardText = "With all the monsters defeated, they had more time to spent together.";
         console.log("All quest monsters were defeated.");
+        this.monstersAllDefeated = true;
         prompt?.validateQuestState(QuestStates.SUCCESS);
       }
     }
-
-    console.log("curr click count: " + this.clickCount);
-    console.log("next threshold: " + this.clickCountTillNextPrompt);
-    console.log("curr iterator: " + this.promptIterator);
-    console.log("max prompts: " + this.maxPrompts);
     
     if (this.shouldShowPartyQuestPrompt()) {
       if (prompt) {
@@ -587,23 +586,21 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
     if (this.avatarControllerService.isAlive()) {
       if (this.clickCount % 2 === 0) {
         this.playerDisplayState = StringAvatarArtStatesEnum.FIGHTING;
-        this.bardText = "(You are out in the mountains together, looking for new adventure.)";
 
       } else if (this.clickCount % 3 == 0) {
         this.playerDisplayState = StringAvatarArtStatesEnum.VICTORIOUS;
-
-        this.bardText = "(The songs tell of a tale when you defeated a wild, naked goblin together.)";
         this.avatarVictoryAudioSrc.play();
       } else {
         this.playerDisplayState = StringAvatarArtStatesEnum.DEFEATED;
 
         this.avatarStatsDisplay.currentHealth = this.avatarControllerService.getAvatarHealthService().changeHealth(-5);
+        if (this.avatarStatsDisplay.currentHealth <= 0) {
+          this.avatarStatsDisplay.currentHealth = 0;
+        }
         this.avatarDeathAudioSrc.play();
 
         if (this.avatarControllerService.getAvatarHealthService().healthIsBelowZero()) {
           this.playerDisplayState = StringAvatarArtStatesEnum.DEAD;
-
-          this.bardText = "(You both faded from history, alas defeated by a wild, naked goblin.)";
           this.avatarControllerService.alive = false;
         }
       }

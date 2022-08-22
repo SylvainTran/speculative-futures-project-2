@@ -11,19 +11,14 @@ export class AvatarControllerService {
   // in the avatar experience service
   clickCount: number = 0;
   alive: boolean = true;
-  // Composition
-  private avatarExperienceService: AvatarExperienceService;
-  private avatarHealthService: AvatarHealthService;
-  private questService: QuestService;
 
   constructor(
-    avatarExperienceService: AvatarExperienceService, 
-    avatarHealthService: AvatarHealthService,
-    questService: QuestService) 
+    private avatarExperienceService: AvatarExperienceService, 
+    private avatarHealthService: AvatarHealthService,
+  ) 
   {
     this.avatarExperienceService = avatarExperienceService;
     this.avatarHealthService = avatarHealthService;
-    this.questService = questService;
   }
 
   public getAvatarExperienceService() {
