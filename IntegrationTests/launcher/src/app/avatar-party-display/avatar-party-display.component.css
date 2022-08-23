@@ -45,7 +45,7 @@
     font-family: 'GameFont';
     font-size: 1rem;
     position: relative;
-    top: 150px;
+    top: 16px;
 }
 
 .inline-container {
@@ -92,7 +92,7 @@
 
 .flex-centered {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-content: center;
     justify-content: center;
     align-items: center;
@@ -117,4 +117,19 @@
 
 .activeMonsterExpGain {
     color: lime;
+}
+
+#party-svgs {
+    display: flex;
+    justify-content: center;
+    margin-top: 8rem;
+    margin-left: -15rem;
+}
+
+#friend-avatar {
+    margin-left: -6rem;
+}
+
+#goal-svg {
+    display: absolute;
 }

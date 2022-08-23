@@ -380,9 +380,15 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
   avatarClickAudioSrc: any;
   avatarVictoryAudioSrc: any;
   avatarDeathAudioSrc: any;
+  partySVGContainerSrc: any;
 
   // Controllers
   avatarExperienceService: AvatarExperienceService;
+
+  // in CSS rem units:
+  marginAcc: number = -34;
+  screenMaxX: number = 52;
+  screenMinX: number = -34;
     
   constructor(@Inject(AVATAR_NAME) avatarName: string,
               private avatarControllerService: AvatarControllerService,
@@ -431,6 +437,7 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
     this.avatarVictoryAudioSrc = document.getElementById("victory");
     this.avatarDeathAudioSrc = document.getElementById("death");
     this.locationBgEl = document.getElementById("locationBg");
+    this.partySVGContainerSrc = document.getElementById("party-svgs");
   }
 
   // Getters
@@ -502,6 +509,9 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
     this.avatarControllerService.handleAvatarClicked();
     this.clickCount = this.avatarControllerService.clickCount;
 
+    // Animate party svg
+    this.animatePartySVG();
+
     // Attacks monsters
     if (this.activePartyQuestMonsters !== undefined && this.activePartyQuest) {
       // Damage
@@ -541,6 +551,13 @@ export class AvatarPartyDisplayComponent implements OnInit, OnChanges  {
     this.handleAvatarStatsDisplay();
     this.updateAvatarDisplay();
     this.avatarClickAudioSrc.play();
+  }
+
+  private animatePartySVG() {
+    this.partySVGContainerSrc.style.marginLeft = `${this.marginAcc++}rem`;
+    if (this.marginAcc > this.screenMaxX) {
+      this.marginAcc = this.screenMinX;
+    }
   }
 
   public shouldShowPartyQuestPrompt() {
