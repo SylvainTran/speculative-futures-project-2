@@ -156,3 +156,27 @@
 .SPHINX-functions button {
     margin-right: 1.2rem;
 }
+
+#postit-svg {
+    display: absolute;
+    right: 0;
+    width: 500px;
+    height: 500px;
+    cursor: pointer;
+}
+
+#postit-corner:hover {
+    fill: white;
+}
+
+#postit-text {
+    font-size: 2rem;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+#postit-text-container {
+    height: 300px;
+    width: 300px;
+}

@@ -20,6 +20,8 @@
 
     overflow: scroll;
     font-family: 'Cantarell', 'sans-serif';
+
+    pointer-events: none;
 }
 
 .meta-friend-list-window button:focus {
@@ -99,6 +101,7 @@
     background-color: hsla(0, 0%, 20%, 0.903);
     border: 1px solid cyan;
     width: 20vw;
+    pointer-events: auto;
 }
 
 .userTextBubble {

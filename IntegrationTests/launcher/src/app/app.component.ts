@@ -35,6 +35,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   showNewsApp: boolean = true;
   showBibleApp: boolean = true;
   smsNotificationSoundSrc: any;
+  postItCornerSrc: any;
+  postitTextSrc: any;
 
   constructor(
     private avatarControllerService: AvatarControllerService, 
@@ -55,6 +57,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    // Post-it handler
+    this.postItCornerSrc = document.getElementById('postit-corner');
+    this.postitTextSrc = document.getElementById('postit-text');
+    this.attachPostItCornerHandlers();
   }
   
   ngOnInit(): void {
@@ -165,5 +171,16 @@ export class AppComponent implements OnInit, AfterViewInit {
         }, true);
       }  
     })
+  }
+
+  keywordsCheatsheet: string[] = ["neptunia", "gridania", "1-74-10"];
+  postItIterator: number = 0;
+  public attachPostItCornerHandlers() {
+    this.postItCornerSrc.addEventListener("click", () => { 
+      this.postitTextSrc.innerHTML = this.keywordsCheatsheet[this.postItIterator++]; 
+      if (this.postItIterator >= this.keywordsCheatsheet.length) {
+        this.postItIterator = 0;
+      }
+    });
   }
 }
