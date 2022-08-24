@@ -35,7 +35,7 @@ public class QuestApiTestApplication {
     public String getNewQuest(@RequestParam(value = "level", defaultValue = "1") int level, @RequestParam(value = "prereqs", defaultValue = "Tutorial") String[] prereqs, @RequestParam(value = "zone", defaultValue = "1-1") String zone) {
         // TODO validate prereqs, throw error?
         System.out.printf("Providing a new quest!");
-        System.out.printf("level: %d, prereqs: %s, prereqs: %s, zone: %s", level, prereqs[0], prereqs[1], zone);
+        //System.out.printf("level: %d, prereqs: %s, prereqs: %s, zone: %s", level, prereqs[0], prereqs[1], zone);
 
         KillMonsterQuest killMonsterQuest = new KillMonsterQuest("Kill 2 Monsters in the Forest");
         String.format("Providing new quest for level %d!", level);
