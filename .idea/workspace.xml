@@ -1,0 +1,1492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="41574e1a-914d-430d-ad7d-be1f3e61bd8b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/speculative-futures-project-2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/.idea/IntegrationTests.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/data/InvestigationFormsData.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/data/MockMonsters.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/data/MockQuests.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/src/main/java/com/example/questapitest/InvestigationRequestForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/questapitest/InvestigationRequestForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/src/main/java/com/example/questapitest/KillMonsterQuest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/questapitest/KillMonsterQuest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/src/main/java/com/example/questapitest/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/questapitest/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/src/main/java/com/example/questapitest/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/questapitest/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/src/main/java/com/example/questapitest/Quest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/questapitest/Quest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/src/main/java/com/example/questapitest/QuestApiTestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/questapitest/QuestApiTestApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/src/main/java/com/example/questapitest/QuestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/questapitest/QuestManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/src/main/java/com/example/questapitest/ValidFormRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/questapitest/ValidFormRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/src/test/java/com/example/questapitest/QuestApiTestApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/questapitest/QuestApiTestApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/server/src/test/java/com/example/questapitest/QuestApiTestApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/questapitest/QuestApiTestApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-detail/avatar-detail.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-detail/avatar-detail.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-detail/avatar-detail.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-detail/avatar-detail.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-display/avatar-display.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-display/avatar-display.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-display/avatar-display.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-display/avatar-display.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-party-display/avatar-party-display.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-party-display/avatar-party-display.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-party-display/avatar-party-display.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-party-display/avatar-party-display.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-stats/avatar-stats.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-stats/avatar-stats.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-stats/avatar-stats.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/avatar-stats/avatar-stats.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/chat-display/chat-display.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/chat-display/chat-display.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/chat-display/chat-display.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/chat-display/chat-display.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/chat-homes/chat-homes.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/chat-homes/chat-homes.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/chat-homes/chat-homes.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/chat-homes/chat-homes.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/collectables/collectables.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/collectables/collectables.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/collectables/collectables.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/collectables/collectables.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/friend-detail/friend-detail.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/friend-detail/friend-detail.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/friend-detail/friend-detail.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/friend-detail/friend-detail.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/friend-list/friend-list.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/friend-list/friend-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/friend-list/friend-list.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/friend-list/friend-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/investigation-form/investigation-form.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/investigation-form/investigation-form.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/investigation-form/investigation-form.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/investigation-form/investigation-form.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/investigation-table/investigation-table.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/investigation-table/investigation-table.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/investigation-table/investigation-table.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/investigation-table/investigation-table.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/menu-interface/menu-interface.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/menu-interface/menu-interface.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/menu-interface/menu-interface.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/menu-interface/menu-interface.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/meta-friend-list/meta-friend-list.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/meta-friend-list/meta-friend-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/meta-friend-list/meta-friend-list.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/meta-friend-list/meta-friend-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/meta-journal/meta-journal.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/meta-journal/meta-journal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/meta-journal/meta-journal.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/meta-journal/meta-journal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/meta-message-center/meta-message-center.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/meta-message-center/meta-message-center.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/meta-message-center/meta-message-center.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/meta-message-center/meta-message-center.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/party-dungeon-view/party-dungeon-view.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/party-dungeon-view/party-dungeon-view.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/party-dungeon-view/party-dungeon-view.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/party-dungeon-view/party-dungeon-view.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/quest-idler/quest-idler.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/quest-idler/quest-idler.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/quest-idler/quest-idler.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/quest-idler/quest-idler.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/avatar-controller.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/avatar-controller.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/avatar-experience.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/avatar-experience.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/avatar-health.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/avatar-health.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/avatar-statistics.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/avatar-statistics.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/character-database.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/character-database.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/character-manager.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/character-manager.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/character.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/character.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/form-generator.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/form-generator.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/friend-caller.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/friend-caller.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/friend-list.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/friend-list.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/friend.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/friend.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/friendship.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/friendship.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/main-quest.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/main-quest.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/mockfriendlist.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/player.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/player.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/quest-party.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/quest-party.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/quest.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/quest.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/queue.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/queue.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/save-data-service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/save-data.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/scheduled-event.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/scheduled-event.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/social-ai.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/social-ai.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/task-generator.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/services/task-generator.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/settings-activity/settings-activity.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/settings-activity/settings-activity.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/settings-activity/settings-activity.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/settings-activity/settings-activity.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/single-player-view/single-player-view.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/single-player-view/single-player-view.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/single-player-view/single-player-view.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/single-player-view/single-player-view.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/sms-window/sms-window.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/sms-window/sms-window.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/sms-window/sms-window.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/app/sms-window/sms-window.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/2davatar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/2davatarquestidler.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/2davatarstaff.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/Silkscreen-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/app-icons/book.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/app-icons/fire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/app-icons/holy-bible.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/app-icons/mars.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/app-icons/news.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/app-icons/picture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/app-icons/setting.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/app-icons/speak.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/app-icons/sword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/app-icons/to-do-list.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/Build/Builds.data.unityweb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/Build/Builds.framework.js.unityweb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/Build/Builds.loader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/Build/Builds.wasm.unityweb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/Build/v0.2.data.unityweb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/Build/v0.2.framework.js.unityweb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/Build/v0.2.loader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/Build/v0.2.wasm.unityweb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/StreamingAssets/UnityServicesProjectConfiguration.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/TemplateData/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/TemplateData/fullscreen-button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/TemplateData/progress-bar-empty-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/TemplateData/progress-bar-empty-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/TemplateData/progress-bar-full-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/TemplateData/progress-bar-full-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/TemplateData/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/TemplateData/unity-logo-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/TemplateData/unity-logo-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/TemplateData/webgl-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/basilica/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/beep.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/beforeIRise.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/Build/v0.2.data.unityweb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/Build/v0.2.framework.js.unityweb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/Build/v0.2.loader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/Build/v0.2.wasm.unityweb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/StreamingAssets/UnityServicesProjectConfiguration.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/TemplateData/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/TemplateData/fullscreen-button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/TemplateData/progress-bar-empty-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/TemplateData/progress-bar-empty-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/TemplateData/progress-bar-full-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/TemplateData/progress-bar-full-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/TemplateData/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/TemplateData/unity-logo-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/TemplateData/unity-logo-light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/TemplateData/webgl-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/chathomes/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/crown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/carousel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/colors.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/config.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/flickity.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/identity-section.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/menu-vertical-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/menu-viz-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/mobile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/navbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/phaser.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/shapes.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/social-list.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/css/videos.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/death.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/demonpic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/goalpole.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/grouppic.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/languageofflowers_conversation_system_and_db - questIdlerConversations.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/autumn.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/autumnforest.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/autumnwater.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/cloudspurplemountains.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/forestfireflies.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/meadow.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/mountainsautumn.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/mysteriousforest.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/nightforesr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/parallaxcave.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/parallaxdesert.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/parallaxforest.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/parallaxice.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/parallaxjungle.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/parallaxmountains.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/pixelcampfire.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/rainforest.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/sequoiaforest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/snowyforest.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/snowymountain.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/sunnyforest.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/locations/twinklesky.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/message-ringtone-magic.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/page-turn.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/pexels-ahmed-13159196.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/pexels-eberhard-grossgasteiger-1624438.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/pexels-pixabay-33109.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/pexels-tomtookit-3538721.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/pexels-travis-rupert-1032650.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/phonewallpaper.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/postit_export_svg.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/prolog.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/queenpic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/queenpic.png.kra" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/queenpic_bw.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/round_end.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/assets/sunbg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/js/flickity/flickity.pkgd.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/js/jquery/jquery-3.6.0.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/js/myscript.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/js/tau-prolog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegrationTests/launcher/webpack.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Adaptive Performance.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Adaptive Performance/Settings.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Adaptive Performance/Settings/Simulator Provider Settings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Adaptive Performance/Settings/Simulator Provider Settings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Editor/com.unity.mobile.notifications.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Editor/com.unity.mobile.notifications/NotificationSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Editor/com.unity.mobile.notifications/NotificationSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Fonts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Fonts/Neucha-Regular SDF.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Fonts/Neucha-Regular SDF.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Fonts/Neucha-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Fonts/Neucha-Regular.ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Blue.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Blue.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Brown.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Brown.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Green.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Green.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Lighting.lighting" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Lighting.lighting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Orange.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Orange.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Purple.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Purple.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Red.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Red.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Yellow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Mats/Yellow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Readme.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Readme.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/3DExampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/3DExampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Dialogue.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Dialogue/3D Sample.yarnproject" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Dialogue/3D Sample.yarnproject.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Dialogue/3dSampleDialogue.yarn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Dialogue/3dSampleDialogue.yarn.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Prefabs/3D Dialogue.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Prefabs/3D Dialogue.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Scripts/Spinner.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Scripts/Spinner.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Scripts/YarnCharacter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Scripts/YarnCharacter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Scripts/YarnCharacterView.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Samples/Yarn Spinner/2.2.0/3D Speech Bubble/Scripts/YarnCharacterView.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scenes/Lounge.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scenes/Lounge.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scenes/Main Menu.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scenes/Main Menu.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scenes/TowerDefense.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scenes/TowerDefense.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Enemies.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Enemies/Challenger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Enemies/Challenger.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Enemies/Challenger.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Enemies/Challenger.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Enemies/Enemy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Enemies/Enemy.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Enemies/Minion.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Enemies/Minion.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Enemies/Minion.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Enemies/Minion.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Enemies/Producer.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Enemies/Producer.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GameManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GameManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Grid.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Grid.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/GridCell.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/GridCell.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/GridManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/GridManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/GridSnapper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/GridSnapper.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Logger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Logger.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Node.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Node.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Prefabs/CellQuad.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Prefabs/CellQuad.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Prefabs/GridCell.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Prefabs/GridCell.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Prefabs/GridManager.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Prefabs/GridManager.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Prefabs/PlacableActorTile (1) Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/Prefabs/PlacableActorTile (1) Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/QuadFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/GridScripts/QuadFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Heroes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Heroes/AttackEnemyInRange.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Heroes/AttackEnemyInRange.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Heroes/Hero.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Heroes/Hero.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Heroes/HeroA Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Heroes/HeroA Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Heroes/Projectile.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Heroes/Projectile.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/LoungeMechanics.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/LoungeMechanics/LoungeManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/LoungeMechanics/LoungeManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/LoungeMechanics/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/LoungeMechanics/Prefabs/DarkRedMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/LoungeMechanics/Prefabs/DarkRedMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/LoungeMechanics/Prefabs/Lounge Manager.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/LoungeMechanics/Prefabs/Lounge Manager.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/MetaScripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/MetaScripts/MainMenuManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/MetaScripts/MainMenuManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/MetaScripts/MetaManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/MetaScripts/MetaManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/NodePaths.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/NodePaths/Network Request Path.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/NodePaths/Network Request Path.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/NodePaths/Penta Network Request Path Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/NodePaths/Penta Network Request Path Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/NodePaths/Tri Network Request Path Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/NodePaths/Tri Network Request Path Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/NodePaths/Two Network Request Path Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/NodePaths/Two Network Request Path Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Player.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Player/Consumer Player's Tower City.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/Player/Consumer Player's Tower City.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Hud.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Hud.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/LevelScriptManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/LevelScriptManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/PathObject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/PathObject.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/PathObjectManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/PathObjectManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/PlacableActorTile.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/PlacableActorTile.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/PlayerManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/PlayerManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/Backdrop.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/Backdrop.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/HeroAProjectile.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/HeroAProjectile.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/PathNode.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/PathNode.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/Projectile.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/Projectile.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/TimerManager.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/TimerManager.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/TowerDefenseSceneManager.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/TowerDefenseSceneManager.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/Turret.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/Turret.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/TurretSquare.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Prefabs/TurretSquare.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Spawner.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Spawner.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Timer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Timer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/TowerDefenseManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/TowerDefenseManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Turret.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/Turret.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/TurretFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/TowerDefenseMechanics/TurretFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/UI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/UI/Player Health.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Scripts/UI/Player Health.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Documentation.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Fonts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Fonts/LiberationSans.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Fonts/LiberationSans.ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Fonts &amp; Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Sprite Assets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Style Sheets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/TMP Settings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Resources/TMP Settings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_SDF.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMP_Sprite.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMPro.cginc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMPro.cginc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Sprites/EmojiOne.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Sprites/EmojiOne.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Sprites/EmojiOne.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TextMesh Pro/Sprites/EmojiOne.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TutorialInfo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TutorialInfo/Icons.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TutorialInfo/Icons/Help_Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TutorialInfo/Icons/Help_Icon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TutorialInfo/Icons/Mobile 3D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TutorialInfo/Icons/Mobile 3D.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TutorialInfo/Layout.wlt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TutorialInfo/Layout.wlt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TutorialInfo/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TutorialInfo/Scripts/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TutorialInfo/Scripts/Readme.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/TutorialInfo/Scripts/Readme.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Yarn Files.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Yarn Files/CORE_AutomaticThoughts_Level01.yarn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Yarn Files/CORE_AutomaticThoughts_Level01.yarn.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Yarn Files/MeetingThePlayer.yarn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Yarn Files/MeetingThePlayer.yarn.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Yarn Files/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Yarn Files/Prefabs/Option View.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Yarn Files/Prefabs/Option View.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Yarn Files/YarnDb.yarnproject" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/Yarn Files/YarnDb.yarnproject.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/arrowIndicator.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Assets/arrowIndicator.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Packages/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/Packages/packages-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/AudioManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/ClusterInputManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/DynamicsManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/EditorSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/GraphicsSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/InputManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/MemorySettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/NavMeshAreas.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/NotificationsSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/Physics2DSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/PresetManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/ProjectSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/ProjectVersion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/QualitySettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/SceneTemplateSettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/TagManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/TimeManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/VFXManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/VersionControlSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/XRSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/ProjectSettings/boot.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/UserSettings/EditorUserSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/UserSettings/Search.settings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/test/mytest/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/test/mytest/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/test/mytest/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype1/test/mytest/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/_javascript/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/_sass/main.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/public/usermanual.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/js/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/js/components/ContentItem.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/js/components/ContentNavbar.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/js/components/HomePage.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/js/components/ProfileBusinessCard.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/js/components/UserFragmentSection.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/js/components/UserManual.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/js/components/UserProgressBar.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype2/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/_javascript/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/_sass/main.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/css/carousel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/css/colors.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/css/config.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/css/flickity.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/css/identity-section.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/css/menu-vertical-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/css/menu-viz-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/css/mobile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/css/navbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/css/phaser.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/css/shapes.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/css/videos.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/index-react.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/flickity/flickity.pkgd.min" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/jquery-3.6.0.min" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/AUTHORS.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/external/jquery/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/images/ui-icons_444444_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/images/ui-icons_555555_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/images/ui-icons_777620_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/images/ui-icons_777777_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/images/ui-icons_cc0000_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/jquery-ui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/jquery-ui.structure.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/jquery-ui.structure.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/jquery-ui.theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/jquery-ui.theme.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui-1.13.1.custom/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui.structure.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/jquery/ui/jquery-ui.theme.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/CNAME" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/Cakefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/component.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/demo.coffee" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/demo.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/demo.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/demo.styl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/fonts/adventor-bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/fonts/adventor-bold.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/fonts/adventor-bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/fonts/adventor-bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/fonts/adventor-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/fonts/adventor-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/fonts/adventor-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/fonts/adventor-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/images/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/images/3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/images/horse.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/images/lbj.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/images/readme/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/images/readme/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/images/readme/3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/images/readme/4.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/images/road.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/images/space.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/demo/images/suit.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/docco.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/oridomi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/public/fonts/aller-bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/public/fonts/aller-bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/public/fonts/aller-bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/public/fonts/aller-light.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/public/fonts/aller-light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/public/fonts/aller-light.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/public/fonts/novecento-bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/public/fonts/novecento-bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/public/fonts/novecento-bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/public/fonts/roboto-black.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/public/fonts/roboto-black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/public/fonts/roboto-black.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/docs/public/stylesheets/normalize.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/oridomi.coffee" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/oridomi.jquery.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/oridomi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/oridomi.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/oridomi.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/oridomi/oriDomi-master/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/phaser/phaser.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/.babelrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/.github/ISSUE_TEMPLATE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/.github/PULL_REQUEST_TEMPLATE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/.github/browserstack-logo-182x96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/CODE_OF_CONDUCT.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/CONTRIBUTING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/V2_CHANGES.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/babel.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/docs.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/CSSPlugin.js.download" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/CSSPlugin.min.js.download" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/Ease.js.download" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/TweenLite.min.js.download" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/anime.min.js.download" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/dojo.js.download" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/easeljs-0.4.2.min.js.download" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/easing.js.download" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/jquery-3.0.0.min.js.download" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/jquery.gsap.min.js.download" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/mootools-core-1.4.5-full-compat-yc.js.download" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/tweenjs-0.2.0.min.js.download" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/web-animations-basic.min.js.download" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/GreenSock Animation Platform (GSAP) Speed Test_files/zepto.min.js.download" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/gsap/img/dot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/legacy/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/legacy/blur.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/legacy/borderColor.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/legacy/clip.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/legacy/normalisations.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/legacy/opacity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/rollup.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/attention_seekers/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/attention_seekers/bounce.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/attention_seekers/flash.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/attention_seekers/headShake.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/attention_seekers/jello.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/attention_seekers/pulse.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/attention_seekers/rubberBand.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/attention_seekers/shake.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/attention_seekers/swing.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/attention_seekers/tada.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/attention_seekers/wobble.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/bouncing_entrances/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/bouncing_entrances/bounceIn.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/bouncing_entrances/bounceInDown.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/bouncing_entrances/bounceInLeft.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/bouncing_entrances/bounceInRight.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/bouncing_entrances/bounceInUp.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/bouncing_exits/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/bouncing_exits/bounceOut.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/bouncing_exits/bounceOutDown.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/bouncing_exits/bounceOutLeft.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/bouncing_exits/bounceOutRight.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/bouncing_exits/bounceOutUp.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_entrances/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_entrances/fadeIn.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_entrances/fadeInDown.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_entrances/fadeInDownBig.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_entrances/fadeInLeft.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_entrances/fadeInLeftBig.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_entrances/fadeInRight.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_entrances/fadeInRightBig.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_entrances/fadeInUp.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_entrances/fadeInUpBig.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_exits/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_exits/fadeOut.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_exits/fadeOutDown.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_exits/fadeOutDownBig.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_exits/fadeOutLeft.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_exits/fadeOutLeftBig.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_exits/fadeOutRight.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_exits/fadeOutRightBig.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_exits/fadeOutUp.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/fading_exits/fadeOutUpBig.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/flippers/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/flippers/flip.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/flippers/flipInX.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/flippers/flipInY.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/flippers/flipOutX.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/flippers/flipOutY.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/lightspeed/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/lightspeed/lightSpeedIn.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/lightspeed/lightSpeedOut.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/rotating_entrances/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/rotating_entrances/rotateIn.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/rotating_entrances/rotateInDownLeft.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/rotating_entrances/rotateInDownRight.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/rotating_entrances/rotateInUpLeft.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/rotating_entrances/rotateInUpRight.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/rotating_exits/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/rotating_exits/rotateOut.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/rotating_exits/rotateOutDownLeft.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/rotating_exits/rotateOutDownRight.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/rotating_exits/rotateOutUpLeft.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/rotating_exits/rotateOutUpRight.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/sliding_entrances/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/sliding_entrances/slideInDown.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/sliding_entrances/slideInLeft.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/sliding_entrances/slideInRight.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/sliding_entrances/slideInUp.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/sliding_exits/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/sliding_exits/slideOutDown.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/sliding_exits/slideOutLeft.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/sliding_exits/slideOutRight.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/sliding_exits/slideOutUp.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/specials/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/specials/hinge.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/specials/jackInTheBox.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/specials/rollIn.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/specials/rollOut.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/velocity.ui.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/zooming_entrances/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/zooming_entrances/zoomIn.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/zooming_entrances/zoomInDown.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/zooming_entrances/zoomInLeft.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/zooming_entrances/zoomInRight.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/zooming_entrances/zoomInUp.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/zooming_exits/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/zooming_exits/zoomOut.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/zooming_exits/zoomOutDown.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/zooming_exits/zoomOutLeft.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/zooming_exits/zoomOutRight.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src-ui/zooming_exits/zoomOutUp.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/actions/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/actions/actions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/actions/finish.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/actions/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/actions/option.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/actions/pauseResume.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/actions/property.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/actions/reverse.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/actions/stop.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/actions/style.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/actions/tween.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/camelCase.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/complete.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/css/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/css/augmentDimension.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/css/colors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/css/fixColors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/css/getPropertyValue.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/css/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/css/removeNestedCalc.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/css/setPropertyValue.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/data.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/defaults.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/easing/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/easing/back.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/easing/bezier.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/easing/bounce.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/easing/easings.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/easing/elastic.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/easing/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/easing/spring_rk4.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/easing/step.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/easing/string.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/normalizations/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/normalizations/dimensions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/normalizations/display.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/normalizations/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/normalizations/normalizations.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/normalizations/normalizationsObject.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/normalizations/scroll.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/normalizations/style.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/normalizations/svg/_all.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/normalizations/svg/attributes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/normalizations/svg/dimensions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/normalizations/svg/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/normalizations/tween.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/options.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/patch.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/queue.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/sequences.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/sequencesObject.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/state.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/tick.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/Velocity/tweens.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/constants.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/fakeClass.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/fakeClass.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/utility.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/velocity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/velocityFn.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/jquery-3.2.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/qunit-2.5.0.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/qunit-2.5.0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/qunit-assert-close.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/1_Core/Arguments.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/1_Core/End Value Caching.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/1_Core/End Value Setting.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/1_Core/Start Value Calculation.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/1_Core/Unit Calculation.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/1_Core/_module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/2_Option/Option Begin.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/2_Option/Option Complete.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/2_Option/Option Delay.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/2_Option/Option Duration.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/2_Option/Option Easing.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/2_Option/Option Fps Limit.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/2_Option/Option Loop.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/2_Option/Option Progress.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/2_Option/Option Queue.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/2_Option/Option Repeat.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/2_Option/Option Speed.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/2_Option/Option Sync.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/2_Option/_module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/3_Command/Command Finish.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/3_Command/Command Pause + Resume.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/3_Command/Command Reverse.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/3_Command/Command Scroll.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/3_Command/Command Stop.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/3_Command/Command Tween.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/3_Command/_module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/4_Feature/Feature Classname.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/4_Feature/Feature Colors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/4_Feature/Feature Forcefeeding.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/4_Feature/Feature Promises.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/4_Feature/Feature Sequences.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/4_Feature/Feature Value Functions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/4_Feature/_module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/5_UIPack/Packaged Effect slideUp+Down.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/5_UIPack/UI Pack Call Options.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/5_UIPack/UI Pack Callbacks.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/5_UIPack/UI Pack In+Out.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/5_UIPack/UI Pack RegisterEffect.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/5_UIPack/UI Pack RunSequence.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/5_UIPack/_module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/6_Properties/Normalization property value reordering.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/6_Properties/Property Display.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/6_Properties/Property Visibility.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/6_Properties/_module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/src/utilities.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/test.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/test/zepto-1.2.0.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/tslint.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/velocity.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/velocity.es5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/velocity.es5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/velocity.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/velocity.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/velocity.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/velocity.ui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/velocity.ui.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/velocity.ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/version.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/js/zepto/zepto.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/character_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/character_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/church_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/gas_station_BLOCKOUT_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/newspapers/climateChange2022-lit.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/newspapers/climateChange2022.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/babyWomb.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/birds.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/blueEyesOpening.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/candle.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/code.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/cranes.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/dead_trees.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/diver.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/eye_ball.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/fire.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/horses1.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/meadow.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/pinkliquid.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/surface.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/art/videos/whoareyou.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/public/usermanual.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/js/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/js/components/ContentItem.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/js/components/ContentNavbar.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/js/components/HomePage.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/js/components/ProfileBusinessCard.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/js/components/UserFragmentSection.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/js/components/UserManual.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/js/components/UserProgressBar.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototype3/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/character_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/character_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/church_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/gas_station_BLOCKOUT_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/newspapers/climateChange2022-lit.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/newspapers/climateChange2022.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/babyWomb.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/birds.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/blueEyesOpening.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/candle.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/code.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/cranes.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/dead_trees.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/diver.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/eye_ball.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/fire.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/horses1.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/meadow.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/pinkliquid.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/surface.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrototypingAssets/videos/whoareyou.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/soildisplay/soildisplay.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/soildisplay/soildisplay.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/soildisplay/soildisplay.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/soildisplay/soildisplay.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/soilinfo/soilinfo.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/soilinfo/soilinfo.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/soilinfo/soilinfo.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/soilinfo/soilinfo.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/soilpatch/soilpatch.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/soilpatch/soilpatch.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/soilpatch/soilpatch.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/app/soilpatch/soilpatch.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app-garden/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dining-hall/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-detail/avatar-detail.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-detail/avatar-detail.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-detail/avatar-detail.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-detail/avatar-detail.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-display/avatar-display.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-display/avatar-display.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-display/avatar-display.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-display/avatar-display.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-party-display/avatar-party-display.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-party-display/avatar-party-display.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-party-display/avatar-party-display.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-party-display/avatar-party-display.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-stats/avatar-stats.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-stats/avatar-stats.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-stats/avatar-stats.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/avatar-stats/avatar-stats.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/chat-display/chat-display.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/chat-display/chat-display.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/chat-display/chat-display.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/chat-display/chat-display.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/collectables/collectables.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/collectables/collectables.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/collectables/collectables.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/collectables/collectables.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/friend-detail/friend-detail.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/friend-detail/friend-detail.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/friend-detail/friend-detail.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/friend-detail/friend-detail.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/friend-list/friend-list.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/friend-list/friend-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/friend-list/friend-list.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/friend-list/friend-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/party-dungeon-view/party-dungeon-view.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/party-dungeon-view/party-dungeon-view.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/party-dungeon-view/party-dungeon-view.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/party-dungeon-view/party-dungeon-view.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/avatar-controller.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/avatar-controller.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/avatar-experience.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/avatar-experience.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/avatar-health.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/avatar-health.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/avatar-statistics.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/avatar-statistics.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/character-database.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/character-database.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/character-manager.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/character-manager.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/character.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/character.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/friend-caller.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/friend-caller.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/friend-list.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/friend-list.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/friend.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/friend.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/friendship.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/friendship.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/mockfriendlist.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/player.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/player.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/quest-party.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/quest-party.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/quest.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/quest.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/queue.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/queue.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/social-ai.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/services/social-ai.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/single-player-view/single-player-view.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/single-player-view/single-player-view.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/single-player-view/single-player-view.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/app/single-player-view/single-player-view.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/quest-idler/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/st-isidore/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/todo.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/IntegrationTests/launcher/server">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/IntegrationTests/launcher/server">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="QuestAPITest" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="speculative-futures-project-2" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="speculative-futures-project-2" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/tsconfig.json" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2DmfmWEJ3l0flq7tvIqlzS2fmrI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/sylvaintran/Documents/GitHub/speculative-futures-project-2/app/src/test/java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.27394438",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "spring.configuration.checksum": "fad58de7366495db4650cfefac2fcd61",
+    "ts.external.directory.path": "/Users/sylvaintran/Documents/GitHub/speculative-futures-project-2/node_modules/typescript/lib"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/test/java" />
+      <recent name="$PROJECT_DIR$/app/src/main/java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.QuestApiTestApplication">
+    <configuration name="Angular Application (speculative-futures-project-2)" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuestApiTestApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.questapitest.QuestApiTestApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuestApiTestApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="speculative-futures-project-2.app.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.questapitest.QuestApiTestApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuestApiTestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Library/Java/JavaVirtualMachines/liberica-18.0.2" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.questapitest.QuestApiTestApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Angular CLI Server (speculative-futures-project-2)" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Angular Application (speculative-futures-project-2)" />
+      <item itemvalue="npm.Angular CLI Server (speculative-futures-project-2)" />
+      <item itemvalue="Spring Boot.QuestApiTestApplication (2)" />
+      <item itemvalue="Spring Boot.QuestApiTestApplication" />
+      <item itemvalue="Spring Boot.QuestApiTestApplication (1)" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="41574e1a-914d-430d-ad7d-be1f3e61bd8b" name="Changes" comment="" />
+      <created>1661309339730</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1661309339730</updated>
+      <workItem from="1661309342711" duration="4589000" />
+      <workItem from="1661314288888" duration="709000" />
+      <workItem from="1661315010210" duration="182000" />
+      <workItem from="1661315241937" duration="493000" />
+      <workItem from="1661315745728" duration="912000" />
+      <workItem from="1661316748554" duration="950000" />
+      <workItem from="1661317709418" duration="169000" />
+      <workItem from="1661317938919" duration="1336000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Prototype3/js/velocity/velocity-master/src/fakeClass.js" />
+        <option value="$PROJECT_DIR$/Prototype4/builds/old/js/velocity/velocity-master/src/fakeClass.js" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

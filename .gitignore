@@ -89,3 +89,11 @@ todo.rtf
 
 # Pixi engine
 IntegrationTests/launcher/src/assets/autumn/www/*
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+.angular/cache
