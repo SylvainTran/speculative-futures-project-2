@@ -20,6 +20,11 @@ public class QuestApiTestApplication {
         SpringApplication.run(QuestApiTestApplication.class, args);
     }
 
+    @GetMapping("/")
+    public String home(@RequestParam(value = "name", defaultValue = "World") String name) {
+        return String.format("Hello, %s from Java Spring Boot!", name);
+    }
+
     @GetMapping("/hello")
     public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
         return String.format("Hello, %s from Java Spring Boot!", name);
