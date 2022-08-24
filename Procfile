@@ -1,1 +1,1 @@
-java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
+web: java -jar build/libs/speculative-futures-project-2.jar

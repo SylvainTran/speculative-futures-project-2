@@ -5,6 +5,10 @@ plugins {
     id 'java'
 }
 
+group = 'com.example'
+version = '1.0'
+sourceCompatibility = '1.8'
+
 repositories {
     mavenCentral()
 }
@@ -15,6 +19,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
+    runtimeOnly 'org.webjars:webjars-locator:0.38'
+    implementation 'org.springframework.boot:spring-boot-gradle-plugin:2.7.1'
 }
 
 application {
@@ -24,10 +30,4 @@ application {
 
 tasks.named('test') {
     useJUnitPlatform()
-}
-
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
-    }
 }
