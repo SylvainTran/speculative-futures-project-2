@@ -97,3 +97,4 @@ IntegrationTests/launcher/src/assets/autumn/www/*
 build
 
 .angular/cache
+.idea/workspace.xml
