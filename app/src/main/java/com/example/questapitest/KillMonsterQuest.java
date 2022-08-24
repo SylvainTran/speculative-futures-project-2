@@ -43,10 +43,8 @@ public class KillMonsterQuest extends Quest {
     public String getData() {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            Path currentRelativePath = Paths.get("");
-            String pathPrefix = currentRelativePath.toAbsolutePath().toString();
-            String dataPathPrefix = "/data/";
-            Path of = Path.of(pathPrefix + dataPathPrefix + "MockQuests.json");
+            String dataPathPrefix = "app/data/";
+            Path of = Path.of(dataPathPrefix + "MockQuests.json");
 
             subquestsList = Arrays.asList(mapper.readValue(of.toFile(), Quest[].class));
 
