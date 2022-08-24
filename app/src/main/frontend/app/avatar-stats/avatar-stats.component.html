@@ -1,0 +1,10 @@
+<div class="avatar-stats">
+    <h1>Stats</h1>
+    <div>
+        <ul>
+            <li *ngFor="let stat of statistics.entries()">
+                {{ stat[0] }} {{ stat[1] }} 
+            </li>
+        </ul>
+    </div>
+</div>

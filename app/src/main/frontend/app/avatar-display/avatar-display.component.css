@@ -1,0 +1,112 @@
+.avatar-display {
+    display: inline-block;
+    border: 5px solid blue;
+    width: 70vw;
+    height: 80vh;
+    text-align: center;
+    background-color: black;
+    color: lime;
+    overflow: scroll;
+}
+
+.avatar-pic {
+    display: flex;
+    font-size: 2.5rem;
+    border: 3px solid cyan;
+    width: 400px;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-alive {}
+
+.avatar-alive:hover {
+    background-color: green;
+}
+
+.avatar-dead {}
+
+.avatar-dead:hover {
+    background-color: red;
+}
+
+
+.inline-container {
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+}
+
+.enemy-pic {
+    font-style: italic;
+    font-family: 'GameFont';
+    font-size: 1rem;
+    position: relative;
+    top: 100px;
+}
+
+.quest-location {
+    font-family: 'GameFont';
+    font-size: 3rem;
+}
+
+.poetry-game-section {
+    background-color: darkblue;
+    width: 400px;
+}
+
+.poems {
+    display: flex;
+    width: 100%;
+    line-height: 2rem;
+    flex-direction: row;
+}
+
+.poem-container {
+    width: 50vw;
+    padding-right: 5rem;
+}
+
+.poems, .poetry-game-section, .enemy-pic, .quest-location {
+    font-family: 'GameFont';
+}
+
+#game-canvas {
+    margin-left: 30%;
+    width: 400px;
+    height: 400px;
+}
+
+.gameClickHandler {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    line-height: 3rem;
+}
+
+.gameCanvas {
+    display: flex;
+    flex-direction: column;
+}
+
+.gameCanvas img {
+    /* height: 400px; */
+    width: 400px;
+}
+
+.locationBg {
+    background-image: url('../../assets/sunbg.png');
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-position: center; /* Center the image */
+    height: 400px;
+    width: 400px;
+}
+
+#avatar-pic-id {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10rem;
+    cursor: pointer;
+}

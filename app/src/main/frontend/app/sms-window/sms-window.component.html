@@ -1,0 +1,20 @@
+<div class="meta-friend-list-window">
+  <div *ngFor="let window of activeSMSWindows; trackBy: byInputID" class="sms-window">
+    <div class="friend-info">
+      <img class="profile-avatar" src="../../assets/queenpic_bw.png" alt="profile-icon"/>
+      <div class="friend-info-details">
+        <p>{{window.sender}}</p>
+        <p>Status: <span style="color: lime">Contemplative</span></p>  
+      </div>
+    </div>
+    <section class="text-section">
+        <ul *ngFor="let text of window.textOnly; index as i">
+            <li [class.userTextBubble]="window.colorByTextOnlyIndexTalker[i] === 'Cyfer'" [class.friendTextBubble]="window.colorByTextOnlyIndexTalker[i] !== 'Cyfer'" >{{ text }}<span class="timeStamp">{{ dateData[i] }}</span></li><br>
+        </ul>
+    </section>
+    <section class="text-input">
+        <input disabled id={{window.inputID}} type="text" placeholder="Breathe"/>
+        <button [disabled]='lastEventKey === "" || waitForDelay || preventSpam' (click)="continueConversation(window)">Send</button>
+    </section>
+  </div>
+</div> 

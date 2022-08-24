@@ -1,0 +1,36 @@
+<div class="meta-friend-list-window">
+    <div class="friend-info">
+      <img class="profile-avatar" src="../../assets/pexels-ahmed-13159196.jpg" alt="profile-icon"/>
+      <div class="friend-info-details">
+        <p>Cyfer</p>
+        <p>Status: Playing</p>  
+      </div>
+    </div>
+    <br>
+    <h3>Friends</h3>
+    <section class="friend-cdk-tree">
+      <cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
+        <!-- This is the tree node template for expandable nodes -->
+        <cdk-tree-node *cdkTreeNodeDef="let node; when: hasChild" cdkTreeNodePadding
+                        [style.display]="shouldRender(node) ? 'flex' : 'none'"
+                        class="example-tree-node">
+
+          <button class="small-margin-right" mat-icon-button cdkTreeNodeToggle
+                  [attr.aria-label]="'Toggle ' + node.name"
+                  (click)="node.isExpanded = !node.isExpanded;"
+                  [style.visibility]="node.expandable ? 'visible' : 'hidden'">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>                
+          </button>
+          <!--send pm-->
+          <button class="small-margin-right" *ngIf="node.hasHandler" (click)="node.handler(node)">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{node.name === 'Send Private Message'? 'sms' : 'account_circle'}}
+            </mat-icon>
+          </button>
+          {{node.name}}
+        </cdk-tree-node>
+      </cdk-tree>
+    </section>
+</div> 

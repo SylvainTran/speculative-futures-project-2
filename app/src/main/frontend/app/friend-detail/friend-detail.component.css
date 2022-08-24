@@ -1,0 +1,25 @@
+.inline-container {
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+}
+
+.friend-list {
+    background-color: grey;
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-family: 'GameFont';
+}
+
+button {
+    font-family: 'GameFont';
+}
+
+.friend-reply {
+    color: red;
+}
+
+.friend-reply-status-box {
+    border: 5px solid purple;
+}

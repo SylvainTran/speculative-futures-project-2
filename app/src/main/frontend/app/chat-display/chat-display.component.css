@@ -1,0 +1,45 @@
+.quest-idler-chatboard {
+    color: black;
+    background-color: grey;
+    height: 100px;
+    overflow: scroll;
+}
+
+.chat-title {
+    display: inline-block;
+    color: lime;
+    font-size: 1.5rem;
+    margin-right: 1.1rem;
+}
+
+.quest-idler-chatboard li {
+    color: black;
+    font-weight: bold;
+}
+
+.quest-idler-chatboard li:nth-child(odd) {
+    color: pink;
+}
+
+.quest-idler-chatboard li:nth-child(even) {
+    color: blue;
+}  
+
+.new-message-inbox-counter {
+    display: inline-block;
+    border: 3px solid cyan;
+    width: 200px;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.player-chat-input {
+    width: 100%;
+    background-color: darkblue;
+}
+
+button, .player-chat-input, .quest-idler-chatboard {
+    font-family: 'Press Start 2P', cursive;
+}

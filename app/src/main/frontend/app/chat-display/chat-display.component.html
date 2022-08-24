@@ -1,0 +1,16 @@
+<div class="inline">
+    <h1 class="chat-title">Chat</h1>
+    <div class="new-message-inbox-counter">
+        <button>{{newMessages}} new message(s)!</button>
+    </div>
+</div>
+<div class="quest-idler-chatboard">
+    <ul>
+        <li *ngFor="let message of chatboard">
+            {{ message }} 
+        </li>
+    </ul>
+</div>
+<form name="friend-chat-form">
+    <input class="player-chat-input" type="text" value="" placeholder="type your message here"/>
+</form>

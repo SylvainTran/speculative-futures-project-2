@@ -1,0 +1,84 @@
+.meta-message-center-window {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: left;
+
+    background-color: hsla(0, 0%, 20%, 0.903);
+    color: white;
+    z-index: 20;
+    
+    width: 70vw;
+    height: 60vh;
+
+    padding: 1.2rem;
+
+    overflow: scroll;
+    font-family: 'Cantarell', 'sans-serif';
+    border: 5px solid cyan;
+
+    font-weight: bold;
+}
+
+#message-center-body {
+    font-family: 'Cantarell', cursive;
+    padding: 3rem;
+    line-height: 2rem;
+    color: black;
+    font-size: 1.5rem;
+    width: 40vw;
+}
+
+.message-container {
+    width: 100%;
+}
+
+ul {
+    margin-left: 1.2rem;
+    list-style-type: square;
+}
+
+.missionControlMessages {
+    background-color: green;
+    color: white;
+}
+
+.title-big {
+    font-size: 3rem;
+}
+
+#taskDesk h1 {
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 1px solid blue;
+}
+
+#taskDeskContainer {
+    height: 100%;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: lime;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+#progression-percent-tracker {
+    color: yellow;
+}

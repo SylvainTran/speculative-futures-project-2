@@ -1,0 +1,21 @@
+<div id="meta-message-center-tag" class="meta-message-center-window">
+    <div class="message-container">
+        <h1>Message Center</h1>
+        <ul>
+            <li *ngFor="let message of outputMessages; let i = index">                
+                <p>id: {{ message.id }} </p>
+                <p>sender: {{ message.sender }}</p>
+                <p>recipient: {{ message.recipient }}</p>
+                <p>title: {{ message.title }}</p>
+                <p>date: {{ message.date }}</p>
+                <p id="message-center-body">{{ message.body }}</p>
+            </li>
+        </ul>
+        <br>
+        <h3>New Messages</h3>
+        <hr>
+        <h3>Archived</h3>
+        <hr>
+    </div>
+    <hr>
+</div>   

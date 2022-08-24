@@ -1,0 +1,168 @@
+<div class="flex-container">
+    <app-avatar-detail [currentHealth]="AvatarStats.currentHealth" [currentLevel]="AvatarStats.currentLevel" [currentExperience]="AvatarStats.currentExperience" [experienceTotalRequired]="AvatarStats.experienceTotalRequired"></app-avatar-detail>            
+
+    <!-- <div class="gameClickHandler">
+        <h3>{{ AvatarName }}</h3>&nbsp;&nbsp;
+        <div id="avatar-pic-id" [class.avatar-alive]="AvatarStats.currentHealth > 0" [class.avatar-dead]="AvatarStats.currentHealth <= 0" class="avatar-pic">
+            <div *ngIf="PlayerDisplayState === 0">
+                {{ PlayerAvatar.Idle }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 1">
+                {{ PlayerAvatar.Fighting }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 2">
+                {{ PlayerAvatar.Victorious }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 3">
+                {{ PlayerAvatar.Defeated }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 4">
+                {{ PlayerAvatar.Dead }}
+            </div>
+        </div>&nbsp;&nbsp;
+        <h3>{{ activePartyQuest!.getRegistrants()[1].name }}</h3>&nbsp;&nbsp;
+        <div class="avatar-pic">
+            <div *ngIf="PlayerDisplayState === 0">
+                {{ FriendAvatar.Idle }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 1">
+                {{ FriendAvatar.Fighting }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 2">
+                {{ FriendAvatar.Victorious }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 3">
+                {{ FriendAvatar.Defeated }}
+            </div>
+            <div *ngIf="PlayerDisplayState === 4">
+                {{ FriendAvatar.Dead }}
+            </div>
+        </div>    
+    </div> -->
+    <div class="gameCanvas">
+        <div class="poetry-game-section avatar-display">
+            <div id="locationBg" (click)="handleAvatarClicked($event)" clickable>
+                <div id="avatar-pic-id" [class.avatar-alive]="AvatarStats.currentHealth > 0" [class.avatar-dead]="AvatarStats.currentHealth <= 0">{{ !promptReplyBuilder?.IsLocked? "[Tap Here]" : "[Read]" }}
+                </div>
+                <div *ngIf="activePartyQuest && questWindowBuilder?.show"></div>
+                <div class="enemy-pic">Bard: {{ ActiveQuestName }}</div>
+                <div class="enemy-pic" >Bard: {{ BardText }}</div>
+                <div id="party-svgs">
+                    <svg id="player-avatar">
+                        <filter id="pixelate" x="0" y="0">
+                            <feFlood x="4" y="4" height="2" width="2"/>    
+                            <feComposite width="10" height="10"/>
+                            <feTile result="a"/>
+                            <feComposite in="SourceGraphic" in2="a" operator="in"/>
+                            <feMorphology operator="dilate" radius="5"/>
+                        </filter>
+                        <defs/>
+                        <g id="Layer-1" vectornator:layerName="Layer 1" filter="url(#pixelate)">
+                            <path d="M15.4247 25.6395L16.1446 26.4895L22.0792 33.4971L8.87391 45.808L1.0648 44.4696L15.4247 25.6395Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M15.7415 8.89501L21.7568 8.89501L21.7568 29.6551L15.7415 29.6551L15.7415 8.89501Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M21.2468 45.9024L31.0536 45.2332L35.409 58.2285L27.6448 61.3989L21.2468 45.9024Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M49.5341 29.9919L60.8698 27.6919L66.0011 47.7836L60.502 51.7423L49.5341 29.9919Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M53.5416 8.54395L59.0743 8.54395L59.0743 29.3041L53.5416 29.3041L53.5416 8.54395Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M54.0651 2.32914L54.0651 11.8491L19.2624 11.8491L19.2624 2.32914L54.0651 2.32914Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M33.7642 14.1807L37.3779 14.1807L37.3779 21.6564L33.7642 21.6564L33.7642 14.1807Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M43.2627 14.302L46.8764 14.302L46.8764 21.7776L43.2627 21.7776L43.2627 14.302Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M42.5346 45.9952L51.5473 48.3038L43.0294 61.9507L35.5661 58.1255L42.5346 45.9952Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M18.813 35.7858L52.7228 36.3203L53.8924 46.1645L15.3286 44.8603L18.813 35.7858Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <g opacity="1">
+                                <path d="M61.5459 45.1071L100.593 12.2037L106.702 19.4532L64.4699 49.1426L61.5459 45.1071Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                                <path d="M100.573 12.2417L110.424 9.39846L106.69 19.4767" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            </g>
+                        </g>
+                    </svg>
+                    <svg id="friend-avatar">
+                        <filter id="pixelate" x="0" y="0">
+                            <feFlood x="4" y="4" height="2" width="2"/>    
+                            <feComposite width="10" height="10"/>
+                            <feTile result="a"/>
+                            <feComposite in="SourceGraphic" in2="a" operator="in"/>
+                            <feMorphology operator="dilate" radius="5"/>
+                        </filter>
+                        <defs/>
+                        <g id="Layer-1" vectornator:layerName="Layer 1" filter="url(#pixelate)">
+                            <path d="M15.4247 25.6395L16.1446 26.4895L22.0792 33.4971L8.87391 45.808L1.0648 44.4696L15.4247 25.6395Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M15.7415 8.89501L21.7568 8.89501L21.7568 29.6551L15.7415 29.6551L15.7415 8.89501Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M21.2468 45.9024L31.0536 45.2332L35.409 58.2285L27.6448 61.3989L21.2468 45.9024Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M49.5341 29.9919L60.8698 27.6919L66.0011 47.7836L60.502 51.7423L49.5341 29.9919Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M53.5416 8.54395L59.0743 8.54395L59.0743 29.3041L53.5416 29.3041L53.5416 8.54395Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M54.0651 2.32914L54.0651 11.8491L19.2624 11.8491L19.2624 2.32914L54.0651 2.32914Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M33.7642 14.1807L37.3779 14.1807L37.3779 21.6564L33.7642 21.6564L33.7642 14.1807Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M43.2627 14.302L46.8764 14.302L46.8764 21.7776L43.2627 21.7776L43.2627 14.302Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M42.5346 45.9952L51.5473 48.3038L43.0294 61.9507L35.5661 58.1255L42.5346 45.9952Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <path d="M18.813 35.7858L52.7228 36.3203L53.8924 46.1645L15.3286 44.8603L18.813 35.7858Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                            <g opacity="1">
+                                <path d="M65.1006 60.6849L63.9224 6.50816L73.3972 6.19213L68.7517 60.5392L65.1006 60.6849Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+                                <path d="M63.9396 6.54777L67.799-2.95192L73.4084 6.21594" fill="#ffffff" fill-rule="nonzero" opacity="0" stroke="none"/>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div id="goal-svg">                   
+                </div>
+            </div>
+            <div class="flex-centered">
+                <div class="flex-row">
+                    <section>
+                        <br>
+                        <div *ngIf="!promptReplyBuilder?.showPrompt && !monstersAllDefeated" class="quest-window">
+                            A monster attacked your party! <br>
+                            Monsters left: {{activePartyQuestMonsters.length - monsterIterator}}
+                            
+                            <div *ngIf='lastLootGained !== ""'>
+                                YOU FOUND: {{lastLootGained}} (!)
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="flex-row">
+                    <br>
+                    <section>
+                        <div *ngIf="!promptReplyBuilder?.showPrompt && !monstersAllDefeated" [class.activeMonsterDefeated]="activeMonster && activeMonster.hp <= 0">
+                            {{activeMonster?.name}}: <br> 
+                            HP >>> {{activeMonster?.hp}} <br>
+                            LEVEL >>> {{activeMonster?.level}} <br>
+                            RACE >>> {{activeMonster?.race}} <br>
+                            <div *ngIf="activeMonster && activeMonster.hp <= 0" class="activeMonsterExpGain">
+                                EXPGAIN >>> {{activeMonster.expGain}} <br><br>
+                            </div>
+                        </div>
+                    </section>
+                    <br>
+                    <div *ngIf="monstersAllDefeated">
+                        With the quest completed successfully, you and your friend enjoy a peaceful respite.
+                    </div>
+                </div>
+            </div>
+            <section class="flex-centered">
+                <div class="character-prompt-container">
+                    <div *ngIf="promptReplyBuilder?.showPrompt && activePartyQuest && promptReplyBuilder as prompt">
+                        <p>{{ activePartyQuest.getRegistrants()[1].name }}: {{ ActivePrompt.getText() }}</p><br>
+                        <p *ngIf="prompt.activePromptReply && prompt.showPlayerPromptReply">Cyfer: {{ prompt.activePromptReply }}</p><br>
+                        <p *ngIf="prompt.activeCharacterPromptReply && prompt.showCharacterPromptReply">{{ activePartyQuest.getRegistrants()[1].name }}: {{ prompt.activeCharacterPromptReply }}</p>
+                        
+                        <div *ngIf="promptList[this.promptIterator].getPlayerOptions() as optionList">
+                            <div *ngIf="optionList.length > 0 && prompt.showPrompt">                           
+                                <ul>
+                                    <li *ngFor="let option of optionList; let i=index;" >
+                                        <button *ngIf="prompt.showPlayerOptions" id="prompt-bt-a" (click)='handlePromptReplyClick(i)' clickable>
+                                            {{option}}
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- <hr>            
+            <label for="avatar-pic-id">
+                {{ !promptReplyBuilder?.IsLocked? "As One Clicks Below" : "One Reads Above" }}
+            </label>     -->
+            <app-avatar-detail [currentHealth]="AvatarStats.currentHealth" [currentLevel]="AvatarStats.currentLevel" [currentExperience]="AvatarStats.currentExperience" [experienceTotalRequired]="AvatarStats.experienceTotalRequired"></app-avatar-detail>            
+        </div>
+    </div>
+</div>

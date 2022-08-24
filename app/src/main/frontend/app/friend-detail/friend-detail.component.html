@@ -1,0 +1,11 @@
+<div class="friend-list">
+    <p>Friend Details</p>
+    <h1>{{ selectedFriend?.name }}</h1>
+    <h2>{{ selectedFriend?.status }}</h2>
+    <div class="friend-reply-status-box">
+        <p *ngIf="lastPMSent === true">Message sent!</p>
+        <p class="friend-reply" *ngIf="lastPMSent && lastPMSentSuccess === true">Success: {{activeFriendTarget}} sent a reply.</p>
+        <p class="friend-reply" *ngIf="lastPMSent && lastPMSentSuccess === false">Unsuccessful: Friend is unavailable. Try again later.</p>    
+    </div>
+    <button (click)="sendPrivateMessage()">Send private message</button>
+</div>

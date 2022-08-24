@@ -65,7 +65,7 @@ crashlytics-build.properties
 
 # JS Libraries
 
-/*/js/jquery/scrollmagic/*
+/app/src/main/resources/public/js/jquery/scrollmagic/*
 
 # Prototype Media Assets
 
@@ -97,4 +97,7 @@ IntegrationTests/launcher/src/assets/autumn/www/*
 build
 
 .angular/cache
+app/src/main/frontend/.angular/cache
+app/src/main/frontend/node_modules
 .idea/workspace.xml
+

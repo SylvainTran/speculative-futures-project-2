@@ -1,0 +1,115 @@
+.meta-friend-list-window {
+    position: fixed;
+    right: 0;
+    bottom: 12vh; 
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-end;
+    align-items: left;
+
+    color: white;
+    z-index: 2;
+    
+    gap: 4rem;
+    width: 100vw;
+
+    /* padding-left: 1.2rem; */
+
+    overflow: scroll;
+    font-family: 'Cantarell', 'sans-serif';
+
+    pointer-events: none;
+}
+
+.meta-friend-list-window button:focus {
+    background-color: lime;
+    color: white;
+}
+
+.friend-info {
+    display: flex;
+    flex-direction: row;
+    margin: 1.5rem;
+}
+
+.friend-info-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.friend-cdk-tree {
+    padding: 2rem;
+}
+
+.small-margin-right {
+    margin-right: 1.5rem;
+}
+
+.profile-avatar {
+    height: 100px;
+    width: 100px;
+    margin-right: 1rem;
+    border-radius: 50%;
+}
+
+.text-section {
+    background-color: hsla(0, 0%, 20%, 0.903);
+    width: 100%;
+    height: 15rem;
+    overflow: scroll;
+    padding: 1.3rem;
+}
+
+.text-input {
+    display: flex;
+    flex-direction: row;
+}
+
+.text-section li {
+    border-radius: 5%;
+    padding: 1.2rem;
+    line-height: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    align-content: flex-end;
+    flex-wrap: wrap;
+    width: fit-content;
+}
+
+.text-input input {
+    width: 100%;
+}
+
+#playerTextInput {
+    color: blue;
+    overflow: scroll;
+    height: max-content;
+}
+
+.timeStamp {
+    font-size: 0.65rem;
+    display: inline-block;
+    top: 1rem;
+}
+
+.sms-window {
+    background-color: hsla(0, 0%, 20%, 0.903);
+    border: 1px solid cyan;
+    width: 20vw;
+    pointer-events: auto;
+}
+
+.userTextBubble {
+    background-color: white;
+    color: black;
+}
+
+.friendTextBubble {
+    background-color: #006AFF;
+    color: white;
+}

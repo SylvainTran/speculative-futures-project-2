@@ -1,0 +1,94 @@
+<div id="meta-message-center-tag" class="meta-message-center-window">
+    <div class="message-container">
+        <h1 class="title-big">Help & Work Center</h1><hr>
+        <form [formGroup]="formModel" (ngSubmit)="onSubmit()">
+            <div formGroupName="requestType">
+                <h1>Get the help that you need</h1>
+                <label for="request-type-a">I want to ask for information</label>&nbsp;
+                <input formControlName="typeA" value="data-request" id="typeA" type="radio" (change)="changeRequestType($event)"/><br>    
+                <div *ngIf="requestType === 'data-request'">
+                    <h1>Keyword Options:</h1>
+                    <ul>
+                        <li>Mountain</li>
+                        <li>Moon</li>
+                        <li>River</li>
+                    </ul>
+                    <h3>For help:</h3>
+                    <p>1-74-10</p>
+                </div>
+                <hr>
+                <h1>Train Our Medical Knowledge Base</h1>
+                <label for="request-type-b">I want to add a new keyword</label>&nbsp;
+                <input formControlName="typeA" value="data-submit" id="typeB" type="radio" (change)="changeRequestType($event)"/><br>    
+            </div>
+            <hr>
+            <div formArrayName="keywords" *ngFor="let k of keywords.controls; let i = index">
+                <div [formGroupName]="i">
+                    <label for="{{ k.value + i }}">Keyword: </label>&nbsp;<input formControlName="keywordName" id="{{ k.value + i }}" type="text" placeholder="Enter keyword"/>
+                    &nbsp;<button (click)="removeKeyword(i)">Remove</button>
+                </div>
+                <br>
+            </div>
+            <button (click)="addKeyword()">Add keyword field</button>&nbsp;&nbsp;
+            <button type="submit" [disabled]="!formModel.valid">Send</button>    
+        </form>
+        <br>
+        <div class="missionControlMessages" *ngIf='successResponse !== ""'>
+            Response: {{ successResponse }}
+        </div>
+    </div>
+    <hr>
+    <!--Your job is to monitor abnormal changes in emotion/behaviour/cognition
+    in the colonists... the prolog database can be used to match generated facts
+    from categories and Cyfer just submits the results of that query to
+    complete the job (and get rewarded by a keyword) -->
+    <!--WORKFLOW: -->
+    <!--1. Every set interval of time (until completion of current task),
+        the system generates a bunch of facts/logic derived from the statements
+        in the prolog database.
+        2. The player simply queries a colonist's name
+        3. This produces a report
+        4. Submitting a completed report rewards the player keys for SMS events with Autumn to continune the story
+        5. The player may optionally generate new reports by quering the prolog db using the textarea input. The player can also directly 
+        change facts about colonists this way for future reports.
+    -->
+    <div id="taskDeskContainer">
+        <form>
+            <div id="taskDesk">
+                <h1>SPHINX Medical Database</h1>
+                <h1 class="green" id="work-status">Status: There's a new task to complete. Please fill the form below to progress.</h1>
+                <h2>User: Rebecca Cyfer</h2>
+                <h2>Role: Titan EXO New Colonists Program Intern</h2>
+                <h1>Autumns' Medical Knowledge Base Completion Progress: <span id="progression-percent-tracker">0%</span></h1>
+                <h1>Assigned Colonists for Medical Observation:</h1>
+                <ul>
+                    <li>Chen</li>
+                    <li>Fred</li>
+                    <li>Arry</li>
+                </ul>
+                <h1>Fill the input below for individual cases, or leave empty</h1>
+                <input type="text" id="name" onKeyup="changeName();" value="" placeholder="Enter a colonist's name" />
+                <input type="button" value="I want to submit a general summary report" id="button" onClick="clickButton();" />
+                <h1>Report Output</h1>
+                <div class="example-result" id="result"></div>
+                <h1>Assessment and Diagnosis Form</h1>
+                <p>How to use: add more entries</p>
+                <textarea id="program">
+                    report(chen, down).
+                    report(fred, withdrawn).
+                    report(chen, lonely).
+                    report(fred, bored).
+                    report(arry, scared).
+                </textarea>
+                <div id="contextResult"></div>
+                <button onClick="submitAllReports(event); return false;">Submit psych report</button><br>
+                <h1>Messages</h1>
+                <h1 id="form-result" class="hidden"><span style="color:lime;">Form submitted successfully.</span></h1>
+                <div id="result"></div>
+                <h1>New Knowledge Base</h1>
+                <div id="keywordsReward">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>   

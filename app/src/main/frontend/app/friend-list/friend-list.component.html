@@ -1,0 +1,18 @@
+<div id="meta-friend-list-tag" class="friend-list">
+    <h1>Friend List</h1>
+    <ul>
+        <li *ngFor="let friend of this.getFriendList()">
+            <button type="button" (click)="selectFriend(friend)">
+                {{friend.name}}
+            </button>
+        </li>
+    </ul>
+    <button class="open-pm-box" mat-button (click)="this.openPMBox()">PM Box</button>
+    <div class="chat-stats-collectables-section">
+        <app-chat-display></app-chat-display>
+        <app-avatar-stats></app-avatar-stats>
+        <br>
+        <app-collectables [loots]="loots"></app-collectables>
+    </div>
+    <app-friend-detail [playerRef]="playerRef" *ngIf="this.getSelectedFriend()" [selectedFriend]="this.getSelectedFriend()"></app-friend-detail>   
+</div>

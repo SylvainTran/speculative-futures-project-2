@@ -1,0 +1,10 @@
+<div class="collectables">
+    <h1>Collectables</h1>
+    <div *ngIf="loots">
+        <ul class="square-list">
+            <li *ngFor="let loot of loots.entries()">
+                {{ loot[0] }} {{ loot[1] }} 
+            </li>
+        </ul>
+    </div>
+</div>

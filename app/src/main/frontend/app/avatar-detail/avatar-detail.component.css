@@ -1,0 +1,29 @@
+.inline-p {
+    display: inline-block;
+    color: red;
+}
+
+.avatar-stats {
+    /* margin: 1.2rem; */
+    text-align: left;
+
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    background-color: black;
+}
+
+.green {
+    color: lime;
+}
+
+.yellow {
+    color: yellow;
+}

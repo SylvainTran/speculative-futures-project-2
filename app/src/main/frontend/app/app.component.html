@@ -1,0 +1,152 @@
+<!-- Main Carousel should contain emulator tabs, not the apps directly! -->    
+<div *ngIf="mainActivityActive" id="the-carousel" class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
+    <!-- Nav menu -->
+    <div id="a1-a" class="carousel-cell">
+        <!-- Vertical slide target -->    
+        <div class="vertical-slide-target"></div>  
+        <div class="main-unit">
+            <div class="identity-section text-middle-container my-is-flex is-centered is-absolute">
+                <h1>Cyfer's eOS</h1>
+                <div class="schedule-entry">
+                    <ul>
+                        <!-- E.g., @19:00 PM - Meet with TryAgain34 in Chat Homes Jazzy Lounge -->
+                        <li *ngFor="let event of scheduledEvents">
+                            {{ event.name }}
+                        </li>
+                    </ul>
+                </div>
+                <img id="grouppic" src="../assets/pexels-eberhard-grossgasteiger-1624438.jpg"/>
+                <h2>It is windy today.</h2>
+                <h3>{{ currentTime }}<br>Last Login: 1 day ago.</h3>
+                <div *ngIf="scheduledEvents.length > 0" class="schedule-events-title">Metaverse Events</div>    
+            </div>
+        </div>
+    </div> 
+
+    <div id="app-list" class="carousel-cell">
+        <div class="main-unit">
+            <div class="app-icon">
+                <img (click)="launchActivity('quest-idler')" src="../assets/app-icons/fire.png" alt="quest-idler">
+                <h1>Quest Idler: Retro Edition</h1>
+            </div>
+            <div class="app-icon">
+                <img (click)="launchActivity('chat-homes')" src="../assets/app-icons/speak.png" alt="chat homes 3D">
+                <h1>Chat Homes 3D</h1>
+            </div>        
+            <div class="app-icon">
+                <img (click)="launchActivity('Evening-in-the-Promised-Land')" src="../assets/app-icons/sword.png" alt="Evening-in-the-Promised-Land">
+                <h1>Evening in the Promised Land</h1>
+            </div>
+        </div>
+    </div>
+    <div id="app-list-2" class="carousel-cell">
+        <div class="main-unit">
+            <div id="todoApp" *ngIf="showTodoApp" class="app-icon">
+                <img (click)="launchActivity('todoApp')" src="../assets/app-icons/to-do-list.png" alt="todo app">
+                <h1>TODO</h1>
+            </div>
+            <div id="galleryApp" *ngIf="showGalleryApp" class="app-icon">
+                <img (click)="launchActivity('galleryApp')" src="../assets/app-icons/picture.png" alt="gallery app">
+                <h1>Gallery</h1>
+            </div>
+            <div id="settings-activity" *ngIf="showSettingsActivity" class="app-icon">
+                <img (click)="launchActivity('settings-activity')" src="../assets/app-icons/setting.png" alt="settings activity">
+                <h1>Settings</h1>
+            </div>
+            <div id="postit-svg">
+                <svg height="100%" width="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;display:inline-block;" version="1.1" viewBox="0 0 841.995 595.35" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs>
+                    <filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="348.354" id="Filter" width="400.971" x="224.244" y="129.278">
+                        <feDropShadow dx="-3.67321e-05" dy="10" flood-color="#9b914b" flood-opacity="1" in="SourceGraphic" result="Shadow" stdDeviation="1.5"/>
+                    </filter>
+                    </defs>
+                    <g id="Layer-1" vectornator:layerName="Layer 1">
+                        <path id="postit-body" d="M227.244 129.278L622.215 129.278L622.215 464.632L227.244 464.632L227.244 129.278Z" fill="#fddf19" fill-rule="nonzero" filter="url(#Filter)" stroke="none" vectornator:shadowAngle="1.5708" vectornator:shadowColor="#9b914b" vectornator:shadowOffset="10" vectornator:shadowOpacity="1" vectornator:shadowRadius="3"/>
+                        <path d="M532.577 460.759" fill="#fddf19" fill-rule="nonzero" opacity="1" stroke="none"/>
+                        <path id="postit-corner" d="M537.341 459.528C537.341 459.528 543.386 426.432 544.502 421.022C545.619 415.612 548.574 380.98 548.574 380.98L582.578 392.703L613.185 404.882C625.232 412.934 621.791 414.016 621.791 413.68C554.531 453.427 538.745 465.162 536.311 464.813C535.352 464.675 536.504 462.219 537.341 459.528Z" fill="#faee9f" fill-rule="nonzero" opacity="1" stroke="none"/>
+                        <path d="M537.973 464.598L579.86 438.723L604.619 423.694L622.264 413.207L623.155 465.06" fill="#ddd49a" fill-rule="nonzero" opacity="1" stroke="none"/>
+                        <path d="M227.146 123.347L622.134 123.347L622.134 155.166L227.146 155.166L227.146 123.347Z" fill="#ddd49a" fill-rule="nonzero" opacity="1" stroke="none"/>
+                    </g>
+                    <foreignObject id="postit-text-container" x="250" y="250" fill="black" width="160" height="160">
+                        <div id="postit-text" xmlns="http://www.w3.org/1999/xhtml">
+                            Click on the little corner to show the game's keywords
+                        </div>
+                    </foreignObject>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div id="app-list-3" class="carousel-cell">
+        <div class="main-unit">
+            <div class="app-icon">
+                <img (click)="launchActivity('reader')" src="../assets/app-icons/book.png" alt="book reader">
+                <h1>Writer</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="activeActivity === 'reader'" class="activity">
+    <div id="reader-app">
+        <app-meta-journal></app-meta-journal>
+    </div>
+</div>
+
+<div *ngIf="activeActivity === 'quest-idler'" class="activity">
+    <div id="quest-idler-app">
+        <app-quest-idler (playerRefChange)="updatePlayerRef($event)" [playerRef]="playerRef"></app-quest-idler>   
+    </div>
+</div>
+
+<div [class.activity]="activeActivity === 'chat-homes'" [class.activity-hidden]="activeActivity !== 'chat-homes'">
+    <div id="chat-homes-app">       
+        <!-- <app-chat-homes></app-chat-homes> -->
+    </div> 
+</div>
+
+<div [class.activity]="activeActivity === 'Evening-in-the-Promised-Land'" [class.activity-hidden]="activeActivity !== 'Evening-in-the-Promised-Land'">
+    <div id="Evening-in-the-Promised-Land">
+        <video id="GameVideo"></video>
+        <canvas id="GameCanvas"></canvas>
+        <canvas id="UpperCanvas"></canvas>
+    </div>
+</div>
+
+<div [class.activity]="activeActivity === 'settings-activity'" [class.activity-hidden]="activeActivity !== 'settings-activity'">
+    <app-settings-activity></app-settings-activity>
+</div>
+
+<app-meta-friend-list *ngIf="this.friendListVisible"></app-meta-friend-list>
+<app-meta-message-center *ngIf="this.messageCenterVisible"></app-meta-message-center>
+<app-investigation-form *ngIf="this.investigationFormVisible"></app-investigation-form>
+<app-sms-window [hidden]="!this.smsWindowVisible"></app-sms-window>
+
+<nav class="navbar my-is-flex is-centered">
+    <div class="SPHINX-functions">
+        <button (click)="this.setMessageCenterVisible(!this.messageCenterVisible)" class="">
+            <mat-icon class="mat-icon-rtl-mirror">
+                {{ this.messageCenterVisible? 'cancel' : 'forum' }} 
+            </mat-icon>
+        </button>
+        <button (click)="this.setInvestigationFormVisible(!this.investigationFormVisible)" class="">
+            <mat-icon class="mat-icon-rtl-mirror">
+                {{ this.investigationFormVisible? 'cancel' : 'star' }} 
+            </mat-icon>
+        </button>
+        <button (click)="setSmsWindowVisible(!smsWindowVisible)" class="">
+            <mat-icon class="mat-icon-rtl-mirror">
+                {{ this.smsWindowVisible? 'cancel' : 'textsms' }} 
+            </mat-icon>
+        </button>
+    </div>
+    <div class="divider"></div>
+    <button (click)="this.setFriendListVisible(!this.friendListVisible)" class="">
+        <mat-icon class="mat-icon-rtl-mirror">
+            {{ this.friendListVisible? 'cancel' : 'hub' }} 
+        </mat-icon>     
+    </button>
+    <button *ngIf="!this.mainActivityActive" (click)="returnToMainActivity()" class="">
+        <mat-icon class="">keyboard_return</mat-icon>     
+    </button>
+    <p><span id="device-name">SPHINX - eOS Device Emulator<br><br>Song: <span id="live-link-status">I'm Connected</span><br></span></p>
+</nav>

@@ -1,0 +1,36 @@
+
+.friend-list {
+    display: inline-block;
+    position: absolute;
+    border: 10px solid red;
+    height: 80vh;
+    width: 30vw;
+    background-color: darkblue;
+    color: lime;
+    right: 0;
+    overflow: scroll;
+}
+
+.friend-list button:after {
+    content: " - Online";
+}
+
+.friend-list button {
+    background-color: blue;
+    color: white;
+}
+
+.open-pm-box {
+    color: red;
+    font-weight: bold;
+    background-color: black;
+    width: 100%;
+}
+
+.chat-stats-collectables-section {
+    color: white;
+}
+
+.friend-list, button {
+    font-family: 'GameFont';
+}
