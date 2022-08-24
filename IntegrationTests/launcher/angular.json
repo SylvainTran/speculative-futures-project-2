@@ -41,6 +41,11 @@
                 "input": "src/js/myscript.mjs",
                 "inject": true,
                 "bundleName": "external-module"
+              },
+              {
+                "input": "src/js/tau-prolog.js",
+                "inject": true,
+                "bundleName": "external-module"
               }
             ]
           },

@@ -1,7 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable, Subject } from 'rxjs';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { ACTORS, MainQuestService, SMS_CLASS } from '../services/main-quest.service';
 
@@ -10,7 +9,7 @@ import { ACTORS, MainQuestService, SMS_CLASS } from '../services/main-quest.serv
   templateUrl: './investigation-form.component.html',
   styleUrls: ['./investigation-form.component.css']
 })
-export class InvestigationFormComponent implements OnInit {
+export class InvestigationFormComponent implements OnInit, AfterViewInit {
 
   formModel: FormGroup;
   requestType?: string;
@@ -18,6 +17,12 @@ export class InvestigationFormComponent implements OnInit {
   lastSuccessResponseKey: string = "";
   private url: string = environment.url;
   private port: string = environment.port;
+  
+  // Prolog related
+  prologProgram: any;
+  prologResult: any;
+  queryName: any;
+  sendQueryButton: any;
 
   constructor(
     private http: HttpClient, 
@@ -32,6 +37,17 @@ export class InvestigationFormComponent implements OnInit {
       }),
       keywords: this.fb.array([])
     });
+  }
+
+  ngAfterViewInit(): void {
+    this.prologProgram = document.getElementById('program');
+    let val;
+    if (this.prologProgram) {
+      val = this.prologProgram.value;
+    }
+    this.prologResult = document.getElementById("result");
+    this.queryName = document.getElementById("name");
+    this.sendQueryButton = document.getElementById("button");
   }
 
   public ngOnInit(): void {
@@ -118,15 +134,5 @@ export class InvestigationFormComponent implements OnInit {
   public changeRequestType(event: any) {
     console.log(event.target.value);
     this.requestType = event.target.value;
-    // Update form fields if its data request vs submission
-
-    if (this.requestType === "data-request") {
-      // Dynamically add new fields?
-
-    }
-  }
-
-  public changeKeywordField(event: any) {
-
   }
 }
