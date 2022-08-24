@@ -15,8 +15,7 @@ export class InvestigationFormComponent implements OnInit, AfterViewInit {
   requestType?: string;
   successResponse: string = "";
   lastSuccessResponseKey: string = "";
-  private url: string = environment.url;
-  private port: string = environment.port;
+  private apiUrl: string = environment.apiUrl;
   
   // Prolog related
   prologProgram: any;
@@ -102,7 +101,7 @@ export class InvestigationFormComponent implements OnInit, AfterViewInit {
       console.error("Invalid form state.");
       return;
     }
-    const path: string = this.url + this.port + routeName;
+    const path: string = this.apiUrl + routeName;
 
     let keywordStrArray: string[] = [];
     console.log("OBJECT: " + JSON.stringify(this.keywords.value));

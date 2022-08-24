@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Character } from './character';
@@ -99,8 +99,7 @@ export class QuestPartyService {
 
   private actions: PartyRequestCommand[] = [];
   private partyQuestData: PartyQuestData | undefined;
-  private url: string = environment.url;
-  private port: string = environment.port;
+  private apiUrl: string = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
@@ -153,6 +152,6 @@ export class QuestPartyService {
     params = params.append('prereqs', "Tutorial 1");
     params = params.append('prereqs', "Tutorial 2");
     params = params.append('zone', "1-1");
-    return this.http.get<any>(this.url + this.port + routeName, {params: params});
+    return this.http.get<any>(this.apiUrl + routeName, {params: params});
   }
 }
