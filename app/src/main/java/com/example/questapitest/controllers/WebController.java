@@ -1,5 +1,6 @@
 package com.example.questapitest.controllers;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import com.example.questapitest.InvestigationRequestForm;
 import com.example.questapitest.KillMonsterQuest;
 
-@RestController
+@Controller
 public class WebController {
 
     @CrossOrigin(origins = "*")
