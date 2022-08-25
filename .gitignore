@@ -101,3 +101,4 @@ app/src/main/frontend/.angular/cache
 app/src/main/frontend/node_modules
 .idea/workspace.xml
 
+/node_modules/
