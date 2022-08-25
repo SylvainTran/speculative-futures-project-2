@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'speculative-futures-project-2'
-include('app')
+include('src')

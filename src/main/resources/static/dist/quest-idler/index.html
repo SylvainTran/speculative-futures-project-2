@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Metaverse Launcher</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../../../../../favicon.ico">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <style type="text/css">@font-face{font-family:'Heebo';font-style:normal;font-weight:100;font-display:swap;src:url(https://fonts.gstatic.com/s/heebo/v21/NGS6v5_NC0k9P9H0TbFhsqMA6aw.woff2) format('woff2');unicode-range:U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;}@font-face{font-family:'Heebo';font-style:normal;font-weight:100;font-display:swap;src:url(https://fonts.gstatic.com/s/heebo/v21/NGS6v5_NC0k9P9H2TbFhsqMA.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Heebo';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/heebo/v21/NGS6v5_NC0k9P9H0TbFhsqMA6aw.woff2) format('woff2');unicode-range:U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;}@font-face{font-family:'Heebo';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/heebo/v21/NGS6v5_NC0k9P9H2TbFhsqMA.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <style type="text/css">@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+    <style type="text/css">@font-face{font-family:'Material Icons';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/materialicons/v138/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');}.material-icons{font-family:'Material Icons';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;}</style>
+    <style type="text/css">@font-face{font-family:'Cantarell';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/cantarell/v15/B50NF7ZDq37KMUvlO015jKJrPqySLQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Cinzel';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/cinzel/v19/8vIU7ww63mVu7gtR-kwKxNvkNOjw-tbnfYPlC2xcZqTFU3AS.woff) format('woff');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Cinzel';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/cinzel/v19/8vIU7ww63mVu7gtR-kwKxNvkNOjw-tbnfY3lC2xcZqTFUw.woff) format('woff');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Press Start 2P';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK3nYivNm4I81PZQ.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Press Start 2P';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK3nRivNm4I81PZQ.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Press Start 2P';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK3nWivNm4I81PZQ.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Press Start 2P';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK3nbivNm4I81PZQ.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Press Start 2P';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK3nVivNm4I81.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <!--PIXI.JS-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="user-scalable=no">
+    <link rel="apple-touch-icon" href="icon/icon.png">
+    <link rel="stylesheet" type="text/css" href="./autumn/www/fonts/gamefont.css">
+    <!--TAU PROLOG-->
+    <script type="text/javascript" src="../assets/js/tau-prolog.js"></script>
+    <style>
+      #taskDesk {
+        background-color: grey;
+        position: absolute;
+        bottom: 3rem;
+        right: 0;
+        color: blue;
+        z-index: 10;
+        width: 400px;
+        height: 400px;
+        padding: 3rem;
+        border: 1px solid cyan;
+        overflow: scroll;
+      }
+      #program {
+        width: 339px;
+        height: 83px;
+      }
+    </style>
+  <style>@charset "UTF-8";html,body{margin:0;padding:0}html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}html{background-color:#fff;font-size:16px;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;min-width:300px;overflow-x:hidden;overflow-y:scroll;text-rendering:optimizeLegibility;-webkit-text-size-adjust:100%;text-size-adjust:100%}body{font-family:BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif}body{color:#4a4a4a;font-size:1em;font-weight:400;line-height:1.5}:root{--main-bg-color:black}*{box-sizing:border-box}:root{--main-color:black;--main-bg-color:black;--nav-color:white;--nav-font-size:2rem;--branding-font-size:2rem;--branding-color:cyan;--main-font:"Heebo", sans-serif;--font-light:100;--font-bold:400}body{font-family:var(--main-font);font-weight:var(--font-light);background-color:var(--main-bg-color)}html{background-color:var(--main-bg-color)}body{font-family:Roboto,Helvetica Neue,sans-serif}</style><link rel="stylesheet" href="styles.7b4b04873da0a792.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.7b4b04873da0a792.css"></noscript></head>
+  <body class="mat-typography">
+    <app-root></app-root>
+    <!--FLICKITY-->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <!--UNITY BUILD LOADER-->
+    <script src="./basilica/Build/Builds.loader.js"></script>
+    <!--PIXI BUILD LOADER-->
+    <script type="text/javascript" src="./autumn/www/js/libs/pixi.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/libs/pixi-tilemap.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/libs/pixi-picture.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/libs/fpsmeter.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/libs/lz-string.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/libs/iphone-inline-video.browser.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/rpg_core.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/rpg_managers.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/rpg_objects.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/rpg_scenes.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/rpg_sprites.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/rpg_windows.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/plugins.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/main.js"></script>
+    <!-- From Heaven Burns Red -->
+    <audio id="bard-of-diegesia-song" src="./beforeIRise.mp3" type="audio/mp3" allow="autoplay"></audio>
+    <audio id="page-turn" src="./page-turn.wav" type="audio/wav" allow="autoplay"></audio>
+    <audio id="click-beep" src="./beep.wav" type="audio/wav" allow="autoplay"></audio>
+    <audio id="victory" src="./round_end.wav" type="audio/wav" allow="autoplay"></audio>
+    <audio id="death" src="./death.wav" type="audio/wav" allow="autoplay"></audio>
+    <audio id="smsNotification" src="./message-ringtone-magic.mp3" type="audio/mp3" allow="autoplay"></audio>
+  <script src="runtime.7db94e7b72efcc68.js" type="module"></script><script src="polyfills.644f846e0624affc.js" type="module"></script><script src="external-module.2cbea0678502693e.js" defer></script><script src="main.a16d3de3130be92e.js" type="module"></script>
+  <script onload="">
+    // TASK DESK
+    //
+    // Uses Tau Prolog database querying to 
+    // simulate a simple mental health worker's
+    // semi-automated work process
+    var session = undefined;
+
+    function setup() {
+      if (pl !== null || pl !== undefined) {
+        session = pl.create();
+      }
+    }
+
+    // Callback function
+    function show(name, outputDOMID, phrase) {
+      let result = document.getElementById(outputDOMID);
+      result.innerHTML = "";
+      return function(answer) {
+        // Valid answer
+        if(pl.type.is_substitution(answer)) {
+          let fact = answer.lookup("X");
+          let association = name != "Y" ? name : answer.lookup("Y");
+          result.innerHTML = result.innerHTML + "<div>" + association + " " + phrase.verb + " " + fact + "." + "</div>";
+        }
+      };
+    }
+
+    function generateHistoricalDatabase() {
+      let program = document.getElementById("program").value;
+      let history = "context(situation, tension)." +
+                    "context(social, emptiness)." +
+                    "context(recentnews, hydraulics_broke).";
+      return history;
+    }
+
+    // TOOD: generate new queries and entries in prolog's fact database automatically
+    function autoContextReport() {
+      let queries = ["situation", "social", "recentnews"];
+      queries.forEach(query => this.context(query));
+    }
+
+    // Produces a report context
+    // based on the results of a previously defined 
+    // prolog database
+    function generateReportContext(event) {
+      event.preventDefault();
+      this.autoContextReport();
+    }
+
+    // For situation queries
+    function context(situation) {
+      let session = pl.create(1000);
+      let program = generateHistoricalDatabase();
+      session.consult(program);
+      session.query("context(" + situation + ", X).");
+      session.answers(show(situation, "contextResult", {subject: "situation", verb: "indicates"}), 1000);
+    }
+
+    // report(name)
+    // name: string
+    //
+    // Reports the feelings of a person
+    function report(name) {
+      let session = pl.create(1000);
+      let program = document.getElementById("program").value;
+      document.getElementById("result").innerHTML = "";
+      // Consult program
+      if (name.length > 0 && name !== "Y") {
+        name = name.toLowerCase();
+      }
+      session.consult(program);
+      // Query goal
+      session.query("report(" + name + ", X).");
+      // Find answers
+      session.answers(show(name, "result", {subject: "situation", verb: "feels"}), 1000);
+    }
+
+    // onClick #button
+    function clickButton() {
+      // Get person
+      let name = document.getElementById("name").value;
+      name = name !== "" ? name : "Y";
+      this.report(name);
+    }
+
+    // onChange #name
+    function changeName() {
+      let nameEle= document.getElementById("name");
+      if (nameEle == null || nameEle == undefined) {
+        return;
+      }
+      let name = nameEle.value;
+
+      document.getElementById("button").value = name != "" ? "How does " + name  + " feel?" : "See all automatic reports";
+    }
+
+    let formAvailabilitySwitch = true;
+
+    function updateWorkStatus() {
+      let workStatusEle = document.getElementById('work-status');
+      if (workStatusEle === null || workStatusEle === undefined) {
+        console.log("UNDEFINED WORK STATUS");
+        return;
+      }
+      if (!formAvailabilitySwitch) {      
+        workStatusEle.innerHTML = "Status: There is no work available at the moment.";
+        return;
+      } else {
+        workStatusEle.innerHTML = "Status: There's a new task to complete.";
+      }
+    }
+    function submitAllReports(event) {
+      event.preventDefault();
+      if (!formAvailabilitySwitch) {
+        return;
+      }
+      let result = document.getElementById('form-result');
+      let success = document.getElementById('result');
+      if (!this.validateForm(success, result)) {
+        return;
+      }
+      this.applyFormAdministrativeDelay();
+      this.rewardKeyword();
+      this.updateProgressHUD();
+      this.updateWorkStatus();
+    }
+
+    function validateForm(success, result) {
+      if (success !== null || success !== undefined) {
+        if (success.innerHTML === "") {
+          console.log("Incomplete form");
+          if (result !== null || result !== undefined) {
+            result.innerHTML = "Form incomplete. Please fill out the form.";
+            result.classList.add("red");
+            result.classList.remove("green");
+            this.showSubmitResult(result, "hidden", "visible");
+          }
+          return false;
+        } else {
+          if (result !== null || result !== undefined) {
+            result.innerHTML = "Form submitted successfully.";   
+            result.classList.add("green");
+            result.classList.remove("red");
+            this.showSubmitResult(result, "hidden", "visible");
+          }
+          setTimeout(() => {
+            this.showSubmitResult(result, "visible", "hidden");
+          }, 5000);
+          return true;
+        }
+      }
+    }
+
+    function showSubmitResult(result, toRemove, toAdd) {
+      if (result === null || result === undefined) {
+        return;
+      }
+      result.classList.remove(toRemove);
+      result.classList.add(toAdd);
+    }
+
+    // :-)
+    const damnDelay = 30;
+    function applyFormAdministrativeDelay() {
+      formAvailabilitySwitch = false;
+      let ele = document.getElementById('work-status');
+      if (ele) {
+        ele.classList.add("red");
+        ele.classList.remove("green");
+      }
+      setTimeout( () => {
+        formAvailabilitySwitch = true;
+        ele.classList.add("green");
+        ele.classList.remove("red");
+        ele.innerHTML = "Status: There's a new task to complete.";
+      }, Math.floor(Math.random() * damnDelay * 1000));
+    }
+
+    function updateProgressHUD() {
+      const keywordsMax = 4;
+      let percent = (1 - allProgressionKeywordsInGame.length / keywordsMax) * 100;
+      let tracker = document.getElementById("progression-percent-tracker");
+
+      if (tracker !== null || tracker !== undefined) {
+        tracker.innerHTML = percent + "%";
+      }
+
+      if (percent >= 100) {
+        tracker.style.color = "lime";
+        alert("You fully trained Autumn's knowledge base using all cue keywords in the game! Congratulations.");
+      }
+    }
+
+
+    let allProgressionKeywordsInGame = ["neptunia", "gridania", "peri", "sion"]; 
+    function rewardKeyword() {
+      const formID = document.getElementById('keywordsReward');
+      if (allProgressionKeywordsInGame.length > 0) {
+        formID.innerHTML += " " +  allProgressionKeywordsInGame.splice(0,1);
+      } else {
+        console.log("No more keywords exist");
+      }
+    }
+  </script>
+
+</body></html>

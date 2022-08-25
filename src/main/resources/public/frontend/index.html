@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Metaverse Launcher</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../../../../../favicon.ico">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;400&display=swap" rel="stylesheet">    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&Allura&family=Cantarell&family=Cinzel&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <!--PIXI.JS-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="user-scalable=no">
+    <link rel="apple-touch-icon" href="icon/icon.png">
+    <link rel="stylesheet" type="text/css" href="./autumn/www/fonts/gamefont.css">
+    <!--TAU PROLOG-->
+    <script type="text/javascript" src="../assets/js/tau-prolog.js"></script>
+    <style>
+      #taskDesk {
+        background-color: grey;
+        position: absolute;
+        bottom: 3rem;
+        right: 0;
+        color: blue;
+        z-index: 10;
+        width: 400px;
+        height: 400px;
+        padding: 3rem;
+        border: 1px solid cyan;
+        overflow: scroll;
+      }
+      #program {
+        width: 339px;
+        height: 83px;
+      }
+    </style>
+  </head>
+  <body class="mat-typography">
+    <app-root></app-root>
+    <!--FLICKITY-->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <!--UNITY BUILD LOADER-->
+    <script src="./basilica/Build/Builds.loader.js"></script>
+    <!--PIXI BUILD LOADER-->
+    <script type="text/javascript" src="./autumn/www/js/libs/pixi.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/libs/pixi-tilemap.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/libs/pixi-picture.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/libs/fpsmeter.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/libs/lz-string.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/libs/iphone-inline-video.browser.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/rpg_core.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/rpg_managers.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/rpg_objects.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/rpg_scenes.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/rpg_sprites.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/rpg_windows.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/plugins.js"></script>
+    <script type="text/javascript" src="./autumn/www/js/main.js"></script>
+    <!-- From Heaven Burns Red -->
+    <audio id="bard-of-diegesia-song" src="./beforeIRise.mp3" type="audio/mp3" allow="autoplay"></audio>
+    <audio id="page-turn" src="./page-turn.wav" type="audio/wav" allow="autoplay"></audio>
+    <audio id="click-beep" src="./beep.wav" type="audio/wav" allow="autoplay"></audio>
+    <audio id="victory" src="./round_end.wav" type="audio/wav" allow="autoplay"></audio>
+    <audio id="death" src="./death.wav" type="audio/wav" allow="autoplay"></audio>
+    <audio id="smsNotification" src="./message-ringtone-magic.mp3" type="audio/mp3" allow="autoplay"></audio>
+  </body>
+  <script onload="">
+    // TASK DESK
+    //
+    // Uses Tau Prolog database querying to 
+    // simulate a simple mental health worker's
+    // semi-automated work process
+    var session = undefined;
+
+    function setup() {
+      if (pl !== null || pl !== undefined) {
+        session = pl.create();
+      }
+    }
+
+    // Callback function
+    function show(name, outputDOMID, phrase) {
+      let result = document.getElementById(outputDOMID);
+      result.innerHTML = "";
+      return function(answer) {
+        // Valid answer
+        if(pl.type.is_substitution(answer)) {
+          let fact = answer.lookup("X");
+          let association = name != "Y" ? name : answer.lookup("Y");
+          result.innerHTML = result.innerHTML + "<div>" + association + " " + phrase.verb + " " + fact + "." + "</div>";
+        }
+      };
+    }
+
+    function generateHistoricalDatabase() {
+      let program = document.getElementById("program").value;
+      let history = "context(situation, tension)." +
+                    "context(social, emptiness)." +
+                    "context(recentnews, hydraulics_broke).";
+      return history;
+    }
+
+    // TOOD: generate new queries and entries in prolog's fact database automatically
+    function autoContextReport() {
+      let queries = ["situation", "social", "recentnews"];
+      queries.forEach(query => this.context(query));
+    }
+
+    // Produces a report context
+    // based on the results of a previously defined 
+    // prolog database
+    function generateReportContext(event) {
+      event.preventDefault();
+      this.autoContextReport();
+    }
+
+    // For situation queries
+    function context(situation) {
+      let session = pl.create(1000);
+      let program = generateHistoricalDatabase();
+      session.consult(program);
+      session.query("context(" + situation + ", X).");
+      session.answers(show(situation, "contextResult", {subject: "situation", verb: "indicates"}), 1000);
+    }
+
+    // report(name)
+    // name: string
+    //
+    // Reports the feelings of a person
+    function report(name) {
+      let session = pl.create(1000);
+      let program = document.getElementById("program").value;
+      document.getElementById("result").innerHTML = "";
+      // Consult program
+      if (name.length > 0 && name !== "Y") {
+        name = name.toLowerCase();
+      }
+      session.consult(program);
+      // Query goal
+      session.query("report(" + name + ", X).");
+      // Find answers
+      session.answers(show(name, "result", {subject: "situation", verb: "feels"}), 1000);
+    }
+
+    // onClick #button
+    function clickButton() {
+      // Get person
+      let name = document.getElementById("name").value;
+      name = name !== "" ? name : "Y";
+      this.report(name);
+    }
+
+    // onChange #name
+    function changeName() {
+      let nameEle= document.getElementById("name");
+      if (nameEle == null || nameEle == undefined) {
+        return;
+      }
+      let name = nameEle.value;
+
+      document.getElementById("button").value = name != "" ? "How does " + name  + " feel?" : "See all automatic reports";
+    }
+
+    let formAvailabilitySwitch = true;
+
+    function updateWorkStatus() {
+      let workStatusEle = document.getElementById('work-status');
+      if (workStatusEle === null || workStatusEle === undefined) {
+        console.log("UNDEFINED WORK STATUS");
+        return;
+      }
+      if (!formAvailabilitySwitch) {      
+        workStatusEle.innerHTML = "Status: There is no work available at the moment.";
+        return;
+      } else {
+        workStatusEle.innerHTML = "Status: There's a new task to complete.";
+      }
+    }
+    function submitAllReports(event) {
+      event.preventDefault();
+      if (!formAvailabilitySwitch) {
+        return;
+      }
+      let result = document.getElementById('form-result');
+      let success = document.getElementById('result');
+      if (!this.validateForm(success, result)) {
+        return;
+      }
+      this.applyFormAdministrativeDelay();
+      this.rewardKeyword();
+      this.updateProgressHUD();
+      this.updateWorkStatus();
+    }
+
+    function validateForm(success, result) {
+      if (success !== null || success !== undefined) {
+        if (success.innerHTML === "") {
+          console.log("Incomplete form");
+          if (result !== null || result !== undefined) {
+            result.innerHTML = "Form incomplete. Please fill out the form.";
+            result.classList.add("red");
+            result.classList.remove("green");
+            this.showSubmitResult(result, "hidden", "visible");
+          }
+          return false;
+        } else {
+          if (result !== null || result !== undefined) {
+            result.innerHTML = "Form submitted successfully.";   
+            result.classList.add("green");
+            result.classList.remove("red");
+            this.showSubmitResult(result, "hidden", "visible");
+          }
+          setTimeout(() => {
+            this.showSubmitResult(result, "visible", "hidden");
+          }, 5000);
+          return true;
+        }
+      }
+    }
+
+    function showSubmitResult(result, toRemove, toAdd) {
+      if (result === null || result === undefined) {
+        return;
+      }
+      result.classList.remove(toRemove);
+      result.classList.add(toAdd);
+    }
+
+    // :-)
+    const damnDelay = 30;
+    function applyFormAdministrativeDelay() {
+      formAvailabilitySwitch = false;
+      let ele = document.getElementById('work-status');
+      if (ele) {
+        ele.classList.add("red");
+        ele.classList.remove("green");
+      }
+      setTimeout( () => {
+        formAvailabilitySwitch = true;
+        ele.classList.add("green");
+        ele.classList.remove("red");
+        ele.innerHTML = "Status: There's a new task to complete.";
+      }, Math.floor(Math.random() * damnDelay * 1000));
+    }
+
+    function updateProgressHUD() {
+      const keywordsMax = 4;
+      let percent = (1 - allProgressionKeywordsInGame.length / keywordsMax) * 100;
+      let tracker = document.getElementById("progression-percent-tracker");
+
+      if (tracker !== null || tracker !== undefined) {
+        tracker.innerHTML = percent + "%";
+      }
+
+      if (percent >= 100) {
+        tracker.style.color = "lime";
+        alert("You fully trained Autumn's knowledge base using all cue keywords in the game! Congratulations.");
+      }
+    }
+
+
+    let allProgressionKeywordsInGame = ["neptunia", "gridania", "peri", "sion"]; 
+    function rewardKeyword() {
+      const formID = document.getElementById('keywordsReward');
+      if (allProgressionKeywordsInGame.length > 0) {
+        formID.innerHTML += " " +  allProgressionKeywordsInGame.splice(0,1);
+      } else {
+        console.log("No more keywords exist");
+      }
+    }
+  </script>
+</html>
