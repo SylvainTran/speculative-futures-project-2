@@ -74,7 +74,7 @@ export class InvestigationFormComponent implements OnInit, AfterViewInit {
     console.log(this.formModel.value);    
     this.submitForm("/formRequest")?.subscribe({
       next: (data: any) => {
-        if (data.response !== null && data.response !== "") {
+        if (data !== null && data.response !== null && data.response !== "") {
           console.log("Form request data received from Mission Control: " + data.response);
 
           this.successResponse = data.response;
